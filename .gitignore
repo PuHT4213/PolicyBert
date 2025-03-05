@@ -1,0 +1,15 @@
+# gitignore
+# ignore venv named zen and other possible files
+/venv/
+/datasets/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.pot
+*.po
+*.mo
+*.bak
+
