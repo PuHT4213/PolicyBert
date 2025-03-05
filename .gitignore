@@ -1,15 +1,15 @@
 # gitignore
 # ignore venv named zen and other possible files
 /venv/
-/datasets/
-*.pyc
-*.pyo
-*.pyd
-*.db
-*.sqlite3
-*.log
-*.pot
-*.po
-*.mo
-*.bak
+# files in /datasets except for README.md
+/datasets/*
+!/datasets/README.md
+# ignore all files in /models except for README.md
+/models/*
+!/models/README.md
+# ignore runs
+/runs/
+/results/
+# ignore __pycache__ in all directories
+__pycache__/
 

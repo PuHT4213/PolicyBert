@@ -14,9 +14,11 @@
 # limitations under the License.
 """PyTorch pretrain for ZEN model."""
 
+import os
+import sys
+
 from argparse import ArgumentParser
 from pathlib import Path
-import os
 import torch
 import logging
 import json
@@ -30,6 +32,7 @@ from torch.utils.data import DataLoader, Dataset, RandomSampler
 from torch.utils.data.distributed import DistributedSampler
 from tqdm import tqdm
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ZEN import WEIGHTS_NAME, CONFIG_NAME
 from ZEN import ZenConfig, ZenForPreTraining
 from ZEN import BertTokenizer

@@ -30,6 +30,7 @@ import datetime
 
 from tensorboardX import SummaryWriter
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils_sequence_level_task import processors, convert_examples_to_features, compute_metrics
 from ZEN import BertTokenizer, BertAdam, WarmupLinearSchedule
 from ZEN import ZenForSequenceClassification, ZenNgramDict
@@ -221,18 +222,22 @@ def main():
 
     ## Required parameters
     parser.add_argument("--data_dir",
-                        default=None,
                         type=str,
                         required=True,
+                        # default='./datasets/ChnSentiCorp',
+                        default=None,
                         help="The input data dir. Should contain the .tsv files (or other data files) for the task.")
-    parser.add_argument("--bert_model", default=None, type=str, required=True,
+    parser.add_argument("--bert_model", type=str, required=True,
+                        # default='bert-base-chinese',
+                        default=None,
                         help="Bert pre-trained model selected in the list: bert-base-uncased, "
                         "bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, "
                         "bert-base-multilingual-cased, bert-base-chinese.")
     parser.add_argument("--task_name",
-                        default=None,
                         type=str,
                         required=True,
+                        # default='chnsenticorp',
+                        default=None,
                         help="The name of the task to train.")
     parser.add_argument("--output_dir",
                         default='./results/result-seqlevel-{}'.format(datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')),
@@ -254,9 +259,11 @@ def main():
                              "Sequences longer than this will be truncated, and sequences shorter \n"
                              "than this will be padded.")
     parser.add_argument("--do_train",
+                        default=True,
                         action='store_true',
                         help="Whether to run training.")
     parser.add_argument("--do_eval",
+                        default=True,
                         action='store_true',
                         help="Whether to run eval on the dev set.")
     parser.add_argument("--do_lower_case",
@@ -275,7 +282,7 @@ def main():
                         type=float,
                         help="The initial learning rate for Adam.")
     parser.add_argument("--num_train_epochs",
-                        default=3.0,
+                        default=1.0,
                         type=float,
                         help="Total number of training epochs to perform.")
     parser.add_argument("--warmup_proportion",
@@ -322,8 +329,21 @@ def main():
                         level = logging.INFO if args.local_rank in [-1, 0] else logging.WARN)
 
     if args.local_rank == -1 or args.no_cuda:
-        args.device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
-        args.n_gpu = torch.cuda.device_count()
+        # args.device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
+        if not args.no_cuda:
+            if torch.cuda.is_available():
+                args.device = torch.device("cuda")
+                args.n_gpu = torch.cuda.device_count()
+            elif torch.backends.mps.is_available():
+                args.device = torch.device("mps")
+                args.n_gpu = 1
+            else:
+                args.device = torch.device("cpu")
+                args.n_gpu = 0
+        else:
+            args.device = torch.device("cpu")
+            args.n_gpu = 0
+        # args.n_gpu = torch.cuda.device_count() if not args.no_cuda else 0
     else:
         torch.cuda.set_device(args.local_rank)
         args.device = torch.device("cuda", args.local_rank)
@@ -355,7 +375,7 @@ def main():
         os.makedirs(args.output_dir)
 
     task_name = args.task_name.lower()
-
+    
     if task_name not in processors:
         raise ValueError("Task not found: %s" % (task_name))
 

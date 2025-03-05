@@ -29,6 +29,14 @@ The library comprises several example scripts for conducting [**Chinese NLP task
 
 - `run_pre_train.py`: an example pre-training ZEN
 - `run_sequence_level_classification.py`: an example fine-tuning ZEN on DC, SA, SPM and NLI tasks (*sequence-level classification*)
+
+'''python
+
+python examples/run_sequence_level_classification.py --data_dir ./datasets/ChnSentiCorp --bert_model bert-base-chinese --task_name chnsenticorp
+
+
+
+
 - `run_token_level_classification.py`: an example fine-tuning ZEN on CWS, POS and NER tasks (*token-level classification*)
 
 

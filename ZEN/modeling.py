@@ -188,6 +188,8 @@ def gelu(x):
 
 
 def swish(x):
+    # sigmoid: 1/(1+exp(-x)) which transfer x to (0,1)
+    # swish: x * sigmoid(x) which transfer x to (0, x)
     return x * torch.sigmoid(x)
 
 

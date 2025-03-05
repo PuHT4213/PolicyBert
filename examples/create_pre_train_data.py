@@ -14,6 +14,9 @@
 # limitations under the License.
 """Create data for pretrain."""
 
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from argparse import ArgumentParser
 from pathlib import Path
@@ -305,6 +308,7 @@ def create_instances_from_document(
 
 def main():
     parser = ArgumentParser()
+    # Required parameters
     parser.add_argument('--train_corpus', type=Path, required=True)
     parser.add_argument("--output_dir", type=Path, required=True)
     parser.add_argument("--bert_model", type=str, required=True,
