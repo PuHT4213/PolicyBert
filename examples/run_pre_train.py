@@ -63,7 +63,7 @@ def convert_example_to_features(example, tokenizer, max_seq_length, max_ngram_in
     input_ids = tokenizer.convert_tokens_to_ids(tokens)
     masked_label_ids = tokenizer.convert_tokens_to_ids(masked_lm_labels)
 
-    input_array = np.zeros(max_seq_length, dtype=np.int)
+    input_array = np.zeros(max_seq_length, dtype=np.int64)
     input_array[:len(input_ids)] = input_ids
 
     mask_array = np.zeros(max_seq_length, dtype=np.bool)
@@ -72,11 +72,11 @@ def convert_example_to_features(example, tokenizer, max_seq_length, max_ngram_in
     segment_array = np.zeros(max_seq_length, dtype=np.bool)
     segment_array[:len(segment_ids)] = segment_ids
 
-    lm_label_array = np.full(max_seq_length, dtype=np.int, fill_value=-1)
+    lm_label_array = np.full(max_seq_length, dtype=np.int64, fill_value=-1)
     lm_label_array[masked_lm_positions] = masked_label_ids
 
     # add ngram pads
-    ngram_id_array = np.zeros(max_ngram_in_sequence, dtype=np.int)
+    ngram_id_array = np.zeros(max_ngram_in_sequence, dtype=np.int64)
     ngram_id_array[:len(ngram_ids)] = ngram_ids
 
     # record the masked positions
