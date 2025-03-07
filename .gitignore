@@ -14,5 +14,6 @@
 __pycache__/
 # ignore .DS_Store
 .DS_Store
-# ignore /pretrain_data
-/pretrain_data/
+# ignore /pretrain_data except for folder test_data
+/pretrain_data/*
+!/pretrain_data/test_data/
