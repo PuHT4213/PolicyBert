@@ -617,11 +617,11 @@ class WnliProcessor(DataProcessor):
                 InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
         return examples
 
-# class PbertProcessor(DataProcessor):
-#     """Processor for the PBERT data set."""
+class PbertProcessor(DataProcessor):
+    """Processor for the PBERT data set."""
 
-#     def get_train_examples(self, data_dir):
-#         """See base class."""
+    def get_train_examples(self, data_dir):
+        """See base class."""
 
 def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer, ngram_dict):
     """Loads a data file into a list of `InputBatch`s."""
