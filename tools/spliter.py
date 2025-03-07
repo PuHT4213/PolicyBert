@@ -1,6 +1,9 @@
 import re
+import sys
+import os
 
-from .chinese_character_detector import is_chinese_char
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from tools.chinese_character_detector import is_chinese_char
 
 
 def split_text(text):
@@ -23,6 +26,8 @@ def split_text(text):
                 word += text[i]
                 i += 1
             result.append(word)
+        elif text[i] == ' ':
+            i += 1
         else:
             result.append(text[i])
             i += 1
@@ -30,7 +35,7 @@ def split_text(text):
     return result
 
 def main():
-    text = "我想对你说：“I love You”。"
+    text = "我想对你说：“I love You for 1000 times”。"
     print(split_text(text))
 
 if __name__ == '__main__':

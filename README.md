@@ -27,14 +27,31 @@ If you use or extend our work, please cite the following [**paper**](https://acl
 
 The library comprises several example scripts for conducting [**Chinese NLP tasks**](/datasets):
 
+- tasks:
+```
+{'cola': <class 'utils_sequence_level_task.ColaProcessor'>, 
+'mnli': <class 'utils_sequence_level_task.MnliProcessor'>, 
+'mnli-mm': <class 'utils_sequence_level_task.MnliMismatchedProcessor'>, 
+'mrpc': <class 'utils_sequence_level_task.MrpcProcessor'>, 
+'sst-2': <class 'utils_sequence_level_task.Sst2Processor'>, 
+'qqp': <class 'utils_sequence_level_task.QqpProcessor'>, 
+'qnli': <class 'utils_sequence_level_task.QnliProcessor'>, 
+'rte': <class 'utils_sequence_level_task.RteProcessor'>, 
+'wnli': <class 'utils_sequence_level_task.WnliProcessor'>, 
+'xnli': <class 'utils_sequence_level_task.XnliProcessor'>, 
+'fudansmall': <class 'utils_sequence_level_task.FudansmallProcessor'>, 
+'fudanlarge': <class 'utils_sequence_level_task.FudanlargeProcessor'>, 
+'thucnews': <class 'utils_sequence_level_task.ThucnewsProcessor'>, 
+'chnsenticorp': <class 'utils_sequence_level_task.ChnsenticorpProcessor'>, 
+'lcqmc': <class 'utils_sequence_level_task.LcqmcProcessor'>}
+```
+
 - `run_pre_train.py`: an example pre-training ZEN
 - `run_sequence_level_classification.py`: an example fine-tuning ZEN on DC, SA, SPM and NLI tasks (*sequence-level classification*)
 
-'''python
-
+```
 python examples/run_sequence_level_classification.py --data_dir ./datasets/ChnSentiCorp --bert_model bert-base-chinese --task_name chnsenticorp
-
-
+```
 
 
 - `run_token_level_classification.py`: an example fine-tuning ZEN on CWS, POS and NER tasks (*token-level classification*)

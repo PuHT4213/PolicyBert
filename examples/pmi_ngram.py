@@ -47,41 +47,48 @@ class FindNgrams:
     def find_ngrams_pmi(self, texts, n, freq_threshold):
         for sentence in texts:
             # sub_sentence = sentence.split()
+            # split the sentence into words, customizing the split_text function for chinese characters
             sub_sentence = split_text(sentence)
+            # count the frequency of each word
             self.words[sub_sentence[0]] += 1
             for i in range(len(sub_sentence)-1):
                 self.words[sub_sentence[i + 1]] += 1
                 self.pairs[(sub_sentence[i], sub_sentence[i+1])] += 1
+                # total means the total number of words
                 self.total += 1
         self.words = {i: j for i, j in self.words.items() if j > self.min_count}
         self.pairs = {i: j for i, j in self.pairs.items() if j > self.min_count}
 
+        # calculate the pointwise mutual information
         min_mi = math.inf
         max_mi = -math.inf
 
         self.strong_segments = set()
-        for i, j in self.pairs.items():
-            if i[0] in self.words and i[1] in self.words:
-                mi = math.log(self.total * j / (self.words[i[0]] * self.words[i[1]]))
+        for pair, pair_count in self.pairs.items():
+            if pair[0] in self.words and pair[1] in self.words:
+                # calculate the pointwise mutual information: log(p(x,y)/(p(x)*p(y)))
+                mi = math.log(self.total * pair_count / (self.words[pair[0]] * self.words[pair[1]]))
                 if mi > max_mi:
                     max_mi = mi
                 if mi < min_mi:
                     min_mi = mi
+                # if the pointwise mutual information is greater than the threshold, add the pair to the strong_segments
                 if mi >= self.min_pmi:
-                    self.strong_segments.add(i)
+                    self.strong_segments.add(pair)
 
 
         self.ngrams = defaultdict(int)
         for sentence in texts:
             # sub_sentence = sentence.split()
             sub_sentence = split_text(sentence)
-            s = [sub_sentence[0]]
+            # cut the sentence into n-grams
+            candidate_ngram = [sub_sentence[0]]
             for i in range(len(sub_sentence)-1):
                 if (sub_sentence[i], sub_sentence[i+1]) in self.strong_segments:
-                    s.append(sub_sentence[i+1])
+                    candidate_ngram.append(sub_sentence[i+1])
                 else:
-                    self.ngrams[tuple(s)] += 1
-                    s = [sub_sentence[i+1]]
+                    self.ngrams[tuple(candidate_ngram)] += 1
+                    candidate_ngram = [sub_sentence[i+1]]
         self.ngrams = {i:j for i, j in self.ngrams.items() if j > self.min_count and len(i) <= n}
 
         self.renew_ngram_by_freq(texts, freq_threshold, n)
@@ -95,6 +102,7 @@ class FindNgrams:
             # sentence = sentence.split()
             sentence = split_text(sentence)
             sen = sentence
+            # iterate through the sentence, 
             for i in range(len(sen)):
                 for n in range(1, ngram_len + 1):
                     if i + n > len(sentence):
@@ -114,7 +122,7 @@ def main():
     parser.add_argument('--output_dir', type=str, required=True, help="the output path")
     parser.add_argument('--ngram', type=int, default=5, help="n")
     parser.add_argument('--min_count', type=int, default=5, help="min_count")
-    parser.add_argument('--min_pmi', type=int, default=1, help="min_pmi")
+    parser.add_argument('--min_pmi', type=int, default=0.8, help="min_pmi")
     parser.add_argument('--ngram_freq_threshold', type=int, default=5, help="ngram_freq_threshold")
     parser.add_argument('--delete_special_symbol', action='store_false', help="Whether to remove special symbols")
     config = parser.parse_args()
@@ -158,6 +166,10 @@ def main():
                 s += word
             else:
                 s += w[word_index]+" "
+        # reject the ngram that contains only one word
+        if len(s) == 1:
+            continue
+        
         s += ","+str(freq)
         s = s.strip()
         i = len(s)

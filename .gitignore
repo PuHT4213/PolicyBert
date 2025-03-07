@@ -12,4 +12,7 @@
 /results/
 # ignore __pycache__ in all directories
 __pycache__/
-
+# ignore .DS_Store
+.DS_Store
+# ignore /pretrain_data
+/pretrain_data/
