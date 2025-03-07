@@ -16,7 +16,6 @@
 
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from argparse import ArgumentParser
 from pathlib import Path
@@ -24,6 +23,7 @@ from tqdm import tqdm, trange
 from tempfile import TemporaryDirectory
 import shelve
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from random import random, randrange, randint, shuffle, choice
 from ZEN import BertTokenizer, ZenNgramDict
 import numpy as np
@@ -330,7 +330,7 @@ def main():
     parser.add_argument("--max_predictions_per_seq", type=int, default=20,
                         help="Maximum number of tokens to mask in each sequence")
     parser.add_argument("--ngram_list", type=str, default="/data/zhwiki/ngram.txt")
-    parser.add_argument("--max_ngram_in_sequence", type=int, default=20)
+    parser.add_argument("--max_ngram_in_sequence", type=int, default=100)
 
     args = parser.parse_args()
 

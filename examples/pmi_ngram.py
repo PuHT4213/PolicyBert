@@ -122,7 +122,7 @@ def main():
     parser.add_argument('--output_dir', type=str, required=True, help="the output path")
     parser.add_argument('--ngram', type=int, default=5, help="n")
     parser.add_argument('--min_count', type=int, default=5, help="min_count")
-    parser.add_argument('--min_pmi', type=int, default=0.8, help="min_pmi")
+    parser.add_argument('--min_pmi', type=int, default=1, help="min_pmi")
     parser.add_argument('--ngram_freq_threshold', type=int, default=5, help="ngram_freq_threshold")
     parser.add_argument('--delete_special_symbol', action='store_false', help="Whether to remove special symbols")
     config = parser.parse_args()
