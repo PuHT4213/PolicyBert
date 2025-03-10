@@ -669,6 +669,7 @@ class ZenPreTrainedModel(nn.Module):
     """
 
     def __init__(self, config, *inputs, **kwargs):
+        # super(ZenPreTrainedModel, self).__init__() means that the class is inheriting from the parent class `nn.Module`
         super(ZenPreTrainedModel, self).__init__()
         if not isinstance(config, ZenConfig):
             raise ValueError(
@@ -787,7 +788,7 @@ class ZenPreTrainedModel(nn.Module):
         # Load config
         config = ZenConfig.from_json_file(resolved_config_file)
         logger.info("Model config {}".format(config))
-        # Instantiate model.
+        # Instantiate model. cls is a class object (ZenModel)
         model = cls(config, *inputs, **kwargs)
         if state_dict is None and not from_tf:
             state_dict = torch.load(resolved_archive_file, map_location='cpu')
@@ -803,6 +804,7 @@ class ZenPreTrainedModel(nn.Module):
             if new_key:
                 old_keys.append(key)
                 new_keys.append(new_key)
+        # if multift is True, we don't need to load the classifier weights
         if multift:
             state_dict.pop("classifier.weight")
             state_dict.pop("classifier.bias")
@@ -820,6 +822,7 @@ class ZenPreTrainedModel(nn.Module):
 
         def load(module, prefix=''):
             local_metadata = {} if metadata is None else metadata.get(prefix[:-1], {})
+            # _load_from_state_dict is a function in the parent class, which is nn.Module
             module._load_from_state_dict(
                 state_dict, prefix, local_metadata, True, missing_keys, unexpected_keys, error_msgs)
             for name, child in module._modules.items():
