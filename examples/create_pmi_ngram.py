@@ -145,6 +145,9 @@ def main():
             continue
         # replace all punctuations with space
         line = replace_punctuation(line)
+        # check if the line is empty
+        if len(line.strip()) == 0:
+            continue
         sentence_list.append(line)
 
     ngram_finder = FindNgrams(min_count=min_count, min_pmi=min_pmi)
@@ -187,7 +190,7 @@ def main():
     for ngram_phrase in ngram_list:
         ngram_count += 1
         f_write.write(ngram_phrase+'\n')
-        ngram_type_count[len(list(ngram_phrase.split())) - 1] += 1
+        # ngram_type_count[len(list(ngram_phrase.split())) - 1] += 1
 
     print(str(ngram_type_count))
     f_read.close()
