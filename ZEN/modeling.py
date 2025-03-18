@@ -552,6 +552,9 @@ class ZenEncoder(nn.Module):
                           keep_multihead_output=keep_multihead_output)
         self.layer = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_layers)])
         self.word_layers = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_word_layers)])
+        
+        self.gate_layers = nn.ModuleList([nn.Linear(config.hidden_size * 2, config.hidden_size) for _ in range(config.num_hidden_layers)])
+
         self.num_hidden_word_layers = config.num_hidden_word_layers
 
     def forward(self, hidden_states, ngram_hidden_states, ngram_position_matrix, attention_mask,
@@ -570,7 +573,12 @@ class ZenEncoder(nn.Module):
             if self.output_attentions:
                 attentions, hidden_states = hidden_states
                 all_attentions.append(attentions)
-            hidden_states += torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
+            # hidden_states += torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
+            ngram_positioned_hidden_states  = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
+            gate = torch.sigmoid(self.gate_layers[i](torch.cat([hidden_states, ngram_positioned_hidden_states], dim=-1)))
+            hidden_states = gate * hidden_states + (1 - gate) * ngram_positioned_hidden_states
+            
+
             if output_all_encoded_layers:
                 all_encoder_layers.append(hidden_states)
         if not output_all_encoded_layers:
