@@ -4,6 +4,7 @@
 # files in /datasets except for README.md
 /datasets/*
 !/datasets/README.md
+!/datasets/policy_SM/
 # ignore all files in /models except for README.md
 /models/*
 !/models/README.md
