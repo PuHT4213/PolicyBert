@@ -210,12 +210,17 @@ def train(args, model, tokenizer, ngram_dict, processor, label_list):
                 if args.local_rank in [-1, 0]:
                     tb_writer.add_scalar('lr', optimizer.get_lr()[0], global_step)
                     tb_writer.add_scalar('loss', loss.item(), global_step)
+                    logger.info("Epoch: %d, Step: %d, Loss: %f, LR: %f" % (epoch_num, global_step, loss.item(), optimizer.get_lr()[0]))
                 if args.local_rank in [-1, 0] and args.save_steps > 0 and global_step % args.save_steps == 0:
                     # Save model checkpoint
                     output_dir = os.path.join(args.output_dir, "checkpoint-{}".format(global_step))
                     if not os.path.exists(output_dir):
                         os.makedirs(output_dir)
                     save_zen_model(output_dir, model, tokenizer, ngram_dict, args)
+    # save model
+    if args.local_rank in [-1, 0]:
+        save_zen_model(args.output_dir, model, tokenizer, ngram_dict, args)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -316,15 +321,37 @@ def main():
                              "Positive power of 2: static loss scaling value.\n")
     parser.add_argument("--save_steps", type=int, default=50000,
                         help="Save checkpoint every X updates steps.")
+    parser.add_argument("--log_path",
+                        default='./logs/log-seqlevel-{}'.format(datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')),
+                        type=str,
+                        help="The log file path")
     args = parser.parse_args()
 
     args.task_name = args.task_name.lower()
 
-    # Setup logging
-    logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
-                        datefmt = '%m/%d/%Y %H:%M:%S',
-                        filemode='w',
-                        level = logging.INFO if args.local_rank in [-1, 0] else logging.WARN)
+    # # Setup logging
+    # logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
+    #                     datefmt = '%m/%d/%Y %H:%M:%S',
+    #                     filemode='w',
+    #                     level = logging.INFO if args.local_rank in [-1, 0] else logging.WARN)
+
+    logger.setLevel(logging.INFO if args.log_path else logging.WARN)  # 设置信息级别
+
+    # 创建日志格式
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+                                datefmt='%m/%d/%Y %H:%M:%S')
+
+    # **1. 文件日志**
+    file_handler = logging.FileHandler(args.log_path, mode='w', encoding='utf-8')  # 'w' 代表覆盖日志
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+
+    # **2. 控制台日志**
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+
+    logger.info("Training/evaluation parameters %s", args)
 
     if args.local_rank == -1 or args.no_cuda:
         # args.device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
