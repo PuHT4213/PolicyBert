@@ -21,3 +21,5 @@ __pycache__/
 !/pretrain_data/policy/
 # ignore .DS_Store in every files
 **/.DS_Store
+# ignore logs
+/logs/
