@@ -66,3 +66,7 @@ For help or issues using ZEN, please submit a GitHub issue.
 
 For personal communication related to ZEN, please contact Yuanhe Tian (`yhtian94@gmail.com`).
 
+## example usage
+```python
+python examples/run_sequence_level_classification.py --data_dir datasets/ChnSentiCorp --bert_model models/test_output/zen0317092603_epoch_2/ --task_name chnsenticorp --num_train_epochs 3
+```

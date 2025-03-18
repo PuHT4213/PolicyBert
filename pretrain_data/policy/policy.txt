@@ -2822,7 +2822,8 @@ DCAT-Version 2 词汇表中定义了多个类和属性。通过调查现有开�
 100000000
 50000000
 0
--50000000	浏览总量	下载总量
+-50000000	浏览总量	下载总量
+
 	
 	
 	
@@ -3757,26 +3758,31 @@ JPG\ PNG
 附录 1 2021 年政府开放数据平台详表
 序号	平台名称	地点	行政层级	域名
 1	北京市公共数据
-开放平台	北京市	省级	http://data.beijing.gov.cn/
+开放平台	北京市	省级	http://data.beijing.gov.cn/
+
 2	北京市东城区人民政府-政务公开
 -数说东城	北京市东城区	县区级	http://www.bjdch.gov.cn/n7498/n9920260/i ndex.html
 3	北京市西城区人
 民政府-西城数据	北京市西城
-区	县区级	https://www.bjxch.gov.cn/xcsj.html
+区	县区级	https://www.bjxch.gov.cn/xcsj.html
+
 4	北京市丰台区人
 民政府-数据发布
 北京市丰台
-区	县区级	http://www.bjft.gov.cn/ftq/sjfb/sjfb.shtml
+区	县区级	http://www.bjft.gov.cn/ftq/sjfb/sjfb.shtml
+
 5	北京市石景ft区人民政府-统计与
 数据开放	北京市石景 ft区	县区级	http://www.bjsjs.gov.cn/gongkai/zwgkpd/zt zl/lszt/tjysjkf/
 6	海淀区数据开放
 平台	北京市海淀
-区	县区级	http://www.bjhd.gov.cn/sjkf/
+区	县区级	http://www.bjhd.gov.cn/sjkf/
+
 7	北京市门沟头区人民政府-统计信
 息和数据开放	北京市门沟头区	县区级	http://www.bjmtg.gov.cn/bjmtg/zwxx/tjxx/s jfb/index.shtml
 8	房ft数据开放平
 台	北京市旁ft
-区	县区级	http://www.bjfsh.gov.cn/zhxw/sukfpt/
+区	县区级	http://www.bjfsh.gov.cn/zhxw/sukfpt/
+
 9	北京市顺义区人
 民政府-数据开放	北京市顺义
 区	县区级	http://www.bjshy.gov.cn/web/ztlm/zt/tjsjzl/
@@ -3787,25 +3793,30 @@ sjkf/rlsb/index.html
 jfbzl/index.html
 11	北京市怀柔区人
 民政府-数据	北京市怀柔
-区	县区级	http://www.bjhr.gov.cn/zwgk/sj/
+区	县区级	http://www.bjhr.gov.cn/zwgk/sj/
+
 12	北京市密云区政府-密云数据开放
 专区目录	北京市密云区	县区级	http://www.bjmy.gov.cn/col/col10417/inde x.html
 13	天津市信息资源
 统一开放平台	天津市	省级	https://data.tj.gov.cn/
 14	天津市东丽区人
 民政府-数据发布	天京市东丽
-区	县区级	http://www.tjdl.gov.cn/gongkai/sjfb/
+区	县区级	http://www.tjdl.gov.cn/gongkai/sjfb/
+
 15	天津市西青区人
 民政府-数据发布	天津市西青
-区	县区级	http://www.tjxq.gov.cn/zwgk/sjfb/
+区	县区级	http://www.tjxq.gov.cn/zwgk/sjfb/
+
 16	天津市北辰区人
 民政府-数据发布	天津市北辰
-区	县区级	http://www.tjbc.gov.cn/zwgk/sjfb/
+区	县区级	http://www.tjbc.gov.cn/zwgk/sjfb/
+
 17	承德市政府数据
 开放平台	河北省承德
 市	地市级	http://www.chengde.gov.cn/shuju/web/inde
 x
-18	河北省公共数据	河北省	省级	http://hebdata.hebyun.gov.cn/home
+18	河北省公共数据	河北省	省级	http://hebdata.hebyun.gov.cn/home
+
  
 
 	开放网			
@@ -3815,64 +3826,80 @@ x
 ndex.html
 20	馆陶县人民政府-
 政府数据	河北省邯郸
-市馆陶县	县区级	http://www.guantao.gov.cn/data/
+市馆陶县	县区级	http://www.guantao.gov.cn/data/
+
 21	衡水市人民政府-
 数据开放	河北省衡水
 市	地市级	http://www.hengshui.gov.cn/col/col51/inde
 x.html
 22	ft西省人民政府-
-政府数据	ft西省	省级	http://www.shanxi.gov.cn/sj/
+政府数据	ft西省	省级	http://www.shanxi.gov.cn/sj/
+
 23	太原市杏花岭区人民政府-统计数
 据	ft西省太原
 市	县区级	http://www.sxtyxhl.gov.cn/zfxxgk/xxgkml/t jsj/index.shtml
 24	大同市公共数据
 开放平台
 ft西省大同
-市	地市级	http://www.dt.gov.cn/Dataopen/index
+市	地市级	http://www.dt.gov.cn/Dataopen/index
+
 25	阳泉市政府数据
 开放网	ft西省阳泉
-市	地市级	http://data.yq.gov.cn/odweb/index.htm
+市	地市级	http://data.yq.gov.cn/odweb/index.htm
+
 26	长治市公共数据
 开放平台	ft西省长治
-市	地市级	http://www.changzhi.gov.cn/odweb/
+市	地市级	http://www.changzhi.gov.cn/odweb/
+
 27	晋城市人民政府-
 政府数据	ft西省晋城
-市	地市级	http://www.jcgov.gov.cn/zfsj/
+市	地市级	http://www.jcgov.gov.cn/zfsj/
+
 28	高平市政务信息
 共享平台	ft西省高平
 市	县区级	http://data.sxgp.gov.cn:8086/gxpt/
 29	朔州市人民政府-
 公共数据	ft西省朔州
-市	地市级	http://www.shuozhou.gov.cn/ggsj/
+市	地市级	http://www.shuozhou.gov.cn/ggsj/
+
 30	平鲁区人民政府-
 公共数据	ft西省朔州
-市平鲁区	县区级	http://www.szpinglu.gov.cn/ggsj/
+市平鲁区	县区级	http://www.szpinglu.gov.cn/ggsj/
+
 31	临猗县人民政府-
 公开数据	ft西省运城
-市临猗县	县区级	http://www.sxly.gov.cn/ggsj/
+市临猗县	县区级	http://www.sxly.gov.cn/ggsj/
+
 32	忻州市人民政府-
 公共数据	ft西省忻州
-市	地市级	https://www.sxxz.gov.cn/ggsj/
+市	地市级	https://www.sxxz.gov.cn/ggsj/
+
 33	忻府区人民政府-
 公共数据	ft西省忻州
-市忻府区	县区级	http://www.xzxfq.gov.cn/ggsj/
+市忻府区	县区级	http://www.xzxfq.gov.cn/ggsj/
+
 34	定襄县人民政府-
 公共数据	ft西省忻州
 市定襄县	县区级	http://www.dingxiang.gov.cn/dxxzw/zwgk/j
 gsz/dxxrmzfgzbm/dxxtjj/ggsj/
 35	五台县人民政府-
 公共数据	ft西省忻州
-市五台县	县区级	http://www.wutai.gov.cn/ggsj/
+市五台县	县区级	http://www.wutai.gov.cn/ggsj/
+
 36	繁峙县人民政府-
 公共数据	ft西省忻州
-市繁峙县	县区级	http://www.fanshi.gov.cn/ztzl/ggsj/
+市繁峙县	县区级	http://www.fanshi.gov.cn/ztzl/ggsj/
+
 37	静乐县人民政府-
 政府数据	ft西省忻州
-市静乐县	县区级	http://www.sxjl.gov.cn/zfsj/
+市静乐县	县区级	http://www.sxjl.gov.cn/zfsj/
+
 38	五寨县人民政府-
 公共数据	ft西省忻州
-市五寨县	县区级	http://www.xzwz.gov.cn/ggsj/
-39	岢岚县人民政府-	ft西省忻州	县区级	http://www.xzkl.gov.cn/ggsj/
+市五寨县	县区级	http://www.xzwz.gov.cn/ggsj/
+
+39	岢岚县人民政府-	ft西省忻州	县区级	http://www.xzkl.gov.cn/ggsj/
+
  
 
 	公共数据	市岢岚县		
@@ -3885,7 +3912,8 @@ xxgk/xxsj/index_1.html
 市	地市级	http://www.linfen.gov.cn/channels/231.htm
 l
 42	临汾经济开发区-公共数据	ft西省临汾
-市临汾经济开发区	县区级	http://kfq.linfen.gov.cn/channels/1334.html
+市临汾经济开发区	县区级	http://kfq.linfen.gov.cn/channels/1334.html
+
 43	尧都区人民政府-
 公共数据	ft西省临汾
 市尧都区	县区级	http://www.yaodu.gov.cn/channels/21255.h
@@ -3914,7 +3942,8 @@ ml
 49	安泽县人民政府-
 公共数据	ft西省临汾
 市安泽县	县区级	http://www.anze.gov.cn/channels/4059.htm
-l
+l
+
 50	浮ft县人民政府-
 公共数据	ft西省临汾
 市浮ft县	县区级	http://www.fushan.gov.cn/channels/2936.ht
@@ -3934,7 +3963,8 @@ ml
 54	隰县人民政府-公
 共数据	ft西省临汾
 市隰县	县区级	http://www.sxxx.gov.cn/channels/4919.htm
-l
+l
+
 55	永和县人民政府-
 公共数据	ft西省临汾
 市永和县	县区级	http://www.sxyh.gov.cn/channels/12250.ht
@@ -3946,7 +3976,8 @@ ml
 57	汾西县人民政府-
 公共数据	ft西省临汾
 市汾西县	县区级	http://www.fenxi.gov.cn/channels/2336.htm
-l
+l
+
 58	侯马市人民政府-
 公共数据	ft西省临汾
 市侯马市	县区级	http://www.houma.gov.cn/channels/3672.ht
@@ -3955,54 +3986,69 @@ ml
 公共数据	ft西省临汾
 市霍州市	县区级	http://www.huozhou.gov.cn/channels/693.h
 tml
-60	内蒙古自治区大	内蒙古自治	省级	https://www.nmgdata.org.cn/
+60	内蒙古自治区大	内蒙古自治	省级	https://www.nmgdata.org.cn/
+
  
 
 	数据中心	区		
 61	呼和浩特市人民
 政府-政府数据	内蒙古自治
-区呼和浩特市	地市级	http://www.huhhot.gov.cn/zfsj/
+区呼和浩特市	地市级	http://www.huhhot.gov.cn/zfsj/
+
 62	呼和浩特市新城区人民政府-数据
 公开	内蒙古自治
 区呼和浩特市新城区	县区级	http://www.xinchengqu.gov.cn/xincheng/sj gk/index.html
 63	玉泉区人民政府-
 政府数据	内蒙古自治
-区呼和浩特市玉泉区	县区级	http://www.huhhot.gov.cn/yqq/zfsj/
+区呼和浩特市玉泉区	县区级	http://www.huhhot.gov.cn/yqq/zfsj/
+
 64	 罕区人民政府-
 政府数据	内蒙古自治
-区呼和浩特市 罕区	县区级	http://www.saihan.gov.cn/zfsj/
+区呼和浩特市 罕区	县区级	http://www.saihan.gov.cn/zfsj/
+
 65	托克托县人民政府-政府数据	内蒙古自治
-区呼和浩特市托克托县	县区级	http://www.tuoxian.gov.cn/zfsj/
+区呼和浩特市托克托县	县区级	http://www.tuoxian.gov.cn/zfsj/
+
 66	清水河县人民政府-政府数据	内蒙古自治
-区呼和浩特市清水河县	县区级	http://www.qingshuihe.gov.cn/zfsj/
+区呼和浩特市清水河县	县区级	http://www.qingshuihe.gov.cn/zfsj/
+
 67	武川县人民政府-
 政府数据	内蒙古自治
-区呼和浩特市武川县	县区级	http://www.wuchuan.gov.cn/zfsj/sjfb/
+区呼和浩特市武川县	县区级	http://www.wuchuan.gov.cn/zfsj/sjfb/
+
 68	包头稀土高新技术产业开发区管理委员会-数据开
 发	内蒙古自治
-区包头市	县区级	http://www.rev.gov.cn/xxgk/sjkf.jspx
+区包头市	县区级	http://www.rev.gov.cn/xxgk/sjkf.jspx
+
 69	赤峰市人民政府-
 数据	内蒙古自治
-区赤峰市	地市级	http://www.chifeng.gov.cn/sj/
+区赤峰市	地市级	http://www.chifeng.gov.cn/sj/
+
 70	霍林郭勒市人民
 政府-政务公开-数据开放	内蒙古自治
-区霍林郭勒市	县区级	http://www.hlgls.gov.cn/hlgl/sjkf/list.shtml
+区霍林郭勒市	县区级	http://www.hlgls.gov.cn/hlgl/sjkf/list.shtml
+
 71	东胜区人民政府-
 数据	内蒙古自治
-区霍鄂尔多斯市东胜区	县区级	http://www.ds.gov.cn/sj/
+区霍鄂尔多斯市东胜区	县区级	http://www.ds.gov.cn/sj/
+
 72	鄂托克旗人民政府-数据发布	内蒙古自治区霍鄂尔多斯市鄂托克
-旗	县区级	http://www.eq.gov.cn/zwgk/tjxx_97687/
+旗	县区级	http://www.eq.gov.cn/zwgk/tjxx_97687/
+
 73	杭锦旗人民政府-
 数据	内蒙古自治
-区霍鄂尔多斯市杭锦旗	县区级	http://www.hjq.gov.cn/sj_94857/
+区霍鄂尔多斯市杭锦旗	县区级	http://www.hjq.gov.cn/sj_94857/
+
 74	乌审旗人民政府-
 数据	内蒙古自治
-区霍鄂尔多斯市乌审旗	县区级	http://www.wsq.gov.cn/shuju/
+区霍鄂尔多斯市乌审旗	县区级	http://www.wsq.gov.cn/shuju/
+
  
 
 75	呼伦贝尔市人民
 政府-数据发布	内蒙古自治
-区呼伦贝尔市	地市级	http://www.hlbe.gov.cn/DataRelease/
+区呼伦贝尔市	地市级	http://www.hlbe.gov.cn/DataRelease/
+
 76	鄂温克族自治旗人民政府-数据开放	内蒙古自治区呼伦贝尔市鄂温克族
 自治旗	县区级	https://www.ewenke.gov.cn/Category_1265
 /Index.aspx
@@ -4010,7 +4056,8 @@ tml
 左旗	县区级	http://www.xzq.gov.cn/Category_262/Index
 .aspx
 78	内蒙古新巴尔虎右旗人民政府-新右旗数据	内蒙古自治区呼伦贝尔市新巴尔虎
-右旗	县区级	http://www.xbehyq.gov.cn/main/xyqsj.jsp
+右旗	县区级	http://www.xbehyq.gov.cn/main/xyqsj.jsp
+
 79	根河市人民政府-走进根河-社会经
 济发展数据开放	内蒙古自治
 区呼伦贝尔市根河市	县区级	http://www.genhe.gov.cn/Category_242/Ind ex.aspx
@@ -4019,31 +4066,40 @@ tml
 区乌兰察布市	地市级	http://www.wulanchabu.gov.cn/channel/wlc bzfw/col10345f.html
 81	临河区人民政府-
 统计数据	内蒙古自治
-区巴彦卓尔市临河区	县区级	http://www.linhe.gov.cn/sub/?mksid1=56
+区巴彦卓尔市临河区	县区级	http://www.linhe.gov.cn/sub/?mksid1=56
+
 82	锡林郭勒盟行政公署-数据	内蒙古自治
-区锡林郭勒盟	地市级	http://www.xlgl.gov.cn/sj/
+区锡林郭勒盟	地市级	http://www.xlgl.gov.cn/sj/
+
 83	二连浩特市人民
 政府-政府数据	内蒙古自治区锡林郭勒盟二连浩特
-市	县区级	http://www.elht.gov.cn/zfsj/
+市	县区级	http://www.elht.gov.cn/zfsj/
+
 84	阿巴嘎旗人民政府-政府数据	内蒙古自治
-区锡林郭勒盟阿巴嘎旗	县区级	http://www.abg.gov.cn/zfsj/
+区锡林郭勒盟阿巴嘎旗	县区级	http://www.abg.gov.cn/zfsj/
+
 85	东乌珠穆沁旗人民政府-政府数据	内蒙古自治区锡林郭勒盟东乌珠穆
-沁旗	县区级	http://www.dwq.gov.cn/zfsj/
+沁旗	县区级	http://www.dwq.gov.cn/zfsj/
+
 86	镶黄旗人民政府-
 政府数据	内蒙古自治
-区锡林郭勒盟镶黄旗	县区级	http://www.nmxhq.gov.cn/zfsj/
+区锡林郭勒盟镶黄旗	县区级	http://www.nmxhq.gov.cn/zfsj/
+
 87	正蓝旗人民政府-
 数据统计	内蒙古自治
-区锡林郭勒盟正蓝旗	县区级	http://www.zlq.gov.cn/sjtj/
+区锡林郭勒盟正蓝旗	县区级	http://www.zlq.gov.cn/sjtj/
+
  
 
 88	多伦县人民政府-
 政府数据	内蒙古自治
-区锡林郭勒盟多伦县	县区级	http://www.dlx.gov.cn/zfsj/tjsj/
+区锡林郭勒盟多伦县	县区级	http://www.dlx.gov.cn/zfsj/tjsj/
+
 89	阿拉善盟行政公
 署-数据开放	内蒙古自治
 区阿拉善盟	地市级	http://www.als.gov.cn/col/col130/index.htm
-l
+l
+
 90	阿拉善右旗人民
 政府-数据开放	内蒙古自治
 区阿拉善盟阿拉善右旗	县区级	http://www.alsyq.gov.cn/col/col1477/index. html
@@ -4052,16 +4108,20 @@ l
 区阿拉善盟额济纳旗	县区级	http://www.ejnq.gov.cn/col/col2030/index. html
 92	辽宁省人民政府-
 数据发布
-辽宁省	省级	http://www.ln.gov.cn/zfsj/sjfb/
+辽宁省	省级	http://www.ln.gov.cn/zfsj/sjfb/
+
 93	沈阳市政务数据
 开放平台	辽宁省沈阳
-市	副省级	http://data.shenyang.gov.cn/
+市	副省级	http://data.shenyang.gov.cn/
+
 94	大连市人民政府-
 走进大连-数据发布	辽宁省大连
-市	副省级	https://www.dl.gov.cn/col/col139/index.ht ml
+市	副省级	https://www.dl.gov.cn/col/col139/index.ht ml
+
 95	大连旅顺口-公共
 资源	辽宁省大连
-市旅顺口区	县区级	http://www.dllsk.gov.cn/zfcg.asp
+市旅顺口区	县区级	http://www.dllsk.gov.cn/zfcg.asp
+
 96	抚顺市人民政府-
 数据发布	辽宁省抚顺
 市	县区级	http://www.fushun.gov.cn/010/moreinfo.ht
@@ -4072,77 +4132,100 @@ ml
 ml
 98	盘锦市人民政府-
 数据发布	辽宁省盘锦
-市	地市级	http://www.panjin.gov.cn/html/1752/
+市	地市级	http://www.panjin.gov.cn/html/1752/
+
 99	吉林省人民政府-
-数据	吉林省	省级	http://www.jl.gov.cn/sj/
+数据	吉林省	省级	http://www.jl.gov.cn/sj/
+
 100	数据-吉林市人民
 政府	吉林省吉林
-市	地市级	http://www.jlcity.gov.cn/sj/
+市	地市级	http://www.jlcity.gov.cn/sj/
+
 101	四平方市人民政
 府-数据	吉林省四平
-方市	地市级	http://www.siping.gov.cn/sj/
+方市	地市级	http://www.siping.gov.cn/sj/
+
 102	辽源市人民政府-
-信息公开-数据开放	吉林省辽源市	地市级	http://www.liaoyuan.gov.cn/xxgk/sjkf/
+信息公开-数据开放	吉林省辽源市	地市级	http://www.liaoyuan.gov.cn/xxgk/sjkf/
+
 103	西安区人民政府-
 数据公开	吉林省辽源
-市西安区	县区级	http://www.lyxa.gov.cn/xxgk/sjgk/
+市西安区	县区级	http://www.lyxa.gov.cn/xxgk/sjgk/
+
 104	白ft市人民政府-
 政府数据	吉林省白ft
-市	地市级	http://www.cbs.gov.cn
+市	地市级	http://www.cbs.gov.cn
+
 105	松原市人民政府-
 数据松原	吉林省松原
-市	地市级	http://www.jlsy.gov.cn/zwgk/sjsy/
+市	地市级	http://www.jlsy.gov.cn/zwgk/sjsy/
+
 106	白城市人民政府-
 数据分析	吉林省白城
-市	地市级	http://www.jlbc.gov.cn/sjfx_3333/
+市	地市级	http://www.jlbc.gov.cn/sjfx_3333/
+
  
 
 107	延边州人民政府-
 数据	吉林省延边朝鲜族自治
-州	地市级	http://www.yanbian.gov.cn/sj/
+州	地市级	http://www.yanbian.gov.cn/sj/
+
 108	延吉市人民政府-
 数据	吉林省延边
-朝鲜族自治州延吉市	县区级	http://www.yanji.gov.cn/sj_2518/
+朝鲜族自治州延吉市	县区级	http://www.yanji.gov.cn/sj_2518/
+
 109	敦化市人民政府-
 数据	吉林省延边朝鲜族自治
-州敦化市	县区级	http://www.dunhua.gov.cn/sj_2154/
+州敦化市	县区级	http://www.dunhua.gov.cn/sj_2154/
+
 110	珲春市人民政府-
 数据	吉林省延边
-朝鲜族自治州珲春市	县区级	http://www.hunchun.gov.cn/zw_1910/sj/
+朝鲜族自治州珲春市	县区级	http://www.hunchun.gov.cn/zw_1910/sj/
+
 111	汪清县人民政府-
 数据服务
 吉林省延边朝鲜族自治
-州汪清县	县区级	http://www.wangqing.gov.cn/sjfw/
+州汪清县	县区级	http://www.wangqing.gov.cn/sjfw/
+
 112	安图县人民政府-
 数据	吉林省延边朝鲜族自治
-州安图县	县区级	http://www.antu.gov.cn/sj_2368/
+州安图县	县区级	http://www.antu.gov.cn/sj_2368/
+
 113	哈尔滨市政府数
 据开放平台	黑龙江省哈
-尔滨市	副省级	http://data.harbin.gov.cn
+尔滨市	副省级	http://data.harbin.gov.cn
+
 114	道里区政府数据开放平台	黑龙江省哈尔滨市道里
-区	县区级	http://218.7.29.112/index.jsp
+区	县区级	http://218.7.29.112/index.jsp
+
 115	鸡东县人民政府-
 数据	黑龙江省鸡
-西市鸡东县	县区级	http://www.jidong.gov.cn/sj_0628/tjxx/
+西市鸡东县	县区级	http://www.jidong.gov.cn/sj_0628/tjxx/
+
 116	虎林市人民政府-
 数据	黑龙江省鸡
-西市虎林市	县区级	http://www.hljhulin.gov.cn/
+西市虎林市	县区级	http://www.hljhulin.gov.cn/
+
 117	大庆公共数据开
 放平台	黑龙江省大
-庆市	地市级	http://dataopen.daqing.gov.cn/index.html
+庆市	地市级	http://dataopen.daqing.gov.cn/index.html
+
 118	伊春市人民政府-
 数据	黑龙江省伊
-春市	地市级	http://www.yc.gov.cn/sj/
+春市	地市级	http://www.yc.gov.cn/sj/
+
 119	佳木斯市政府数
 据开放平台	黑龙江省佳
-木斯市	地市级	http://data.jms.gov.cn
+木斯市	地市级	http://data.jms.gov.cn
+
 120	双鸭ft市政府数
 据开放平台	黑龙江省双
 鸭ft市	地市级	http://www.shuangyashan.gov.cn/index/htm
 l/shujupt/index.jsp
 121	黑河市人民政府-
 数据信息	黑龙江省黑
-河市	地市级	http://www.heihe.gov.cn/zwfb/sjxx.htm
+河市	地市级	http://www.heihe.gov.cn/zwfb/sjxx.htm
+
 122	上海市公共数据
 开放平台	上海市	省级	https://data.sh.gov.cn/
 123	上海市黄浦区人
@@ -4151,23 +4234,28 @@ l/shujupt/index.jsp
 009001010/009001010005/listIndex.html
 124	上海市青浦区人
 民政府	上海市青浦
-区	县区级	https://www.shqp.gov.cn/shqp/sjtjzt/
+区	县区级	https://www.shqp.gov.cn/shqp/sjtjzt/
+
  
 
 125	无锡市公共数据
 开放平台	江苏省无锡
-市	地市级	http://data.wuxi.gov.cn/data/
+市	地市级	http://data.wuxi.gov.cn/data/
+
 126	江苏政务服务	江苏省	省级	http://data.jszwfw.gov.cn:8118/extranet/ope
 nportal/pages/default/index.html
 127	南京市鼓楼区人
 民政府-数据发布	江苏省南京
-市鼓楼区	县区级	http://www.njgl.gov.cn/sjfb/
+市鼓楼区	县区级	http://www.njgl.gov.cn/sjfb/
+
 128	南京市江宁区人
 民政府-数据发布	江苏省南京
-市江宁区	县区级	http://www.njgl.gov.cn/sjfb/
+市江宁区	县区级	http://www.njgl.gov.cn/sjfb/
+
 129	南京市六合区人
 民政府-数据发布	江苏省南京
-市六合区	县区级	http://www.njlh.gov.cn/sjfb/
+市六合区	县区级	http://www.njlh.gov.cn/sjfb/
+
 130	滨湖区数据开放
 平台	江苏省无锡
 市滨湖区	县区级	http://www.wxbh.gov.cn/zfxxgk/sjkf/index.
@@ -4175,10 +4263,12 @@ shtml
 131	常州市人民政府-
 数据开放
 江苏省常州
-市	地市级	http://opendata.changzhou.gov.cn
+市	地市级	http://opendata.changzhou.gov.cn
+
 132	天宁区政府数据
 开放平台	江苏省常州
-市天宁区	县区级	http://opendata.cztn.gov.cn
+市天宁区	县区级	http://opendata.cztn.gov.cn
+
 133	苏州市政务数据
 开放平台	江苏省苏州
 市	地市级	http://www.suzhou.gov.cn/OpenResourceW
@@ -4197,7 +4287,8 @@ shtml
 ml
 137	昆ft市政务数据
 开放平台	江苏省昆ft
-市	县区级	http://www.ks.gov.cn/kss/sjkf/sjkf.shtml
+市	县区级	http://www.ks.gov.cn/kss/sjkf/sjkf.shtml
+
 138	苏州市吴江区人
 民政府-数据开发	江苏省苏州
 市吴江区	县区级	http://www.wujiang.gov.cn/zgwj/sjgx/wj20
@@ -4220,13 +4311,16 @@ x.do
 windex/index.do
 143	开放扬州（扬州
 数据开放）	江苏省扬州
-市	地市级	http://data.yangzhou.gov.cn
+市	地市级	http://data.yangzhou.gov.cn
+
 144	泰州市政务数据
 开放平台	江苏省泰州
-市	地市级	http://www.taizhou.gov.cn/opendata/
+市	地市级	http://www.taizhou.gov.cn/opendata/
+
 145	徐州市公共数据开放平台（试运
 行）	江苏省徐州
-市	地市级	http://data.gxj.xz.gov.cn/#/Home
+市	地市级	http://data.gxj.xz.gov.cn/#/Home
+
  
 
 146	南通市通州区人
@@ -4239,7 +4333,8 @@ kf.html
 ml
 148	数据启东-启东市
 统计局	江苏省南通
-市启东县	县区级	http://www.qdstjj.cn/indexTree_toIndex.do
+市启东县	县区级	http://www.qdstjj.cn/indexTree_toIndex.do
+
 149	数据开放-如皋市
 人民政府	江苏省南通
 市如皋市	县区级	http://www.rugao.gov.cn/rgsrmzf/sjkf/sjkf.
@@ -4250,7 +4345,8 @@ html
 kf.html
 151	数据开放-连云区
 人民政府	江苏省连云港市连云港
-区	县区级	http://www.lyg.gov.cn/data/
+区	县区级	http://www.lyg.gov.cn/data/
+
 152	数据洪泽-淮安市
 洪泽区人民政府	江苏省淮安
 市洪泽区	县区级	http://www.hongze.gov.cn/col/910_856123/
@@ -4269,7 +4365,8 @@ dex.html
 ndex.html
 156	盐城公共数据开
 放平台	江苏省盐城
-市	地市级	https://www.yancheng.gov.cn/opendata
+市	地市级	https://www.yancheng.gov.cn/opendata
+
 157	数据亭湖-盐城市
 亭湖区人民政府	江苏省盐城
 市亭湖区	县区级	http://www.tinghu.gov.cn/col/col12212/ind
@@ -4318,16 +4415,20 @@ data.shtml
 /sjfb.shtml
 168	数据开放-泰州市
 海陵区人民政府	江苏省泰州
-市海陵区	县区级	http://www.taizhou.gov.cn/opendata/
+市海陵区	县区级	http://www.taizhou.gov.cn/opendata/
+
 169	数据开放-高港区
 人民政府	江苏省泰州
-市高港区	县区级	http://www.taizhou.gov.cn/opendata/
+市高港区	县区级	http://www.taizhou.gov.cn/opendata/
+
 170	数据开放-姜堰区
 人民政府	江苏省泰州
-市姜堰区	县区级	http://www.taizhou.gov.cn/opendata/
+市姜堰区	县区级	http://www.taizhou.gov.cn/opendata/
+
 171	数据开放-兴化市
 人民政府	江苏省泰州
-市兴化区	县区级	http://www.taizhou.gov.cn/opendata/
+市兴化区	县区级	http://www.taizhou.gov.cn/opendata/
+
 172	数据发布-靖江市
 人民政府	江苏省泰州
 市靖江区	县区级	http://www.jingjiang.gov.cn/col/col62658/i
@@ -4335,17 +4436,21 @@ ndex.html
 173	统计数据-泰兴市
 人民政府
 江苏省泰州
-市泰兴区	县区级	http://www.taixing.gov.cn
+市泰兴区	县区级	http://www.taixing.gov.cn
+
 174	宿迁市公共数据
 开放平台	江苏省宿迁
-市	地市级	http://data.suqian.gov.cn/sjkfpt.shtml
+市	地市级	http://data.suqian.gov.cn/sjkfpt.shtml
+
 175	宿城区人民政府-
 数据开放	江苏省宿迁
-市宿城区	县区级	http://www.sqsc.gov.cn/scq/sjkf/sjfb.shtml
+市宿城区	县区级	http://www.sqsc.gov.cn/scq/sjkf/sjfb.shtml
+
 176	宿豫区人民政府-
 数据发布	江苏省宿迁
 市宿豫区	县区级	http://www.suyu.gov.cn/suyu/sjfb/zfsj.shtm
-l
+l
+
 177	统计数据-沭阳县
 人民政府	江苏省宿迁
 市沐阳县	县区级	http://www.shuyang.gov.cn/shuyang/sjkf/sj
@@ -4378,7 +4483,8 @@ ex.do
 ex.do
 185	湖州市数据开放
 平台	浙江省湖州
-市	地市级	http://data.huz.zjzwfw.gov.cn/home
+市	地市级	http://data.huz.zjzwfw.gov.cn/home
+
 186	绍兴市公共数据
 开放平台	浙江省绍兴
 市	地市级	https://data.sx.gov.cn/kf/home
@@ -4386,16 +4492,19 @@ ex.do
 平台	浙江省金华
 市	地市级	http://data.jh.zjzwfw.gov.cn/jdop_front/ind
 ex.do
-188	衢州市数据开放	浙江省衢州	地市级	http://data.qz.zjzwfw.gov.cn/jdop_front/ind
+188	衢州市数据开放	浙江省衢州	地市级	http://data.qz.zjzwfw.gov.cn/jdop_front/ind
+
  
 
 	平台	市		ex.do
 189	舟ft市·公共数据
 开放平台	浙江省舟ft
-市	地市级	http://data.zs.zjzwfw.gov.cn/#/IndexPage
+市	地市级	http://data.zs.zjzwfw.gov.cn/#/IndexPage
+
 190	台州市数据开放
 平台	浙江省台州
-市	地市级	http://data.taz.zjzwfw.gov.cn/tz/home
+市	地市级	http://data.taz.zjzwfw.gov.cn/tz/home
+
 191	丽水市公共数据
 开放平台	浙江省丽水
 市	地市级	http://data.ls.zjzwfw.gov.cn/jdop_front/inde
@@ -4411,25 +4520,32 @@ do
 194	数据开放-嵊州市
 人民政府
 浙江省绍兴
-市嵊州市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+市嵊州市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+
 195	数据开放-婺城区
 人民政府	浙江省金华
-市婺城区	县区级	http://data.zj.gov.cn/jdop_front/index.do
+市婺城区	县区级	http://data.zj.gov.cn/jdop_front/index.do
+
 196	数据开放-武义县
 人民政府	浙江省金华
-市武义县	县区级	http://data.zj.gov.cn/jdop_front/index.do
+市武义县	县区级	http://data.zj.gov.cn/jdop_front/index.do
+
 197	数据开放-兰溪市
 人民政府	浙江省金华
-市兰溪县	县区级	http://data.zj.gov.cn/jdop_front/index.do
+市兰溪县	县区级	http://data.zj.gov.cn/jdop_front/index.do
+
 198	数据开放-义乌市
 人民政府	浙江省金华
-市义乌市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+市义乌市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+
 199	数据开放-东阳市
 人民政府	浙江省金华
-市东阳市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+市东阳市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+
 200	数据开放-永康市
 人民政府	浙江省金华
-市永康市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+市永康市	县区级	http://data.zj.gov.cn/jdop_front/index.do
+
 201	普陀区人民政府-
 统计数据	浙江省舟ft
 市普陀区	县区级	http://www.putuo.gov.cn/col/col1423461/in
@@ -4446,83 +4562,105 @@ dex.html
 开放服务平台	安徽省芜湖
 市	地市级	https://data.wuhu.cn/
 205	安徽省人民政府-
-政府数据	安徽省	省级	https://www.ah.gov.cn/zfsj/index.html
+政府数据	安徽省	省级	https://www.ah.gov.cn/zfsj/index.html
+
 206	合肥市庐阳区人
 民政府-数据庐阳	安徽省合肥
 市庐阳区	县区级	http://www.ahhfly.gov.cn/sjfb/tjtb/index.ht
 ml
 207	蜀ft区人民政府-
 数据发布	安徽省合肥
-市蜀ft区	县区级	http://www.hfss.gov.cn/sjfb/index.html
+市蜀ft区	县区级	http://www.hfss.gov.cn/sjfb/index.html
+
 208	肥东县人民政府-
 数说肥东	安徽省合肥
-市肥东区	县区级	http://www.feidong.gov.cn/ssfd/index.html
+市肥东区	县区级	http://www.feidong.gov.cn/ssfd/index.html
+
 209	蚌埠市信息资源
 开放平台	安徽省蚌埠
-市	地市级	http://www.bengbu.gov.cn/sjkf/index.html
+市	地市级	http://www.bengbu.gov.cn/sjkf/index.html
+
  
 
 210	固镇县人民政府-
 数据发布	安徽省蚌埠
-市固始县	县区级	https://www.guzhen.gov.cn/sjtj/index.html
+市固始县	县区级	https://www.guzhen.gov.cn/sjtj/index.html
+
 211	淮南市人民政府-
 数说淮南	安徽省淮南
 市	地市级	https://www.huainan.gov.cn/sshn/sjfb/index
 .html
 212	马鞍ft市人民政
 府-数据开放	安徽省马鞍
-ft市	地市级	http://www.mas.gov.cn/site/tpl/72
+ft市	地市级	http://www.mas.gov.cn/site/tpl/72
+
 213	马鞍ft市花ft区
-恶魔政府-数据开放	安徽省马鞍 ft市花ft区	县区级	https://www.mashsq.gov.cn/sjkf/index.html
+恶魔政府-数据开放	安徽省马鞍 ft市花ft区	县区级	https://www.mashsq.gov.cn/sjkf/index.html
+
 214	雨ft区人民政府-
 数据发布	安徽省马鞍
-ft市雨ft区	县区级	http://www.masys.gov.cn/sjtb/index.html
+ft市雨ft区	县区级	http://www.masys.gov.cn/sjtb/index.html
+
 215	当涂县人民政府-
 数据发布
 安徽省马鞍
-ft市当涂县	县区级	http://www.dangtu.gov.cn/sj/index.html
+ft市当涂县	县区级	http://www.dangtu.gov.cn/sj/index.html
+
 216	淮北市数据开放
 平台	安徽省马淮
 北市	地市级	http://open.huaibeidata.cn:1123/#/index
 217	杜集区人民政府-
 数据开放	安徽省马淮
-北市杜集区	县区级	http://www.hbdj.gov.cn/sjfb/index.html
+北市杜集区	县区级	http://www.hbdj.gov.cn/sjfb/index.html
+
 218	相ft区人民政府-
 数据开放	安徽省马淮
-北市相ft区	县区级	http://www.hbxs.gov.cn/sjfb/index.html
+北市相ft区	县区级	http://www.hbxs.gov.cn/sjfb/index.html
+
 219	烈ft区人民政府-
 数据发布	安徽省马淮
-北市烈ft区	县区级	http://www.lieshan.gov.cn/sjfb/index.html
+北市烈ft区	县区级	http://www.lieshan.gov.cn/sjfb/index.html
+
 220	濉溪县人民政府-
 数据开放	安徽省马淮
-北市濉溪县	县区级	http://www.sxx.gov.cn/sjfb/index.html
+北市濉溪县	县区级	http://www.sxx.gov.cn/sjfb/index.html
+
 221	铜陵市人民政府-
 数据开放栏目	安徽省铜陵
-市	地市级	https://www.tl.gov.cn/sjtl/sjkf/
+市	地市级	https://www.tl.gov.cn/sjtl/sjkf/
+
 222	铜陵市铜官区人民政府-数据铜官
 栏目	安徽省铜陵
-市铜官ft区	县区级	http://www.tltg.gov.cn/sjtg/
+市铜官ft区	县区级	http://www.tltg.gov.cn/sjtg/
+
 223	铜陵市郊区人民
 政府-政府数据栏目	安徽省铜陵
-市郊区	县区级	http://www.tljq.gov.cn/ssjq/
+市郊区	县区级	http://www.tljq.gov.cn/ssjq/
+
 224	安庆市人民政府-
 数据开放栏目	安徽省安庆
-市	地市级	http://www.anqing.gov.cn/tjsj/index.html
+市	地市级	http://www.anqing.gov.cn/tjsj/index.html
+
 225	怀宁县人民政府-
 数据发布栏目	安徽省安庆
-市怀宁县	县区级	http://www.ahhn.gov.cn/sjfb/index.html
+市怀宁县	县区级	http://www.ahhn.gov.cn/sjfb/index.html
+
 226	枞阳县人民政府-
 数据枞阳栏目	安徽省安庆
-市枞阳县	县区级	http://www.zongyang.gov.cn/sjzy/
+市枞阳县	县区级	http://www.zongyang.gov.cn/sjzy/
+
 227	潜ft市人民政府-
 数据发布栏目	安徽省安庆
-市潜ft县	县区级	https://www.qss.gov.cn/sjfb/index.html
+市潜ft县	县区级	https://www.qss.gov.cn/sjfb/index.html
+
 228	太湖县人民政府-
 数据发布栏目	安徽省安庆
-市太湖县	县区级	http://www.thx.gov.cn/sjfb/index.html
+市太湖县	县区级	http://www.thx.gov.cn/sjfb/index.html
+
 229	宿松县人民政府-
 数据发布栏目	安徽省安庆
-市宿松县	县区级	http://www.susong.gov.cn/sjfb/index.html
+市宿松县	县区级	http://www.susong.gov.cn/sjfb/index.html
+
  
 
 230	望江县人民政府-
@@ -4539,38 +4677,48 @@ ml
 x.html
 233	黄ft市屯溪区人民政府-数据发布
 栏目	安徽省黄ft
-市屯溪区	县区级	http://www.ahtxq.gov.cn/sjfb/index.html
+市屯溪区	县区级	http://www.ahtxq.gov.cn/sjfb/index.html
+
 234	黄ft市黄ft区人民政府-数据发布
 栏目	安徽省黄ft
-市黄ft区	县区级	http://www.hsq.gov.cn/sjfb/index.html
+市黄ft区	县区级	http://www.hsq.gov.cn/sjfb/index.html
+
 235	黄ft市徽州区人民政府-数据发布
 栏目	安徽省黄ft
-市徽州区	县区级	http://www.ahhz.gov.cn/sjfb/index.html
+市徽州区	县区级	http://www.ahhz.gov.cn/sjfb/index.html
+
 236	歙县人民政府-数
 据发布栏目	安徽省黄ft
-市歙县	县区级	http://www.ahshx.gov.cn/sjfb/index.html
+市歙县	县区级	http://www.ahshx.gov.cn/sjfb/index.html
+
 237	休宁县人民政府-
 数据发布栏目	安徽省黄ft
-市休宁县	县区级	http://www.xiuning.gov.cn/sjfb/index.html
+市休宁县	县区级	http://www.xiuning.gov.cn/sjfb/index.html
+
 238	黔县人民政府-数
 据发布栏目	安徽省黄ft
-市黔县	县区级	http://www.yixian.gov.cn/sjfb/index.html
+市黔县	县区级	http://www.yixian.gov.cn/sjfb/index.html
+
 239	祁门县人民政府-
 数据发布栏目	安徽省黄ft
-市祁门县	县区级	http://www.ahqimen.gov.cn/sjfb/index.html
+市祁门县	县区级	http://www.ahqimen.gov.cn/sjfb/index.html
+
 240	滁州市人民政府-
 数据发布栏目	安徽省滁州
 市	地市级	https://www.chuzhou.gov.cn/xxgk/sjfb/inde
 x.html
 241	滁州市琅琊区人民政府-数据发布
 栏目	安徽省滁州
-市琅琊区	县区级	https://www.lyq.gov.cn/ssly/index.html
+市琅琊区	县区级	https://www.lyq.gov.cn/ssly/index.html
+
 242	滁州市南谯区人民政府-数据发布
 栏目	安徽省滁州
-市南谯区	县区级	http://www.cznq.gov.cn/gkxx/sjfb/index.ht ml
+市南谯区	县区级	http://www.cznq.gov.cn/gkxx/sjfb/index.ht ml
+
 243	来安县人民政府-
 数据发布栏目	安徽省滁州
-市来安县	县区级	https://www.laian.gov.cn/sjfb/index.html
+市来安县	县区级	https://www.laian.gov.cn/sjfb/index.html
+
 244	全椒县人民政府-
 数据发布栏目	安徽省滁州
 市全椒县	县区级	https://www.quanjiao.gov.cn/gkxx/sjfb/inde
@@ -4599,20 +4747,25 @@ ml
 ?subject=
 250	阜阳市公共数据
 开放平台	安徽省阜阳
-市	地市级	http://www.fy.gov.cn/openData/
+市	地市级	http://www.fy.gov.cn/openData/
+
 251	巢湖市人民政府-
 数据巢湖栏目	安徽省巢湖
-市	地市级	http://www.chaohu.gov.cn/sjch/index.html
+市	地市级	http://www.chaohu.gov.cn/sjch/index.html
+
 252	六安市公共数据
 开放网	安徽省六安
-市	地市级	http://data.luan.gov.cn/
+市	地市级	http://data.luan.gov.cn/
+
 253	裕安区数据开放
 平台	安徽省六安
-市裕安区	县区级	http://www.yuan.gov.cn/sjkf/index.html
+市裕安区	县区级	http://www.yuan.gov.cn/sjkf/index.html
+
 254	舒城县人民政府-
 政府数据栏目	安徽省六安
 市舒城县	县区级	http://www.shucheng.gov.cn/zfsj/index.htm
-l
+l
+
 255	宣城市人民政府
 数据开放网
 安徽省宣城
@@ -4620,31 +4773,40 @@ l
 web/index/index.do
 256	阜阳市颍州区人民政府-政府数据
 栏目	安徽省阜阳
-市颍州区	县区级	http://www.yingzhou.gov.cn/data/
+市颍州区	县区级	http://www.yingzhou.gov.cn/data/
+
 257	阜阳市颍东区人
 民政府数据发布	安徽省阜阳
-市颍东区	县区级	http://www.yd.gov.cn/dataRelease/
+市颍东区	县区级	http://www.yd.gov.cn/dataRelease/
+
 258	阜阳市颍泉区人
 民政府数据发布	安徽省阜阳
-市颍泉区	县区级	http://www.yingquan.gov.cn/dataRelease/
+市颍泉区	县区级	http://www.yingquan.gov.cn/dataRelease/
+
 259	临泉县人民政府-
 数据发布栏目	安徽省阜阳
-市临泉区	县区级	http://www.linquan.gov.cn/datanew/
+市临泉区	县区级	http://www.linquan.gov.cn/datanew/
+
 260	太和县人民政府-
 数据发布栏目	安徽省阜阳
-市太和县	县区级	http://www.taihe.gov.cn/data/
+市太和县	县区级	http://www.taihe.gov.cn/data/
+
 261	阜南县人民政府-
 政府数据栏目	安徽省阜阳
-市阜南县	县区级	http://www.funan.gov.cn/data/
+市阜南县	县区级	http://www.funan.gov.cn/data/
+
 262	颍上县人民政府-
 数据发布栏目	安徽省阜阳
-市颍上县	县区级	http://www.ahys.gov.cn/data/
+市颍上县	县区级	http://www.ahys.gov.cn/data/
+
 263	界首市人民政府-
 政府数据栏目	安徽省阜阳
-市界首市	县区级	http://www.ahjs.gov.cn/data/
+市界首市	县区级	http://www.ahjs.gov.cn/data/
+
 264	宿州市人民政府-
 政府数据栏目	安徽省宿州
-市	地市级	http://www.ahsz.gov.cn/sjfb/index.html
+市	地市级	http://www.ahsz.gov.cn/sjfb/index.html
+
 265	宿州市埇桥区人
 民政府数据发布	安徽省宿州
 市埇桥区	县区级	http://www.szyq.gov.cn/sjfb/zxfb/index.ht
@@ -4652,13 +4814,16 @@ ml
 266	宿州市砀ft县人
 民政府数据发布	安徽省宿州
 市砀ft县	县区级	http://www.dangshan.gov.cn/sjfb/index.htm
-l
+l
+
 267	宿州市萧县人民
 政府数据发布	安徽省宿州
-市萧县	县区级	http://www.ahxx.gov.cn/sjfb/index.html
+市萧县	县区级	http://www.ahxx.gov.cn/sjfb/index.html
+
 268	宿州市灵璧县人
 民政府数据发布	安徽省宿州
-市灵璧县	县区级	http://www.lingbi.gov.cn/sjfb/index.html
+市灵璧县	县区级	http://www.lingbi.gov.cn/sjfb/index.html
+
 269	宿州市泗县人民
 政府数据发布	安徽省宿州
 泗县	县区级	http://www.sixian.gov.cn/sjkf/jdu/index.ht
@@ -4671,61 +4836,77 @@ ml
 web/index/index.do
 271	亳州市谯城区人
 民政府数据发布	安徽省亳州
-市谯城区	县区级	http://www.bzqc.gov.cn/DataRelease/
+市谯城区	县区级	http://www.bzqc.gov.cn/DataRelease/
+
 272	数据发布-涡阳县
 人民政府	安徽省毫州
-市涡阳县	县区级	http://www.gy.gov.cn/DataRelease/
+市涡阳县	县区级	http://www.gy.gov.cn/DataRelease/
+
 273	亳州市蒙城县人
 民政府数据发布	安徽省亳州
 市蒙城县	县区级	http://www.mengcheng.gov.cn/DataRelease
 /
 274	池州市人民政府-
 数据开放栏目	安徽省池州
-市	地市级	http://www.chizhou.gov.cn/OpenData/
+市	地市级	http://www.chizhou.gov.cn/OpenData/
+
 275	池州市东至县人
 民政府数据发布	安徽省池州
-市东至县	县区级	http://www.dongzhi.gov.cn/DataPublish/
+市东至县	县区级	http://www.dongzhi.gov.cn/DataPublish/
+
 276	宣城市宣州区人民政府-数据发布
-栏目	安徽省宣城市宣州区	县区级	http://www.xuanzhou.gov.cn/DataRelease/
+栏目	安徽省宣城市宣州区	县区级	http://www.xuanzhou.gov.cn/DataRelease/
+
 277	宣城市郎溪县人民政府数据开放
-网	安徽省宣城市郎溪县	县区级	http://www.ahlx.gov.cn/DataRelease/
+网	安徽省宣城市郎溪县	县区级	http://www.ahlx.gov.cn/DataRelease/
+
 278	宣城市旌德县人民政府数据开放
 栏	安徽省宣城市旌德县	县区级	http://www.ahjd.gov.cn/News/showList/70 60/page_1.html
 279	宁国市人民政府-
 数据宁国栏目	安徽省宁国
-市	县区级	http://www.ningguo.gov.cn/DataRelease/
+市	县区级	http://www.ningguo.gov.cn/DataRelease/
+
 280	福建省公共信息资源统一开放平
 台	福建省	省级	https://data.fujian.gov.cn/odweb/
 281	福州市政务数据
 开放平台	福建省福州
-市	地市级	http://data.fuzhou.gov.cn/#/home
+市	地市级	http://data.fuzhou.gov.cn/#/home
+
 282	厦门市大数据开
 放平台	福建省厦门
-市	副省级	http://data.xm.gov.cn/
+市	副省级	http://data.xm.gov.cn/
+
 283	赣州市政府数据
 开放平台	江西省赣州
-市	地市级	http://zwkf.ganzhou.gov.cn/Index.shtml
+市	地市级	http://zwkf.ganzhou.gov.cn/Index.shtml
+
 284	江西省政府数据
-开放网站	江西省	省级	http://data.jiangxi.gov.cn/
+开放网站	江西省	省级	http://data.jiangxi.gov.cn/
+
 285	景德镇市人民政
 府-数据开放栏目	江西省景德
-镇市	地市级	http://www.jdz.gov.cn/sjkf/
+镇市	地市级	http://www.jdz.gov.cn/sjkf/
+
 286	萍乡市数据开放
 平台网络	江西省萍乡
-市	地市级	http://data.pingxiang.gov.cn/
+市	地市级	http://data.pingxiang.gov.cn/
+
 287	政府数据开放平
 台（鹰潭市）	江西省鹰潭
 市	地市级	http://111.72.252.186:10005/opendata/web/
 index/index.jsp
 288	开放抚州门户	江西省抚州
-市	地市级	http://data.jxfz.gov.cn/
-289	南昌市人民政府	江西省南昌	地市级	http://www.nc.gov.cn/ncszf/sjkfn/2021_sjkf
+市	地市级	http://data.jxfz.gov.cn/
+
+289	南昌市人民政府	江西省南昌	地市级	http://www.nc.gov.cn/ncszf/sjkfn/2021_sjkf
+
  
 
 	数据开放栏	市		.shtml
 290	南昌市东湖区人民政府-数据开放
 栏目	江西省南昌
-市东湖区	县区级	http://dhq.nc.gov.cn/dhqrmzf/sjkf/sjfb.shtm l
+市东湖区	县区级	http://dhq.nc.gov.cn/dhqrmzf/sjkf/sjfb.shtm l
+
 291	青云谱区人民政
 府-数据开放栏目	江西省南昌
 市青云谱区	县区级	http://qyp.nc.gov.cn/qypqrmzf/sjkf/sjkf.sht
@@ -4736,23 +4917,28 @@ ml
 tml
 293	新建区人民政府-
 数据开放栏目	江西省南昌
-市新建县	县区级	http://xjq.nc.gov.cn/xjqrmzf/sjkf/sjkf.shtml
+市新建县	县区级	http://xjq.nc.gov.cn/xjqrmzf/sjkf/sjkf.shtml
+
 294	珠ft区人民政府
 数据开放栏	江西省景德
-镇市珠ft区	县区级	http://www.jdzzsq.gov.cn/sjkf/tjsj/
+镇市珠ft区	县区级	http://www.jdzzsq.gov.cn/sjkf/tjsj/
+
 295	九江市人民政府
 数据开放栏
 江西省九江
-市	地市级	https://www.jiujiang.gov.cn/sjkf/
+市	地市级	https://www.jiujiang.gov.cn/sjkf/
+
 296	庐ft市人民政府-
 政府数据栏目	江西省九江
-市庐ft区	县区级	https://www.lushan.gov.cn/zfsj_194904/
+市庐ft区	县区级	https://www.lushan.gov.cn/zfsj_194904/
+
 297	新余市数据开放
 平台网站	江西省新余
 市	地市级	http://data.xinyu.gov.cn:81/
 298	新余市分宜县人
 民政府查数据栏	江西省新余
-市分宜县	县区级	http://www.fenyi.gov.cn/fenyi/csj/csj.shtml
+市分宜县	县区级	http://www.fenyi.gov.cn/fenyi/csj/csj.shtml
+
 299	贵溪市人民政府
 数据开放栏	江西省鹰潭
 市贵溪市	县区级	http://www.guixi.gov.cn/col/col6257/index.
@@ -4771,67 +4957,84 @@ spjsgckv.html
 al/pages/default/index.html
 303	袁州区人民政府-
 数据共享栏	江西省宜春
-市袁州区	县区级	http://www.yzq.gov.cn/news-list-sjgx.html
+市袁州区	县区级	http://www.yzq.gov.cn/news-list-sjgx.html
+
 304	高安市人民政府
 数据开放栏	江西省宜春
 市高安市	县区级	http://www.gaoan.gov.cn/sjkf/dataOpen.ht
 ml
 305	临川区人民政府
 数据开放栏	江西省抚州
-市临川区	县区级	http://www.jxlc.gov.cn/
+市临川区	县区级	http://www.jxlc.gov.cn/
+
 306	东乡区人民政府
 数据开放栏	江西省抚州
-市东乡县	县区级	http://www.jxfzdx.gov.cn/
+市东乡县	县区级	http://www.jxfzdx.gov.cn/
+
 307	南城县人民政府
 数据开放栏	江西省抚州
-市南城县	县区级	http://www.jxnc.gov.cn/
+市南城县	县区级	http://www.jxnc.gov.cn/
+
 308	南丰县人民政府
 数据开放栏	江西省抚州
-市南丰县	县区级	http://www.jxnf.gov.cn/
+市南丰县	县区级	http://www.jxnf.gov.cn/
+
 309	崇仁县人民政府
 数据开放栏	江西省抚州
-市崇仁县	县区级	http://www.jxcr.gov.cn/
-310	乐安县人民政府	江西省抚州	县区级	http://www.jxlean.gov.cn/
+市崇仁县	县区级	http://www.jxcr.gov.cn/
+
+310	乐安县人民政府	江西省抚州	县区级	http://www.jxlean.gov.cn/
+
  
 
 	数据开放栏	市乐安县		
 311	金溪县人民政府
 数据开放栏	江西省抚州
-市金溪县	县区级	http://www.jinxi.gov.cn/
+市金溪县	县区级	http://www.jinxi.gov.cn/
+
 312	资溪县人民政府
 数据开放栏	江西省抚州
-市资溪县	县区级	http://www.zixi.gov.cn/
+市资溪县	县区级	http://www.zixi.gov.cn/
+
 313	广昌县人民政府
 数据开放栏	江西省抚州
-市广昌县	县区级	http://www.jxgc.gov.cn/
+市广昌县	县区级	http://www.jxgc.gov.cn/
+
 314	上饶市政府数据
 开放网站	江西省上饶
 市	地市级	http://data.zgsr.gov.cn:2003
 315	ft东公共数据开
-放网	ft东省	省级	http://data.sd.gov.cn/
+放网	ft东省	省级	http://data.sd.gov.cn/
+
 316	济南市公共数据
 开放网
 ft东省济南
-市	副省级	http://data.jinan.gov.cn/
+市	副省级	http://data.jinan.gov.cn/
+
 317	青岛市公共数据
 开放网	ft东省青岛
-市	副省级	http://data.qingdao.gov.cn/
+市	副省级	http://data.qingdao.gov.cn/
+
 318	淄博公共数据开
 放网	ft东省淄博
-市	地市级	http://data.zibo.gov.cn/
+市	地市级	http://data.zibo.gov.cn/
+
 319	高青县人民政府-
 数据查询栏目	ft东省淄博
 市高青县	县区级	http://www.gaoqing.gov.cn/col/col4575/ind
 ex.html
 320	枣庄市公共数据
 开放网	ft东省枣庄
-市	地市级	http://zzdata.sd.gov.cn/
+市	地市级	http://zzdata.sd.gov.cn/
+
 321	东营市公共数据
 开放网	ft东省东营
-市	地市级	http://data.dongying.gov.cn/
+市	地市级	http://data.dongying.gov.cn/
+
 322	广饶县人民政府-
 数据开放栏目	ft东省东营
-市广饶县	县区级	http://www.guangrao.gov.cn/
+市广饶县	县区级	http://www.guangrao.gov.cn/
+
 323	烟台公共数据开
 放网	ft东省烟台
 市	地市级	http://data.yantai.gov.cn/yantai/index?siteC
@@ -4850,45 +5053,55 @@ dex.html
 dex.html
 327	招远市人民政府-
 数据查询栏目	ft东省烟台
-市招远市	县区级	http://www.zhaoyuan.gov.cn/
+市招远市	县区级	http://www.zhaoyuan.gov.cn/
+
 328	海阳市人民政府-
 数据开放栏目	ft东省烟台
 市海阳市	县区级	http://www.haiyang.gov.cn/col/col13999/in
 dex.html
 329	潍坊公共数据开
 放网	ft东省潍坊
-市	地市级	http://wfdata.sd.gov.cn/
+市	地市级	http://wfdata.sd.gov.cn/
+
 330	济宁公共数据开
 放网	ft东省济宁
 市	地市级	http://jindata.sd.gov.cn/jining/index?siteCo
 de=3708
 331	泰安市公共数据
 开放网	ft东省泰安
-市	地市级	http://tadata.sd.gov.cn/
+市	地市级	http://tadata.sd.gov.cn/
+
  
 
 332	威海市公共数据
 开放网	ft东省威海
-市	地市级	http://data.weihai.cn/
+市	地市级	http://data.weihai.cn/
+
 333	日照市公共数据
 开放网	ft东省日照
-市	地市级	http://rzdata.sd.gov.cn/
+市	地市级	http://rzdata.sd.gov.cn/
+
 334	临沂市公共数据
 开放网	ft东省临沂
-市	地市级	http://lydata.sd.gov.cn/
+市	地市级	http://lydata.sd.gov.cn/
+
 335	德州市公共数据
 开放网	ft东省德州
-市	地市级	http://dzdata.sd.gov.cn/
+市	地市级	http://dzdata.sd.gov.cn/
+
 336	聊城公共数据开
 放网	ft东省聊城
-市	地市级	http://lcdata.sd.gov.cn/
+市	地市级	http://lcdata.sd.gov.cn/
+
 337	滨州公共数据开
 放网	ft东省滨州
-市	地市级	http://bzdata.sd.gov.cn/
+市	地市级	http://bzdata.sd.gov.cn/
+
 338	菏泽公共数据开
 放网
 ft东省菏泽
-市	地市级	http://hzdata.sd.gov.cn/
+市	地市级	http://hzdata.sd.gov.cn/
+
 339	济南市长清区人民政府数据开放
 栏	ft东省济南市长清区	县区级	http://www.jncq.gov.cn/col/col22548/index
 .html
@@ -4898,7 +5111,8 @@ ft东省菏泽
 html
 341	胶州政务网-数据
 开放栏	ft东省青岛
-市胶州市	县区级	http://www.jiaozhou.gov.cn/
+市胶州市	县区级	http://www.jiaozhou.gov.cn/
+
 342	淄川区人民政府-
 数据开放栏	ft东省淄博
 市淄川区	县区级	http://www.zichuan.gov.cn/col/col4623/ind
@@ -4921,25 +5135,29 @@ html
 ex.html
 347	桓台县人民政府-
 数据开放栏	ft东省淄博
-市恒台区	县区级	http://www.huantai.gov.cn/
+市恒台区	县区级	http://www.huantai.gov.cn/
+
 348	沂源县人民政府-
 数据查询栏	ft东省淄博
 市沂源县	县区级	http://www.yiyuan.gov.cn/col/col5598/inde
 x.html
 349	东营区人民政府-
 数据开放栏	ft东省东营
-市东营区	县区级	http://www.dyq.gov.cn/
+市东营区	县区级	http://www.dyq.gov.cn/
+
 350	河口区人民政府-
 数据开放栏	ft东省东营
 市河口区	县区级	www.hekou.gov.cn/col/col37073/index.htm
-l
+l
+
 351	利津县人民政府-
 数据开放栏	ft东省东营
 市利津县	县区级	http://www.lijin.gov.cn/col/col37301/index.
 html
 352	芝罘区人民政府
 数据开放栏	ft东省烟台
-市芝罘区	县区级	http://www.zhifu.gov.cn/
+市芝罘区	县区级	http://www.zhifu.gov.cn/
+
  
 
 353	牟平区人民政府
@@ -4960,10 +5178,12 @@ ndex.html
 G/
 357	奎文区人民政府-
 奎文数据栏	ft东省潍坊
-市奎文区	县区级	http://www.kuiwen.gov.cn/kwsj/
+市奎文区	县区级	http://www.kuiwen.gov.cn/kwsj/
+
 358	安丘市人民政府-
 数据栏	ft东省潍坊
-市安丘区	县区级	http://www.anqiu.gov.cn/sj/
+市安丘区	县区级	http://www.anqiu.gov.cn/sj/
+
 359	微ft县人民政府
 数据开放栏
 ft东省济宁
@@ -4995,28 +5215,34 @@ ex.html
 html
 366	莒南县人民政府-
 数据	ft东省日照
-市莒县	县区级	http://www.junan.gov.cn/sj.htm
+市莒县	县区级	http://www.junan.gov.cn/sj.htm
+
 367	河南省公共数据
-开放平台	河南省	省级	http://data.hnzwfw.gov.cn/odweb/
+开放平台	河南省	省级	http://data.hnzwfw.gov.cn/odweb/
+
 368	漯河市政务数据
 开放门户	河南省漯河
 市	地市级	http://www.lhzwfw.gov.cn/extranet/openpo
 rtal/pages/default/index.html
 369	洛阳市人民政府官网-数据洛阳栏
 目	河南省洛阳
-市	地市级	http://www.ly.gov.cn/html/1//2/64/index.ht ml
+市	地市级	http://www.ly.gov.cn/html/1//2/64/index.ht ml
+
 370	商丘市人民政府-
 数据栏目	河南省商丘
-市	地市级	http://www.shangqiu.gov.cn/sj
+市	地市级	http://www.shangqiu.gov.cn/sj
+
 371	武汉市公共数据
 开放平台	湖北省武汉
 市	副省级	https://data.wuhan.gov.cn
 372	十堰市人民政府
 门户网站	湖北省十堰
-市	地市级	http://opendata.shiyan.gov.cn/
+市	地市级	http://opendata.shiyan.gov.cn/
+
 373	宜昌市公共数据
 开放平台	湖北省宜昌
-市	地市级	http://data.yichang.gov.cn/kf/home
+市	地市级	http://data.yichang.gov.cn/kf/home
+
  
 
 374	中国襄阳政府数
@@ -5025,21 +5251,27 @@ rtal/pages/default/index.html
 index
 375	孝感市门户网站-
 数据开放栏目	湖北省孝感
-市	地市级	http://www.xiaogan.gov.cn/themeList.jspx
+市	地市级	http://www.xiaogan.gov.cn/themeList.jspx
+
 376	随州市公共数据
 开放平台	湖北省随州
-市	地市级	http://www.suizhou.gov.cn/data/
+市	地市级	http://www.suizhou.gov.cn/data/
+
 377	恩施州公共数据开放平台	湖北省恩施土家族苗族
-自治州	地市级	http://www.enshi.gov.cn/data/
+自治州	地市级	http://www.enshi.gov.cn/data/
+
 378	荆门市数据公开	湖北省荆门
-市	地市级	http://data.jingmen.gov.cn
+市	地市级	http://data.jingmen.gov.cn
+
 379	鄂州市人民政府-
 政务信息公开
 湖北省鄂州
-市	地市级	http://www.ezhou.gov.cn/gk/zdlyxxgk/sjfb/
+市	地市级	http://www.ezhou.gov.cn/gk/zdlyxxgk/sjfb/
+
 380	荆州市人民政府-
 数据栏目	湖北省荆州
-市	地市级	http://www.jingzhou.gov.cn/zfwsj/sjjz/jy/
+市	地市级	http://www.jingzhou.gov.cn/zfwsj/sjjz/jy/
+
 381	黄冈市人民政府-
 数据开放栏目	湖北省黄冈
 市	地市级	http://www.hg.gov.cn/col/col7161/index.ht
@@ -5049,7 +5281,8 @@ ml
 web/main.do
 383	常德市人民政府
 政务数据栏目	湖南省常德
-市	地市级	http://dataopen.changde.gov.cn/
+市	地市级	http://dataopen.changde.gov.cn/
+
 384	益阳市人民政府-
 政府数据栏目	湖南省益阳
 市	地市级	http://www.yiyang.gov.cn/webapp/yiyang2
@@ -5059,7 +5292,8 @@ web/main.do
 lic/index.jsp
 386	永州市数据开放
 平台	湖南省永州
-市	地市级	http://www.yzcity.gov.cn/u/sjfb/cnyz/index
+市	地市级	http://www.yzcity.gov.cn/u/sjfb/cnyz/index
+
 387	娄底市政务数据
 资源开放平台	湖南省娄底
 市	地市级	http://183.215.22.238:51182/dataopen/
@@ -5074,7 +5308,8 @@ tml
 390	湘潭市人民政府
 网站-政府数据栏
 目	湖南省湘潭
-市	地市级	http://www.xiangtan.gov.cn/1029/index.ht m
+市	地市级	http://www.xiangtan.gov.cn/1029/index.ht m
+
 391	衡阳市人民政府
 网站-数据栏目	湖南省衡阳
 市	地市级	https://www.hengyang.gov.cn/sjfb/tjkx/inde
@@ -5084,23 +5319,27 @@ x.html
 目	湖南省邵阳
 市	地市级	https://www.shaoyang.gov.cn/shaoyang/zfsj
 /xsjfb.shtml
-393	岳阳市人民政府	湖南省岳阳	地市级	http://www.yueyang.gov.cn/yytj/default.ht
+393	岳阳市人民政府	湖南省岳阳	地市级	http://www.yueyang.gov.cn/yytj/default.ht
+
  
 
 	门户网站-数据栏	市		m
 394	岳阳楼区政府门
 户网站-数据发布栏	湖南省岳阳
-市岳阳楼区	县区级	http://www.yylq.gov.cn/54944/index.htm
+市岳阳楼区	县区级	http://www.yylq.gov.cn/54944/index.htm
+
 395	岳阳市云溪区人民政府网站-数据
 发布栏	湖南省岳阳
-市云溪区	县区级	http://www.yunxiqu.gov.cn
+市云溪区	县区级	http://www.yunxiqu.gov.cn
+
 396	君ft区政府门户
 网-数据发布栏目	湖南省岳阳
 市君ft区	县区级	http://www.junshan.gov.cn/32415/32443/in
 dex.htm
 397	岳阳县政府门户
 网-胡局发布栏目	湖南省岳阳
-市岳阳县	县区级	http://www.yyx.gov.cn/54892/index.htm
+市岳阳县	县区级	http://www.yyx.gov.cn/54892/index.htm
+
 398	华容县人民政府-
 数据栏目
 湖南省岳阳
@@ -5124,7 +5363,8 @@ ult.htm
 efault.htm
 403	张家界市政府门
 户网站-数据栏	湖南省张家
-界市	地市级	http://www.zjj.gov.cn/c10279/index.html
+界市	地市级	http://www.zjj.gov.cn/c10279/index.html
+
 404	安化县人民政府
 网-数据发布栏	湖南省益阳
 市安化县	县区级	http://www.anhua.gov.cn/16/2687/default.h
@@ -5134,17 +5374,20 @@ tm
 市沅江市	县区级	http://www.yuanjiang.gov.cn/21127/index. htm
 406	双牌县人民政-政务公开-数据发布
 栏	湖南省永州
-市双牌县	县区级	http://www.sp.gov.cn/sp/sjfb/sjfb.shtml
+市双牌县	县区级	http://www.sp.gov.cn/sp/sjfb/sjfb.shtml
+
 407	宁远县人民政府-
 数据开放	湖南省永州
-市宁远县	县区级	http://www.nyx.gov.cn/nyx/sjkf/sjkf.shtml
+市宁远县	县区级	http://www.nyx.gov.cn/nyx/sjkf/sjkf.shtml
+
 408	怀化市人民政府门户网站-政府数
 据	湖南省怀化市	地市级	https://www.huaihua.gov.cn/huaihua/c1003 89/data.shtml
 409	沅陵县人民政府
 门户网站-政府数据	湖南省怀化市沅陵县	县区级	http://www.yuanling.gov.cn/yuanling/c108 868/indexGovDate.shtml
 410	溆浦县人民政府
 门户网站-政府数据	湖南省怀化市溆浦县	县区级	http://www.xp.gov.cn/xp/c111051/index_g ovdata.shtml
-411	麻阳苗族自治县	湖南省怀化	县区级	http://www.mayang.gov.cn/mayang/c12382
+411	麻阳苗族自治县	湖南省怀化	县区级	http://www.mayang.gov.cn/mayang/c12382
+
  
 
 	人民政府门户网
@@ -5155,9 +5398,11 @@ tm
 0.shtml
 413	凤凰县政府门户
 网站-政府数据	湖南省湘西土家族苗族自治州凤凰
-县	县区级	http://www.fhzf.gov.cn/zfsj/index.html
+县	县区级	http://www.fhzf.gov.cn/zfsj/index.html
+
 414	“开放广东”政府
-数据统一平台开放平台	广东省	省级	http://gddata.gd.gov.cn
+数据统一平台开放平台	广东省	省级	http://gddata.gd.gov.cn
+
 415	广州市政府数据
 统一开放平台
 广东省广州
@@ -5183,10 +5428,12 @@ m
 市	地市级	https://gddata.gd.gov.cn/opdata/base/collect
 ?deptCode=32&t=1636276453667
 422	开放惠州	广东省惠州
-市	地市级	http://data.huizhou.gov.cn
+市	地市级	http://data.huizhou.gov.cn
+
 423	梅州市政府数据
 开放平台	广东省梅州
-市	地市级	http://data.meizhou.gov.cn
+市	地市级	http://data.meizhou.gov.cn
+
 424	五华县政府数据
 开放平台	广东省梅州
 市五华县	县区级	http://data.wuhua.gov.cn/mzdata/Dataclass/
@@ -5216,7 +5463,8 @@ ml
 市	地市级	http://www.gdqy.gov.cn/gdqy/newxxgk/sjk
 f/index.html
 431	数据东莞	广东省东莞
-市	地市级	http://dataopen.dg.gov.cn/dataopen/
+市	地市级	http://dataopen.dg.gov.cn/dataopen/
+
 432	开放中ft	广东省中ft
 市	地市级	https://zsdata.zs.gov.cn/web/index
 433	开放广东-潮州市	广东省潮州
@@ -5230,7 +5478,8 @@ f/index.html
 ?deptCode=517&t=1636277578059
 436	佛ft市数据开放
 平台	广东省佛ft
-市	地市级	http://ww.foshan-data.cn52
+市	地市级	http://ww.foshan-data.cn52
+
 437	数说.南海	广东省佛ft
 市南海区	县区级	http://data.nanhai.gov.cn/cms/sites/sjzy/ind
 ex.jsp
@@ -5239,29 +5488,37 @@ ex.jsp
 .html
 439	南ft区人民政府-
 数据发布栏	广东省深圳
-市南ft区	县区级	http://www.szns.gov.cn/xxgk/sjfb/
+市南ft区	县区级	http://www.szns.gov.cn/xxgk/sjfb/
+
 440	宝安区人民政府
 门户网站-数据发布栏	广东省深圳市宝安区	县区级	https://opendata.sz.gov.cn/data/dataSet/toD ataSet/dept/28
 441	龙岗政府在线-数
 据发布栏	广东省深圳
-市龙岗区	县区级	http://www.lg.gov.cn/xxgk/sjfb/index.html
+市龙岗区	县区级	http://www.lg.gov.cn/xxgk/sjfb/index.html
+
 442	深圳盐田在线-数
 据发布栏	广东省深圳
-市盐田区	县区级	http://www.yantian.gov.cn/cn/zwgk/sjfb/
+市盐田区	县区级	http://www.yantian.gov.cn/cn/zwgk/sjfb/
+
 443	龙华政府在线-数
 据发布栏	广东省深圳
-市龙华区	县区级	http://www.szlhq.gov.cn/sjfb/
+市龙华区	县区级	http://www.szlhq.gov.cn/sjfb/
+
 444	深圳市坪ft区人
-民政府-信统计数据	广东省深圳市坪ft区	县区级	http://www.szpsq.gov.cn/xxgk/tjsj/index.ht ml
+民政府-信统计数据	广东省深圳市坪ft区	县区级	http://www.szpsq.gov.cn/xxgk/tjsj/index.ht ml
+
 445	光明区政府在线-
 数据发布栏	广东省深圳
-市光明区	县区级	http://www.szgm.gov.cn/sjfb/
+市光明区	县区级	http://www.szgm.gov.cn/sjfb/
+
 446	茂名市人民政府
 网站-数据发布	广东省茂名
-区	地市级	http://www.maoming.gov.cn/
+区	地市级	http://www.maoming.gov.cn/
+
 447	茂名市茂南市人
 民政府数据发布	广东省茂名
-区茂南区	县区级	http://www.maonan.gov.cn/
+区茂南区	县区级	http://www.maonan.gov.cn/
+
  
 
 448	肇庆市人民政府数据开放	广东省肇庆
@@ -5284,86 +5541,111 @@ html
 x.html
 453	潮州市潮安区人民政府网站-数据
 发布	广东省潮州
-市潮安区	县区级	http://www.chaoan.gov.cn/zwgk/sjfb/
+市潮安区	县区级	http://www.chaoan.gov.cn/zwgk/sjfb/
+
 454	广西壮族自治区
 公共数据开放平台	广西壮族自
-治区	省级	http://data.gxzf.gov.cn/
+治区	省级	http://data.gxzf.gov.cn/
+
 455	广西南宁市人民
 政府门户网站	广西壮族自
-治区南宁市	地市级	http://nn.data.gxzf.gov.cn/nn/index
+治区南宁市	地市级	http://nn.data.gxzf.gov.cn/nn/index
+
 456	广西南宁市西乡塘区人民政府门户网站西乡塘数
-据	广西壮族自治区南宁市西乡塘区	县区级	http://www.xxtq.gov.cn/sj/sjkf/
+据	广西壮族自治区南宁市西乡塘区	县区级	http://www.xxtq.gov.cn/sj/sjkf/
+
 457	广西南宁市邕宁
 区人民政府门户
 网站数据	广西壮族自
 治区南宁市
-邕宁区	县区级	http://www.yongning.gov.cn/sj/sjkf/
+邕宁区	县区级	http://www.yongning.gov.cn/sj/sjkf/
+
 458	广西省柳州市人民政府网站数据
 专题	广西壮族自
-治区柳州市	地市级	http://www.liuzhou.gov.cn/sjzt/sjfb/
+治区柳州市	地市级	http://www.liuzhou.gov.cn/sjzt/sjfb/
+
 459	广西柳州城中区
 人民政府门户网站	广西壮族自
-治区柳州市城中区	县区级	http://www.czq.gov.cn/sjzt/
+治区柳州市城中区	县区级	http://www.czq.gov.cn/sjzt/
+
 460	广西柳州柳北区
 人民政府网站	广西壮族自
 治区柳州市
-柳北区	县区级	http://www.lbq.gov.cn/sjzt/
+柳北区	县区级	http://www.lbq.gov.cn/sjzt/
+
 461	广西柳州柳江县区人民政府门户
 网站数据专题	广西壮族自
 治区柳州市
-柳江县	县区级	http://www.liujiang.gov.cn/sjzt/
+柳江县	县区级	http://www.liujiang.gov.cn/sjzt/
+
 462	广西柳州柳城县
 人民政府门户网站	广西壮族自
 治区柳州市
-柳城县	县区级	http://www.liucheng.gov.cn/sjzt/
+柳城县	县区级	http://www.liucheng.gov.cn/sjzt/
+
 463	鹿寨县人民政府
 数据专题	广西壮族自
-治区柳州市	县区级	http://www.luzhai.gov.cn/sjzt/
+治区柳州市	县区级	http://www.luzhai.gov.cn/sjzt/
+
  
 
 		鹿寨县		
 464	广西柳州融安县
 人民政府门户网站	广西壮族自
 治区柳州市
-融安县	县区级	http://www.rongan.gov.cn/sjzt/
+融安县	县区级	http://www.rongan.gov.cn/sjzt/
+
 465	广西柳州融水苗族自治县人民政府门户网站	广西壮族自治区柳州市融水苗族自
-治县	县区级	http://www.rongshui.gov.cn/sjzt/
+治县	县区级	http://www.rongshui.gov.cn/sjzt/
+
 466	广西柳州三江侗
 族自治县	广西壮族自治区柳州市三江侗族自
-治县	县区级	http://www.sjx.gov.cn/sjzt/
+治县	县区级	http://www.sjx.gov.cn/sjzt/
+
 467	广西桂林市人民
 政府门户网站数据开放栏目	广西壮族自
-治区桂林市	地市级	https://www.guilin.gov.cn/glsj/sjkf/
+治区桂林市	地市级	https://www.guilin.gov.cn/glsj/sjkf/
+
 468	北海公共数据开
 放	广西壮族自
-治区北海市	地市级	http://bh.data.gxzf.gov.cn/
+治区北海市	地市级	http://bh.data.gxzf.gov.cn/
+
 469	广西防城港市人民政府门户网站
 数据开放栏目	广西壮族自
 治区防城港
-市	地市级	http://www.fcgs.gov.cn/sjpt/
+市	地市级	http://www.fcgs.gov.cn/sjpt/
+
 470	广西防城港港口区人民政府门户网站数据查询栏
-目	广西壮族自治区防城港市港口区	县区级	http://www.gkq.gov.cn/sj/sjcx/
+目	广西壮族自治区防城港市港口区	县区级	http://www.gkq.gov.cn/sj/sjcx/
+
 471	广西防城港防城区人民政府门户
 网站数据栏目	广西壮族自
 治区防城港
-市防城区	县区级	http://www.fcq.gov.cn/sj/sjkf/
+市防城区	县区级	http://www.fcq.gov.cn/sj/sjkf/
+
 472	钦州公共数据开
 放平台	广西壮族自
-治区钦州市	地市级	http://qz.data.gxzf.gov.cn/
+治区钦州市	地市级	http://qz.data.gxzf.gov.cn/
+
 473	广西贵港市人民
 政府数据发布	广西壮族自
-治区贵港市	地市级	http://www.gxgg.gov.cn/sjfb/
+治区贵港市	地市级	http://www.gxgg.gov.cn/sjfb/
+
 474	广西贵港市港北
 区人民政府网站数据发布	广西壮族自
-治区贵港市港北区	县区级	http://www.gbq.gov.cn/tjxx/
+治区贵港市港北区	县区级	http://www.gbq.gov.cn/tjxx/
+
 475	广西贵港市港南
 区人民政府网站数据发布	广西壮族自
-治区贵港市港南区	县区级	http://www.gggn.gov.cn/sjfb/
+治区贵港市港南区	县区级	http://www.gggn.gov.cn/sjfb/
+
 476	广西贵桂平市人
 民政府数据发布	广西壮族自
-治区桂平市	县区级	http://www.guiping.gov.cn/
+治区桂平市	县区级	http://www.guiping.gov.cn/
+
 477	广西贵港市覃塘区人民政府门户网站数据开放栏
-目	广西壮族自治区贵港市覃塘区	县区级	http://www.ggqt.gov.cn/xxgk/sjkf/
+目	广西壮族自治区贵港市覃塘区	县区级	http://www.ggqt.gov.cn/xxgk/sjkf/
+
  
 
 478	玉林公共数据开
@@ -5372,151 +5654,193 @@ x.html
 domainId=domain-8&page=1
 479	百色公共数据开
 放平台	广西壮族自
-治区百色市	地市级	http://bs.data.gxzf.gov.cn/#
+治区百色市	地市级	http://bs.data.gxzf.gov.cn/#
+
 480	广西百色右江区
 人民政府数据发布	广西壮族自
 治区百色市江右区	县区级	http://www.bsyj.gov.cn/xxgk/zfxxgk/fdzdg knr/jbxxgk/sjfb/
 481	广西百色田东区
 人民政府数据发布	广西壮族自
 治区百色市
-田东区	县区级	http://www.gxtd.gov.cn/sjfb/
+田东区	县区级	http://www.gxtd.gov.cn/sjfb/
+
 482	广西百色平果区
 人民政府数据发布	广西壮族自
-治区百色市平果区	县区级	http://www.pingguo.gov.cn/sjfb/
+治区百色市平果区	县区级	http://www.pingguo.gov.cn/sjfb/
+
 483	广西百色靖西县
 人民政府数据发布	广西壮族自
 治区百色市
-靖西县	县区级	http://www.jingxi.gov.cn/xxgk/jcxxgk/sjfb/
+靖西县	县区级	http://www.jingxi.gov.cn/xxgk/jcxxgk/sjfb/
+
 484	广西百色凌云县
 人民政府数据发布	广西壮族自
 治区百色市
-凌云县	县区级	http://www.lingyun.gov.cn/sjkf/
+凌云县	县区级	http://www.lingyun.gov.cn/sjkf/
+
 485	广西百色乐业县
 人民政府数据发布	广西壮族自
-治区百色市乐业县	县区级	http://www.leye.gov.cn/sjfb/
+治区百色市乐业县	县区级	http://www.leye.gov.cn/sjfb/
+
 486	广西百色田林县
 人民政府数据发布	广西壮族自
 治区百色市
-田林县	县区级	http://www.tianlin.gov.cn/sjfb/
+田林县	县区级	http://www.tianlin.gov.cn/sjfb/
+
 487	广西百色西林县
 人民政府数据发布	广西壮族自
-治区百色市西林县	县区级	http://www.gxxl.gov.cn/xxgk/jcxxgk/sjfb/
+治区百色市西林县	县区级	http://www.gxxl.gov.cn/xxgk/jcxxgk/sjfb/
+
 488	广西百色隆林各族自治县人民政府数据发布	广西壮族自治区百色市隆林各族自
-治县	县区级	http://www.gxll.gov.cn/sjfb/
+治县	县区级	http://www.gxll.gov.cn/sjfb/
+
 489	贺州公共数据开
 放	广西壮族自
-治区贺州市	地市级	http://hz.data.gxzf.gov.cn/hz/index
+治区贺州市	地市级	http://hz.data.gxzf.gov.cn/hz/index
+
 490	贺州市八步区数据开放	广西壮族自
 治区贺州市
-八步区	县区级	http://www.gxbabu.gov.cn/sjfb/
+八步区	县区级	http://www.gxbabu.gov.cn/sjfb/
+
 491	贺州市富川瑶族
 自治县数据发布	广西壮族自治区贺州市富川瑶族自
-治县	县区级	http://www.gxfc.gov.cn/sjfb/
+治县	县区级	http://www.gxfc.gov.cn/sjfb/
+
 492	河池数据开放	广西壮族自
-治区河池市	地市级	http://hc.data.gxzf.gov.cn/
+治区河池市	地市级	http://hc.data.gxzf.gov.cn/
+
  
 
 493	广西河池金城江
 区人民政府数据发布	广西壮族自
 治区河池市
-金城江区	县区级	http://www.jcj.gov.cn/sjfb/
+金城江区	县区级	http://www.jcj.gov.cn/sjfb/
+
 494	广西河池南丹县
 人民政府数据发布	广西壮族自
-治区河池市南丹县	县区级	http://www.gxnd.gov.cn/sjfb/
+治区河池市南丹县	县区级	http://www.gxnd.gov.cn/sjfb/
+
 495	广西河池市凤ft
 县人民政府数据发布	广西壮族自
 治区河池市
-凤ft县	县区级	http://www.gxfsx.gov.cn/sjfb/
+凤ft县	县区级	http://www.gxfsx.gov.cn/sjfb/
+
 496	广西河池市东兰
 县人民政府数据发布	广西壮族自
-治区河池市东兰县	县区级	http://www.donglan.gov.cn/sjfb/
+治区河池市东兰县	县区级	http://www.donglan.gov.cn/sjfb/
+
 497	广西河池环江毛南族自治县人民政府门户网站数
 据发布	广西壮族自治区河池市环江毛南族
-自治县	县区级	http://www.hjzf.gov.cn/sjfb/
+自治县	县区级	http://www.hjzf.gov.cn/sjfb/
+
 498	广西河池市巴马
 瑶族自治区	广西壮族自治区河池市巴马瑶族自
-治县	县区级	http://www.bama.gov.cn/sjfb/
+治县	县区级	http://www.bama.gov.cn/sjfb/
+
 499	广西河池大化瑶
 自治县人民政府
 网站	广西壮族自
-治区大化瑶族自治县	县区级	http://www.gxdh.gov.cn/sjfb/
+治区大化瑶族自治县	县区级	http://www.gxdh.gov.cn/sjfb/
+
 500	广西河池宜州区
 人民政府数据发布	广西壮族自
 治区河池市
-宜州市	县区级	http://www.hcyzq.gov.cn/sjfb/
+宜州市	县区级	http://www.hcyzq.gov.cn/sjfb/
+
 501	来宾公共数据开放平台	广西壮族自
 治区来宾市	地市级	http://lb.data.gxzf.gov.cn/lb/catalog/index?t agName=%E6%A1%A3%E6%A1%88%E
 5%8F%B7
 502	广西来宾市兴宾
 区市人民政府数据发布	广西壮族自
-治区来宾市兴宾区	县区级	http://www.xingbin.gov.cn/sjfb/
+治区来宾市兴宾区	县区级	http://www.xingbin.gov.cn/sjfb/
+
 503	广西来宾忻城县
 人民政府数据发布	广西壮族自
-治区来宾市忻城县	县区级	http://www.gxxc.gov.cn/sjfb/
+治区来宾市忻城县	县区级	http://www.gxxc.gov.cn/sjfb/
+
 504	广西来宾象州县
 人民政府数据发布	广西壮族自
 治区来宾市
-象州县	县区级	http://www.xiangzhou.gov.cn/sjfb/
+象州县	县区级	http://www.xiangzhou.gov.cn/sjfb/
+
 505	广西来宾武宣县
 人民政府数据发布	广西壮族自
-治区来宾市武宣县	县区级	http://www.wuxuan.gov.cn/sjfb/
+治区来宾市武宣县	县区级	http://www.wuxuan.gov.cn/sjfb/
+
 506	广西来宾金秀瑶
 族自治县人民政府数据发布	广西壮族自
 治区来宾市
-金秀瑶族自	县区级	http://www.jinxiu.gov.cn/sjfb/
+金秀瑶族自	县区级	http://www.jinxiu.gov.cn/sjfb/
+
  
 
 		治县		
 507	广西来宾合ft市
 人民政府数据发布	广西壮族自
-治区来宾市合ft市	县区级	http://www.heshanshi.gov.cn/sjfb/
+治区来宾市合ft市	县区级	http://www.heshanshi.gov.cn/sjfb/
+
 508	崇左市数据开放
 平台	广西壮族自
-治区崇左市	地市级	http://cz.data.gxzf.gov.cn/
+治区崇左市	地市级	http://cz.data.gxzf.gov.cn/
+
 509	广西崇左市江州
 区人民政府数据发布	广西壮族自
-治区崇左市江州区	县区级	http://www.czsjzq.gov.cn/sjfb/
+治区崇左市江州区	县区级	http://www.czsjzq.gov.cn/sjfb/
+
 510	广西崇左市扶绥
 区人民政府数据发布	广西壮族自
 治区崇左市
-扶绥县	县区级	http://www.fusui.gov.cn/sjfb/
+扶绥县	县区级	http://www.fusui.gov.cn/sjfb/
+
 511	海南省政府数据
-统一开放平台	海南省	省级	http://data.hainan.gov.cn/
+统一开放平台	海南省	省级	http://data.hainan.gov.cn/
+
 512	三亚市政府数据
 统一开放平台	海南省三亚
-市	地市级	http://dataopen1.sanya.gov.cn/
+市	地市级	http://dataopen1.sanya.gov.cn/
+
 513	海口市人民政府
 数据开放栏目	海南省海口
-市	地市级	http://www.haikou.gov.cn/sj/
+市	地市级	http://www.haikou.gov.cn/sj/
+
 514	海口市秀英区人民政府数据开放
-栏目	海南省海口市秀英区	县区级	http://xyqzf.haikou.gov.cn/xyqzf/sj.do
+栏目	海南省海口市秀英区	县区级	http://xyqzf.haikou.gov.cn/xyqzf/sj.do
+
 515	海口市龙华区人民政府数据开放
-栏目	海南省海口市龙华区	县区级	http://lhqzf.haikou.gov.cn/
+栏目	海南省海口市龙华区	县区级	http://lhqzf.haikou.gov.cn/
+
 516	海口市琼ft区人民政府数据开放
-栏目	海南省海口市琼ft区	县区级	http://qsqzf.haikou.gov.cn/sj/
+栏目	海南省海口市琼ft区	县区级	http://qsqzf.haikou.gov.cn/sj/
+
 517	海口市美兰区人民政府门户网站
-数据开放栏目	海南省海口市美兰区	县区级	http://mlqzf.haikou.gov.cn/sj/
+数据开放栏目	海南省海口市美兰区	县区级	http://mlqzf.haikou.gov.cn/sj/
+
 518	儋州市人民政府
 数据开放栏目	海南省儋州
-市	地市级	https://www.danzhou.gov.cn/danzhou/sj/
+市	地市级	https://www.danzhou.gov.cn/danzhou/sj/
+
 519	五指ft市人民政
 府数据栏目	海南省五指
-ft市	县区级	http://wzs.hainan.gov.cn/wzs/index.shtml
+ft市	县区级	http://wzs.hainan.gov.cn/wzs/index.shtml
+
 520	琼海市人民政府
 数据栏目	海南省琼海
-市	县区级	http://qionghai.hainan.gov.cn/xxgk/sjfb/
+市	县区级	http://qionghai.hainan.gov.cn/xxgk/sjfb/
+
 521	文昌市人民政府
 数据栏目	海南省文昌
 市	县区级	http://wenchang.hainan.gov.cn/wenchang/sj
 wc/szwc.shtml
 522	东方市人民政府
 数据栏目	海南省东方
-市	县区级	http://dongfang.hainan.gov.cn/dfsj/
+市	县区级	http://dongfang.hainan.gov.cn/dfsj/
+
 523	定安县人民政府
 数据开放栏目	海南省定安
 县	县区级	http://dingan.hainan.gov.cn/dingan/xxgk/tjx
 x/
-524	屯昌县人民政府	海南省屯昌	县区级	http://tunchang.hainan.gov.cn/tunchang/zfx
+524	屯昌县人民政府	海南省屯昌	县区级	http://tunchang.hainan.gov.cn/tunchang/zfx
+
  
 
 	数据栏目	县		xgk/sjfb/
@@ -5526,9 +5850,11 @@ x/
 msg/2019_tjsj.shtml
 526	临高县人民政府
 数据栏目	海南省临高
-县	县区级	http://lingao.hainan.gov.cn/lgsj/
+县	县区级	http://lingao.hainan.gov.cn/lgsj/
+
 527	白沙黎族自治县人民政府数据栏
-目	海南省白沙黎族自治县	县区级	http://baisha.hainan.gov.cn/baisha/xxgk/090 0/
+目	海南省白沙黎族自治县	县区级	http://baisha.hainan.gov.cn/baisha/xxgk/090 0/
+
 528	昌江黎族自治县
 人民政府数据栏
 目	海南省昌江
@@ -5541,20 +5867,25 @@ msg/2019_tjsj.shtml
 530	陵水黎族自治县
 人民政府数据栏
 目	海南省陵水
-黎族自治县	县区级	http://lingshui.hainan.gov.cn/sjfb/
+黎族自治县	县区级	http://lingshui.hainan.gov.cn/sjfb/
+
 531	保亭黎族苗族自
 治县人民政府数据栏目	海南省保亭
 黎族苗族自
-治县	县区级	http://baoting.hainan.gov.cn/xxgk/0900/
+治县	县区级	http://baoting.hainan.gov.cn/xxgk/0900/
+
 532	琼中黎族苗族自
 治县人民政府数据栏目	海南省琼中
 黎族苗族自
-治县	县区级	http://qiongzhong.hainan.gov.cn/qzsj/
+治县	县区级	http://qiongzhong.hainan.gov.cn/qzsj/
+
 533	四川公共数据开
-放网	四川省	省级	http://www.scdata.gov.cn/
+放网	四川省	省级	http://www.scdata.gov.cn/
+
 534	成都市公共数据
 开放平台	四川省成都
-市	副省级	http://www.cddata.gov.cn/
+市	副省级	http://www.cddata.gov.cn/
+
 535	成都市新津市人
 民政府数据发布	四川省成都
 市新津县	县区级	http://www.xinjin.gov.cn/xjxrmzf/c135088/
@@ -5568,13 +5899,16 @@ zt_sjkf.shtml
 /Home
 538	绵阳市公共数据
 开放平台	四川省绵阳
-市	地市级	http://data.my.gov.cn/
+市	地市级	http://data.my.gov.cn/
+
 539	内江市公共数据
 开放平台	四川省内江
-市	地市级	http://data.neijiang.gov.cn/#/
+市	地市级	http://data.neijiang.gov.cn/#/
+
 540	乐ft市人民政府
 开放门户	四川省乐ft
-市	地市级	https://www.leshan.gov.cn/data/#/home
+市	地市级	https://www.leshan.gov.cn/data/#/home
+
 541	眉ft市公共数据资源开放平台	四川省眉ft
 市	地市级	http://data.ms.gov.cn/portal/index;jsessioni d=266BD1273A89EB2B1AEF7EE9872AC
 399
@@ -5582,20 +5916,24 @@ zt_sjkf.shtml
 
 542	眉ft市洪雅县人
 民政府-信息开发	四川省眉ft
-市洪雅县	县区级	http://www.schy.gov.cn/sjkf.htm
+市洪雅县	县区级	http://www.schy.gov.cn/sjkf.htm
+
 543	巴中公共数据开
 放平台	四川省巴中
-市	地市级	https://www.bzgongxiang.com/#/home
+市	地市级	https://www.bzgongxiang.com/#/home
+
 544	甘孜藏族自治州
 政务信息开放网站	四川省甘孜藏族羌族自
-治州	地市级	http://data.gzz.gov.cn/index/index.html
+治州	地市级	http://data.gzz.gov.cn/index/index.html
+
 545	凉ft州数据开放
 网站	四川省凉ft
 彝族自治州	地市级	http://data.lsz.gov.cn/oportal/catalog/index?
 tagName=%E9%87%8D%E7%82%B9
 546	广元公共数据开
 放网	四川省广元
-市	地市级	http://data.cngy.gov.cn/open/index.html
+市	地市级	http://data.cngy.gov.cn/open/index.html
+
 547	金牛区人民政府
 数据开放栏目
 四川省成都
@@ -5617,13 +5955,15 @@ uju_new.shtml
 市东区	县区级	http://www.scdongqu.gov.cn/zwgk/tjxx/ind ex.shtml
 552	中国纳溪门户网
 站数据开放栏目	四川省泸州
-市纳溪区	县区级	http://www.naxi.gov.cn/bs/sjkf
+市纳溪区	县区级	http://www.naxi.gov.cn/bs/sjkf
+
 553	绵阳市游仙区人民政府数据开放
 栏目	四川省绵阳
 市游仙县	县区级	http://www.youxian.gov.cn/zwgk/zdxxgk/sj kf/index.html
 554	盐亭县人民政府
 数据开放栏目	四川省绵阳
-市盐亭市	县区级	http://www.yanting.gov.cn/sjkf/index.html
+市盐亭市	县区级	http://www.yanting.gov.cn/sjkf/index.html
+
 555	旺苍县人民政府
 数据统计栏	四川省广元
 市旺苍市	县区级	http://www.scgw.gov.cn/zwgk/PublicData.a
@@ -5633,64 +5973,84 @@ spx
 html
 557	六盘水市政府数
 据开放平台	贵州省六盘
-市	地市级	http://data.gzlps.gov.cn/
+市	地市级	http://data.gzlps.gov.cn/
+
 558	毕节市政府数据
 开放平台	贵州省毕节
-市	地市级	https://www.bijie.gov.cn/sj/sjfw/
+市	地市级	https://www.bijie.gov.cn/sj/sjfw/
+
 559	铜仁市政府数据
 开放平台	贵州省铜仁
-市	地市级	http://gztrdata.gov.cn/index.html
+市	地市级	http://gztrdata.gov.cn/index.html
+
 560	江口县人民政府
 数据开放	贵州省铜仁
-地区江口县	县区级	http://www.jiangkou.gov.cn/
+地区江口县	县区级	http://www.jiangkou.gov.cn/
+
  
 
 561	中国石阡政府数
 据	贵州省铜仁
-地区石阡县	县区级	http://www.shiqian.gov.cn/zfsj/
+地区石阡县	县区级	http://www.shiqian.gov.cn/zfsj/
+
 562	思南县人民政府
 数据开放	贵州省铜仁
-地区思南县	县区级	http://www.sinan.gov.cn/zfsj/
+地区思南县	县区级	http://www.sinan.gov.cn/zfsj/
+
 563	印江土家苗族自治州人民政府政府数据	贵州省铜仁地区印江土家苗族自治
-县	县区级	http://www.yinjiang.gov.cn/zfsj/
+县	县区级	http://www.yinjiang.gov.cn/zfsj/
+
 564	德江县人民政府
 数据发布	贵州省铜仁
-地区德江县	县区级	http://www.dejiang.gov.cn/zfsj/
+地区德江县	县区级	http://www.dejiang.gov.cn/zfsj/
+
 565	黔西南布依族苗
 族自治州人民政府数据领域	贵州省黔西
 南布依族苗
-族自治州	县区级	http://www.qxn.gov.cn/sjly/
+族自治州	县区级	http://www.qxn.gov.cn/sjly/
+
 566	兴义市人民政府政府数据	贵州省黔西南布依族苗族自治州兴
-义市	县区级	http://www.gzxy.gov.cn/zfsj/
+义市	县区级	http://www.gzxy.gov.cn/zfsj/
+
 567	兴仁市人民政府政府数据	贵州省黔西南布依族苗族自治州兴
-仁县	县区级	http://www.gzxr.gov.cn/zfsj/jj/index.html
+仁县	县区级	http://www.gzxr.gov.cn/zfsj/jj/index.html
+
 568	普安市人民政府政府数据	贵州省黔西南布依族苗族自治州普
-安县	县区级	http://www.puan.gov.cn/zfsj/
+安县	县区级	http://www.puan.gov.cn/zfsj/
+
 569	晴隆市人民政府政府数据	贵州省黔西南布依族苗族自治州晴
-隆县	县区级	http://www.gzql.gov.cn/zfsj/sjfb/rk/index.ht ml
+隆县	县区级	http://www.gzql.gov.cn/zfsj/sjfb/rk/index.ht ml
+
 570	贞丰市人民政府政府数据	贵州省黔西南布依族苗族自治州贞
-丰县	县区级	http://www.gzzf.gov.cn/zfsj/jj/
+丰县	县区级	http://www.gzzf.gov.cn/zfsj/jj/
+
 571	安龙市人民政府政府数据	贵州省黔西南布依族苗族自治州安
-龙县	县区级	http://www.gzal.gov.cn/zfsj/
+龙县	县区级	http://www.gzal.gov.cn/zfsj/
+
 572	贵州省政府数据
-开放平台	贵州省	省级	http://data.guizhou.gov.cn/#!/
+开放平台	贵州省	省级	http://data.guizhou.gov.cn/#!/
+
 573	贵阳市政府数据
 开放平台	贵州省贵阳
 市	地市级	https://data.guiyang.gov.cn/city/index.htm
 574	遵义市政府数据
 开放平台	贵州省遵义
-市	地市级	http://data.zunyi.gov.cn/home
-575	西秀区人民政府	贵州省安顺	县区级	http://www.xixiu.gov.cn/zfsj/sjfb/jj/index.ht
+市	地市级	http://data.zunyi.gov.cn/home
+
+575	西秀区人民政府	贵州省安顺	县区级	http://www.xixiu.gov.cn/zfsj/sjfb/jj/index.ht
+
  
 
 	政府数据	市西秀区		ml
 576	平坝区人民政府
 政府数据	贵州省安顺
-市平坝县	县区级	http://www.pingba.gov.cn/zfsj/
+市平坝县	县区级	http://www.pingba.gov.cn/zfsj/
+
 577	关岭布依族苗族自治县人民政府政府数据	贵州省安顺市关岭布依族苗族自治
 县	县区级	http://www.guanling.gov.cn/zfsj_5795151/j j/index.html
 578	中国紫云政府数据	贵州省安顺县紫云苗族布依族自治
-县	县区级	http://www.gzzy.gov.cn/zyx2020gb/zfsj/
+县	县区级	http://www.gzzy.gov.cn/zyx2020gb/zfsj/
+
 579	纳雍县人民政府
 政府数据
 贵州省毕节
@@ -5698,36 +6058,46 @@ html
 ndex.html
 580	赫章县人民政府
 数据	贵州省毕节
-地区赫章县	县区级	https://www.gzhezhang.gov.cn/zfsj/
+地区赫章县	县区级	https://www.gzhezhang.gov.cn/zfsj/
+
 581	黔东南苗族侗族
 自治州政府数据	贵州省毕节地区黔东南苗族侗族自
-治州	地市级	http://www.qdn.gov.cn/zfsj_5872375/
+治州	地市级	http://www.qdn.gov.cn/zfsj_5872375/
+
 582	雷ft县政府数据	贵州省毕节
-地区雷ft县	县区级	http://www.leishan.gov.cn/zfsj/
+地区雷ft县	县区级	http://www.leishan.gov.cn/zfsj/
+
 583	长顺县人民政府数据开放平台	贵州省黔南布依族苗族自治州长顺
 县	县区级	http://jyzx.guiding.gov.cn/zt/rdzt/sjkf/sjxq/i ndex.shtml?id=344
 584	贵阳市南明区政府门户网数据开
 放栏目	贵州省贵阳
-市南明区	县区级	https://www.nanming.gov.cn/zfsj/
+市南明区	县区级	https://www.nanming.gov.cn/zfsj/
+
 585	云岩区人民政府
 办公室政务政府数据栏目	贵州省贵阳
-市云岩区	县区级	http://www.yunyan.gov.cn/zfsj/
+市云岩区	县区级	http://www.yunyan.gov.cn/zfsj/
+
 586	花溪区人民政府政府数据开放平
 台	贵州省贵阳
-市花溪区	县区级	http://www.huaxi.gov.cn/zfsj/
+市花溪区	县区级	http://www.huaxi.gov.cn/zfsj/
+
 587	乌当区人民政府
 政府数据	贵州省贵阳
-市乌当区	县区级	http://www.gzwd.gov.cn/zfsj/sjfb/dqsczz/
+市乌当区	县区级	http://www.gzwd.gov.cn/zfsj/sjfb/dqsczz/
+
 588	贵阳市白云区人民政府数据发布
 栏目	贵州省贵阳
 市白云区	县区级	http://www.gzbaiyun.gov.cn/xwz/zfsj_5748 406/
 589	中国开阳-数据开
 放	贵州省贵阳
-市开阳县	县区级	http://www.kaiyang.gov.cn/
+市开阳县	县区级	http://www.kaiyang.gov.cn/
+
 590	中国息烽政府数
 据	贵州省贵阳
-市息烽县	县区级	http://www.xifeng.gov.cn/zfsj/
-591	修文县人民政府	贵州省贵阳	县区级	http://www.xiuwen.gov.cn/
+市息烽县	县区级	http://www.xifeng.gov.cn/zfsj/
+
+591	修文县人民政府	贵州省贵阳	县区级	http://www.xiuwen.gov.cn/
+
  
 
 	数据开放	市修文县		
@@ -5743,7 +6113,8 @@ ml
 区	县区级	https://www.liuzhi.gov.cn/newsite/zfsj_575 3690/
 595	六盘水市水区人
 民政府政府数据	贵州省六盘
-水市水城去	县区级	http://www.shuicheng.gov.cn/newsite/zfsj/
+水市水城去	县区级	http://www.shuicheng.gov.cn/newsite/zfsj/
+
 596	盘州市人民政府
 政府数据	贵州省六盘
 水市盘县	县区级	http://www.panzhou.gov.cn/zfsj_500468/sjf
@@ -5751,10 +6122,12 @@ b/jj/index.html
 597	余庆县人民政府
 政府数据
 贵州省遵义
-市余庆县	县区级	http://www.zgyq.gov.cn/zfsj/
+市余庆县	县区级	http://www.zgyq.gov.cn/zfsj/
+
 598	遵义市播州人民
 政府门户网站数据开放栏目	贵州省遵义
-市播州区	县区级	http://www.zybz.gov.cn/zfsj/sjfb/dqsczz/
+市播州区	县区级	http://www.zybz.gov.cn/zfsj/sjfb/dqsczz/
+
 599	道真仡族苗族自治县人民政府数
 据开放栏目	贵州省遵义
 市道真仡族
@@ -5769,15 +6142,19 @@ b/jj/index.html
 县	县区级	http://zygov.gov.cn/xxgk_15546/xxgkml_1 5548/kfsj/
 602	昆明市呈贡区人
 民政府-数据开放	云南省昆明
-市呈贡县	县区级	http://kmcg.gov.cn/sjkf/
+市呈贡县	县区级	http://kmcg.gov.cn/sjkf/
+
 603	云南省人民政府-
-数据发布	云南省	省级	http://www.yn.gov.cn/sjfb/
+数据发布	云南省	省级	http://www.yn.gov.cn/sjfb/
+
 604	昭通市人民政府-
 数据开放	云南省昭通
-市	地市级	http://www.zt.gov.cn/OpenData.html
+市	地市级	http://www.zt.gov.cn/OpenData.html
+
 605	拉萨市人民政府-
 数据开放	西藏自治区
-拉萨市	地市级	http://www.lasa.gov.cn/lasa/sjkf/sj.shtml
+拉萨市	地市级	http://www.lasa.gov.cn/lasa/sjkf/sj.shtml
+
 606	林芝市人民政府
 数据开放	西藏自治区
 林芝地区	地市级	http://langxian.gov.cn/linzhi/zwgk/sjkf.sht
@@ -5787,8 +6164,10 @@ ml
 那曲地区	地市级	http://www.naqu.gov.cn/xxgk/zfxxgkml/?id
 =23
 608	陕西省公共数据
-开放平台	陕西省	省级	http://www.sndata.gov.cn/
-609	西安市人民政府-	陕西省西安	副省级	http://tjj.xa.gov.cn/tjsj/1.html
+开放平台	陕西省	省级	http://www.sndata.gov.cn/
+
+609	西安市人民政府-	陕西省西安	副省级	http://tjj.xa.gov.cn/tjsj/1.html
+
  
 
 	数据	市		
@@ -5843,13 +6222,16 @@ html
 .html
 622	安康市人民政府-
 数据发布	陕西省安康
-市	地市级	http://www.ankang.gov.cn/Node-9314.html
+市	地市级	http://www.ankang.gov.cn/Node-9314.html
+
 623	陇南市公共数据
 开放网	甘肃省陇南
-市	地市级	http://125.74.215.100/odweb/
+市	地市级	http://125.74.215.100/odweb/
+
 624	兰州市政务数据
 开放门户	甘肃省兰州
-市	地市级	http://data.zwfw.lanzhou.gov.cn/
+市	地市级	http://data.zwfw.lanzhou.gov.cn/
+
 625	天水市人民政府-
 数据发布	甘肃省天水
 市	地市级	http://www.tianshui.gov.cn/col/col8/index.h
@@ -5860,134 +6242,173 @@ tml
 html
 627	张掖市人民政府-
 数据发布	甘肃省张掖
-市	地市级	http://www.zhangye.gov.cn/sjfb/
+市	地市级	http://www.zhangye.gov.cn/sjfb/
+
 628	甘南州政务数据
 开放门户	甘肃省甘南
 藏族自治州	地市级	http://60.165.248.110:8088/open_portal/ser
 viceCatalog
 629	西宁市人民政府-
 数据公开	青海省西宁
-市	地市级	https://www.xining.gov.cn/sjgk/
+市	地市级	https://www.xining.gov.cn/sjgk/
+
 630	宁夏公共数据开
 放平台	宁夏回族自
-治区	省级	http://opendata.nx.gov.cn/portal/index
+治区	省级	http://opendata.nx.gov.cn/portal/index
+
  
 
 631	银川市城市数据
 开放平台	宁夏回族自
-治区银川市	地市级	http://data.yinchuan.gov.cn/odweb/
+治区银川市	地市级	http://data.yinchuan.gov.cn/odweb/
+
 632	中卫市人民政府-
 数据开放	宁夏回族自
-治区中卫市	地市级	http://www.nxzw.gov.cn/ztzl/sjkf/
+治区中卫市	地市级	http://www.nxzw.gov.cn/ztzl/sjkf/
+
 633	乌鲁木齐市政务数据开放网	新疆维吾尔自治区乌鲁
-木齐市	地市级	http://zwfw.wlmq.gov.cn/
+木齐市	地市级	http://zwfw.wlmq.gov.cn/
+
 634	乌鲁木齐经济技术开发区头屯河区-数据发布	新疆维吾尔自治区乌鲁木齐市头屯
-河区	县区级	http://www.uetd.gov.cn/channels/92.html
+河区	县区级	http://www.uetd.gov.cn/channels/92.html
+
 635	克拉玛依市人民
 政府-数据开放
 新疆维吾尔自治区克拉
 玛依市	地市级	https://www.klmy.gov.cn/011/011002/seco ndpage.html
 636	哈密市人民政府-
 数据开放栏目	新疆维吾尔自治区哈密
-市	地市级	http://www.hami.gov.cn/sjkf.htm
+市	地市级	http://www.hami.gov.cn/sjkf.htm
+
 637	昌吉州数据开放平台	新疆维吾尔自治区昌吉
 回族自治州	地市级	http://222.80.229.62:8900/drv/
 638	昌吉市人民政府-
 统计数据	新疆维吾尔自治区昌吉回族自治州
-昌吉市	县区级	http://www.cjs.gov.cn/tjsj.htm
+昌吉市	县区级	http://www.cjs.gov.cn/tjsj.htm
+
 639	阜康市人民政府-
 统计数据栏目	新疆维吾尔自治区昌吉回族自治州
-阜康市	县区级	http://www.fk.gov.cn/tjsj.htm
+阜康市	县区级	http://www.fk.gov.cn/tjsj.htm
+
 640	呼图壁县人民政府-统计数据栏目	新疆维吾尔自治区昌吉回族自治州
-呼图壁县	县区级	http://www.htb.gov.cn/tjsj.htm
+呼图壁县	县区级	http://www.htb.gov.cn/tjsj.htm
+
 641	玛纳斯县人民政府-统计数据栏目	新疆维吾尔自治区昌吉回族自治州
-呼玛纳斯县	县区级	http://www.mns.gov.cn/tjsj.htm
+呼玛纳斯县	县区级	http://www.mns.gov.cn/tjsj.htm
+
 642	木垒哈萨克自治县人民政府-统计数据栏目	新疆维吾尔自治区昌吉回族自治州呼木垒哈萨
-克自治县	县区级	http://www.mlx.gov.cn/tjsj.htm
+克自治县	县区级	http://www.mlx.gov.cn/tjsj.htm
+
 643	奇台县人民政府-
 数据	新疆维吾尔自治区昌吉
-回族自治州	县区级	http://www.xjqt.gov.cn/tjsj.htm
+回族自治州	县区级	http://www.xjqt.gov.cn/tjsj.htm
+
  
 
 		奇台县		
 644	吉木萨尔县人民
 政府-统计数据	新疆维吾尔自治区昌吉回族自治州
-吉木萨尔县	县区级	http://www.jmser.gov.cn/tjsj.htm
+吉木萨尔县	县区级	http://www.jmser.gov.cn/tjsj.htm
+
 645	新疆博尔塔拉蒙古自治州人民政府-数据开放栏	新疆维吾尔自治区博尔塔拉蒙自治
-州	地市级	http://www.xjboz.gov.cn/sjkf.htm
+州	地市级	http://www.xjboz.gov.cn/sjkf.htm
+
 646	博乐市人民政府-
 数据开放栏	新疆维吾尔自治区博尔塔拉蒙自治
-州博乐市	县区级	http://www.xjbl.gov.cn/sjkf.htm
+州博乐市	县区级	http://www.xjbl.gov.cn/sjkf.htm
+
 647	精河县人民政府-
 数据开放栏	新疆维吾尔自治区博尔塔拉蒙自治
-州精河县	县区级	http://www.xjjh.gov.cn/sjkf.htm
+州精河县	县区级	http://www.xjjh.gov.cn/sjkf.htm
+
 648	阿克苏政府网-数据开放	新疆维吾尔自治区阿克
-苏地区	地市级	http://www.aks.gov.cn/sjkf/index.html
+苏地区	地市级	http://www.aks.gov.cn/sjkf/index.html
+
 649	阿克苏市人民政府-政府数据	新疆维吾尔自治区阿克
-苏市	县区级	http://www.akss.gov.cn/zwgk/zfsj/index.ht ml
+苏市	县区级	http://www.akss.gov.cn/zwgk/zfsj/index.ht ml
+
 650	库车市人民政府-
 政府数据	新疆维吾尔自治区阿克苏地区库车
-县	县区级	http://www.xjkc.gov.cn/zfsj/index.html
+县	县区级	http://www.xjkc.gov.cn/zfsj/index.html
+
 651	温宿县人民政府-
 政府数据	新疆维吾尔自治区阿克苏地区温宿
 县	县区级	https://www.wszf.gov.cn/zwfw/qlcfw/zfsjkf
 /index.html
 652	新和县人民政府-政府数据	新疆维吾尔自治区阿克苏地区新和
-县	县区级	https://www.xjxinhe.gov.cn/zfsj/index.html
+县	县区级	https://www.xjxinhe.gov.cn/zfsj/index.html
+
 653	乌什县人民政府-
 政府数据	新疆维吾尔自治区阿克苏地区乌什
-县	县区级	https://www.ws.gov.cn/zfsj/index.html
+县	县区级	https://www.ws.gov.cn/zfsj/index.html
+
 654	阿瓦提县人民
 政府-政府数据	新疆维吾尔自治区阿克苏地区阿瓦
-提县	县区级	https://www.xjawt.gov.cn/zfsj/index.html
+提县	县区级	https://www.xjawt.gov.cn/zfsj/index.html
+
  
 
 655	柯坪县人民政府-
 政府数据	新疆维吾尔自治区阿克苏地区柯坪
-县	县区级	http://www.xjkpx.gov.cn/zfsj/index.html
+县	县区级	http://www.xjkpx.gov.cn/zfsj/index.html
+
 656	克孜勒苏柯尔克孜自治州-数据开放	新疆维吾尔自治区克孜勒苏柯尔克
-孜自治州	地市级	http://www.xjkz.gov.cn/kzdata.htm
+孜自治州	地市级	http://www.xjkz.gov.cn/kzdata.htm
+
 657	阿图什市人民
 政府-数据	新疆维吾尔自治区克孜勒苏柯尔克孜自治州阿
-图什市	县区级	http://www.xjats.gov.cn/atsdata.htm
+图什市	县区级	http://www.xjats.gov.cn/atsdata.htm
+
 658	阿克陶县人民
 政府-数据	新疆维吾尔自治区克孜勒苏柯尔克孜自治州阿
-克陶县	县区级	http://www.xjakt.gov.cn/data.htm
+克陶县	县区级	http://www.xjakt.gov.cn/data.htm
+
 659	阿合奇县人民
 政府-数据	新疆维吾尔自治区克孜勒苏柯尔克孜自治州阿
-合奇县	县区级	http://www.xjahq.gov.cn/data.htm
+合奇县	县区级	http://www.xjahq.gov.cn/data.htm
+
 660	乌恰县人民政府-数据	新疆维吾尔自治区克孜勒苏柯尔克孜自治州乌
-恰县	县区级	http://www.xjwqx.gov.cn/wqxdata.htm
+恰县	县区级	http://www.xjwqx.gov.cn/wqxdata.htm
+
 661	数据阿勒泰	新疆维吾尔自治区阿勒
-泰地区	地市级	http://www.xjalt.gov.cn/sjalt/dataalt.html
+泰地区	地市级	http://www.xjalt.gov.cn/sjalt/dataalt.html
+
 662	布尔津县人民政府-数据布尔津栏目	新疆维吾尔自治区阿勒泰地区布尔
-津县	县区级	http://www.brj.gov.cn/sjbej/sjbrj.html
+津县	县区级	http://www.brj.gov.cn/sjbej/sjbrj.html
+
 663	重庆市公共数据
 开放系统	重庆市	省级	https://data.cq.gov.cn/rop/home
 664	重庆市江北区人民政府-数据发布
 栏目	重庆市江北
-区	县区级	http://www.cqjb.gov.cn/zwgk_190/sjfb/
+区	县区级	http://www.cqjb.gov.cn/zwgk_190/sjfb/
+
 665	重庆市沙坪坝区
 人民政府-数据栏
-目	重庆市沙坪坝区	县区级	http://www.cqspb.gov.cn/sj_235/
-666	重庆市南岸区人	重庆市南岸	县区级	http://www.cqna.gov.cn/sjzx/
+目	重庆市沙坪坝区	县区级	http://www.cqspb.gov.cn/sj_235/
+
+666	重庆市南岸区人	重庆市南岸	县区级	http://www.cqna.gov.cn/sjzx/
+
  
 
 	民政府-数据中心
 栏目	区人		
 667	重庆市大足区人民政府-数据发布
 栏目	重庆市大足
-县	县区级	http://www.dazu.gov.cn/sjfb/
+县	县区级	http://www.dazu.gov.cn/sjfb/
+
 668	重庆市万盛经济
 技术开发区-万盛
 数据栏目	重庆市万盛
-区	县区级	http://ws.cq.gov.cn/wssj/
+区	县区级	http://ws.cq.gov.cn/wssj/
+
 669	重庆市綦江区人
 民政府-綦江数据	重庆市綦江
-县	县区级	http://www.cqqj.gov.cn/qjsj/
+县	县区级	http://www.cqqj.gov.cn/qjsj/
+
 670	重庆市渝北区人民政府-数据发布
 栏目	重庆市渝北
-区	县区级	http://www.ybq.gov.cn/sjfb/
+区	县区级	http://www.ybq.gov.cn/sjfb/
+
 
 附录 2 2021 年政府开放数据平台主题大类分布表
 平台名称	2021 主题数	主题
@@ -6583,10 +7004,12 @@ ect?deptCode=514&t=1636277377828
 眉ft市	眉ft市公共数据资源开放平
 台	http://data.ms.gov.cn/portal/index;jsessi
 onid=3C665FBB0D73D2B71BA75B8711DC7484
-贵州省	贵州省政府数据开放平台	http://data.guizhou.gov.cn/home
+贵州省	贵州省政府数据开放平台	http://data.guizhou.gov.cn/home
+
 贵阳市	贵阳市政府数据开放平台	https://data.guiyang.gov.cn/city/index.ht
 m
-遵义市	遵义市政府数据开放平台	http://data.zunyi.gov.cn/home
+遵义市	遵义市政府数据开放平台	http://data.zunyi.gov.cn/home
+
 江西省	江西省政府数据开放网站	https://data.jiangxi.gov.cn/node/2.jspx
 萍乡市	萍乡市数据平台开放网站	http://data.pingxiang.gov.cn/node/100.jsp
 x
@@ -6595,36 +7018,50 @@ x
 rtal/pages/default/index.html
  
 
-抚州市	开放抚州门户	http://data.jxfz.gov.cn/
+抚州市	开放抚州门户	http://data.jxfz.gov.cn/
+
 上饶市	上饶市政府数据开放网站	http://data.zgsr.gov.cn:2003
-ft东省	ft东公共数据开放网	http://data.sd.gov.cn/
-河南省	河南省公共数据开放平台	http://data.hnzwfw.gov.cn/odweb/
+ft东省	ft东公共数据开放网	http://data.sd.gov.cn/
+
+河南省	河南省公共数据开放平台	http://data.hnzwfw.gov.cn/odweb/
+
 漯河市	漯河市政务数据开放门户	http://www.lhzwfw.gov.cn/extranet/openpor
 tal/pages/default/index.html
 武汉市	武汉市公共数据开放平台	https://data.wuhan.gov.cn/
 襄阳市	襄阳市政府数据开放平台	http://111.177.117.28:8083/opendata/porta
 l/index
-随州市	随州市公共数据开放平台	http://www.suizhou.gov.cn/data/
+随州市	随州市公共数据开放平台	http://www.suizhou.gov.cn/data/
+
 娄底市	娄底市政府数据资源开放平
 台	http://183.215.22.238:51182/dataopen/
 常德市	常德人民政府政务数据栏目
-http://dataopen.changde.gov.cn/
-宁夏	宁夏公共数据开放平台	http://opendata.nx.gov.cn/portal/index
-银川市	银川市城市数据开放平台	http://data.yinchuan.gov.cn/odweb/
-乌鲁木齐市	乌鲁木齐市政务数据开放网	http://zwfw.wlmq.gov.cn/
+http://dataopen.changde.gov.cn/
+
+宁夏	宁夏公共数据开放平台	http://opendata.nx.gov.cn/portal/index
+
+银川市	银川市城市数据开放平台	http://data.yinchuan.gov.cn/odweb/
+
+乌鲁木齐市	乌鲁木齐市政务数据开放网	http://zwfw.wlmq.gov.cn/
+
 北京市	北京市西城区人民政府-西城
-数据	https://www.bjxch.gov.cn/xcsj.html
+数据	https://www.bjxch.gov.cn/xcsj.html
+
 天津市	天津市信息资源统一开放平
 台	https://data.tj.gov.cn/
 上海市	上海市公共数据开放平台	https://data.sh.gov.cn
 重庆市	重庆市公共数据开放系统	https://data.cq.gov.cn/rop/home
-哈尔滨市	哈尔滨市政府数据开放平台	http://data.harbin.gov.cn
-佳木斯市	佳木斯市政府数据开放平台	http://data.jms.gov.cn
-常州市	常州市政府数据开放平台	http://opendata.changzhou.gov.cn
+哈尔滨市	哈尔滨市政府数据开放平台	http://data.harbin.gov.cn
+
+佳木斯市	佳木斯市政府数据开放平台	http://data.jms.gov.cn
+
+常州市	常州市政府数据开放平台	http://opendata.changzhou.gov.cn
+
 连云港市	连云港市公共数据开放网	http://www.lyg.gov.cn/data/showindex/inde
 x.do
-盐城市	盐城公共数据开放平台	https://www.yancheng.gov.cn/opendata
-宿迁市	宿迁市公共数据开放平台	http://data.suqian.gov.cn/sjkfpt.shtml
+盐城市	盐城公共数据开放平台	https://www.yancheng.gov.cn/opendata
+
+宿迁市	宿迁市公共数据开放平台	http://data.suqian.gov.cn/sjkfpt.shtml
+
 杭州市	杭州市数据开放平台	https://data.hz.zjzwfw.gov.cn
 宁波市	宁波市数据开放平台	http://data.ningbo.gov.cn/nbdata/fore/ind
 ex.html
@@ -6632,59 +7069,87 @@ ex.html
 ndex.do
 嘉兴市	嘉兴市公共数据开放平台	http://data.jx.zjzwfw.gov.cn/jdop_front/i
 ndex.do
-湖州市	湖州市数据开放平台	http://data.huz.zjzwfw.gov.cn/home
+湖州市	湖州市数据开放平台	http://data.huz.zjzwfw.gov.cn/home
+
 金华市	金华市数据开放平台	http://data.jh.zjzwfw.gov.cn/jdop_front/i
 ndex.do
 衢州市	衢州市数据开放平台	http://data.qz.zjzwfw.gov.cn/jdop_front/i
 ndex.do
 台州市	台州市数据开放平台	https://data.taz.zjzwfw.gov.cn/tz/home
-丽水市	丽水市公共数据开放平台	http://data.ls.zjzwfw.gov.cn/jdop_front/i
+丽水市	丽水市公共数据开放平台	http://data.ls.zjzwfw.gov.cn/jdop_front/i
+
  
 
 		ndex.do
 芜湖市	芜湖市政务数据开放服务平
 台	https://data.wuhu.cn/
-阜阳市	阜阳市公共数据开放平台	http://www.fy.gov.cn/openData/
+阜阳市	阜阳市公共数据开放平台	http://www.fy.gov.cn/openData/
+
 毫州市	毫州市政府数据开放平台	http://www.bozhou.gov.cn/open-data-
 web/index/index.do
 宣城市	宣城市政府数据开放平台	http://sjkf.xuancheng.gov.cn/open-data-
 web/index/index.do?pageIndex=1
 福建省	福建省公共信息资源统一开
 放平台	https://data.fujian.gov.cn/odweb/
-福州市	福州市政务数据开放平台	http://data.fuzhou.gov.cn/#/home
-大同市	大同市公共数据开放平台	http://www.dt.gov.cn/Dataopen/index
-阳泉市	阳泉市政府数据开放网	http://data.yq.gov.cn/odweb/index.htm
+福州市	福州市政务数据开放平台	http://data.fuzhou.gov.cn/#/home
+
+大同市	大同市公共数据开放平台	http://www.dt.gov.cn/Dataopen/index
+
+阳泉市	阳泉市政府数据开放网	http://data.yq.gov.cn/odweb/index.htm
+
 长治市	长治市公共数据开放平台
-http://www.changzhi.gov.cn/odweb/
-沈阳市	沈阳市政务数据开放平台	http://data.shenyang.gov.cn
-柳州市	柳州市公共数据开放	http://lz.data.gxzf.gov.cn/lz/statistic/
-南宁市	南宁公共数据开放	http://nn.data.gxzf.gov.cn/nn/index
-北海市	北海公共数据开放	http://bh.data.gxzf.gov.cn/
-桂林市	桂林市公共数据开放	http://gl.data.gxzf.gov.cn/gl/index
-钦州市	钦州公共数据开放平台	http://qz.data.gxzf.gov.cn/
-贵港市	贵港公共数据开放	http://gg.data.gxzf.gov.cn
-玉林市	玉林公共数据开放	http://yl.data.gxzf.gov.cn
-百色市	百色公共数据开放平台	http://bs.data.gxzf.gov.cn/#
-贺州市	贺州公共数据开放	http://hz.data.gxzf.gov.cn/hz/index
-河池市	河池数据开放	http://hc.data.gxzf.gov.cn/
-来宾市	来宾公共数据开放	http://lb.data.gxzf.gov.cn
-崇左市	崇左公共数据开放	http://cz.data.gxzf.gov.cn
-梧州市	梧州公共数据开放	http://wz.data.gxzf.gov.cn/wz/catalog/
-济南市	济南公共数据开放网	http://data.jinan.gov.cn/
+http://www.changzhi.gov.cn/odweb/
+
+沈阳市	沈阳市政务数据开放平台	http://data.shenyang.gov.cn
+
+柳州市	柳州市公共数据开放	http://lz.data.gxzf.gov.cn/lz/statistic/
+
+南宁市	南宁公共数据开放	http://nn.data.gxzf.gov.cn/nn/index
+
+北海市	北海公共数据开放	http://bh.data.gxzf.gov.cn/
+
+桂林市	桂林市公共数据开放	http://gl.data.gxzf.gov.cn/gl/index
+
+钦州市	钦州公共数据开放平台	http://qz.data.gxzf.gov.cn/
+
+贵港市	贵港公共数据开放	http://gg.data.gxzf.gov.cn
+
+玉林市	玉林公共数据开放	http://yl.data.gxzf.gov.cn
+
+百色市	百色公共数据开放平台	http://bs.data.gxzf.gov.cn/#
+
+贺州市	贺州公共数据开放	http://hz.data.gxzf.gov.cn/hz/index
+
+河池市	河池数据开放	http://hc.data.gxzf.gov.cn/
+
+来宾市	来宾公共数据开放	http://lb.data.gxzf.gov.cn
+
+崇左市	崇左公共数据开放	http://cz.data.gxzf.gov.cn
+
+梧州市	梧州公共数据开放	http://wz.data.gxzf.gov.cn/wz/catalog/
+
+济南市	济南公共数据开放网	http://data.jinan.gov.cn/
+
 青岛市	青岛市公共数据开放网	http://data.qingdao.gov.cn/qingdao/index?
 siteCode=3702
-淄博市	淄博市公共数据开放网	http://data.zibo.gov.cn/
-枣庄市	枣庄市公共数据开放网	http://zzdata.sd.gov.cn/zaozhuang/index
-东营市	东营市公共数据开放网	http://data.dongying.gov.cn/
+淄博市	淄博市公共数据开放网	http://data.zibo.gov.cn/
+
+枣庄市	枣庄市公共数据开放网	http://zzdata.sd.gov.cn/zaozhuang/index
+
+东营市	东营市公共数据开放网	http://data.dongying.gov.cn/
+
 烟台市	烟台市公共数据开放网	http://ytdata.sd.gov.cn/yantai/index?site
 Code=3706
-潍坊市	潍坊市公共数据开放网	http://data.weifang.gov.cn/
+潍坊市	潍坊市公共数据开放网	http://data.weifang.gov.cn/
+
 济宁市	济宁公共数据开放网	http://jindata.sd.gov.cn/jining/index?sit
 eCode=3708
 泰安市	泰安公共数据开放网	http://tadata.sd.gov.cn/taian/index?siteC
 ode=3709
-威海市	威海公共数据开放网	http://data.weihai.gov.cn/
-日照市	日照公共数据开放网	http://rzdata.sd.gov.cn/rizhao/index?site
+威海市	威海公共数据开放网	http://data.weihai.gov.cn/
+
+日照市	日照公共数据开放网	http://rzdata.sd.gov.cn/rizhao/index?site
+
  
 
 		Code=3711
@@ -6694,7 +7159,8 @@ ode=3713
 Code=3714
 聊城市	聊城公共数据开放网	http://lcdata.sd.gov.cn/liaocheng/index?s
 iteCode=3715
-滨州市	滨州公共数据开放网	http://data.binzhou.gov.cn/
+滨州市	滨州公共数据开放网	http://data.binzhou.gov.cn/
+
 菏泽市	菏泽公共数据开放网	http://hzdata.sd.gov.cn/heze/index?siteCo
 de=3717
 
@@ -8337,2229 +8803,6 @@ CONTENTS
 编 辑： 刘　冬
 责 编： 余　晨
 
-第52条政策
-
-数字政府一体化建设白皮书
-(2024年)
-
-
- 
-No.202401
-数字政府一体化建设白皮书
-(2024年)
-中国信息通信研究院
-2024年02月
- 
- 
-
- 
-版权声明
-本白皮书版权属于中国信息通信
-转载、摘编或利用其它方式使用本
-应注明“来源：中国信息通信研
-本院将追究其相关法律责任。
-法律保护。
-或者观点的，
-反上述声明者，
- 
- 
-前 言
-中共中央、国务院印发的《数字中国建设整体布局
-建设数字中国是数字时代推进中国式现代化的重要
-竞争新优势的有力支撑。加强数字政府建设作为
-性和先导性工程，对加快转变政府职能，推进
-力现代化具有重大意义。
-指出，
-家
-的基础
-和治理能
-国务院出台的《关于加强数字政府
-化系统观念，加强系统集成，全面提
-筹推进技术融合、业务融合、数据
-已全面呈现一体化发展态势。从
-到微观推进一体化建设布局
-见》指出要“强
-约化建设水平，统
-，我国数字政府建设
-数字政府建设正从宏观
-看，政府数字履职应用日益
-全国一体化政务大数据体系加
-趋向一体化协同联动；从
-快形成；从技术特征看
-建设看，设施部署
-为广泛凝聚
-面赋能加速一体化融合；从底座
-化共用格局。
-白皮书首次明确提出“数字政府一体化”
-理论价值：一是有利于推动政府履职协同
-；二是有利于增强行政管理效能，驱动经济高
-的建设理念，
-化，持续
-质量发
-同时
-自
-于激发改革创新活力，分享数字中国发展经验。
-体化建设要注重“三大转变”：一是机制层面由各
-范统一，二是业务层面由条块分割转为整体协同，三是
-技术层面由被动响应转为主动求变。
- 
- 
-为加快推进数字政府一体化建设落地，本白皮书首次提出了
-“1122”的总体建设框架：即以体制机制为驱动，以履职
-以政务数据、平台支撑为两大支撑，以运维运营、安
-障。从实施要点看，要加强数字政府一体化建设
-革的系统性、整体性、协同性，建议围绕体制
-场景协同化设计、政务数据一体化布局、平
-引，
-保
-增强改
-署、履职
-建设、运维
-运营长效化运作和安全防护体系化保障
-系统性推进数字政府一体化建设。从
-类推进”的原则，立足省域、区域和
-以“省市统筹、赋能基层”加快
-行”推进区域一体化，以“
-，全局性谋划、
-按“有序组织、分
-视角提出发展策略：
-以“跨域协调、民生先
-面结合”渐进全国一体化。
- 
- 
-目 录
-一、数字政府已呈现一体化发展态势..............................................
-（一）政策：从宏观到微观推进一体化布局.......................
-（二）服务：政府数字履职应用一体化协同..................
-（三）数据：政务数据体系建设一体化部署..............
-（四）技术：数字技术赋能加速一体化融合.........
-（五）底座：设施部署明显趋向一体化共用.....
-.........1
-.1
-..... 3
-..........4
-..............6
-...................7
-.......................8
-二、数字政府一体化建设的价值内涵...................
-（一）数字政府一体化建设的价值............
-（二）数字政府一体化建设的内涵.......
-三、数字政府一体化建设的实施要点......
-（一）数字政府一体化建设的总体
-（二）先决条件：体制机制统筹
-（三）关键抓手：履职场景
-............................8
-..............................10
-...................................13
-.......................................13
-............................................14
-................................................22
-.....................................................27
-.........................................................33
-（四）协同根基：政务数
-（五）降本增效：平台
-（六）长期好用：运
-（七）红线底线：
-四、数字政府一体化
-（一）“省市
-作...........................................................39
-保障...........................................................45
-......................................................................49
-，加快省域一体化...........................................49
-行”，推进区域一体化...........................................50
-结合”，渐进全国一体化...........................................51
-（二）“跨
-（三）“
- 
- 
-图 目 录
-图 1 “十四五”以来数字政府领域主要国家政策脉络.........
-图 2 数字政府一体化建设“三大转变”.................................
-图 3 数字政府一体化建设框架图....................................
-图 4 广东省分级设立政府及部门首席数据官（CDO
-图 5 数字孪生赋能建设智慧社区、智慧园区场景
-图 6 面向数字政府的一体化运维平台架构.......
-.........2
-13
-... 14
-........17
-............39
-.................42
-.....................45
-图 7 楚天云运营数据大屏..............................
- 
- 
-数字政府一体化建设白皮书（2024 年）
-一、数字政府已呈现一体化发展态势
-党的十八大以来，数字化发展步伐加快，“一网通
-管”“一网协同”等创新实践不断涌现，推动数字政
-提升，有力支撑了国家治理体系和治理能力现代
-在政策、服务、数据、技术和底座等方面，我
-出一体化的发展局面。
-网统
-幅
-同时，
-设已呈现
-（一）政策：从宏观到微观推
-局
-从国家层面看，数字政府一体化
-四五”规划纲要率先勾勒了数字
-规划纲要》首次专篇阐述“加
-单独设立章节，强调要“提
-共数据开放共享、推动政
-日趋清晰。一是“十
-观轮廓。《“十四五”
-建设数字中国”，篇中
-设水平”，并提出了加强公
-共用和提高数字化政务服务效
-能三大重点任务。二是
-总体框架。国务院
-我国数字政府建
-字政府领域
-意见正式确立了数字政府建设的
-加强数字政府建设的指导意见》，对
-安排，明确提出“三个首次”，成为数
-文件。三是国家政务信息化规划系统部署了
-程。国家发改委印发《“十四五”推进国家政
-数字政府
-务信息
-进三
-“大数据、大平台、大系统”为总抓手，指导推
-具体工程。四是一体化政务大数据体系详细绘就了
-的施工图纸。2022 年9 月13 日，国务院办公厅印发了
-数字
-《全国一体化政务大数据体系建设指南》，明确提出了一体化推进统
-1
- 
- 
-数字政府一体化建设白皮书（2024 年）
-筹管理、数据目录、数据资源、共享交换、数据服务、算力设施、标
-准规范和安全保障八大方面的具体任务。
-来源：中国信息通信研究院
-图 1 “十四五”以来
-要国家政策脉络
-从地方层面看，数字
-广东、上海作为我国数
-念推进数字政府建设
-市开始统筹部署数
-设成为主流路径选择。浙江、
-典型代表，始终以一体化建设理
-网系列”1创新实践，越来越多的省
-建设。2022 年 12 月 26 日，福建省
-人民政府发布
-“全省一盘
-一体化平
-字政
-字政府改革和建设总体方案》，提出坚持
-化建设”原则，构建一张网、一朵云、三大
-门户，支撑N 个应用的“1131﹢N”一体化数
-2025 年发展目标和 2035 年远景目标进行明确规
-，重庆市提出加快建设“1361”整体构架，以一体化
-划
-1 即政务服务一网通办、城市运行一网统管、政府办公一网协同
-2
- 
- 
-数字政府一体化建设白皮书（2024 年）
-智能化公共数据平台为核心，推进市、区县、乡镇（街道）数字化城
-市运行和治理中心一体化部署，抓好6 大应用系统建设
-层智治体系建设，促进纵向贯通、横向联动、多跨协
-城市发展能力、服务能力、治理能力。
-进基
-升
-（二）服务：政府数字履职应用一
-构建协同高效的政府数字化履职能力
-府建设的重
-要任务。近年来，各地区各部门依托全
-升政务服务效能，“一网通办”能力
-网协同”等一体化数字化履职应
-强化政务运行效能提供了有力
-一是线上线下服务渠道
-服务平台不断提
-推“一网统管”“一
-为创新社会治理模式、
-区各部门深入推进政务服务
-“一网通办”“跨省通办
-设系统和应用，形成“PC 端、
-APP、小程序、终端
-道流量聚合，有力
-2023 年 8 月，
-平台建立政
-联动模式，实现线上线下服务渠
-数据汇聚，一体化服务水平全面提升。
-印发了《关于依托全国一体化政务服务
-升常态化工作机制的意见》，明确要“强化
-上线下协同服务机制，更好发挥公共入口作
-1 个省（自治区、直辖市）和新疆生产建设兵团
-政务服务
-用”。
-均已
-对接
-服务移动端 2，并完成与国家政务服务平台移动端
-%的地区采用微信或支付宝小程序提供服务，政务服务
-2 中央党校（国家行政学院）电子政务研究中心
-3
- 
- 
-数字政府一体化建设白皮书（2024 年）
-载体持续丰富。
-二是综合场景应用一体化。一方面，“高效办成一
-化政务服务的重要抓手。2024 年 1 月 5 日，李强总
-会议指出，要形成“高效办成一件事”常态化推
-广地方和部门探索的好经验好做法，不断增强
-当前，不少地方开辟了“一件事一次办”线
-为优
-务
-复制推
-获得感。
-通过优化业
-务流程、打通业务系统、强化数据共享
-等企业群众密切关注的“一件事”高
-提升。另一方面，探索实践基层“
-于全面加快建设城市运行管理
-前，所有省、自治区要建成
-办、新生儿出生
-服务效能得到大幅
-深度融合。按照《关
-知》要求，2023 年年底
-服平台，地级以上城市要基
-持续强化网格化管理和服务，
-本建成城市运管服平台。
-依托人工智能、大数据
-城管综合执法等领
-治理能力显著提
-城市管理、公共服务、社会治安、
-享，智能化、精细化服务供给和社会
-（三）
-数据体系建设一体化部署
-政务
-合、共享利用是数字政府建设的关键任务。当
-前，全
-共享
-大数据体系已初步形成，有效推动数据高效流通
-用，政务数据在提升政府履职能力、助力国家治理
-力现代化中的重要价值逐渐显现。
-体系
-一是数据一体化流通共享体系加快完善。“1+32+N”的全国一体
-4
- 
- 
-数字政府一体化建设白皮书（2024 年）
-化政务大数据体系正在逐步构建，有效促进了政务数据纵向贯通、横
-向联通。完善国家政务大数据平台，打通政务数据共享
-在整合完善现有平台、系统、数据库和设施的基础上
-据平台的建设逐步按需完善基础库和主题库数据
-数据服务、数据治理、数据分析、安全管理、
-在建设国家政务数据管理总枢纽、政务数据
-务总门户上稳步迈进。建设 32 个省级和
-节点。
-数
-，完善
-统组件，
-政务数据服
-关部门政务数
-据平台，推动政务数据全盘互联互通
-数据目录编制、供需对接、汇聚整
-台促进各部门各行业数据汇聚
-国家平台实现对接，有效推
-数据按需调用。截至202
-筹推动各地区政务
-，国务院有关部门平
-接。省级与部门平台均与
-门数据交换共享，支撑政务
-全国一体化政务服务平台已接
-平台）和32 个地方，共上线6006
-入52 个部门（含国家
-个目录，挂接2.06
-二是公共数
-利用对于赋能
-政务数据
-调用4847.07 万次服务3。
-践持续深化。推动公共数据开放与融合
-能经济发展、赋能共同富裕意义重大，是
-署落地的有力抓手之一。公共数据开放程度不
-础持续夯实。截至 2023 年 8 月，我国已有 226
-方政府上线了数据开放平台。各地平台无条件开放
-断提升
-个省
-的
-集容量从 2019 年的15 亿到 2023 年超480 亿，5 年间
-3 数据来源：全国一体化政务服务平台
-5
- 
- 
-数字政府一体化建设白皮书（2024 年）
-增长约32 倍。公共数据授权运营实践遍地开花，融合应用持续创新。
-截至2023 年9 月，7 省（不含直辖市和港澳台）和22
-市、副省级与地级行政区）出台了公共数据授权运营
-意见征求稿。福建省、成都市、杭州市、南京市
-公共数据授权运营平台或专区 4。公共数据融
-浙江通过对公共数据和社会数据的聚合分
-直辖
-或
-上线了
-断显现。
-迅应急救援”
-项目，形成1 分钟接警、3 分钟出警、1
-路施救流程标准和城市道路施救流程
-效率。山东省德州市开放了易积水
-水点搜索等功能，以便为市民
-“1315”高速公
-高了道路应急救援
-高德地图开发道路积
-提供合理行程规划。
-（四）技术：数字
-一体化融合
-数字技术融合催生一
-，为政府履职提供新方案。国
-务院印出台的《关于
-技术广泛应用于政
-履职能力提升，
-门纷纷集成
-建设的指导意见》提出，要将数字
-推进政府治理流程优化、模式创新和
-智能化的政府运行新形态。各地区各部
-，打造一体化管理服务平台，辅助政府数字
-市推动市政综合管理平台建设，依托物联网、
-S、视频分析等技术，为市政运行管理、一体化
-化履职应
-云计算
-应急
-决策
-卫、智慧园林绿化和异常事件处置等场景有力提供
-。
-4 复旦大学数字与移动治理实验室. 《中国地方公共数据开放利用报告——省域》
-6
- 
- 
-数字政府一体化建设白皮书（2024 年）
-大模型兴起将加速新一轮技术融合，为未来场景开辟新空间。大
-模型技术融合大数据分析、物联感知、人工智能、数字
-将使政府管理服务更加主动、更加智能、更加高效。
-模型通过学习大量政务数据，可以挖掘出更深层
-识别企业群众办事需求，打造“一人通岗”办
-全事项的政务服务模式。另一方面，未来城
-技术，
-大
-，精准
-全天候、
-台有望进化
-成主动感知、分析、决策、调度的生命
-化自我学习，开辟全新的管理服务交
-务更亲民、管理更自如。
-管理事件中强
-机协同更自然、服
-（五）底座：设施部署
-体化共用
-一是云网等政务设施实
-度覆盖。政务云方面，政务
-云平台集约化建设格局已
-国31 个省（自治区、直辖市）
-和新疆生产建设兵团
-政务云平台，政务
-网迁移整合加速
-100%覆盖，
-本建成，超过70%的地级市建设了
-迁移上云。政务网方面，电子政务外
-电子政务外网已实现县级以上行政区域
-到96.1%。东中西部地区大力推进非涉密业
-、江苏等基本完成非涉密业务专网向电子政务
-南等省份以省直部门牵头带动地市、区县等省垂
-务专网迁
-外网迁
-直管
-移整合。
-“端边网云数用”多维一体防护能力。安全是数字政府
-建设的重要基石，政务信息系统的正常运转，依赖于云网基础设施、
-7
- 
- 
-数字政府一体化建设白皮书（2024 年）
-平台稳定运行和数据安全的全方位保障。当前，数字政府安全防护仍
-存在“头痛医头、脚痛医脚”的打补丁现象，静态、被
-全防护思路已经无法适应数字政府一体化发展需要
-安全、边界安全、网络安全、云安全、数据安全
-安全保障体系，集成运用身份认证、访问控制
-备份恢复等技术。持续加强网络安全态势感
-能力。
-的安
-端
-一体化
-控审计、
-和应急处置
-二、数字政府一体化建设的
-（一）数字政府一体化建
-当前，我国数字政府改革
-准不一致、平台不集约、数
-些问题成为阻碍数字政府
-统筹部署全国一体化
-水区”，机制不顺畅、标
-难啃的骨头”依旧存在，这
-“拦路虎”。未来一段时期，
-系，持续优化全国一体化政务服务
-的重要任务。站在“以中国式现代化
-的历史方位，以数字政府一体化建设全
-平台，成为数字政
-全面推进中华民
-面引领驱动数
-机已然成熟，建设协同高效的整体型政府
-体化建设迎来重要窗口期。
-需求迫切
-推
-体化建设有利于推动政府履职协同化，持续增进
-体化政务大数据体系，建立跨部门的信息共享和业
-可以打破信息壁垒，加快政务数据在不同层级、地域、
-民生
-务
-系统、部门、业务之间的流通互认共享，提升全链条、全过程、全区
-8
- 
- 
-数字政府一体化建设白皮书（2024 年）
-域的协同化履职能力。借助一体化协同办公平台，政府工作人员可以
-更好地优化工作流程，基于智能化的数据分析和决策支
-掌握和研判社会状况和民意需求，提高政府决策的
-依托一体化指挥调度平台，地方政府可以实时掌
-及时发现潜在隐患，实现提前预警、精准布控
-治理能力。依托一体化政务服务平台，政府
-实时
-性。
-理态势，
-提高综合
-政务服务资
-源，提供便捷、高效的泛在服务，方便
-政务服务“大厅端、电脑端、移动端
-运营，有助于提升人民群众和市场
-推进数字政府一体化建设
-政务事项，围绕
-“一体多端”协同
-得感和满意度。
-政管理效能，驱动经济高
-压力较大，如何落实高质量
-面临的一道“赶考题”。推进
-质量发展。新冠疫情以来，
-发展和稳步推进经济复苏
-数字政府一体化建设，
-代价投入”达到“
-场景建设为关键
-益，谋划跨部
-投资项目高质量管理，以“最小
-”。一方面，数字政府一体化以综合
-虑各层级、各部门的场景建设需求和效
-场景，既能以“高效办成一件事”为出发
-率、优化营商环境，同时还能增强政府经济宏
-点提升便
-观调控
-投资
-以
-瞻性、针对性，促进财政、货币、就业、产业、
-形成合力，做到科学精准、协同发力。另一方面，
-，按照统一规划、统一构架、统一标准、统一支撑、统
-一运维原则，加强政务云、政务网络、基础支撑系统和共性能力平台
-9
- 
- 
-数字政府一体化建设白皮书（2024 年）
-等建设，部署算力存储“一朵云”、通信传输“一张网”、数据要素
-“一组库”、数字资源“一本账”，形成一体化、集约
-数字政府建设工作格局，有利于优化财政预算和资金
-平重复建设、资源浪费5。
-棋的
-水
-推进数字政府一体化建设有利于激发改革
-国发展经验。数字政府一体化建设，将从体
-享数字中
-履职、数据
-资源、平台支撑、运维运营、安全保障
-建与政府治理能力现代化相适应的数
-数字政府一体化建设，有助于促进
-效满足政务数据共享需求，实现
-职协同，支撑高频服务事项“
-行系统谋划，构
-架。一方面，通过
-的统筹协调机制，有
-会治理在更大范围的履
-大治理事件“全国统管”，
-社会管理“少损失”、行政决
-在更深层次实现公共服务
-策“少偏差”。另一方
-要推动力。通过数
-优势推动数字产
-个社会的数字
-一体化建设是数字经济时代的重
-建设，以“集中力量办大事”的制度
-规范带动产业数字化发展，进而提升整
-推动数字经济的整体发展，向世界输出中
-国式现代
-（
-府一体化建设的内涵
-学、管理学、计算机科学等学科领域已深入“一体
-了“经济一体化”“城乡一体化”“产城一体化”“一
-化”
-5
-中国网信网，《云南玉溪大力推进“数字政府”建设》
-10
- 
- 
-数字政府一体化建设白皮书（2024 年）
-体化管理”和“软硬件一体化”等概念，虽然各领域侧重点有所差异，
-但就“一体化”本质达成共识：将分散、独立的部分整合
-统，
-加深各部分之间的资源共享与协同配合，进而提高
-益。
-表1 部分学科有关“一体化”的概念
-序号
-概念
-内涵
-在不同国家或地区之间加深经
-降低贸易壁
-垒、促进投资、提高资金流动
-形成一个共同的经济体系
-大化。
-业发展等方式，
-1
-经济一体化
-现资源和利润的最
-将城市和农村作为一
-立，以促进资源配
-济社会的协调
-消除城乡差距和城乡对
-民生活水平提高和实现经
-2
-3
-4
-城乡一体化
-源共享和优势互补，提高社会
-和经济效益
-城镇应当
-信息、贸易、生态、生产、生活、
-服务、
-服
-功能，强化城镇在区域的产业与生活
-业集中的基础上，城镇可以集中劳动力、
-产城一体化
-、交通等生产要素，并对它们进行加工整理
-成新的生产要素、新的产品、新的生产和管理
-在劳动力、产业和生产要素集中的基础上，城镇
-城镇居民提供良好的生产、生活和服务环境。
-企业或组织中采用整合性体系管理方式，统一各部门、
-和人员的管理方式和标准，将企业各部门整合起来，消除
-部分割，实现资源共享，规范业务流程，从而更好地支持企
-业战略的实现。
-11
- 
- 
-数字政府一体化建设白皮书（2024 年）
-将软件和硬件部分深度融合，从而构建出一种内部高度一致的
-计算机体系结构。一般软件、硬件是独立设计
-硬件部分相互融合可以软硬件之间的协同效
-行更加高效、稳定和可靠。
-来
-将软件和
-5 软硬件一体化
-研究院
-数字政府一体化建设要以全局统筹为基
-以适应变化为方向，以增进整体效益为目
-等资源流通，促成政府、企业、民众等
-与治理体系现代化。数字政府一体化
-机制层面由各自为战转为规范统
-垒为手段，
-、数据、设施
-现政府治理能力
-三大转变”。一是
-门不同层级因制度安
-业务流程、建设要求、标
-排差异造成的问题，要适当统
-准规范、话语体系等，打造
-务层面由条块分割转为
-题，要注重全局统筹
-行政资源流通，加
-稳定性的法治政府。二是业
-政府履职碎片化和行政壁垒问
-为中心，减少局部数据壁垒，促进
-打造具备“高效办成一件事”能力的
-被动响应转为主动求变。针对国家治理
-服务型政府。三
-体系和治理
-会发展需
-代化政
-展要求，要适应内外部环境变化，与经济社
-趋势保持同步，打造改革“永远在路上”的现
-12
- 
- 
-数字政府一体化建设白皮书（2024 年）
-通信研究院
-图 2 数字政府一体化建设“
-三、数字政府一体化建设的
-（一）数字政府一体化建
-架
-为系统推进数字政府一体
-总体建设框架：即以体制机
-据、平台支撑为两大支撑
-机制统筹化部署是先
-皮书研究提出“1122”的
-履职场景为牵引，以政务数
-、安全防护为两大保障。体制
-景协同化设计是关键抓手，政务
-数据一体化布局是
-维运营长效化运
-台支撑集约化建设重在降本增效，运
-用，安全防护体系化保障是红线底线。
-13
- 
- 
-数字政府一体化建设白皮书（2024 年）
-：中国信息通信研究院
-图 3 数字政府一
-（二）先决条件：体制
-部署
-1.建设“集中领导、
-的统筹体制
-当前，国家、地方普
-落实数字政府具体工
-权限不足、评价考
-政府建设工作领导小组，但在
-任务与职责不对应、牵头部门职责
-题。有必要进一步强化统筹体制建设，
-班、专家委员会的作用，明确职责分工，
-充分发挥首席数
-抓好督促落
-组建
-数字政府建设。
-动首席数据官制度常态化。各级政府因地制宜
-会，协助数字政府领导小组落实数字政府建设任
-与监督首席数据官日常工作，定期组织协调、任务
-核等工作。各地区各部门选任首席数据官，要明确首席
-建设首
-务，
-落实
-数据官职责范围，发挥数据管理专门机构的枢纽作用，纵向协调数据
-14
- 
- 
-数字政府一体化建设白皮书（2024 年）
-治理问题，横向建立政府部门间制度性沟通机制，保障工作顺利开展。
-建立专班小组，专人专管集中攻坚重大任务。围绕
-化建设重点任务，针对短期要突破、聚集资源多、工
-范围广的工作，可将工作专班选为一种临时性攻
-班时，要对工作专班立废程序做出规定，出台
-关细则，以完成重大任务为导向，研究制定
-汇聚专家资源，组建智库团队发挥
-一体
-度
-工作专
-方案及相
-准。
-数字政府领域
-科研和产业生态资源，凝聚行业专家
-库。依托数字政府专家咨询委员会
-在数字政府理论研究、政策制
-设、成效评价评估等方面，为
-字政府行业专家智
-究院等专业咨询机构，
-平台技术、重大项目建
-化建设提供专业咨询服务。
-专栏1：广东
-席数据官组织体系
-广东在全国首创
-席数据官”（CDO）制度，自2021
-年5 月发布《广东
-在省直部门以
-核培训等方
-官是数字
-制度试点工作方案》以来，分阶段
-试点工作，从组织体系、职能职责、考
-府首席数据官的工作体系，明确首席数据
-起者、探路者、领导者和执行者，当前已在
-实施该制度，为广东省打造“智领粤政、善治为
-全省
-民
-府2.0”提供了强力支撑。
-推动，构建分级融合的组织体系。广东省在制度中明
-15
- 
- 
-数字政府一体化建设白皮书（2024 年）
-确，在省、市数字政府改革建设工作领导小组统一领导下，开展首
-席数据官制度试点工作，市、县（市、区）政府和部
-级政府首席数据官和本部门首席数据官，原则上首
-政府或本部门分管数字政府改革建设工作的行
-兼任。
-立本
-级
-领导
-二是充分赋权，明确首席数据官职责
-责履行涉及跨层级、跨地域、跨系统、
-席数据官职
-务数据统筹协
-调，需要足够的权威性，才能有效落
-CDO 的首要职责即推进数字政府
-革建设工作领导小组决定事项
-部门数字政府发展规划、标
-席数据官的权利，明确
-广东省明确政府
-实省、市数字政府改
-组织制订本级政府或本
-计划。同时，充分赋予首
-的立项、验收工作拥有“一票
-否决权”。
-三是增能提质
-席会议、数字化
-务交流等系
-制，加大
-培训考核。通过举办首席数据官联
-培训、地区和部门首席数据官之间业
-建立首席数据官议事协调述职等考评机
-的培养、选拔和考核力度，逐步构建“懂业
-”的复合型 CDO 队伍体系，为数字政府改革
-务、懂
-建
-市场化配置改革提供人才支撑。
-16
- 
- 
-数字政府一体化建设白皮书（2024 年）
-东省政务服务和数据管理局
-图 4 广东省分级设立政府及
-（CDO）组织体系
-2.完善“建管运”全
-制
-由于数字政府建设工
-障方面普遍存在统筹力
-进一步通过“统筹
-，各地在人、财、物等资源保
-度大、队伍支撑弱等问题，需要
-统筹考核管理”“统筹人才要素”完
-项目“全流程”监管、目标“全闭环”
-善相应配套机制
-考核、人才“
-，形成强有力的组合推进措施，打造一体
-支撑体系。
-化高效运
-统
-建立“全流程”项目统筹机制。一是强化统筹推
-小组、制定顶层发展规划、引入全过程管理机构等，
-息化项目全生命周期统一管理，各相关方在项目管理
-进。
-推
-中权责明晰、协同运作。二是强化全过程监督。在重点项目论证、立
-17
- 
- 
-数字政府一体化建设白皮书（2024 年）
-项、财评、实施、验收、评价与审计等环节进行督查，定期总结典型
-问题，形成督查通报；组织项目评估诊断工作，将评估
-管理决策的重要参考依据。三是制定流程规范。规范
-的入库、设计、建设、验收、运维管理等各项流
-件提出明确要求，科学制定项目评价指标体系
-统筹考核管理，落实“全闭环”考核评
-后续
-目
-案等文
-明确考核对
-象。分级分部门制定数字政府建设责任
-任和监督责任，确保数字政府建设管
-立完善评价指标体系。统一出台数
-级、各部门的考评细则，重点考
-开放、安全保障、应用成效
-地责任、主体责
-职责明确。二是建
-法，细化量化对各层
-理、项目建设、数据共享
-确保评价结果的科学性和客
-入第三方机构开展评价，考核
-观性。三是强化考核结果
-评价结果作为领导班子
-好信息披露和绩效
-统筹人才要
-干部综合考核评价的重要参考，做
-落实奖惩机制。
-方位”人才队伍机制。一是优化人员选
-据官为核心的人才队伍体系，在强化部门
-职能部门分管副职角色的同时，通过遴选或竞
-任模式。建议
-主要负责
-争上岗
-二是
-加
-政治、懂业务、精技术、熟数据的复合型人才。
-。通过简化招聘程序、设立数字人才特殊晋升通道、
-制度等，吸引数字人才参与数字政府建设。探索数字人
-才资源共享，畅通政府机关、事业单位和国有企业之间人才流动渠道。
-18
- 
- 
-数字政府一体化建设白皮书（2024 年）
-开展政府人员数字技能常态化培训、技能竞赛等，不断提升干部队伍
-数字思维、数字技能和数字素养。定期评估数字政府一
-需求，研究制订各类数字人才的人力资源规划和实施
-才队伍结构。
-人才
-人
-3.有序推进标准制定规范统一
-截至2023 年6 月，我国主要的数字政府
-织已规划、
-立项120 余项国家标准 6，这些标准成
-设、评估的重点依据。调研发现，关
-标准落实不到位等问题表现突出
-键指标供给、标准协同机制、
-设立标准组织，加强标
-字政府规划、建
-标准规范不统一、
-好标准组织建设、关
-等方面工作。
-。加快组建国家级数字政府
-标准化组织，加强政、产
-等数字政府建设参与力量，结
-合当前数字政府发展
-数字政府标准体系
-化为国家标准，
-聚焦关
-进数字政府标准化工作，构建多维
-业标准、地方标准、团体标准适时转
-标准化整体水平。
-准供给精准化。以解决制约数字政府一体
-，开展政务数据治理、跨领域业务协同、项目
-技术应用等亟需的重点标准研究工作，率先形成
-化发展关
-全生命
-一批
-续加大标准供给，为数字政府建设提供重要手段和
-6 中国电子技术标准化研究院，《数字政府标准化白皮书》
-19
- 
- 
-数字政府一体化建设白皮书（2024 年）
-依据。
-建立协同机制，推进现有标准融合化。在国家标准
-间应加强协同，打造数字政府标准化经验交流合作平
-议、协调小组等机制，明确责任主体，确保统一
-方便市民跨区域、跨流程办事无缝衔接为主要
-“急用先行”等原则，引用“清单制”，梳
-序，注重线上线下融合，打破地域限制
-标准规范。
-区域
-会
-作。以
-频优先”
-明确先后顺
-数字政府相关
-注重成效评估，保障标准实施
-效的指标体系，建立标准应用成
-评估工作，对推进过慢、对
-移除。开展加强标准宣贯
-准，开展常态化培训宣
-力。
-数字政府标准应用成
-测机制，开展常态化标准
-实际情况不符的及时改进或
-会公众宣传引导，针对重点标
-工作人员对标准的理解及执行能
-专栏2：国
-推广全国统一的医保标准规范体系
-医疗保
-增进民生福祉的重要措施之一。过去，
-一标准，造成了医保体系到处都是独立的
-由于缺少
-“烟
-家
-业务交互造成了极大的障碍。2019 年以来，国
-行了全国统一的医保业务编码标准、技术标准、
-营规范，完善了医保行业标准体系，有效指导了全
-业
-20
- 
- 
-数字政府一体化建设白皮书（2024 年）
-国医保信息互通互联、数据互认，为新时代医疗保障高质量发展
-提供支撑。
-一是加强组织保障，坚持全国统一。国家医保
-局网信办统领医保信息化技术架构组、标准规范
-强医疗保障标准化基础研究，建立了国家医
-认同、各地协同推进的标准化工作机制，
-性标准、管理工作规范、公共服务标准
-扎实推进医疗保障标准化工作。
-加
-关部门
-了基础共
-准40 余项，
-二是强化统一贯标，放大规
-广普及的方式，国家医保局在
-试应用试点，最终完成了
-兵团的医保药品、医用
-码标准完成贯标。全
-先试点完善、再推
-区开展了编码标准测
-区、市）和新疆生产建设
-项目等18 项医保信息业务编
-用医保电子凭证进行挂号、核
-医保业务全流程操作，参保人异
-验身份、支付、取
-地就医与结算
-效率大提升
-捷高效，药品、医用耗材采购与管理
-利国利民。
-三是
-编码
-，保障指导效力。按照“统一分类，统一
-统一发布、统一管理”的总体要求，搭建统一
-，加强维护小组与相关业务部门的沟通协作，建
-动态维护工作的协调联动，确保最新标准在各级医
-的
-立国
-21
- 
- 
-数字政府一体化建设白皮书（2024 年）
-保部门的统一管理与实施，充分发挥信息标准化在医保信息化管
-理中的支撑和引领作用。
-（三）关键抓手：履职场景协同化设计
-1.构建场景分类“二维矩阵”
-检验数字政府建设成效，场景落地是关
-快，如何准确把握场景特征，清晰地开展
-要。通过分析总结各地数字政府场景实
-按业务协作边界可将数字政府场景
-景和外跨场景四大类，构成场景
-术迭代加
-，变得日益重
-网系列”应用，
-、横跨场景、纵跨场
-阵”。
-是仅涉单个部门的内跨场
-以四类协作模式构成“多
-景。该类场景一般只牵涉某
-会组织，往往注重运用
-化，增进行政运转效
-般由特定服务群体
-，不涉及其他政府部门或社
-履职渠道多样化、履职方式便利
-部门协同的横跨场景。该类场景一
-发，不能由单个部门解决且十分关注
-台赋能”促进多部门业务协同，形成“用
-时效性，通过“
-户导向/事件
-该类场景
-省级层
-辅
-协同效应。三是需多层级联动的纵跨场景。
-的“自上而下”垂直管理属性，通过在国家或
-垂直管理系统伸向基层，高层更注重“数据分析、
-层更注重“数据采集、事件上报”。四是需更泛在协
-。该类场景一般不局限于政府行政职责，需要民众、企
-作的外
-22
- 
- 
-数字政府一体化建设白皮书（2024 年）
-业、社会组织等各方力量共同参与，打造“开放共享、多元合作”的
-数字政府场景建设格局，以数字政府建设引领驱动数字
-会、数字生态共荣发展。
-字社
-以五类业务应用形成“一网系列”。一是政务
-以全国一体化政务服务平台为核心载体，推动
-利民服务资源，为企业群众提供一站式精品
-办”。
-汇聚惠企
-创新推动“一
-网通办”逐步迈向“全国通办”。二是
-区探索为主，因地制宜推动“一网统
-线、城管、综治”资源，围绕决策
-动打造一批应用场景，形成“一
-网协同”。以数字机关建设
-网统管”。以地
-先整合“12345 热
-度、基层治理等，推
-生态。三是行政办公“一
-穿国家、省、市、县、乡、
-同办公平台，实现政府内部业
-村六级互联互通、同步联
-务系统贯通协同，提高
-依托全国一体化政
-据平台建设，加
-源实现有序流
-效率。四是数据资源“一网共享”。
-建设，统筹推动各地区各部门政务数
-合、共享开放和开发利用，促进数据资
-。五是运行维护“一网安全”。全面构建
-配套的安全防护体系，加强关键信息基础设施
-制度、管理
-安全保
-开展
-身份认证、国密算法、区块链等技术应用，定期
-，切实筑牢数字政府建设安全防线。
-景“一盘棋”整合
-从以往数字化场景建设项目看，单一场景建设投入不高，但同类
-23
- 
- 
-数字政府一体化建设白皮书（2024 年）
-相似场景项目在多部门、多地区独立建设，资金投入往往巨大，且存
-在数据标准不一、系统互联互通难等问题。为更好解决
-加强源头管理，加大数字化场景需求整合。
-推动“横跨、纵跨、外跨”关联场景需求整
-研究制定《数字化场景协同建设工作指南》，
-区“需求共商、场景共建、成果共享”。将
-，要
-主体，
-部门各地
-作为场景建
-设项目申报的前置条件，以“问题清单
-手，加强关联场景需求融合，打破部
-设壁垒。按照梳理问题、明确需求
-综合集成、资源节约的数字政
-业务职能确定牵头单位统建
-场景清单”为抓
-、层级间的场景建
-路，谋划多跨协同、
-于省级共性需求，根据
-性需求，通过省级统建、各
-式，强化共性能力集约共享。
-地应用或“揭榜挂帅”、
-创新数字化场景全
-层级”会商，建设
-管理模式。推动省市“多部门、多
-流程管理服务平台，推动数字化场景
-管理服务全流程
-由平台提供需
-考核评估
-化。围绕数字化场景创新全生命周期，
-设计、申报入库、评价比选、实施监测、
-服务，为场景需求方提供策划工具，为场景供
-为场景管理方提供统筹抓手。持续跟踪数字化全
-应用成效，不断优化场景创新机制，优选典型场景
-给方提
-流程
-推
-成场景创新“一盘棋”。
-3.“三视角”推动设计协同
-24
- 
- 
-数字政府一体化建设白皮书（2024 年）
-随着数字化改革全面推进，部门间协同观念不强、协同机制缺乏、
-协同效能不高等问题越发凸显，需要从管理闭环、服务
-置等视角，持续完善数字化履职场景协同设计，服务
-建设。
-源配
-化
-加强履职场景组织协作，实现全主体、全
-政府数字化履职能力为导向，聚焦“横跨、
-。以提升
-数字化关联
-场景，组建主体多元、协作紧密、融合
-障场景设计全过程、全链条协同。由
-联场景提出的需求部门、场景建设
-用户，形成“需求方+供给方+使
-在全过程就业务流程再造、
-同设计专班，保
-部门主导，整合关
-场景最终群众或企业
-”的场景协同设计专班，
-、场景建设方案等达成共识，
-和有效性。
-从源头推动场景设计的合
-提升履职场景服务
-场景中受众的服务
-环节、时空、活
-场景整合为完
-要素、全方位协同设计。以履职
-向，从需求侧识别履职场景中角色、
-果等要素及其关联关系，将多个关联小
-场景。由综合场景引领上下游服务流程重
-中心的“多级跨域协作办、关联事件一次办、
-构，强化
-主体事
-升场
-履职场景协同设计，通过要素聚合及场景整合提
-、全方位的服务体验，助力政府履职协同效能提升。
-场景资源配置，实现网络化、动态化协同设计。以履职
-场景效能最大化为导向，统筹谋划数字资源分布与供给，综合研判关
-25
- 
- 
-数字政府一体化建设白皮书（2024 年）
-联场景建设数字资源需求的重要性与紧迫性，建立态势感知、统筹处
-置、动态调配、分级协作的资源配置规则。通过数字资
-不同层级政府间的有效协作，强化政府与市场、社会
-的资源共享和协同互动，进一步缩短城乡发展差
-推动数字政府整体高质量发展。
-促进
-间
-差距，
-专栏3：安徽省创新数字化场
-安徽省系统推进场景创新工程，研
-方案》，在省级层级统筹建设数字
-推动全省数字化场景的结构化申
-在选取原则上，聚焦企业
-创新工程工作
-命周期服务平台，
-审、集约化建设。
-盼”问题，聚焦重大共
-面向各行业三融五跨场景，
-性需求、高频需求、紧急需
-推动为民办实事、为企
-的关系，统筹已建场
-商定，打造“安、
-民为企服务，“
-系统筹上，处理好存量和增量
-。场景由省数据资源局会同部门
-皖”系列，其中“安”系列突显为
-执法监管和运行管理智能化治理，“数”
-”系列突显分析决策，“皖”系列突显安
-，围绕重大任务牵引、创新突破、预期目标
-系列突显数
-徽特色。
-等关
-模
-主观+客观”“人工+机器”“专家+群众”评选
-专家评审、首席代表（窗口负责人）打分和企业群
-评分评选结果进行综合排序，排序靠前的场景优先支
-众
-26
- 
- 
-数字政府一体化建设白皮书（2024 年）
-持。在场景创新上，筹建高水平的场景创新研究中心和开放的场景
-创新生态联盟，力争打造国内一流的场景创新研究基
-科研院所、高校、头部企业等开展协同合作，研究
-为我省场景创新工程实施提供全面支撑服务，面
-供优质的数字化场景应用解决方案。
-联合
-，
-门提
-（四）协同根基：政务数据一体
-1.高质量编制数据治理“一本
-我国高度重视数据作用及数据管
-体化政务大数据体系建设的大背
-能成为数字政府建设的重要内
-业务和行业强耦合，但目前
-统筹开展政务数据治理
-在各地推进全国一
-务数据实现高质量赋
-来源广、种类多，与部门
-、标准不一、质量低下。需
-量、一体化政务数据资源体系，
-夯实数据共享开放底
-一是坚持统一
-指南》等相关政
-重要工程推
-加剧，又
-照《全国一体化政务大数据体系建设
-务数据一体化治理作为数字政府建设的
-央层面加大统一把控力度，避免碎片化治理
-、各部门、各行业结合自身特点明确数据治理
-、工作机制等，形成政务数据治理统筹推进格局。
-相关规
-二
-体化数据资源目录。各级政府加强协调，摸清政务数
-据资
-按照“应编尽编”原则，建立全量覆盖、互联互通、动
-态更新的全国一体化政务数据目录，形成政务数据全国“一本账”，
-27
- 
- 
-数字政府一体化建设白皮书（2024 年）
-推动政务数据实现全面逻辑关联。三是开展数据源头治理工程。建立
-统一规范、切实可行的数据标准规范体系，明确总体规范
-分类规范、元数据规范、安全规范等，牵引和指导数
-提升。开展数据质量全周期管理工程，建立覆盖
-工、应用、更新的全生命周期质量控制体系，定
-建立数据质量监管机制，提高数据质量风险
-准统一、安全可用的数据资源体系。
-范、
-率
-储、加
-量评估。
-力，打造标
-2.“技术+机制”驱动数据高
-2016 年以来，国务院先后出
-法》《政务信息系统整合共享
-享协调机制加快推进数据有
-政府也建立了政务数据
-资源共享管理暂行办
-关于建立健全政务数据共
-》等文件，中央到地方各级
-，政务数据共享制度趋于完善。
-障碍仍阻碍数据充分流动。因此，
-但技术能力低下、共
-要加强技术支撑，
-一是以技术
-国家数据共
-性政府数
-，完善机制设计，激发数据共享动力。
-能力。依托全国一体化政务服务平台和
-合各地政务信息系统，持续建设完善统一
-台。加强各地区、各部门、各层级政府间数据
-开发数据共享应用，建立数据存储、共享、交换、
-，推动各地区、各层级、各部门间的政务数据共享
-平台技
-使用
-交换
-数据跨部门流转、向基层回流。借助大数据、云计算、
-大模型等新技术，创新数据共享利用模式，利用隐私计算机、数据沙
-28
- 
- 
-数字政府一体化建设白皮书（2024 年）
-箱等手段，提升共享技术防护能力，实现“原始数据不出库，数据可
-用不可见”，确保数据共享安全。二是以机制设计激发
-善政务数据确权定责体系，在“三定”（定机构、
-的基础上，根据政府部门业务事项分类，厘清部
-府部门在数据采集、维护、管理、提供和使用
-据），实现从“三定”走向“四定”。建立
-。完
-制）
-明确政
-任（定数
-的政务数据
-共享机制，按照职责将数据共享中的主
-用者和数据管理者，分别承担和享有
-据共享和交换。完善数据共享交换
-享收益多方共享，激发部门数
-提供者、数据使
-实现权责清晰的数
-价机制，实现数据共
-极性。
-专栏4：山东省烟
-街综合数据平台”
-基层数据是政务服
-和科学决策的重要依据，但分
-布零散、缺乏统一管
-数据应用向基层延
-街建立起高效
-山区试点建
-和有效利用成为难点。为推动大
-工作，山东省烟台市大数据局为镇
-脑——“镇街综合数据平台”，并在莱
-合业务和社区数据微平台”。
-在数
-平台梳理了镇街所需的涉及33 个部门、200
-多项
-政
-录清单 7，并打造了一个连通国家、省、市三级
-数据库，由市一体化大数据平台统一将数据分类，
-镇街，改变了基层“只收集不共享”的数据困境。在
-再批
-7
-人民资讯，《全国首创！烟台的这个“镇街综合数据平台”牛在哪？》
-29
- 
- 
-数字政府一体化建设白皮书（2024 年）
-报表管理和共享方面，平台围绕镇街的村居、民政、司法、城管、
-就业、养老、涉农、网格化等基础业务，形成各种报
-理，并在镇街形成内部数据共享机制，达到一次排
-效果，运行以来社区表格缩减率34%，填报缩减
-效减轻了基层工作人员业务压力，助力基层
-集管
-的
-，有
-平提升。
-3.场景牵引数据开发利用模式创
-以创新应用场景为靶向开展数据治
-，是数字政府建
-设背景下一体化政务数据资源体系实
-重要路径。当下，政府数据开放已
-我国已有226 个省级和城市的
-量政务数据只收集未使用，
-资源、不断发展的
-，截至2023 年8 月，
-了数据开放平台 9。但大
-、应用形式、开放范围等存
-数据资源社会化开发利用、打
-在较大的改进空间。因此
-造数据应用典型创新
-建设数据流通
-造部委协同、省
-建设政务数
-掘和释放政务数据价值。
-政务数据空间保障政务数据安全。打
-数据交互网络，支持有条件的地区探索
-用需求为导向，聚焦金融、医疗、教育、水
-用区块链、人工智能、隐私计算等技术手段，
-、清洗、扩展、脱敏、模型管理等技术处理，设
-电、交通
-实施数
-计部
-、数智融合、物理分散、逻辑集中的分布式数据共享
-8
-胶东在线，《烟台市“镇街综合数据平台”入选数字城市创新成果与实践案例》
-9
-复旦大学数字与移动治理实验室，《中国地方公共数据开放利用报告——省域》
-30
- 
- 
-数字政府一体化建设白皮书（2024 年）
-网络。
-创新数据开发利用模式，以授权运营推进政务数据
-建立面向政府、事业单位、企业、群众等多元主体的
-资源开发利用体系，落实依主体分级分类开放责
-部门统筹推动各地数据授权运营制度建设、标
-励有资源条件、有技术实力的企业规范性参
-动政务数据政用、民用、商用融合。
-开放。
-据
-据主管
-建设，鼓
-发利用，推
-聚焦政务数据利用需求，深入挖
-“用数字化重塑政府履职能力”，进
-场监管、社会管理、公共服务、
-等应用场景创新，通过开放
-用典型场景。围绕
-驱动的经济调节、市
-、政务运行和政务公开
-办场景大赛等方式率先在普
-创建一批示范典型场景应用。
-惠金融、社会信用、医疗教
-健全政务数据共享应用
-介、创新经验交流
-发数据价值释放
-制，通过开展政务数据典型案例推
-提炼政务数据应用典型模式，深度激
-专栏
-农民
-村劳动力转移就业大数据分析平台
-和就业形势对社会贫困、城乡差距、城市
-经济
-省
-问题演化有着重大影响。河南省是劳务输出大
-民工3100 多万人，通过搭建全省层面的务工人员
-，综合运用大数据手段和移动定位技术等，积极探
-流动
-31
- 
- 
-数字政府一体化建设白皮书（2024 年）
-索政务数据与社会数据融合应用，开启了政府搭台、大数据牵
-线、个性化服务的新思路。
-一是加快双向数据融合，就业状态精准掌控。
-就业、培训等相关数据与三大运营商信令数据、
-相
-融合，科学研判农民工就业形势，监测分析
-万人。对农民工就业、培训、创业情况进
-工就业实名制登记提供帮助，为制定更
-依据。二是落实“用数据说话”成
-通过规模分布、家乡滞留、就业
-达4800
-，为农民
-业政策提供
-推进合理有序。
-来农村劳动力规
-模变化及流动情况，
-模、分布及来源地分析，及时
-提供更有针对性的信息匹配
-助建立完善面向就业困
-劳动力外出转移就业
-推动农民工及脱贫
-动农村劳动力就业，辅
-援助体系，2023 年新增农村
-新增返乡创业17.65 万人，有力
-，助力乡村振兴。三是构建劳动
-有据。建立了河南省农村劳动力监测
-力监测体系，
-体系，构造
-业态就业
-提供全
-转
-人员”“行为轨迹”“稳定就业”“新
-”“创业机会”等十几个风险分析模型，
-时的就业监测信息，确定150 个农村劳动力
-、6 个农民工工作重点联系县，掌握农村劳动力节
-返岗情况，引导务工人员有序流动。
-前
-32
- 
- 
-数字政府一体化建设白皮书（2024 年）
-（五）降本增效：平台支撑集约化建设
-1. 政务云“共存共算”
-政务上云已成为各地政府数字化转型和改革的
-务云，“一网通办”等大规模、高并发政务应用
-成一批政府和企业、群众“管用、爱用”的政
-体系建设统筹难、政务云平台管理整合难
-诸多障碍等问题仍然凸显。
-于政
-”，形
-但政务云
-源调度存在
-构建“国家、省、市”三级政务
-个国务院委部局、36 个省级区域
-平台体系。省级层面，统筹“
-约数”建设任务。市级层面
-层面，构建覆盖82
-”全国一体化政务云
-建设需求，承担“最大公
-要求，个性化部署全市政务
-下依托省市共性资源进行应用
-云、共性能力建设内容。
-开发，形成管理机制
-建全国一体化政务
-建设政务云
-建设运营、安全保障四大支撑，构
-理平台。以省为单位，推进异构云纳管，
-建厂商交流和合作，建立健全适应一体化
-推动省内不
-政务云平
-规范体系，重点推进技术架构、平台组件、数
-运维运营、安全保障等关键方面标准的研制，提
-据接口
-升数
-维技
-管理水平，实现云资源的共享与整合，全面实现多
-推动相关技术的研发和应用。鼓励企业和机构加快老旧
-云平台的升级和改造，有序腾退既有老旧云资源中心。
-33
- 
- 
-数字政府一体化建设白皮书（2024 年）
-专栏6：湖北省楚天云一体化政务云平台
-湖北省楚天云一体化政务云平台是本省数字政
-基础平台，是依托电子政务外网和互联网，运用云
-化工具，为各类业务应用系统提供计算资源、存
-安全保障等共性资源的新型信息基础设施，
-会治理、科学决策等效能提升。
-心
-能
-支撑、
-服务、社
-构建全省统一的政务云平台。湖北
-化建设的思路，一是建设跨域异构
-编排、展现等技术，借鉴公有云
-构节点云资源，构建高水平的
-等能力。二是建设算力统筹
-云”按照集约
-，基于统一调度、
-式，集中纳管跨域异
-、云自服务、监测分析
-，充分利用自主创新软硬件
-产品建设完善IaaS 能力
-应用系统上云提供弹
-等服务。三是建设
-算、分布式计
-模，为全省各级部门单位业务
-可靠的计算、存储、网络、安全
-PaaS 能力，基于存算分离、流式计
-技术构建PaaS 能力，提供数据库、大
-、应用支撑等服务。四是建设按需服务的
-信、Web 呈现、统一认证等技术，按需提供
-数据、中间
-SaaS 能
-数据
-能
-（BI）、消息平台、协同办公等开箱即用的SaaS
-资源管理平台。建立包括云资源申请、审批、测试、
-34
- 
- 
-数字政府一体化建设白皮书（2024 年）
-开通、变更、优化、回收、结算在内的统一资源管理平台。资源申
-请，省、市两级部门单位向本级运行管理机构申请云资
-区）大数据管理部门扎口管理本级部门单位资源需
-运行管理机构申请云资源。资源审批，根据业务
-机构组织审核云资源申请需求并按时完成受
-理机构开通测试资源，使用部门单位在规
-市、
-级
-管理
-，运行管
-资源测试。
-资源开通，测试验证通过后，运行管理
-通。资源变更，使用部门单位根据实
-资源变更需求，审核通过后，运
-资源优化，运行管理机构科学
-源使用合理性，不断优化提
-成正式资源开
-行管理机构提出
-及时完成资源变更。
-指标，持续监测评估资
-能。资源回收，不再使用
-行管理机构提出资源回收需
-的云资源，使用部门单
-求，运行管理机构及
-“一朵云”建设和
-服务商与各使用
-回收。资源结算，按照全省政务
-运行管理机构的监督管理下，由云
-立按需据实结算。
-2. 政务
-联”
-随着
-“一网统管”深入推进，政务网络加速融合，
-业务系统已基本完成向政务电子外网的迁移，但
-国家多
-目
-构成高频数据共享需求阻碍的垂管系统专网，未来仍
-合。
-需加
-推动数字政府“一张网”建设。面向数字政府一体化应用，整体
-35
- 
- 
-数字政府一体化建设白皮书（2024 年）
-规划和部署城市光网、政务外网、算力直连网、物联承载网等物理网
-络，制定统一的建设标准，推动网络基础设施的全光升级
-核心层、汇聚层和接入层为总体架构，构建起覆盖国
-区（街镇）四级的数字政府网络，筑牢数字政府
-有序推进电子政务网络整合。在政务内网
-层、
-）、
-底座。
-离，保
-等省垂管
-障网络安全优先的前提下，省直部门牵头带
-系统的专网迁移整合。以OTN架构为载体
-架构，确保电子政务网络一跳入云、
-全交换系统，完善政务内网安全保
-建设和信息资源整合利用。
-子政务网络
-建内外网数据安
-支撑业务协同应用
-提升政务网技术水平。一
-网高带宽、低时延、高可靠、
-快速部署、灵活调度、智
-能力。推进以10G PON、Wi-
-Fi6、200G/400G、OX
-（F5G）应用，加
-带宽需求。二是
-新型先进技术
-等技术为核心的第五代固定网络
-接入，满足政务办公、视频会议等大
-平面”网络架构，运用“SDN”“IPv6+”
-载均衡，提升链路利用率，实时保障关键
-络切片，整合多张专网政务应用，实现专片专
-业务质量
-享业务
-务互不干扰，满足跨部门多场景应用的安全要求。
-力“共建共享”
-36
- 
- 
-数字政府一体化建设白皮书（2024 年）
-《指导意见》提出要“加强重点共性应用支撑能力”。据统计10，
-我国已有21 个省级地区提出开展共性支撑能力建设，
-电子证照、身份认证、电子支付等。但总体来看，共
-仍处于探索阶段，建什么、怎么建仍不清晰。
-建设两类共性支撑平台。以标准化、平台化
-算法、
-设
-主调用、
-灵活配置的共性技术工具，满足数字政府“
-用范围广”
-的场景应用需求。一是建设共性业务支
-电子证照、电子印章、电子文件、非
-智能客服、智能写作等业务支撑能
-提供人工智能、视频融合、物
-等技术支撑能力。
-统一身份认证、
-发票、公共信用、
-共性技术支撑平台，
-息、数字孪生、区块链
-分级构建资源共享复
-。一是充分衔接国家共性应用
-支撑标准建设要求，综
-省级统筹为主、市县
-二是以“一地创
-用于不同地区
-、县三级共性应用需求，按照“以
-形式，分级推动共性支撑平台建设。
-为原则，将共性支撑平台创新性成果应
-探索形成一批可推广复用的能力组件。创
-给侧按需收费”应用模式，促进共性能力平
-新“需求
-台建设
-闭环发展。
-10 中国信息通信研究院，根据公开资料统计
-37
- 
- 
-数字政府一体化建设白皮书（2024 年）
-专栏7：无锡市梁溪智脑数字孪生平台
-梁溪区新型智慧城市运营大脑（简称“梁溪智脑
-市梁溪区大数据管理局组织建设，按照“1+1+3”
-个数字底座、3 大领域应用场景的整体架构，其
-括数据中台、业务中台、能力中台（含 AI
-台、视联平台、物联网平台、使能平台）
-锡
-、1
-建设包
-字孪生平
-拥有大数据
-算力算据开放
-服务、视联融合、物联感知、数字孪生
-等六大核心共性能力，形成城市治
-进的新型智慧城市建设“梁溪模
-实现精细化区域切分灵活
-分，梁溪智脑的数字孪生
-景的范围切割，支持自
-和产业发展互促共
-市地图按照行政区域划
-了社区、园区、学校等小场
-区域和场景个性化快速搭建，
-等场景应用提供精准的孪生数据，
-为智慧社区、智慧园
-提升数字孪生的集
-孪生能力
-创发展。
-赋能。平台深入赋能物联智能感知小
-感知消防等“优政、惠民、兴业”领域众
-孪生平台多端一致性可视化功能，直观展示
-空抛物、园区场景巡航和楼层漫游、火灾险情实
-区、智慧园
-多应用场
-小区
-时
-时客流分布、景区AR 漫游体验等共性赋能千行百
-业。
-38
- 
- 
-数字政府一体化建设白皮书（2024 年）
-来源
-管理中心
-图 5 数字孪生赋能建设智慧社区、智慧
-（六）长期好用：运维运营长效
-1.打造“1 个平台+1 个团队+1
-运维体系
-我国数字政府正在转向建设与运
-阶段，当前全国已
-有超过 17 个省级政府在数字政府
-出要开展统一运维管
-理11，加强运维资源的整合成
-容。但目前数字政府运维缺
-一运维标准的问题仍较
-基础的运维思路，确
-升运维效率，降低
-府长期稳定运行的重要内
-台、缺乏统一运维团队、统
-以自动化、智能化运维能力为
-平台为抓手的现代化运维模式，提
-搭建一体化
-施运维对象集中管控和智能运维。建设
-包括“监、
-维数据、
-式实现
-政
-安、服”等在内的一体化运维平台，形成运
-维流程的一体化管理能力。通过API 网关等形
-与系统的数据互通，将分散在各部门、各层级的
-行集中汇聚，集中管控底层云网端资源。重视运维数
-11
-广东、山西、辽宁、吉林、上海、安徽、福建、江西、河南、湖北、广西、海南、四川、云南、陕
-西、甘肃、宁夏
-39
- 
- 
-数字政府一体化建设白皮书（2024 年）
-据治理，构建政务系统健康档案与人员服务水平画像，通过大数据运
-维推动被动运维向主动运维转变。借助自动化、智能化
-效率，基于自动化数据采集、自动化任务编排和执行
-平台能力，对各类运维数据进行处理与分析，实
-可视化运行监控、智能化事件预警。
-运维
-等
-管理、
-完善一体化运维的组织保障，实施运
-管理与协作。
-建立健全统一指挥、权责明确、分工负
-合优化政府各部门的信息化、数字化
-专业化机构，以数字政府生态整合
-个运维总集团队+N 个专业运维
-完善一体化运维标准体
-维工作机制，整
-字政府运营中心等
-业为核心，构建“一
-组织体系。
-结合的规范化运维。围绕业
-务受理分发、流程服务、
-全防范、应急机制、考评机制
-等完善数字政府一体化
-急指挥制度，开展
-练提升人员快速
-规范体系。制定应急响应计划和应
-据备份、故障响应服务，通过应急演
-报、立即处置和证据留存等能力。
-专栏
-青海
-级平台”数字政府一体化运维平台
-数据生产要素的创新引领作用，面向政务一
-体化
-管
-需求，打造“四级平台”运维体系架构，即采控
-数据平台、业务能力平台、运维门户平台。让运维
-、政务服务更有温度、事件分析更有高度，推动大数
-处
-40
- 
- 
-数字政府一体化建设白皮书（2024 年）
-据与运维业务的深度融合，形成政务信息化运维工作的新旧动能转
-换、IT 资产管理高质量发展新局面，打造政务信息化
-新典范。
-发展
-一是通过采控管理平台进行全栈资源信息采
-发现、拨测、接口开放等多种采集方式，对全
-进行数据的采集，内置灵活的采集策略和
-是建设运维数据平台开展数据集中治理
-主动
-件都能够
-源模型。二
-，建立运维数
-据标准为前提，将采集的静态资产配
-以及运维业务生成的告警数据、
-知识数据等，做集中数据的加
-业务能力平台建设运维业务
-维问题、简化运维流程
-资源指标数据，
-用数据、工单数据、
-理、存取等。三是基于
-运维数据中心，从解决运
-率的目的出发，包括应用性能
-管理、指标管理、日
-维知识管理等七大
-联动。四是打造
-口，实现运
-管理、资产管理、服务管理、运
-实现各运维业务场景的无缝集成和
-的运维门户平台。提供统一的运维入
-、运维可视化管理、运维能力聚合等。
-41
- 
- 
-数字政府一体化建设白皮书（2024 年）
-京微呼科技有限公司
-图 6 面向数字政府的一
-构
-2.构建“政企合作、管运
-授权”的运营模式
-通过管运分离促进数字政
-式能让政府保留管理职能，
-解决政府技术人员匮乏、
-全国超过 23 个省已成
-已成为多地共识，这一模
-常维护等职责剥离至企业，
-等问题，截至2024 年1 月，
-府运营公司 12。面临合作规则不
-健全、资产运营路
-政府持续运营，
-设施、数据、
-闭环。
-业商业模式不成熟问题仍制约着数字
-作运营标准规范，通过对数字政府基础
-差异化运营策略，实现政企合作运营商业
-通
-领数字政府运营模式推广应用。构建政府运营标
-准规
-对象、服务对象、运营模式等维度对数字政府运营
-12
-广西、山西、河南、河北、陕西、福建、甘肃、云南、内蒙古、湖北、上海、浙江、北京、广东、西
-藏、贵州、黑龙江、青海、重庆、安徽、江西、海南、新疆
-42
- 
- 
-数字政府一体化建设白皮书（2024 年）
-进行明确界定，针对政府购买服务、资产授权运营、政府投资市场运
-营等各种不同模式，研究出台相应的运营指南。在确保
-全可控的前提下，推广“以运营代运维”新模式，开
-权、共性组件运营权给运维公司，通过资源置换
-抵扣运维支出或回收收益，例如成都市政府将
-大数据集团，经济收益以国有资产运营收入
-庞大运维费用的压力。
-、安
-营
-营收益
-中授权市
-财政，减少
-针对不同运维对象制定差异化的
-施、政务数据、共性应用等制定运
-醒潜在信息价值、数据价值、
-设施运营，可采用物联感知
-对政务 IT 基础设
-持续运营优化举措唤
-。一是针对政府 IT 基础
-务模式，将政府部署的视频
-；二是针对政务数据运营，可
-设备为银行、交通枢纽、
-以扩大公共数据授权运
-有能力的企业运营
-记、数据定价、
-体系，探索数
-为抓手，把数据授权给相关有资质、
-据基础制度，通过数据确权、数据登
-据监管等建立数据要素流通市场化发展
-信托等数据合作模式，更好地释放数据要
-应用和组件运营，鼓励运营企业通过租用、按
-素潜能；
-次计费
-让共
-部门提供共性能力组件服务，通过统一计量计费，
-电气一样按需付费。
-联结和经验总结探索政企合作运营商业闭环。要在合规
-前提下构建政府与企业的商业合作机制，探索数字政府项目的盈利模
-43
- 
- 
-数字政府一体化建设白皮书（2024 年）
-式，通过市场化运营反哺公益性项目投资，例如数字广东公司通过参
-股广州数交所，既保证公共数据合规流通，也能获取数
-益。构建数字政府合作生态圈，鼓励数字政府运营企
-地位，与本地ICT 企业通过专利知识、软硬件架
-开展合作，进行能力互补，打造数字政府合作
-运营产业联盟，探索总结数字政府运营典型
-易收
-心
-等方面
-数字政府
-讨会、论坛
-等方式共同探索创新运营模式，引导各
-置运营类赛道，及时总结推广地方好
-例评选、赛事设
-专栏9：湖北省打造
-营模式
-湖北省政务云“楚天云”
-营和运维平台为抓手，两
-联动，解决“后付费”
-理中心为基础底座，运
-相互备份、信息同步、业务
-模式下资源配置效率低，业务
-扭转效率低，运维事
-精细计量计
-体业务等问题。
-财政利用效率。以最小应用为单元
-级单位进行结算，提供账单、预算及可
-掌握资源使用及费用花销情况，减少浪费
-提供合同的线上管理，保证其真实可溯源。
-计量计费，独
-视化分析工
-和提供项
-管理，优化云上资产灵活配置。将云上资产集中
-合，通过资源平均、最大、工作时段、夜间使用率
-组织预算池为范围合理进行资源配置。做到有序、适
-纳
-建模
-44
- 
- 
-数字政府一体化建设白皮书（2024 年）
-量、适当扩容，提升组件使用效率，避免“高分配率、低使用率”
-情况的发生。
-：武汉烽火信息集成技术有限公司
-图
-数据大屏
-（七）红线
-1.系统谋
-数字政
-防护体系化保障
-安全管理能力
-全面提升新阶段，安全建设模式由“碎片
-化”向“
-，安全保障体系建设也向“全方位、多层
-但目前数字政府网络安全工作仍存在安全责任
-度落实不到位、安全要求不够细化等薄弱环节，应
-持底线思维和韧性意识，加强理念、制度和管理有机
-级、一
-不
-系统
-衔接，完善网络安全综合保障体系。
-45
- 
- 
-数字政府一体化建设白皮书（2024 年）
-完善安全管理机构，压实安全管理责任。将供应商/第三方服务
-商作为参与者纳入数字政府安全管理机构，加大对供应
-务商的安全管理力度，明确供应商/第三方服务商应
-安全责任，强化供应商/第三方服务商人员网络
-商/第三方服务商加强源代码、资产管理、日
-立科学的供应商/第三方服务商监督管理及
-供应商背景审查、资质认定和审计。
-方服
-络
-动供应
-管理。建
-，定期开展
-科学制定管理制度，细化安全管
-体系业务要求，健全关键基础设施
-服务、供应链和服务外包等制
-实数据安全保护制度，制定
-级制度，数据流转、数据
-网络安全综合保障
-理、安全评估、密码
-学规范的管理制度。落
-保护管理制度，数据分类分
-放共享等管理制度，数据安全
-、应急处置等制度，加强数据采
-检测评估、安全审查、
-集、传输、存储、
-统一规范强
-相关法律法规
-基础设施
-销毁等全生命周期保护。
-安全制度要求。充分落实国家网络安全
-生命周期安全管理和技术防护、关键信息
-络安全等级保护，健全网络安全统筹协同工作
-工作责任制落细落实。建立健全相关评估机制，
-、保密和密码应用检查，通过风险评估、监督检查、
-机制，
-定期
-安
-查各项制度实施情况，确保安全工作合规开展，提升
-数字政府领域关键信息基础设施保护水平。
-46
- 
- 
-数字政府一体化建设白皮书（2024 年）
-2.整体防护加强综合技术防御能力
-数字化变革带来网络安全新问题，创建面向未来的
-术体系是当务之急。现有安全能力碎片化问题突出，
-需要“固优势、抓重点、补短板、强弱项”，构
-支撑体系，形成多层次、全链路、一体化的综
-政府网络安全技术防线。
-全技
-力，
-全技术
-筑牢数字
-统筹共性安全能力，统一安全基础
-施，是确保网络安全的重要基石。基
-念，聚焦政务信息化关键信息基础
-份认证与管理、统一密码服务
-基础能力，面向安全服务对
-一的安全基础设
-“零信任”安全理
-一资产管理、统一身
-计、统一威胁情报分析等
-接口服务，为网络安全治理
-提供基础安全服务。
-数网结合双轮驱
-终端、数据、应用
-层次多重技术的
-络系统防护为
-基于用户
-重技术防护。随着云平台、网络、
-元素的日益复杂和交织，构建一个多
-支撑体系变得至关重要。要兼顾“以网
-安全”和“以数据要素为核心的数据安全”，
-构建集身份认证、访问控制、安全控制、监控
-重技术于一体的“云、边、端、网、数、应用”
-审计、
-等多
-动
-全技术防护体系，强化云安全防护、网络与边界主
-安全防护、数据安全保障、应用安全防护、异常行为感
-知等水平，提升适应不同业务场景的纵深防御水平。
-47
- 
- 
-数字政府一体化建设白皮书（2024 年）
-主被结合持续监测，全链路全流程防护。改造升级已有被动应急
-能力体系和构建新型积极主动防御能力体系，涵盖“组
-产、隐患、事件、流程”六要素，贯通“云、边、端
-六大层面，加强资产管理、风险识别与预警、安
-环等安全能力，形成泛在感知、提前预警、主
-同处置、持续检测的一体化安全防护能力
-、资
-”
-处置闭
-发现、协
-险及早发现、
-安全威胁协同处置、安全事件闭环管理
-3.多跨协同着力增强安全监
-为强化主体责任，推进共建
-智治”变革，要聚焦安全防护
-全应急指挥、检查督查、综
-安全监管整体智治。
-多头管理”向“整体
-化协同联动，推进网络安
-场景数字化变革，推进网络
-健全协调指挥机
-处置能力。健全重大网络安全事件
-报告制度和突发网
-急响应工作机制，分级分行业制定修
-订网络安全应急
-置工作责任
-网络安全
-置工作指南和处置流程图。落实应急处
-责任机构和人员，加强应急资源储备。强化
-险研判、通报预警、应急处置，建立常态化风
-部门跨区域网络安全应急演练。
-险排查
-督查机制，落实常态化监管。推动省、市、县三级
-门联合监管，统筹网信、公安、保密等安全监管力量，
-和跨
-建立多环节、多层次、全方位的网络安全监督协同机制，常态化开展
-48
- 
- 
-数字政府一体化建设白皮书（2024 年）
-网络和数据安全抽查、督查。定期开展政务信息系统和相关部门安全
-合规能力建设情况检查，对关键信息基础设施和重要信
-络安全、保密管理和密码应用等重点检查和深度检测
-通报，督促相关单位及时整改。
-展网
-全
-创新安全综合评价机制，实时量化安全成
-成效，开展网络安全量化分级管理和结果运
-安全的状况和问题，并采取有效的措施
-量化安全
-地了解网络
-网络安全指数
-评估机制，评估网络安全保护情况，能
-安全管理、安全防护、安全监测、
-网络安全评价指数，实现网络
-可分析、可展示。
-业网络安全建设、
-行全方位评价，形成
-指数的可采集、可计算、
-四、数字政府一
-略建议
-按照“有序组织、
-原则，立足省域、区域和国家三
-大空间视角，综合
-施策重点，有针
-、推进主体、地域范围的差异，明确
-字政府一体化推进策略。
-（一）
-、赋能基层”，加快省域一体化
-遵循
-集约、
-提升
-建设模式，注重省级统筹，以急用先行、统筹
-则，统筹推进技术融合、业务融合、数据融合，
-域、跨系统、跨部门、跨业务的协同管理和服务水
-平，
-局。
-联动、条块结合、一体化推进的数字政府建设工作新格
-49
- 
- 
-数字政府一体化建设白皮书（2024 年）
-一是构建“管—建—运”多元协同模式。按照全省一盘棋方式，
-强化项目建设的集约统筹、整体协同、考核督办，打造
-建设、运营一体化管理模式；以“政府主管主用、总
-态开放参与”的方式，完善项目运维运营阶段的
-机制，发挥政府在政策指引、建设标准、总体
-注重效能引领。二是构建省市县乡四级统一
-设计、
-生
-会参与
-理作用，
-建立“一本
-账”，梳理省市县乡四级政务服务事项
-联动管理，确保政务服务事项在全省
-打造“一枢纽”，通过共性应用支
-证、统一电子印章、统一电子证
-能；汇入“一面湖”，开展
-源、动态更新、
-受理、同标准办理；
-实现全省统一身份认
-物流、统一短信服务功
-化、定制开发等治理工作，
-鼓励融合场景创新。以“三网
-推动数据质量和可用性不
-融合”建设牵引省域数
-务的深度融合的“
-经济运行、基层
-统管”建设，
-建设，推动省域线上线下政务服
-实现政务服务流程和方式的重塑；在
-境、水利、住建等领域推动省域“一网
-能力现代化水平；围绕办事、办文、办会
-移动通信、视频会议、协同办公的应用建设，
-的政府办
-实现政
-和平台企业的深度合作，实现省域“一网协同”。
-域协调、民生先行”，推进区域一体化
-落实区域协调发展战略，重点围绕京津冀、长三角、粤
-港澳大湾区、成渝等地区，以数字政府一体化建设为牵引，运用数字
-50
- 
- 
-数字政府一体化建设白皮书（2024 年）
-技术带动基础设施、数据要素、民生服务、社会治理等要素资源跨区
-域流通共享，推动区域协同共治高质量发展。
-一是健全区域级统筹协调机制。围绕区域数字政
-务，构建多渠道会商、多部门联动的高层统筹协
-准，增强区域间资源共享与互认，以数字化推
-等要素互联互通。二是深化异地事项跨域办
-群众异地办事需求，按照“问题导向、
-任
-业务标
-据、设施
-区域经营和
-验验证”工作思
-路，持续拓展异地服务事项跨域办典
-一体化模式创新先行区。三是强化
-需求、公共安全治理、生态环境
-体，推动教育、医疗等优质
-若干政务事项区域
-协同治理。聚焦民生
-打造区域社会治理共同
-，优势互补，建立常态化维
-境共治共管，形成跨区域、多
-稳、执法合作机制，推进
-主体参与的生态环境协
-用。探索开展跨区
-释放数据要素价
-用等数商产业
-。四是加强区域间数据要素开发利
-授权运营试点，以公共数据开发利用
-间合作，培育壮大数据生产、流通、应
-次的数据流通交易体系，推进跨区域数据
-融合与创
-（
-部署、点面结合”，渐进全国一体化
-化政务大数据体系和全国一体化政务服务平台，统
-府改革建设，以提高履职效能为导向、强化安全体系建
-筹推
-设为保障，强化平台支撑能力建设，以点带面，点面结合，助力实现
-51
- 
- 
-数字政府一体化建设白皮书（2024 年）
-国家治理能力和治理现代化。
-一是加强统筹协调推进。进一步完善数字政府建设
-统筹部署数字政府一体化建设重大改革、重大政策
-总体实施路线图。由国家主管部门牵头组织，面
-高校院所、承建单位等，定期组织数字政府建
-典型成果，发现重点难点问题。适时出台数
-机制，
-成
-地方、
-及时总结
-价指南，为
-高效推进全国一盘棋的工作部署提供指
-妥善处理好国家标准、行业标准和地
-系，研究发布数字政府建设标准体
-整合共享、共性办公应用、关键
-列标准制定，有效指导各部
-标准体系建设。
-组织定位及结构关
-数据开发利用、系统
-点领域，分批次推进系
-政府建设。三是鼓励基层探
-，鼓励有条件的地方围绕数据
-索创新。有序推动综合性
-基层赋能、政务大模型
-和应用创新，实现
-府跨省帮扶，促
-境等，开展制度创新、技术创新
-一地创新、各地复用”。推进数字政
-互补、资源共享、互惠互利、共谋发展，
-推动数字政府
-展。
-52
- 
- 
-
- 
-中国信息通信研究院
-地址：北京市海淀区花园北路52 号
-邮编：100191
-电话：010-68033649
-传真：010-62304980
-网址：www.caict.ac.cn
-
-
 
 第53条政策
 
@@ -10597,1101 +8840,7 @@ Fi6、200G/400G、OX
 
 　　测算结果显示，以2015年为基期，2022年中国创新指数为155.7，4个分领域指数创新环境指数、创新投入指数、创新产出指数和创新成效指数分别为160.4、146.7、187.5和128.2。与2015年相比，中国创新指数年均增长6.5%，比同期国内生产总值（GDP）增速快0.8个百分点；4个分领域指数年均增速分别为7.0%、5.6%、9.4%和3.6%。与2021年相比，中国创新指数增长5.9%，4个分领域指数分别增长5.7%、7.0%、9.2%和0.7%（详见表1）。
 
- 
 
-图 2015—2022年中国创新指数及分领域指数
-
-（2015年=100）
-
- 
-
-
-
- 
-
-表1 2015-2022年中国创新指数情况
-
-（以2015年为100）
-
- 
-
-2015年
-
-2016年
-
-2017年
-
-2018年
-
-2019年
-
-2020年
-
-2021年
-
-2022年
-
-2015年以来年均增长（%）
-
-2022年比2021年增长（%）
-
-中国创新指数
-
-100
-
-105.3
-
-112.3
-
-123.8
-
-131.3
-
-138.9
-
-147.0
-
-155.7
-
-6.5
-
-5.9
-
-　 1.创新环境指数
-
-100
-
-103.9
-
-109.9
-
-123.1
-
-132.4
-
-138.9
-
-151.8
-
-160.4
-
-7.0
-
-5.7
-
-　 2.创新投入指数
-
-100
-
-103.8
-
-111.1
-
-119.6
-
-124.3
-
-131.9
-
-137.1
-
-146.7
-
-5.6
-
-7.0
-
-　 3.创新产出指数
-
-100
-
-108.4
-
-117.5
-
-137.0
-
-150.3
-
-161.2
-
-171.6
-
-187.5
-
-9.4
-
-9.2
-
-　 4.创新成效指数
-
-100
-
-105.2
-
-110.7
-
-115.5
-
-118.0
-
-123.6
-
-127.2
-
-128.2
-
-3.6
-
-0.7
-
- 
-
-　　二、创新环境明显优化
-
- 
-
-　　“创新环境”领域包括每万人就业人员中大专及以上学历人数、人均GDP、理工类毕业生占适龄人口比重、科技拨款占财政拨款比重、享受加计扣除减免税企业所占比重等5个指标。
-
- 
-
-　　以2015年为100，2022年我国创新环境指数为160.4，年均增长7.0%。分指标看，享受加计扣除减免税企业所占比重指数大幅提升，年均增速达18.7%，2022年指数值达332.4，在中国创新指数的全部18个指标中位列第一；理工类毕业生占适龄人口比重指数、人均GDP指数、每万人就业人员中大专及以上学历人数指数、科技拨款占财政拨款比重指数的年均增速分别为7.1%、5.4%、3.6%和1.0%，2022年指数值相应为161.7、144.6、128.2和107.2（详见表2）。
-
- 
-
-表2 创新环境指数
-
-（以2015年为100）
-
- 
-
-2015年
-
-2016年
-
-2017年
-
-2018年
-
-2019年
-
-2020年
-
-2021年
-
-2022年
-
-创新环境指数
-
-100
-
-103.9
-
-109.9
-
-123.1
-
-132.4
-
-138.9
-
-151.8
-
-160.4
-
-　1.每万人就业人员中大专及以上学历人数指数
-
-100
-
-103.2
-
-103.2
-
-111.7
-
-121.3
-
-118.1
-
-123.1
-
-128.2
-
-　2.人均GDP指数
-
-100
-
-106.2
-
-112.9
-
-120.1
-
-126.8
-
-129.4
-
-140.3
-
-144.6
-
-　3.理工类毕业生占适龄人口比重指数
-
-100
-
-104.7
-
-109.8
-
-115.1
-
-119.8
-
-135.5
-
-145.1
-
-161.7
-
-　4.科技拨款占财政拨款比重指数
-
-100
-
-103.8
-
-103.6
-
-108.2
-
-112.6
-
-103.2
-
-109.9
-
-107.2
-
-　5.享受加计扣除减免税企业所占比重指数
-
-100
-
-101.6
-
-120.8
-
-169.5
-
-197.0
-
-243.4
-
-294.4
-
-332.4
-
- 
-
-　　三、创新投入稳步提高
-
- 
-
-　　“创新投入”领域包括每万人研究与试验发展（R&D，下同）人员全时当量、R&D经费占GDP比重、基础研究人员人均经费、企业R&D经费占营业收入比重等4个指标。
-
- 
-
-　　以2015年为100，2022年我国创新投入指数为146.7，年均增长5.6%。分指标看，每万人R&D人员全时当量指数增长相对较快，年均增速为7.5%，2022年指数值为165.6；企业R&D经费占营业收入比重指数、基础研究人员人均经费指数、R&D经费占GDP比重指数的年均增速分别为7.0%、5.0%和3.1%，2022年指数值相应为161.0、140.5和123.7（详见表3）。
-
- 
-
-表3 创新投入指数
-
-（以2015年为100）
-
- 
-
-2015年
-
-2016年
-
-2017年
-
-2018年
-
-2019年
-
-2020年
-
-2021年
-
-2022年
-
-创新投入指数
-
-100
-
-103.8
-
-111.1
-
-119.6
-
-124.3
-
-131.9
-
-137.1
-
-146.7
-
-　1.每万人R&D人员全时当量指数
-
-100
-
-102.5
-
-106.0
-
-114.7
-
-125.3
-
-136.4
-
-148.9
-
-165.6
-
-　2.R&D经费占GDP比重指数
-
-100
-
-102.1
-
-102.9
-
-104.1
-
-109.1
-
-117.0
-
-118.3
-
-123.7
-
-　3.基础研究人员人均经费指数
-
-100
-
-105.9
-
-118.9
-
-126.4
-
-120.4
-
-121.5
-
-136.1
-
-140.5
-
-　4.企业R&D经费占营业收入比重指数
-
-100
-
-104.7
-
-117.5
-
-135.8
-
-145.1
-
-156.2
-
-147.7
-
-161.0
-
- 
-
-　　四、创新产出大幅增加
-
- 
-
-　　“创新产出”领域包括每万人科技论文数、每万名R&D人员高价值发明专利拥有量、拥有注册商标企业所占比重、技术市场成交合同平均金额等4个指标。
-
- 
-
-　　以2015年为100，2022年我国创新产出指数为187.5，年均增长9.4%。分指标看，每万名R&D人员高价值发明专利拥有量指数、拥有注册商标企业所占比重指数实现大幅提升，年均增速分别达12.5%和11.9%，2022年指数值分别为227.7和219.3，在全部18个指标中位列第二和第三；技术市场成交合同平均金额指数增长也较快，年均增速为9.9%，2022年指数值为193.2；每万人科技论文数指数年均增速为3.6%，2022年指数值为128.3（详见表4）。
-
- 
-
-表4 创新产出指数
-
-（以2015年为100）
-
- 
-
-2015年
-
-2016年
-
-2017年
-
-2018年
-
-2019年
-
-2020年
-
-2021年
-
-2022年
-
-创新产出指数
-
-100
-
-108.4
-
-117.5
-
-137.0
-
-150.3
-
-161.2
-
-171.6
-
-187.5
-
-　1.每万人科技论文数指数
-
-100
-
-100.0
-
-102.4
-
-110.4
-
-116.4
-
-116.6
-
-121.5
-
-128.3
-
-　2.每万名R&D人员高价值发明专利拥有量指数
-
-100
-
-116.4
-
-139.0
-
-156.1
-
-171.0
-
-190.2
-
-200.9
-
-227.7
-
-　3.拥有注册商标企业所占比重指数
-
-100
-
-106.8
-
-117.4
-
-152.5
-
-177.5
-
-190.1
-
-205.2
-
-219.3
-
-　4.技术市场成交合同平均金额指数
-
-100
-
-111.2
-
-114.0
-
-134.1
-
-144.5
-
-160.6
-
-173.7
-
-193.2
-
- 
-
-　　五、创新成效进一步显现
-
- 
-
-　　“创新成效”领域包括新产品销售收入占营业收入比重、高新技术产品出口额占货物出口额比重、专利密集型产业增加值占GDP比重、“三新”经济增加值占GDP比重、全员劳动生产率等5个指标。
-
- 
-
-　　以2015年为100，2022年我国创新成效指数为128.2，年均增长3.6%。分指标看，新产品销售收入占营业收入比重指数增长相对较快，年均增速为8.8%，2022年指数值为181.0；全员劳动生产率指数、“三新”经济增加值占GDP比重指数、专利密集型产业增加值占GDP比重指数、高新技术产品出口额占货物出口额比重指数的年均增速分别为6.2%、2.3%、2.1%和-1.1%，2022年指数值相应为152.2、117.5、115.7和92.3（详见表5）。
-
- 
-
-表5 创新成效指数
-
-（以2015年为100）
-
- 
-
-2015年
-
-2016年
-
-2017年
-
-2018年
-
-2019年
-
-2020年
-
-2021年
-
-2022年
-
-创新成效指数
-
-100
-
-105.2
-
-110.7
-
-115.5
-
-118.0
-
-123.6
-
-127.2
-
-128.2
-
-　1.新产品销售收入占营业收入比重指数
-
-100
-
-110.8
-
-124.4
-
-137.1
-
-146.2
-
-161.6
-
-165.4
-
-181.0
-
-　2.高新技术产品出口额占货物出口额比重指数
-
-100
-
-99.8
-
-102.3
-
-104.2
-
-101.4
-
-104.0
-
-102.5
-
-92.3
-
-　3.专利密集型产业增加值占GDP比重指数
-
-100
-
-104.6
-
-106.5
-
-107.4
-
-107.4
-
-110.8
-
-115.2
-
-115.7
-
-　4.“三新”经济增加值占GDP比重指数
-
-100
-
-104.1
-
-107.1
-
-109.1
-
-110.4
-
-115.6
-
-116.8
-
-117.5
-
-　5.全员劳动生产率指数
-
-100
-
-106.9
-
-114.5
-
-122.7
-
-130.5
-
-134.0
-
-146.1
-
-152.2
-
- 
-
-　　中国创新指数最新测算结果表明，近年来，面对复杂严峻的国内外形势，我国坚持创新在现代化建设全局中的核心地位，深入实施创新驱动发展战略，不断完善创新体系建设，创新能力持续较快提升，为经济社会发展提供了有力支撑。下一步，要坚持科技是第一生产力、人才是第一资源、创新是第一动力，加快建设科技强国，努力实现高水平科技自立自强，全面塑造发展新优势，为推动高质量发展、实现中国式现代化而奋斗。
-
-  
-
-　　附件
-
- 
-
-中国创新指数指标体系及指数编制方法简要说明
-
- 
-
-　　一、中国创新指数指标体系
-
- 
-
-　　中国创新指数指标体系分成三个层次。第一个层次为我国创新总体发展情况，通过计算创新总指数反映；第二个层次为我国在创新环境、创新投入、创新产出和创新成效等4个分领域的发展情况，通过计算分领域指数反映；第三个层次为创新能力具体各方面的发展情况，通过上述4个分领域所选取的18个指标指数反映（指标体系框架详见附表）。简要说明如下：
-
- 
-
-　　（一）创新环境
-
- 
-
-　　该领域主要反映驱动创新发展所必备的人力、财力等基础条件的支撑情况，以及政策引导扶持等创新所需条件的情况。
-
- 
-
-　　1.每万人就业人员中大专及以上学历人数
-
- 
-
-　　指就业人员平均具备一定学历的人员数量。该指标用以反映我国劳动者综合素质情况。
-
- 
-
-　　2.人均GDP
-
- 
-
-　　指按人口平均的国内生产总值（GDP，不变价）。这是反映一个国家经济实力的最具代表性的指标，可以反映经济增长与创新能力发展之间相互依存、相互促进的关系。
-
- 
-
-　　3.理工类毕业生占适龄人口比重
-
- 
-
-　　该指标反映我国潜在创新人力资源情况。理工类毕业生指本科及以上理工农医类毕业生人数，适龄人口是指我国20-34岁人口数。
-
- 
-
-　　4.科技拨款占财政拨款比重
-
- 
-
-　　政府财政科技拨款对全社会创新投入和创新活动的开展具有带动和导向作用，该指标反映政府对创新的直接投入力度以及对重点、关键和前沿领域的规划和引导作用。
-
- 
-
-　　5.享受加计扣除减免税企业所占比重
-
- 
-
-　　企业研发费用税前加计扣除政策是鼓励企业加大研发投入最为直接和有效的普惠性政策之一。该指标可以反映政府有关政策的落实情况，从一个侧面反映企业创新环境情况。该指标的数据口径为规模以上工业企业。
-
- 
-
-　　（二）创新投入
-
- 
-
-　　该领域主要反映创新的人力财力投入规模及强度、关键领域的投入情况等。研发是实现创新的最重要环节，这里用研发投入指标反映创新投入。
-
- 
-
-　　1.每万人R&D人员全时当量
-
- 
-
-　　指按常住全部人口平均计算的R&D人员全时当量。该指标反映自主创新人力的投入规模和强度。R&D人员包括企业、科研机构、高等学校的R&D人员，是全社会各种创新主体的R&D人力投入合力。R&D人员全时当量是指按工作量折合计算的R&D人员。
-
- 
-
-　　2.R&D经费占GDP比重
-
- 
-
-　　该指标又称R&D投入强度，是国际上通用的、反映国家或地区科技投入水平的核心指标，也是我国科技创新相关规划中的重要指标。
-
- 
-
-　　3.基础研究人员人均经费
-
- 
-
-　　指按基础研究人员全时当量平均的基础研究经费。基础研究是科学技术发展的根基，其水平可在一定程度上代表一个国家原始创新能力。本指标体系以该指标来反映国家在加强原始创新能力上所作的努力。
-
- 
-
-　　4.企业R&D经费占营业收入比重
-
- 
-
-　　企业是创新活动的主体，而工业企业又在企业创新活动中占有主导地位。该指标反映创新活动主体的经费投入强度。该指标的数据口径为规模以上工业企业。
-
- 
-
-　　（三）创新产出
-
- 
-
-　　该领域通过论文、专利、商标、技术市场等反映创新中间产出结果。
-
- 
-
-　　1.每万人科技论文数
-
- 
-
-　　科技论文是指企事业单位立项的由科技项目产生的、并在有正规刊号的刊物上发表的学术论文，是创新活动中间产出的重要成果形式之一。该指标反映研发活动的产出水平和效率。
-
- 
-
-　　2.每万名R&D人员高价值发明专利拥有量
-
- 
-
-　　指按R&D人员平均的高价值有效发明专利数量。专利是创新活动中间产出的又一重要成果形式。高价值发明专利指符合国家重点产业发展方向、专利质量和价值较高的发明专利，由国家知识产权局定义具体范围，体现了专利向高质量发展转变的导向。该指标同时为有关规划纲要监测内容，是反映研发活动的产出水平和效率的重要指标。
-
- 
-
-　　3.拥有注册商标企业所占比重
-
- 
-
-　　拥有注册商标企业指作为第一商标注册人拥有经境内外商标行政部门核准注册且在有效期内的商标的企业。该指标在一定程度上反映企业拥有自主品牌情况。该指标的数据口径为规模以上工业企业。
-
- 
-
-　　4.技术市场成交合同平均金额
-
- 
-
-　　指按技术市场成交合同项目数计算的平均技术市场成交金额。该指标反映技术转移和科技成果转化的质量与效率。技术市场成交额指全国技术市场成交合同项目的总金额。
-
- 
-
-　　（四）创新成效
-
- 
-
-　　该领域通过经济增长、经济转型、产品结构调整、产业国际科技竞争力等方面，反映创新对经济社会发展的影响。
-
- 
-
-　　1.新产品销售收入占营业收入比重
-
- 
-
-　　新产品销售收入是反映企业创新成果，即将新产品成功推向市场的指标，可用于反映创新对产品结构调整的效果。该指标的数据口径为规模以上工业企业。
-
- 
-
-　　2.高新技术产品出口额占货物出口额比重
-
- 
-
-　　高技术产业与创新具有互动关系。该指标通过高新技术产品出口的变化情况，反映创新对产业国际竞争力的影响效果。
-
- 
-
-　　3.专利密集型产业增加值占GDP比重
-
- 
-
-　　专利密集型产业体现了知识产权、科技创新与产业经济的紧密融合，是高质量发展的有力支撑和重要发展方向，其增加值占GDP的比重可从引导产业结构转型升级角度体现创新对经济发展的成效。
-
- 
-
-　　4.“三新”经济增加值占GDP比重
-
- 
-
-　　“三新”经济对推动高质量发展发挥了重要作用，其增加值占GDP的比重可从新兴经济带动经济转型发展、增强经济活力的角度体现创新对经济发展的成效。
-
- 
-
-　　5.全员劳动生产率
-
- 
-
-　　指一定时期内国内生产总值（GDP，不变价）与就业人员之比。创新是影响劳动生产率的重要因素，提高劳动生产率是创新的目的之一。该指标可用于反映创新对经济发展的促进作用。
-
- 
-
-　　二、中国创新指数评价方法
-
- 
-
-　　（一）选择基期年份
-
- 
-
-　　在综合评估指标数据的可得性、一致性和连续性的基础上，选择2015年作为基期年份。
-
- 
-
-　　（二）确定指标权数
-
- 
-
-　　采用“逐级等权法”进行权数分配，即各分领域的权数均为1/4；某一分领域内指标权数为所属领域的1/n（n为该领域下指标的个数）；每个指标的最终权数为1/4n。各指标的权数详见附表。
-
- 
-
-　　（三）计算指标增速
-
- 
-
-　　计算定基发展速度时，通常方法是计算各指标的增速后进行加权平均。本指数继续沿用原指数计算定基发展速度时将指标增速的基准值设定为指标两年平均值的方法，将各指标增速范围控制在[-200，200]的区间内，以增强数据稳定性，减少因某些指标数值波动过大而造成整个指标体系失真的情况。计算公式为：
-
- 
-
-　　
-
- 
-
-　　其中i为指标序号，t为年份，t>=2016。
-
- 
-
-　　（四）合成分领域指数和总指数
-
- 
-
-　　1.计算各领域所辖指标的加权增速：
-
-　
-
-　　
-
-　　
-
-　　其中i为指标序号，t为年份，Wi为各指标对其所属领域的权数，Vit为计算所得各指标增速，k为该领域内指标的个数，t>=2016。
-
- 
-
-　　2.计算定基累计发展各领域分指数：
-
-　　
-
-　　
-
-  
-
-　　其中t为年份，t>=2015，E2015=100。
-
- 
-
-　　3.计算定基累计发展总指数：
-
- 
-
- 
-
-
-
-附表 中国创新指数指标体系框架
-
- 
-
-分领域
-
-指标名称
-
-计量单位
-
-权数※
-
-创新环境
-
-(1/4)
-
-1.1　每万人就业人员中大专及以上学历人数
-
-人/万人
-
-1/5
-
-1.2　人均GDP
-
-元/人
-
-1/5
-
-1.3　理工类毕业生占适龄人口比重
-
-%
-
-1/5
-
-1.4　科技拨款占财政拨款比重
-
-%
-
-1/5
-
-1.5　享受加计扣除减免税企业所占比重
-
-%
-
-1/5
-
-创新投入
-
-(1/4)
-
-2.1　每万人R&D人员全时当量
-
-人年/万人
-
-1/4
-
-2.2　R&D经费占GDP比重
-
-%
-
-1/4
-
-2.3　基础研究人员人均经费
-
-万元/人年
-
-1/4
-
-2.4　企业R&D经费占营业收入比重
-
-%
-
-1/4
-
-创新产出
-
-(1/4)
-
-3.1　每万人科技论文数
-
-篇/万人
-
-1/4
-
-3.2　每万名R&D人员高价值发明专利拥有量
-
-件/万人
-
-1/4
-
-3.3　拥有注册商标企业所占比重
-
-%
-
-1/4
-
-3.4　技术市场成交合同平均金额
-
-万元/项
-
-1/4
-
-创新成效
-
-(1/4)
-
-4.1　新产品销售收入占营业收入比重
-
-%
-
-1/5
-
-4.2　高新技术产品出口额占货物出口额比重
-
-%
-
-1/5
-
-4.3　专利密集型产业增加值占GDP比重
-
-%
-
-1/5
-
-4.4　“三新”经济增加值占GDP比重
-
-%
-
-1/5
-
-4.5　全员劳动生产率
-
-元/人
-
-1/5
-
-※注：各分领域的权数为1/4，某一分领域内指标对所属领域的权数为1/n（n为该领域指标数）。
 
 
 
@@ -23369,179 +20518,6 @@ chenchao3@orientsec.com.cn
 
 ——数据价值挖掘上水平。全区公共数据开放、政企数据融合共享、数据资源创新应用水平持续提升，数据确权、定价、交易等机制成功试点，数据资源作为重要生产要素的效应不断显现，基本形成以数据驱动发展的数字生态体系。
 
-
-
-表1 全区数字经济发展主要预期指标
-
-类别
-
-指标
-
-单位
-
-2020年
-
-2025年
-
-总体规模
-
-1.数字经济增加值
-
-亿元
-
-1058
-
-2400
-
-2.数字经济核心产业增加值占GDP比重
-
-%
-
-2.7
-
-8
-
-产业
-
-数字化
-
-3.规上企业数字化研发设计工具普及率
-
-%
-
-55.6
-
-70
-
-4.规上企业关键工序数控化率
-
-%
-
-50.9
-
-70
-
-5.数字农业示范县
-
-个
-
-0
-
-5
-
-6.网络零售总额
-
-亿元
-
-209.4
-
-500
-
-数字
-
-产业化
-
-7.全区电子信息制造业完成工业总产值
-
-亿元
-
-210
-
-500
-
-8.软件和信息技术服务业收入
-
-亿元
-
-29.3
-
-200
-
-9.信息通信业累计收入
-
-亿元
-
-314
-
-320
-
-10.电子信息产业国家级高新技术企业数
-
-家
-
-40
-
-100
-
-新型基础设施
-
-11.5G基站数
-
-万个
-
-0.33
-
-3
-
-12.互联网省际出口带宽
-
-Tbps
-
-4.4
-
-15
-
-13.千兆宽带用户
-
-万户
-
-—
-
-50
-
-14.数据中心标准机架数
-
-万架
-
-3
-
-72
-
-15.移动物联网终端数
-
-万个
-
-1000
-
-2000
-
-数据
-
-资源
-
-16.公共数据归集率
-
-%
-
-—
-
-90
-
-17.公共数据开放率
-
-%
-
-—
-
-20
-
-18.公共数据共享率
-
-%
-
-—
-
-90
 
 
 
