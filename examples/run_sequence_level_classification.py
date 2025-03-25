@@ -337,16 +337,16 @@ def main():
 
     logger.setLevel(logging.INFO if args.log_path else logging.WARN)  # 设置信息级别
 
-    # 创建日志格式
+    # log format
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s',
                                 datefmt='%m/%d/%Y %H:%M:%S')
 
-    # **1. 文件日志**
+    # log to file
     file_handler = logging.FileHandler(args.log_path, mode='w', encoding='utf-8')  # 'w' 代表覆盖日志
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
-    # **2. 控制台日志**
+    # log to console
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
