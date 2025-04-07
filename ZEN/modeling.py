@@ -553,10 +553,13 @@ class ZenEncoder(nn.Module):
         self.layer = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_layers)])
         self.word_layers = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_word_layers)])
         
-        self.gate_layers = nn.ModuleList([nn.Linear(config.hidden_size, config.hidden_size) for _ in range(config.num_hidden_word_layers)])
+        self.gate_layers = nn.ModuleList([
+            nn.Linear(2 * config.hidden_size, config.hidden_size)
+            for _ in range(config.num_hidden_word_layers)
+        ])
+        for gate in self.gate_layers:
+            nn.init.constant_(gate.bias, 5.0)  # sigmoid(5) ≈ 0.993，近似恒等
         self.config = config
-
-        # self.apply(self.init_bert_weights)
 
         self.num_hidden_word_layers = config.num_hidden_word_layers
 
@@ -578,9 +581,14 @@ class ZenEncoder(nn.Module):
                 all_attentions.append(attentions)
             # hidden_states += torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
             ngram_positioned_hidden_states  = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
-            gate = torch.sigmoid(self.gate_layers[i](torch.cat([hidden_states, ngram_positioned_hidden_states], dim=-1)))
-            hidden_states = hidden_states + gate * ngram_positioned_hidden_states
-            
+            print(hidden_states.shape)
+            print(ngram_positioned_hidden_states.shape)
+
+            if i < num_hidden_ngram_layers:
+                gate = torch.sigmoid(self.gate_layers[i](torch.cat([hidden_states, ngram_positioned_hidden_states], dim=-1)))
+                hidden_states = hidden_states + gate * ngram_positioned_hidden_states
+            else:
+                hidden_states = hidden_states
 
             if output_all_encoded_layers:
                 all_encoder_layers.append(hidden_states)
