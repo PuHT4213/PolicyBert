@@ -553,7 +553,9 @@ class ZenEncoder(nn.Module):
         self.layer = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_layers)])
         self.word_layers = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_word_layers)])
         
-        self.gate_layers = nn.ModuleList([nn.Linear(config.hidden_size * 2, config.hidden_size) for _ in range(config.num_hidden_layers)])
+        self.gate_layers = nn.ModuleList([nn.Linear(config.hidden_size, config.hidden_size) for _ in range(config.num_hidden_layers)])
+
+        # self.apply(self.init_bert_weights)
 
         self.num_hidden_word_layers = config.num_hidden_word_layers
 
@@ -573,10 +575,10 @@ class ZenEncoder(nn.Module):
             if self.output_attentions:
                 attentions, hidden_states = hidden_states
                 all_attentions.append(attentions)
-            # hidden_states += torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
-            ngram_positioned_hidden_states  = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
-            gate = torch.sigmoid(self.gate_layers[i](torch.cat([hidden_states, ngram_positioned_hidden_states], dim=-1)))
-            hidden_states = gate * hidden_states + (1 - gate) * ngram_positioned_hidden_states
+            hidden_states += torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
+            # ngram_positioned_hidden_states  = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
+            # gate = torch.sigmoid(self.gate_layers[i](torch.cat([hidden_states, ngram_positioned_hidden_states], dim=-1)))
+            # hidden_states = hidden_states + gate * ngram_positioned_hidden_states
             
 
             if output_all_encoded_layers:
@@ -799,7 +801,7 @@ class ZenPreTrainedModel(nn.Module):
         # Instantiate model. cls is a class object (ZenModel)
         model = cls(config, *inputs, **kwargs)
         if state_dict is None and not from_tf:
-            state_dict = torch.load(resolved_archive_file, map_location='cpu')
+            state_dict = torch.load(resolved_archive_file, map_location='cpu',strict=False)
         # Load from a PyTorch state_dict
         old_keys = []
         new_keys = []
@@ -832,7 +834,7 @@ class ZenPreTrainedModel(nn.Module):
             local_metadata = {} if metadata is None else metadata.get(prefix[:-1], {})
             # _load_from_state_dict is a function in the parent class, which is nn.Module
             module._load_from_state_dict(
-                state_dict, prefix, local_metadata, True, missing_keys, unexpected_keys, error_msgs)
+                state_dict, prefix, local_metadata, False, missing_keys, unexpected_keys, error_msgs)
             for name, child in module._modules.items():
                 if child is not None:
                     load(child, prefix + name + '.')

@@ -69,4 +69,10 @@ For personal communication related to ZEN, please contact Yuanhe Tian (`yhtian94
 ## example usage
 ```python
 python examples/run_sequence_level_classification.py --data_dir datasets/ChnSentiCorp --bert_model models/test_output/zen0317092603_epoch_2/ --task_name chnsenticorp --num_train_epochs 3
+
+python examples/run_pre_train.py --pregenerated_data pretrain_data/policy/pretrain_data --output_dir models/test_output --bert_model models/test_ZEN_pretrain_base
+
+python examples/run_pre_train.py --pregenerated_data pretrain_data/policy/pretrain_data --output_dir models/pretrained+gate-jieba/ --bert_model models/test_zen
+
+python examples/run_sequence_level_classification.py --data_dir datasets/policy_SM --bert_model models/pretrained+gate-jieba/ --task_name lcqmc --do_train --do_eval
 ```

@@ -66,10 +66,10 @@ def convert_example_to_features(example, tokenizer, max_seq_length, max_ngram_in
     input_array = np.zeros(max_seq_length, dtype=np.int64)
     input_array[:len(input_ids)] = input_ids
 
-    mask_array = np.zeros(max_seq_length, dtype=np.bool)
+    mask_array = np.zeros(max_seq_length, dtype=bool)
     mask_array[:len(input_ids)] = 1
 
-    segment_array = np.zeros(max_seq_length, dtype=np.bool)
+    segment_array = np.zeros(max_seq_length, dtype=bool)
     segment_array[:len(segment_ids)] = segment_ids
 
     lm_label_array = np.full(max_seq_length, dtype=np.int64, fill_value=-1)
@@ -84,7 +84,7 @@ def convert_example_to_features(example, tokenizer, max_seq_length, max_ngram_in
     # The matrix here take too much space either in disk or in memory, so the usage have to be lazily convert the
     # the start position and length to the matrix at training time.
 
-    ngram_positions_matrix = np.zeros(shape=(max_seq_length, max_ngram_in_sequence), dtype=np.bool)
+    ngram_positions_matrix = np.zeros(shape=(max_seq_length, max_ngram_in_sequence), dtype=bool)
     for i in range(len(ngram_ids)):
         ngram_positions_matrix[ngram_positions[i]:ngram_positions[i]+ngram_lengths[i], i] = 1
 
@@ -94,10 +94,10 @@ def convert_example_to_features(example, tokenizer, max_seq_length, max_ngram_in
     ngram_length_array = np.zeros(max_ngram_in_sequence, dtype=np.int32)
     ngram_length_array[:len(ngram_ids)] = ngram_lengths
 
-    ngram_mask_array = np.zeros(max_ngram_in_sequence, dtype=np.bool)
+    ngram_mask_array = np.zeros(max_ngram_in_sequence, dtype=bool)
     ngram_mask_array[:len(ngram_ids)] = 1
 
-    ngram_segment_array = np.zeros(max_ngram_in_sequence, dtype=np.bool)
+    ngram_segment_array = np.zeros(max_ngram_in_sequence, dtype=bool)
     ngram_segment_array[:len(ngram_ids)] = ngram_segment_ids
     features = InputFeatures(input_ids=input_array,
                              input_mask=mask_array,
@@ -136,23 +136,23 @@ class PregeneratedDataset(Dataset):
             input_ids = np.memmap(filename=self.working_dir / 'input_ids.memmap',
                                   mode='w+', dtype=np.int32, shape=(num_samples, seq_len))
             input_masks = np.memmap(filename=self.working_dir / 'input_masks.memmap',
-                                    shape=(num_samples, seq_len), mode='w+', dtype=np.bool)
+                                    shape=(num_samples, seq_len), mode='w+', dtype=bool)
             segment_ids = np.memmap(filename=self.working_dir / 'segment_ids.memmap',
-                                    shape=(num_samples, seq_len), mode='w+', dtype=np.bool)
+                                    shape=(num_samples, seq_len), mode='w+', dtype=bool)
             lm_label_ids = np.memmap(filename=self.working_dir / 'lm_label_ids.memmap',
                                      shape=(num_samples, seq_len), mode='w+', dtype=np.int32)
             lm_label_ids[:] = -1
             is_nexts = np.memmap(filename=self.working_dir / 'is_nexts.memmap',
-                                 shape=(num_samples,), mode='w+', dtype=np.bool)
+                                 shape=(num_samples,), mode='w+', dtype=bool)
             # add ngram level features
             ngram_ids = np.memmap(filename=self.working_dir / 'ngram_ids.memmap',
                                  mode='w+', dtype=np.int32, shape=(num_samples, max_ngram_in_sequence))
 
             ngram_masks = np.memmap(filename=self.working_dir / 'ngram_masks.memmap',
-                                   mode='w+', dtype=np.bool, shape=(num_samples, max_ngram_in_sequence))
+                                   mode='w+', dtype=bool, shape=(num_samples, max_ngram_in_sequence))
 
             ngram_positions = np.memmap(filename=self.working_dir / 'ngram_positions.memmap',
-                                      mode='w+', dtype=np.bool, shape=(num_samples, seq_len, max_ngram_in_sequence))
+                                      mode='w+', dtype=bool, shape=(num_samples, seq_len, max_ngram_in_sequence))
 
             ngram_starts = np.memmap(filename=self.working_dir / 'ngram_starts.memmap',
                                     mode='w+', dtype=np.int32, shape=(num_samples, max_ngram_in_sequence))
@@ -161,24 +161,24 @@ class PregeneratedDataset(Dataset):
                                      mode='w+', dtype=np.int32, shape=(num_samples, max_ngram_in_sequence))
 
             ngram_segment_ids = np.memmap(filename=self.working_dir / 'ngram_segment_ids.memmap',
-                                         mode='w+', dtype=np.bool, shape=(num_samples, max_ngram_in_sequence))
+                                         mode='w+', dtype=bool, shape=(num_samples, max_ngram_in_sequence))
 
         else:
             input_ids = np.zeros(shape=(num_samples, seq_len), dtype=np.int32)
-            input_masks = np.zeros(shape=(num_samples, seq_len), dtype=np.bool)
-            segment_ids = np.zeros(shape=(num_samples, seq_len), dtype=np.bool)
+            input_masks = np.zeros(shape=(num_samples, seq_len), dtype=bool)
+            segment_ids = np.zeros(shape=(num_samples, seq_len), dtype=bool)
             lm_label_ids = np.full(shape=(num_samples, seq_len), dtype=np.int32, fill_value=-1)
-            is_nexts = np.zeros(shape=(num_samples,), dtype=np.bool)
+            is_nexts = np.zeros(shape=(num_samples,), dtype=bool)
             # add ngram level features
 
             ngram_ids = np.zeros(shape=(num_samples, max_ngram_in_sequence), dtype=np.int32)
-            ngram_masks = np.zeros(shape=(num_samples, max_ngram_in_sequence), dtype=np.bool)
+            ngram_masks = np.zeros(shape=(num_samples, max_ngram_in_sequence), dtype=bool)
 
-            ngram_positions = np.zeros(shape=(num_samples, seq_len, max_ngram_in_sequence), dtype=np.bool)
+            ngram_positions = np.zeros(shape=(num_samples, seq_len, max_ngram_in_sequence), dtype=bool)
             ngram_starts = np.zeros(shape=(num_samples, max_ngram_in_sequence), dtype=np.int32)
             ngram_lengths = np.zeros(shape=(num_samples, max_ngram_in_sequence), dtype=np.int32)
 
-            ngram_segment_ids = np.zeros(shape=(num_samples, max_ngram_in_sequence), dtype=np.bool)
+            ngram_segment_ids = np.zeros(shape=(num_samples, max_ngram_in_sequence), dtype=bool)
 
         logging.info(f"Loading training examples for epoch {epoch}")
         with data_file.open() as f:
@@ -473,26 +473,27 @@ def main():
                     global_step += 1
 
         # Save a trained model
-        ts = time.time()
-        st = datetime.datetime.fromtimestamp(ts).strftime('%m%d%H%M%S')
+        if epoch == (args.epochs-1):
+            ts = time.time()
+            st = datetime.datetime.fromtimestamp(ts).strftime('%m%d%H%M%S')
 
-        saving_path = args.output_dir
+            saving_path = args.output_dir
 
-        saving_path = Path(os.path.join(saving_path, args.save_name + st + "_epoch_" + str(epoch + args.already_trained_epoch)))
+            saving_path = Path(os.path.join(saving_path, args.save_name + st + "_epoch_" + str(epoch + args.already_trained_epoch)))
 
-        if saving_path.is_dir() and list(saving_path.iterdir()):
-            logging.warning(f"Output directory ({ saving_path }) already exists and is not empty!")
-        saving_path.mkdir(parents=True, exist_ok=True)
+            if saving_path.is_dir() and list(saving_path.iterdir()):
+                logging.warning(f"Output directory ({ saving_path }) already exists and is not empty!")
+            saving_path.mkdir(parents=True, exist_ok=True)
 
-        logging.info("** ** * Saving fine-tuned model ** ** * ")
-        model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
+            logging.info("** ** * Saving fine-tuned model ** ** * ")
+            model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
 
-        output_model_file = os.path.join(saving_path, WEIGHTS_NAME)
-        output_config_file = os.path.join(saving_path, CONFIG_NAME)
+            output_model_file = os.path.join(saving_path, WEIGHTS_NAME)
+            output_config_file = os.path.join(saving_path, CONFIG_NAME)
 
-        torch.save(model_to_save.state_dict(), output_model_file)
-        model_to_save.config.to_json_file(output_config_file)
-        tokenizer.save_vocabulary(saving_path)
+            torch.save(model_to_save.state_dict(), output_model_file)
+            model_to_save.config.to_json_file(output_config_file)
+            tokenizer.save_vocabulary(saving_path)
 
 if __name__ == '__main__':
     main()
