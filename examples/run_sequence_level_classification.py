@@ -25,6 +25,7 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler,TensorDataset
 from torch.utils.data.distributed import DistributedSampler
+from torchinfo import summary
 from tqdm import tqdm, trange
 import datetime
 
@@ -258,7 +259,7 @@ def main():
                         type=str,
                         help="Where do you want to store the pre-trained models downloaded from s3")
     parser.add_argument("--max_seq_length",
-                        default=256,
+                        default=128,
                         type=int,
                         help="The maximum total input sequence length after WordPiece tokenization. \n"
                              "Sequences longer than this will be truncated, and sequences shorter \n"
@@ -289,7 +290,7 @@ def main():
                         type=float,
                         help="Total number of training epochs to perform.")
     parser.add_argument("--warmup_proportion",
-                        default=0.1,
+                        default=0.9,
                         type=float,
                         help="Proportion of training to perform linear learning rate warmup for. "
                              "E.g., 0.1 = 10%% of training.")
@@ -414,6 +415,9 @@ def main():
     tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
     ngram_dict = ZenNgramDict(args.bert_model, tokenizer=tokenizer)
     model = ZenForSequenceClassification.from_pretrained(args.bert_model, num_labels=num_labels, multift = args.multift)
+    
+    logger.info(f"{summary(model)}")
+    
     if args.local_rank == 0:
         torch.distributed.barrier()
 

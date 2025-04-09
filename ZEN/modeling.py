@@ -543,6 +543,22 @@ class BertLayer(nn.Module):
             return attentions, layer_output
         return layer_output
 
+class GateLayer(nn.Module):
+    def __init__(self, hidden_size, num_layers):
+        super(GateLayer, self).__init__()
+        self.gate_layers = nn.ModuleList([
+            nn.Linear(2 * hidden_size, hidden_size)
+            for _ in range(num_layers)
+        ])
+        for gate in self.gate_layers:
+            nn.init.constant_(gate.bias, 5.0)  # sigmoid(5) ≈ 0.993，近似恒等
+
+    def forward(self, hidden_states, ngram_positioned_hidden_states, layer_index):
+        gate = torch.sigmoid(self.gate_layers[layer_index](
+            torch.cat([hidden_states, ngram_positioned_hidden_states], dim=-1)
+        ))
+        return hidden_states + gate * ngram_positioned_hidden_states
+
 
 class ZenEncoder(nn.Module):
     def __init__(self, config, output_attentions=False, keep_multihead_output=False):
@@ -553,13 +569,8 @@ class ZenEncoder(nn.Module):
         self.layer = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_layers)])
         self.word_layers = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_word_layers)])
         
-        self.gate_layers = nn.ModuleList([
-            nn.Linear(2 * config.hidden_size, config.hidden_size)
-            for _ in range(config.num_hidden_word_layers)
-        ])
-        for gate in self.gate_layers:
-            nn.init.constant_(gate.bias, 5.0)  # sigmoid(5) ≈ 0.993，近似恒等
-        self.config = config
+        # self.gate_layers_puht = nn.Linear(1,1)
+        self.gate_layer_module = GateLayer(config.hidden_size, config.num_hidden_word_layers)
 
         self.num_hidden_word_layers = config.num_hidden_word_layers
 
@@ -580,15 +591,13 @@ class ZenEncoder(nn.Module):
                 attentions, hidden_states = hidden_states
                 all_attentions.append(attentions)
             # hidden_states += torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
-            ngram_positioned_hidden_states  = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
-            print(hidden_states.shape)
-            print(ngram_positioned_hidden_states.shape)
+            # ngram_positioned_hidden_states  = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
 
             if i < num_hidden_ngram_layers:
-                gate = torch.sigmoid(self.gate_layers[i](torch.cat([hidden_states, ngram_positioned_hidden_states], dim=-1)))
-                hidden_states = hidden_states + gate * ngram_positioned_hidden_states
+                ngram_positioned_hidden_states = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
+                hidden_states = self.gate_layer_module(hidden_states, ngram_positioned_hidden_states, i)
             else:
-                hidden_states = hidden_states
+                hidden_states = hidden_states + torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
 
             if output_all_encoded_layers:
                 all_encoder_layers.append(hidden_states)
@@ -838,12 +847,49 @@ class ZenPreTrainedModel(nn.Module):
         state_dict = state_dict.copy()
         if metadata is not None:
             state_dict._metadata = metadata
+            
+        
+        def load_model_weights(model, state_dict):
+            """
+
+            """
+            missing_keys = []
+            unexpected_keys = []
+            error_msgs = []
+
+            model_state = model.state_dict()
+            for key, param in model_state.items():
+                if key in state_dict:
+                    try:
+                        param.copy_(state_dict[key])
+                    except Exception as e:
+                        error_msgs.append("Error copying parameter '{}': {}".format(key, e))
+                else:
+                    # 如果模型参数不在预训练的state_dict中，则认为该参数是新建层，保持初始状态
+                    missing_keys.append(key)
+
+            # 统计预训练的state_dict中多余的键
+            for key in state_dict.keys():
+                if key not in model_state:
+                    unexpected_keys.append(key)
+
+            # 输出
+            if missing_keys:
+                logger.info("Parameters not found in checkpoint (remain initialized): {}".format(missing_keys))
+                print("Missing keys (not loaded, remain at initial state):")
+                for key in missing_keys:
+                    print("  -", key)
+            if unexpected_keys:
+                logger.info("Unexpected keys in checkpoint (not used): {}".format(unexpected_keys))
+            if error_msgs:
+                raise RuntimeError("Error(s) in copying state_dict:\n\t" + "\n\t".join(error_msgs))
+            return model
 
         def load(module, prefix=''):
             local_metadata = {} if metadata is None else metadata.get(prefix[:-1], {})
             # _load_from_state_dict is a function in the parent class, which is nn.Module
             module._load_from_state_dict(
-                state_dict, prefix, local_metadata, True, missing_keys, unexpected_keys, error_msgs)
+                state_dict, prefix, local_metadata, False, missing_keys, unexpected_keys, error_msgs)
             for name, child in module._modules.items():
                 if child is not None:
                     load(child, prefix + name + '.')
@@ -851,7 +897,8 @@ class ZenPreTrainedModel(nn.Module):
         start_prefix = ''
         if not hasattr(model, 'bert') and any(s.startswith('bert.') for s in state_dict.keys()):
             start_prefix = 'bert.'
-        load(model, prefix=start_prefix)
+        # load(model, prefix=start_prefix)
+        model = load_model_weights(model, state_dict)
         if len(missing_keys) > 0:
             logger.info("Weights of {} not initialized from pretrained model: {}".format(
                 model.__class__.__name__, missing_keys))
