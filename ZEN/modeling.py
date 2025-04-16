@@ -301,7 +301,7 @@ class ZenConfig(object):
 
 
 try:
-    from apex.normalization.fused_layer_norm import FusedLayerNorm as BertLayerNorm
+    from apex.normalization.fused_layer_norm import FusedLayerNorm as BertLayerNorm # type: ignore
 except ImportError:
     logger.info("Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex .")
 
@@ -559,6 +559,30 @@ class GateLayer(nn.Module):
         ))
         return hidden_states + gate * ngram_positioned_hidden_states
 
+class AttentionLayer(nn.Module):
+    def __init__(self, hidden_size, num_layers, num_heads=8, dropout=0.1):
+        super(AttentionLayer, self).__init__()
+        self.cross_attention_layers = nn.ModuleList([
+            nn.MultiheadAttention(embed_dim=hidden_size, num_heads=num_heads, dropout=dropout, batch_first=True)
+            for _ in range(num_layers)
+        ])
+        self.layer_norms = nn.ModuleList([
+            nn.LayerNorm(hidden_size) for _ in range(num_layers)
+        ])
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, hidden_states, ngram_positioned_hidden_states, layer_index):
+        # MultiheadAttention input: (batch, seq_len, dim)
+        # Query = hidden_states, Key/Value = ngram_positioned_hidden_states
+        query = hidden_states
+        key = value = ngram_positioned_hidden_states
+
+        # Perform cross-attention
+        attn_output, _ = self.cross_attention_layers[layer_index](query, key, value)
+
+        # Residual connection + Layer Norm
+        fused = self.layer_norms[layer_index](query + self.dropout(attn_output))
+        return fused
 
 class ZenEncoder(nn.Module):
     def __init__(self, config, output_attentions=False, keep_multihead_output=False):
@@ -569,8 +593,16 @@ class ZenEncoder(nn.Module):
         self.layer = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_layers)])
         self.word_layers = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_word_layers)])
         
-        # self.gate_layers_puht = nn.Linear(1,1)
-        self.gate_layer_module = GateLayer(config.hidden_size, config.num_hidden_word_layers)
+        fusion_type = 'attention'  # 'gate' or 'attention' or 'none'
+        self.fusion_type = fusion_type
+        if fusion_type == 'gate':
+            self.fusion_layer = GateLayer(config.hidden_size, config.num_hidden_word_layers)
+        elif fusion_type == 'attention':
+            self.fusion_layer = AttentionLayer(config.hidden_size, config.num_hidden_word_layers, num_heads=config.num_attention_heads)
+        elif fusion_type == 'none':
+            self.fusion_layer = None
+        else:
+            raise ValueError(f"Unknown fusion_type: {fusion_type}")
 
         self.num_hidden_word_layers = config.num_hidden_word_layers
 
@@ -593,9 +625,9 @@ class ZenEncoder(nn.Module):
             # hidden_states += torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
             # ngram_positioned_hidden_states  = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
 
-            if i < num_hidden_ngram_layers:
+            if i < num_hidden_ngram_layers and self.fusion_type != 'none':
                 ngram_positioned_hidden_states = torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
-                hidden_states = self.gate_layer_module(hidden_states, ngram_positioned_hidden_states, i)
+                hidden_states = self.fusion_layer(hidden_states, ngram_positioned_hidden_states, i)
             else:
                 hidden_states = hidden_states + torch.bmm(ngram_position_matrix.float(), ngram_hidden_states.float())
 
@@ -1429,3 +1461,23 @@ class ZenForTokenClassification(ZenPreTrainedModel):
             return loss
         else:
             return logits
+
+class PolicyBertForSingleSentenceEmbedding(ZenPreTrainedModel):
+    def __init__(self, config, num_labels=2, output_attentions=False, keep_multihead_output=False):
+        super(PolicyBertForSingleSentenceEmbedding, self).__init__(config)
+        self.output_attentions = output_attentions
+        self.num_labels = num_labels
+        self.bert = ZenModel(config, output_attentions=output_attentions,
+                              keep_multihead_output=keep_multihead_output)
+        self.apply(self.init_bert_weights)  
+
+    def forward(self, input_ids, input_ngram_ids, ngram_position_matrix, token_type_ids=None, attention_mask=None, labels=None, head_mask=None):
+        outputs = self.bert(input_ids, input_ngram_ids, ngram_position_matrix, token_type_ids, attention_mask,
+                            output_all_encoded_layers=False,
+                            head_mask=head_mask)
+        if self.output_attentions:
+            all_attentions, _, pooled_output = outputs
+        else:
+            _, pooled_output = outputs
+
+        return pooled_output
