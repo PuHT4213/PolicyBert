@@ -25,7 +25,7 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler,TensorDataset
 from torch.utils.data.distributed import DistributedSampler
-from torchinfo import summary
+from torchinfo import summary # type: ignore
 from tqdm import tqdm, trange
 import datetime
 
@@ -143,8 +143,8 @@ def train(args, model, tokenizer, ngram_dict, processor, label_list):
     ]
     if args.fp16:
         try:
-            from apex.optimizers import FP16_Optimizer
-            from apex.optimizers import FusedAdam
+            from apex.optimizers import FP16_Optimizer # type: ignore
+            from apex.optimizers import FusedAdam # type: ignore
         except ImportError:
             raise ImportError(
                 "Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training.")

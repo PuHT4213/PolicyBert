@@ -95,6 +95,32 @@ class DataProcessor(object):
                 lines.append(line)
             return lines
 
+class SingleSentenceProcessor(DataProcessor):
+    """Processor for a Single Sentence string"""
+    
+    def get_train_examples(self, sentence):
+        return self._create_examples(sentence, "train")
+    
+    def get_dev_examples(self, sentence):
+        return self._create_examples(sentence, "dev")
+    
+    def get_test_examples(self, sentence):
+        return self._create_examples(sentence, "test")
+    
+    def get_labels(self):
+        return ["0", "1"]
+    
+    def _create_examples(self, sentence, set_type):
+        """Creates examples for the training and dev sets."""
+        examples = []
+        guid = "%s-%s" % (set_type, 0)
+        text_a = sentence
+        label = "0"
+        examples.append(
+            InputExample(guid=guid, text_a=text_a, label=label))
+        return examples
+        
+
 class ThucnewsProcessor(DataProcessor):
     """Processor for the XNLI data set (HIT version)."""
 

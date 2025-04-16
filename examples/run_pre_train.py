@@ -368,7 +368,7 @@ def main():
     model.to(device)
     if args.local_rank != -1:
         try:
-            from apex.parallel import DistributedDataParallel as DDP
+            from apex.parallel import DistributedDataParallel as DDP # type: ignore
         except ImportError:
             raise ImportError(
                 "Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training.")
@@ -387,8 +387,8 @@ def main():
 
     if args.fp16:
         try:
-            from apex.optimizers import FP16_Optimizer
-            from apex.optimizers import FusedAdam
+            from apex.optimizers import FP16_Optimizer # type: ignore
+            from apex.optimizers import FusedAdam # type: ignore
         except ImportError:
             raise ImportError(
                 "Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training.")
