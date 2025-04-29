@@ -329,7 +329,7 @@ def main():
                         help="Probability of masking each token for the LM task")
     parser.add_argument("--max_predictions_per_seq", type=int, default=20,
                         help="Maximum number of tokens to mask in each sequence")
-    parser.add_argument("--ngram_list", type=str, default="/data/zhwiki/ngram.txt")
+    parser.add_argument("--ngram_list", type=str, default="/models/test_ZEN_pretrain_base/ngram.txt")
     parser.add_argument("--max_ngram_in_sequence", type=int, default=100)
 
     args = parser.parse_args()

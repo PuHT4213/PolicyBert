@@ -43,6 +43,8 @@ For personal communication related to ZEN, please contact Yuanhe Tian (`yhtian94
 
 ## example usage
 ```python
+python  examples/create_pre_train_data.py --train_corpus pretrain_data/policy/policy_single_sentence.txt --output_dir pretrain_data/policy/pretrain_data_e10 --bert_model models/test_ZEN_pretrain_base --epochs_to_generate 10
+
 python examples/run_sequence_level_classification.py --data_dir datasets/ChnSentiCorp --bert_model models/test_output/zen0317092603_epoch_2/ --task_name chnsenticorp --num_train_epochs 3
 
 python examples/run_pre_train.py --pregenerated_data pretrain_data/policy/pretrain_data --output_dir models/test_output --bert_model models/test_ZEN_pretrain_base
