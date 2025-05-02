@@ -861,6 +861,9 @@ class ZenPreTrainedModel(nn.Module):
                 new_key = key.replace('gamma', 'weight')
             if 'beta' in key:
                 new_key = key.replace('beta', 'bias')
+            # 如果不以bert.开头，加上bert.前缀
+            if not key.startswith('bert.') and not key.startswith('classifier.'):
+                new_key = 'bert.' + key
             if new_key:
                 old_keys.append(key)
                 new_keys.append(new_key)
@@ -891,6 +894,7 @@ class ZenPreTrainedModel(nn.Module):
 
             model_state = model.state_dict()
             for key, param in model_state.items():
+
                 if key in state_dict:
                     try:
                         param.copy_(state_dict[key])
