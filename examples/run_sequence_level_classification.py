@@ -214,12 +214,18 @@ def train(args, model, tokenizer, ngram_dict, processor, label_list):
                     logger.info("Epoch: %d, Step: %d, Loss: %f, LR: %f" % (epoch_num, global_step, loss.item(), optimizer.get_lr()[0]))
                 if args.local_rank in [-1, 0] and args.save_steps > 0 and global_step % args.save_steps == 0:
                     # Save model checkpoint
-                    output_dir = os.path.join(args.output_dir, "checkpoint-{}".format(global_step))
-                    if not os.path.exists(output_dir):
-                        os.makedirs(output_dir)
-                    save_zen_model(output_dir, model, tokenizer, ngram_dict, args)
+                    # output_dir = os.path.join(args.output_dir, "checkpoint-{}".format(global_step))
+                    # if not os.path.exists(output_dir):
+                    #     os.makedirs(output_dir)
+                    # save_zen_model(output_dir, model, tokenizer, ngram_dict, args)
+                    pass
     # save model
-    if args.local_rank in [-1, 0]:
+    if args.local_rank in [-1, 0] and args.save:
+        logger.info("Saving model checkpoint to %s", args.output_dir)
+        output_dir = os.path.join(args.output_dir, "checkpoint-final")
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        # Save a trained model, configuration and tokenizer
         save_zen_model(args.output_dir, model, tokenizer, ngram_dict, args)
 
 
@@ -326,6 +332,8 @@ def main():
                         default='./logs/log-seqlevel-{}'.format(datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')),
                         type=str,
                         help="The log file path")
+    parser.add_argument("--save", type=bool, action='store_false',
+                        help="Whether to save the model after training. Default is False.")
     args = parser.parse_args()
 
     args.task_name = args.task_name.lower()

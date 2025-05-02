@@ -37,6 +37,7 @@ from ZEN import WEIGHTS_NAME, CONFIG_NAME
 from ZEN import ZenConfig, ZenForPreTraining
 from ZEN import BertTokenizer
 from ZEN import BertAdam, WarmupLinearSchedule
+from ZEN import ZenNgramDict
 
 InputFeatures = namedtuple(
     "InputFeatures",
@@ -346,6 +347,7 @@ def main():
         torch.cuda.manual_seed_all(args.seed)
 
     tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
+    ngram_dict = ZenNgramDict(args.bert_model, tokenizer=tokenizer)
 
     total_train_examples = 0
     for i in range(args.epochs):
@@ -490,10 +492,13 @@ def main():
 
             output_model_file = os.path.join(saving_path, WEIGHTS_NAME)
             output_config_file = os.path.join(saving_path, CONFIG_NAME)
+            output_ngram_file = os.path.join(saving_path, "ngram_dict.txt")
 
             torch.save(model_to_save.state_dict(), output_model_file)
             model_to_save.config.to_json_file(output_config_file)
             tokenizer.save_vocabulary(saving_path)
+
+            ngram_dict.save(output_ngram_file)
 
 if __name__ == '__main__':
     main()
