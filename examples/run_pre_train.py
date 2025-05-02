@@ -46,6 +46,49 @@ InputFeatures = namedtuple(
 log_format = '%(asctime)-10s: %(message)s'
 logging.basicConfig(level=logging.INFO, format=log_format)
 
+def evaluate(model, eval_dataloader, device, n_gpu):
+    """Evaluate the model on the evaluation dataset."""
+    model.eval()
+    eval_loss = 0
+    eval_steps = 0
+    correct_predictions = 0
+    total_predictions = 0
+
+    with torch.no_grad():
+        for batch in tqdm(eval_dataloader, desc="Evaluating"):
+            batch = tuple(t.to(device) for t in batch)
+            input_ids, input_mask, segment_ids, lm_label_ids, is_next, ngram_ids, ngram_masks, ngram_positions, \
+            ngram_starts, ngram_lengths, ngram_segment_ids = batch
+
+            outputs = model(input_ids,
+                            ngram_ids,
+                            ngram_positions,
+                            segment_ids,
+                            ngram_segment_ids,
+                            input_mask,
+                            ngram_masks,
+                            lm_label_ids,
+                            is_next)
+
+            loss, prediction_scores = outputs[:2]  # Assuming the model returns loss and logits
+            eval_loss += loss.mean().item()
+
+            # Calculate accuracy for MLM
+            predictions = torch.argmax(prediction_scores, dim=-1)
+            mask = (lm_label_ids != -1)  # Only consider masked positions
+            correct_predictions += (predictions[mask] == lm_label_ids[mask]).sum().item()
+            total_predictions += mask.sum().item()
+
+            eval_steps += 1
+
+    avg_loss = eval_loss / eval_steps
+    accuracy = correct_predictions / total_predictions if total_predictions > 0 else 0
+
+    logging.info(f"Evaluation Loss: {avg_loss:.4f}")
+    logging.info(f"Evaluation Accuracy: {accuracy:.4f}")
+
+    return avg_loss, accuracy
+
 
 def convert_example_to_features(example, tokenizer, max_seq_length, max_ngram_in_sequence):
     tokens = example["tokens"]
@@ -251,7 +294,7 @@ def main():
     parser.add_argument("--reduce_memory", action="store_true",
                         help="Store training data as on-disc memmaps to massively reduce memory usage")
 
-    parser.add_argument("--epochs", type=int, default=3, help="Number of epochs to train for")
+    parser.add_argument("--epochs", type=int, default=5, help="Number of epochs to train for")
     parser.add_argument("--local_rank",
                         type=int,
                         default=-1,
@@ -295,6 +338,13 @@ def main():
                         type=str,
                         default="zen",
                         help="The prefix used for saving the remote model")
+    parser.add_argument('--method', 
+                        type=str,
+                        default="gate",
+                        )
+    parser.add_argument('--do_eval',
+                        action='store_true',
+                        help="Whether to run eval on the dev set.")
     parser.add_argument("--already_trained_epoch",
                         default=0,
                         type=int)
@@ -499,6 +549,23 @@ def main():
             tokenizer.save_vocabulary(saving_path)
 
             ngram_dict.save(output_ngram_file)
+
+    if args.do_eval:
+
+        eval_dataset = PregeneratedDataset(epoch=0,
+                                           training_path=args.pregenerated_data,
+                                           tokenizer=tokenizer,
+                                           num_data_epochs=1,
+                                           reduce_memory=args.reduce_memory,
+                                           fp16=args.fp16)
+        eval_sampler = RandomSampler(eval_dataset)
+        eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=args.train_batch_size)
+
+    # ...existing training loop...
+
+        if args.do_eval:
+            logging.info("***** Running evaluation *****")
+            evaluate(model, eval_dataloader, device, n_gpu)
 
 if __name__ == '__main__':
     main()
