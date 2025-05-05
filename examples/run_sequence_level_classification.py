@@ -52,19 +52,29 @@ def load_examples(args, tokenizer, ngram_dict, processor, label_list, mode):
 
     features = convert_examples_to_features(examples, label_list, args.max_seq_length, tokenizer, ngram_dict)
 
-    all_input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
-    all_input_mask = torch.tensor([f.input_mask for f in features], dtype=torch.long)
-    all_segment_ids = torch.tensor([f.segment_ids for f in features], dtype=torch.long)
-    all_label_ids = torch.tensor([f.label_id for f in features], dtype=torch.long)
-    all_ngram_ids = torch.tensor([f.ngram_ids for f in features], dtype=torch.long)
-    all_ngram_positions = torch.tensor([f.ngram_positions for f in features], dtype=torch.long)
-    all_ngram_lengths = torch.tensor([f.ngram_lengths for f in features], dtype=torch.long)
-    all_ngram_seg_ids = torch.tensor([f.ngram_seg_ids for f in features], dtype=torch.long)
-    all_ngram_masks = torch.tensor([f.ngram_masks for f in features], dtype=torch.long)
+    # 使用 NumPy 加速张量创建
+    all_input_ids = np.array([f.input_ids for f in features], dtype=np.int64)
+    all_input_mask = np.array([f.input_mask for f in features], dtype=np.int64)
+    all_segment_ids = np.array([f.segment_ids for f in features], dtype=np.int64)
+    all_label_ids = np.array([f.label_id for f in features], dtype=np.int64)
+    all_ngram_ids = np.array([f.ngram_ids for f in features], dtype=np.int64)
+    all_ngram_positions = np.array([f.ngram_positions for f in features], dtype=np.int64)
+    all_ngram_lengths = np.array([f.ngram_lengths for f in features], dtype=np.int64)
+    all_ngram_seg_ids = np.array([f.ngram_seg_ids for f in features], dtype=np.int64)
+    all_ngram_masks = np.array([f.ngram_masks for f in features], dtype=np.int64)
 
-    return TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_ngram_ids,
-                              all_ngram_positions, all_ngram_lengths, all_ngram_seg_ids, all_ngram_masks)
-
+    # 转换为 PyTorch 张量
+    return TensorDataset(
+        torch.tensor(all_input_ids, dtype=torch.long),
+        torch.tensor(all_input_mask, dtype=torch.long),
+        torch.tensor(all_segment_ids, dtype=torch.long),
+        torch.tensor(all_label_ids, dtype=torch.long),
+        torch.tensor(all_ngram_ids, dtype=torch.long),
+        torch.tensor(all_ngram_positions, dtype=torch.long),
+        torch.tensor(all_ngram_lengths, dtype=torch.long),
+        torch.tensor(all_ngram_seg_ids, dtype=torch.long),
+        torch.tensor(all_ngram_masks, dtype=torch.long)
+    )
 def save_zen_model(save_zen_model_path, model, tokenizer, ngram_dict, args):
     # Save a trained model, configuration and tokenizer
     model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self

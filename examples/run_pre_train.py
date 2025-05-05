@@ -16,6 +16,7 @@
 
 import os
 import sys
+import math
 
 from argparse import ArgumentParser
 from pathlib import Path
@@ -28,7 +29,7 @@ from collections import namedtuple
 import time
 import datetime
 
-from torch.utils.data import DataLoader, Dataset, RandomSampler
+from torch.utils.data import DataLoader, Dataset, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 from tqdm import tqdm
 
@@ -45,50 +46,6 @@ InputFeatures = namedtuple(
 
 log_format = '%(asctime)-10s: %(message)s'
 logging.basicConfig(level=logging.INFO, format=log_format)
-
-def evaluate(model, eval_dataloader, device, n_gpu):
-    """Evaluate the model on the evaluation dataset."""
-    model.eval()
-    eval_loss = 0
-    eval_steps = 0
-    correct_predictions = 0
-    total_predictions = 0
-
-    with torch.no_grad():
-        for batch in tqdm(eval_dataloader, desc="Evaluating"):
-            batch = tuple(t.to(device) for t in batch)
-            input_ids, input_mask, segment_ids, lm_label_ids, is_next, ngram_ids, ngram_masks, ngram_positions, \
-            ngram_starts, ngram_lengths, ngram_segment_ids = batch
-
-            outputs = model(input_ids,
-                            ngram_ids,
-                            ngram_positions,
-                            segment_ids,
-                            ngram_segment_ids,
-                            input_mask,
-                            ngram_masks,
-                            lm_label_ids,
-                            is_next)
-
-            loss, prediction_scores = outputs[:2]  # Assuming the model returns loss and logits
-            eval_loss += loss.mean().item()
-
-            # Calculate accuracy for MLM
-            predictions = torch.argmax(prediction_scores, dim=-1)
-            mask = (lm_label_ids != -1)  # Only consider masked positions
-            correct_predictions += (predictions[mask] == lm_label_ids[mask]).sum().item()
-            total_predictions += mask.sum().item()
-
-            eval_steps += 1
-
-    avg_loss = eval_loss / eval_steps
-    accuracy = correct_predictions / total_predictions if total_predictions > 0 else 0
-
-    logging.info(f"Evaluation Loss: {avg_loss:.4f}")
-    logging.info(f"Evaluation Accuracy: {accuracy:.4f}")
-
-    return avg_loss, accuracy
-
 
 def convert_example_to_features(example, tokenizer, max_seq_length, max_ngram_in_sequence):
     tokens = example["tokens"]
@@ -345,6 +302,10 @@ def main():
     parser.add_argument('--do_eval',
                         action='store_true',
                         help="Whether to run eval on the dev set.")
+    parser.add_argument('--do_train',
+                        action='store_true',
+                        help="Whether to run eval on the dev set.")
+    
     parser.add_argument("--already_trained_epoch",
                         default=0,
                         type=int)
@@ -462,110 +423,170 @@ def main():
                              t_total=num_train_optimization_steps)
 
     global_step = 0
-    logging.info("***** Running training *****")
-    logging.info("  Num examples = %d", total_train_examples)
-    logging.info("  Batch size = %d", args.train_batch_size)
-    logging.info("  Num steps = %d", num_train_optimization_steps)
-    model.train()
-    for epoch in range(args.epochs):
+    if args.do_train:
+        logging.info("***** Running training *****")
+        logging.info("  Num examples = %d", total_train_examples)
+        logging.info("  Batch size = %d", args.train_batch_size)
+        logging.info("  Num steps = %d", num_train_optimization_steps)
+        model.train()
+        for epoch in range(args.epochs - 1):
 
-        epoch_dataset = PregeneratedDataset(epoch=epoch,
-                                            training_path=args.pregenerated_data,
-                                            tokenizer=tokenizer,
-                                            num_data_epochs=num_data_epochs,
-                                            reduce_memory=args.reduce_memory,
-                                            fp16=args.fp16)
-        if args.local_rank == -1:
-            train_sampler = RandomSampler(epoch_dataset)
-        else:
-            train_sampler = DistributedSampler(epoch_dataset)
-        train_dataloader = DataLoader(epoch_dataset, sampler=train_sampler, batch_size=args.train_batch_size)
-        tr_loss = 0
-        nb_tr_examples, nb_tr_steps = 0, 0
-        with tqdm(total=len(train_dataloader), desc=f"Epoch {epoch}") as pbar:
-            for step, batch in enumerate(train_dataloader):
-                batch = tuple(t.to(device) for t in batch)
-                input_ids, input_mask, segment_ids, lm_label_ids, is_next, ngram_ids, ngram_masks,  ngram_positions, \
-                ngram_starts, \
-                ngram_lengths, ngram_segment_ids = batch
+            epoch_dataset = PregeneratedDataset(epoch=epoch,
+                                                training_path=args.pregenerated_data,
+                                                tokenizer=tokenizer,
+                                                num_data_epochs=num_data_epochs,
+                                                reduce_memory=args.reduce_memory,
+                                                fp16=args.fp16)
+            if args.local_rank == -1:
+                train_sampler = RandomSampler(epoch_dataset)
+            else:
+                train_sampler = DistributedSampler(epoch_dataset)
+            train_dataloader = DataLoader(epoch_dataset, sampler=train_sampler, batch_size=args.train_batch_size)
+            tr_loss = 0
+            nb_tr_examples, nb_tr_steps = 0, 0
+            with tqdm(total=len(train_dataloader), desc=f"Epoch {epoch}") as pbar:
+                for step, batch in enumerate(train_dataloader):
+                    batch = tuple(t.to(device) for t in batch)
+                    input_ids, input_mask, segment_ids, lm_label_ids, is_next, ngram_ids, ngram_masks,  ngram_positions, \
+                    ngram_starts, \
+                    ngram_lengths, ngram_segment_ids = batch
 
-                loss = model(input_ids,
-                             ngram_ids,
-                             ngram_positions,
-                             segment_ids,
-                             ngram_segment_ids,
-                             input_mask,
-                             ngram_masks,
-                             lm_label_ids,
-                             is_next)
+                    loss = model(input_ids,
+                                ngram_ids,
+                                ngram_positions,
+                                segment_ids,
+                                ngram_segment_ids,
+                                input_mask,
+                                ngram_masks,
+                                lm_label_ids,
+                                is_next)
 
-                if n_gpu > 1:
-                    loss = loss.mean()  # mean() to average on multi-gpu.
-                if args.gradient_accumulation_steps > 1:
-                    loss = loss / args.gradient_accumulation_steps
-                if args.fp16:
-                    optimizer.backward(loss)
-                else:
-                    loss.backward()
-                tr_loss += loss.item()
-                nb_tr_examples += input_ids.size(0)
-                nb_tr_steps += 1
-                pbar.update(1)
-                mean_loss = tr_loss * args.gradient_accumulation_steps / nb_tr_steps
-                pbar.set_postfix_str(f"Loss: {mean_loss:.5f}")
-                if (step + 1) % args.gradient_accumulation_steps == 0:
+                    if n_gpu > 1:
+                        loss = loss.mean()  # mean() to average on multi-gpu.
+                    if args.gradient_accumulation_steps > 1:
+                        loss = loss / args.gradient_accumulation_steps
                     if args.fp16:
-                        # modify learning rate with special warm up BERT uses
-                        # if args.fp16 is False, BertAdam is used that handles this automatically
-                        lr_this_step = args.learning_rate * warmup_linear.get_lr(global_step, args.warmup_proportion)
-                        for param_group in optimizer.param_groups:
-                            param_group['lr'] = lr_this_step
-                    optimizer.step()
-                    optimizer.zero_grad()
-                    global_step += 1
+                        optimizer.backward(loss)
+                    else:
+                        loss.backward()
+                    tr_loss += loss.item()
+                    nb_tr_examples += input_ids.size(0)
+                    nb_tr_steps += 1
+                    pbar.update(1)
+                    mean_loss = tr_loss * args.gradient_accumulation_steps / nb_tr_steps
+                    pbar.set_postfix_str(f"Loss: {mean_loss:.5f}")
+                    if (step + 1) % args.gradient_accumulation_steps == 0:
+                        if args.fp16:
+                            # modify learning rate with special warm up BERT uses
+                            # if args.fp16 is False, BertAdam is used that handles this automatically
+                            lr_this_step = args.learning_rate * warmup_linear.get_lr(global_step, args.warmup_proportion)
+                            for param_group in optimizer.param_groups:
+                                param_group['lr'] = lr_this_step
+                        optimizer.step()
+                        optimizer.zero_grad()
+                        global_step += 1
 
-        # Save a trained model
-        if epoch == (args.epochs-1):
-            ts = time.time()
-            st = datetime.datetime.fromtimestamp(ts).strftime('%m%d%H%M%S')
+            # Save a trained model
+            if epoch == (args.epochs-2):
+                ts = time.time()
+                st = datetime.datetime.fromtimestamp(ts).strftime('%m%d%H%M%S')
 
-            saving_path = args.output_dir
+                saving_path = args.output_dir
 
-            saving_path = Path(os.path.join(saving_path, args.save_name + st + "_epoch_" + str(epoch + args.already_trained_epoch)))
+                saving_path = Path(os.path.join(saving_path, args.save_name + st + "_epoch_" + str(epoch + args.already_trained_epoch)))
 
-            if saving_path.is_dir() and list(saving_path.iterdir()):
-                logging.warning(f"Output directory ({ saving_path }) already exists and is not empty!")
-            saving_path.mkdir(parents=True, exist_ok=True)
+                if saving_path.is_dir() and list(saving_path.iterdir()):
+                    logging.warning(f"Output directory ({ saving_path }) already exists and is not empty!")
+                saving_path.mkdir(parents=True, exist_ok=True)
 
-            logging.info("** ** * Saving fine-tuned model ** ** * ")
-            model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
+                logging.info("** ** * Saving fine-tuned model ** ** * ")
+                model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
 
-            output_model_file = os.path.join(saving_path, WEIGHTS_NAME)
-            output_config_file = os.path.join(saving_path, CONFIG_NAME)
-            output_ngram_file = os.path.join(saving_path, "ngram_dict.txt")
+                output_model_file = os.path.join(saving_path, WEIGHTS_NAME)
+                output_config_file = os.path.join(saving_path, CONFIG_NAME)
+                output_ngram_file = os.path.join(saving_path, "ngram.txt")
 
-            torch.save(model_to_save.state_dict(), output_model_file)
-            model_to_save.config.to_json_file(output_config_file)
-            tokenizer.save_vocabulary(saving_path)
+                torch.save(model_to_save.state_dict(), output_model_file)
+                model_to_save.config.to_json_file(output_config_file)
+                tokenizer.save_vocabulary(saving_path)
 
-            ngram_dict.save(output_ngram_file)
+                ngram_dict.save(output_ngram_file)
 
     if args.do_eval:
+        logging.info("***** Running evaluation *****")
+        logging.info("  Eval batch size = %d", args.train_batch_size)
 
-        eval_dataset = PregeneratedDataset(epoch=0,
-                                           training_path=args.pregenerated_data,
-                                           tokenizer=tokenizer,
-                                           num_data_epochs=1,
-                                           reduce_memory=args.reduce_memory,
-                                           fp16=args.fp16)
-        eval_sampler = RandomSampler(eval_dataset)
+        eval_dataset = PregeneratedDataset(epoch=args.epochs - 1,
+                                        training_path=args.pregenerated_data,
+                                        tokenizer=tokenizer,
+                                        num_data_epochs=1,
+                                        reduce_memory=args.reduce_memory,
+                                        fp16=args.fp16)
+
+        eval_sampler = SequentialSampler(eval_dataset)
         eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=args.train_batch_size)
 
-    # ...existing training loop...
+        model.eval()
+        total_mlm_loss = 0.0
+        total_nsp_loss = 0.0
+        total_mlm_tokens = 0
+        total_correct_mlm = 0
+        total_nsp = 0
+        total_correct_nsp = 0
 
-        if args.do_eval:
-            logging.info("***** Running evaluation *****")
-            evaluate(model, eval_dataloader, device, n_gpu)
+        loss_fct = torch.nn.CrossEntropyLoss(ignore_index=-1)
+
+        with tqdm(total=len(eval_dataloader), desc="Evaluating") as pbar:
+            for step, batch in enumerate(eval_dataloader):
+                batch = tuple(t.to(device) for t in batch)
+                input_ids, input_mask, segment_ids, lm_label_ids, is_next, \
+                ngram_ids, ngram_masks, ngram_positions, ngram_starts, ngram_lengths, ngram_segment_ids = batch
+
+                with torch.no_grad():
+                    sequence_output, pooled_output = model.bert(
+                        input_ids=input_ids,
+                        input_ngram_ids=ngram_ids,
+                        ngram_position_matrix=ngram_positions,
+                        token_type_ids=segment_ids,
+                        ngram_token_type_ids=ngram_segment_ids,
+                        attention_mask=input_mask,
+                        ngram_attention_mask=ngram_masks,
+                        output_all_encoded_layers=False
+                    )
+
+                    prediction_scores, seq_relationship_score = model.cls(sequence_output, pooled_output)
+
+                    # MLM metrics
+                    active = lm_label_ids != -1
+                    mlm_loss = loss_fct(prediction_scores.view(-1, model.config.vocab_size), lm_label_ids.view(-1))
+                    total_mlm_loss += mlm_loss.item() * active.sum().item()
+
+                    mlm_preds = prediction_scores.argmax(dim=-1)
+                    total_correct_mlm += (mlm_preds[active] == lm_label_ids[active]).sum().item()
+                    total_mlm_tokens += active.sum().item()
+
+                    # NSP metrics
+                    nsp_loss = loss_fct(seq_relationship_score.view(-1, 2), is_next.view(-1))
+                    total_nsp_loss += nsp_loss.item() * is_next.size(0)
+
+                    nsp_preds = seq_relationship_score.argmax(dim=-1)
+                    total_correct_nsp += (nsp_preds == is_next).sum().item()
+                    total_nsp += is_next.size(0)
+
+                    pbar.update(1)
+
+        avg_mlm_loss = total_mlm_loss / total_mlm_tokens
+        avg_nsp_loss = total_nsp_loss / total_nsp
+        mlm_accuracy = total_correct_mlm / total_mlm_tokens
+        nsp_accuracy = total_correct_nsp / total_nsp
+        mlm_perplexity = math.exp(avg_mlm_loss)
+
+        logging.info("***** Eval Results *****")
+        logging.info("  MLM Loss: %.4f", avg_mlm_loss)
+        logging.info("  MLM Accuracy: %.4f", mlm_accuracy)
+        logging.info("  Perplexity: %.2f", mlm_perplexity)
+        logging.info("  NSP Loss: %.4f", avg_nsp_loss)
+        logging.info("  NSP Accuracy: %.4f", nsp_accuracy)
 
 if __name__ == '__main__':
     main()
