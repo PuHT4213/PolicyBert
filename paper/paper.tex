@@ -107,7 +107,7 @@ Ollama 是一个高效的模型部署工具，支持本地化部署大规模语�
 
 
 
-\section{研究现状}
+\section{相关研究}
 ZEN（Pre-training Chinese Text Encoder Enhanced by N-gram Representations）提出了一种专为中文设计的预训练语言模型，旨在解决中文文本处理中的分词不确定性问题\cite{diao-etal-2020-zen}。相较于将每个汉字作为独立token的传统BERT模型，ZEN引入n-gram表示，通过显式建模多粒度的词片段信息，增强了对词级语义的建模能力。在架构上，ZEN在字符级BERT的基础上添加了n-gram编码器，通过融合字符与n-gram表示，有效提升了模型对中文语义结构的理解。实验证明，ZEN在中文分词、命名实体识别、文本分类等多个任务上优于传统方法，表明其多粒度建模策略在中文NLP中具有重要价值。
 
 PTWA（Pre-Training with Word Attention）提出了一个针对中文命名实体识别（NER）任务的预训练方法，旨在更有效地融合词级信息以提升模型性能\cite{Ma2021PTWAPW}。该方法通过引入词注意力机制，增强了字符表示与词级语义之间的交互，从而更准确地识别实体边界和类别。在实验中，PTWA在多个中文NER基准数据集上表现出色，显著优于传统的字符级预训练模型，验证了其在中文NER任务中的有效性和先进性。
