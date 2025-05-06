@@ -1,0 +1,83 @@
+\begin{thebibliography}{10}
+
+\bibitem{SALTON1988513}
+Gerard Salton and Christopher Buckley.
+\newblock Term-weighting approaches in automatic text retrieval.
+\newblock {\em Information Processing \& Management}, 24(5):513--523, 1988.
+
+\bibitem{10.5555/944919.944937}
+David~M. Blei, Andrew~Y. Ng, and Michael~I. Jordan.
+\newblock Latent dirichlet allocation.
+\newblock {\em J. Mach. Learn. Res.}, 3(null):993–1022, March 2003.
+
+\bibitem{mikolov2013efficientestimationwordrepresentations}
+Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Efficient estimation of word representations in vector space, 2013.
+
+\bibitem{pennington-etal-2014-glove}
+Jeffrey Pennington, Richard Socher, and Christopher Manning.
+\newblock {G}lo{V}e: Global vectors for word representation.
+\newblock In Alessandro Moschitti, Bo~Pang, and Walter Daelemans, editors, {\em Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing ({EMNLP})}, pages 1532--1543, Doha, Qatar, October 2014. Association for Computational Linguistics.
+
+\bibitem{peters-etal-2018-deep}
+Matthew~E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, and Luke Zettlemoyer.
+\newblock Deep contextualized word representations.
+\newblock In Marilyn Walker, Heng Ji, and Amanda Stent, editors, {\em Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)}, pages 2227--2237, New Orleans, Louisiana, June 2018. Association for Computational Linguistics.
+
+\bibitem{devlin-etal-2019-bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+\newblock {BERT}: Pre-training of deep bidirectional transformers for language understanding.
+\newblock In Jill Burstein, Christy Doran, and Thamar Solorio, editors, {\em Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)}, pages 4171--4186, Minneapolis, Minnesota, June 2019. Association for Computational Linguistics.
+
+\bibitem{liu2019robertarobustlyoptimizedbert}
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov.
+\newblock Roberta: A robustly optimized bert pretraining approach, 2019.
+
+\bibitem{sun2019ernieenhancedrepresentationknowledge}
+Yu~Sun, Shuohuan Wang, Yukun Li, Shikun Feng, Xuyi Chen, Han Zhang, Xin Tian, Danxiang Zhu, Hao Tian, and Hua Wu.
+\newblock Ernie: Enhanced representation through knowledge integration, 2019.
+
+\bibitem{diao-etal-2020-zen}
+Shizhe Diao, Jiaxin Bai, Yan Song, Tong Zhang, and Yonggang Wang.
+\newblock Zen: Pre-training chinese text encoder enhanced by n-gram representations.
+\newblock In {\em Findings of the Association for Computational Linguistics: EMNLP 2020}, pages 4729--4740, Online, November 2020.
+
+\bibitem{DXSJSZ2021}
+Shizhe Diao, Ruijia Xu, Hongjin Su, Yilei Jiang, Yan Song, and Tong Zhang.
+\newblock Taming pre-trained language models with n-gram representations for low-resource domain adaptation.
+\newblock In {\em Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)}, pages 3336--3349, Online, August 2021. Association for Computational Linguistics.
+
+\bibitem{lakatos2024investigatingperformanceretrievalaugmentedgeneration}
+Robert Lakatos, Peter Pollner, Andras Hajdu, and Tamas Joo.
+\newblock Investigating the performance of retrieval-augmented generation and fine-tuning for the development of ai-driven knowledge-based systems, 2024.
+
+\bibitem{qwen2.5}
+An~Yang, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo~Zheng, Bowen Yu, Chengyuan Li, Dayiheng Liu, Fei Huang, Haoran Wei, Huan Lin, Jian Yang, Jianhong Tu, Jianwei Zhang, Jianxin Yang, Jiaxi Yang, Jingren Zhou, Junyang Lin, Kai Dang, Keming Lu, Keqin Bao, Kexin Yang, Le~Yu, Mei Li, Mingfeng Xue, Pei Zhang, Qin Zhu, Rui Men, Runji Lin, Tianhao Li, Tingyu Xia, Xingzhang Ren, Xuancheng Ren, Yang Fan, Yang Su, Yichang Zhang, Yu~Wan, Yuqiong Liu, Zeyu Cui, Zhenru Zhang, and Zihan Qiu.
+\newblock Qwen2.5 technical report.
+\newblock {\em arXiv preprint arXiv:2412.15115}, 2024.
+
+\bibitem{bgeembedding}
+Shitao Xiao, Zheng Liu, Peitian Zhang, and Niklas Muennighoff.
+\newblock C-pack: Packaged resources to advance general chinese embedding, 2023.
+
+\bibitem{langchainchatchat}
+Qian Liu, Jinke Song, Zhiguo Huang, Yuxuan Zhang, glide the, and liunux4odoo.
+\newblock {langchain-chatchat}.
+\newblock \url{https://github.com/chatchat-space/Langchain-Chatchat}, 2024.
+
+\bibitem{Ma2021PTWAPW}
+Kaixin Ma, Meiling Liu, Tiejun Zhao, Jiyun Zhou, and Yang Yu.
+\newblock Ptwa: Pre-training with word attention for chinese named entity recognition.
+\newblock {\em 2021 International Joint Conference on Neural Networks (IJCNN)}, pages 1--8, 2021.
+
+\bibitem{Li2022ExploitingWS}
+Wenbiao Li, Rui Sun, and Yunfang Wu.
+\newblock Exploiting word semantics to enrich character representations of chinese pre-trained models.
+\newblock In {\em Natural Language Processing and Chinese Computing}, 2022.
+
+\bibitem{He2023PromptBasedWI}
+Qiang He, Guowei Chen, Wenchao Song, and Pengzhou Zhang.
+\newblock Prompt-based word-level information injection bert for chinese named entity recognition.
+\newblock {\em Applied Sciences}, 2023.
+
+\end{thebibliography}
