@@ -32,8 +32,8 @@
 % 打印中英文标题
 \title{
     \includegraphics[width=0.8\textwidth]{./images/logo.png} \\[1em] % 插入 logo
-    {\fontsize{40pt}{24pt}\selectfont \textbf 本科生毕业论文} \\[2em] % 调整大标题字号
-    \textbf PolicyBERT：基于全词掩码的中文政策文本预训练语言模型 \\[1em]
+    {\fontsize{40pt}{24pt}\selectfont \textbf{本科生毕业论文}} \\[2em] % 调整大标题字号
+    \textbf{PolicyBERT：基于全词掩码的中文政策文本预训练语言模型} \\[1em]
     PolicyBERT: A Chinese Policy Text Pre-trained Language Model Based on Whole Word Masking  \\[3em] % 英文标题去掉加粗
 }
 
@@ -83,19 +83,21 @@
 
 \newpage
 \section*{摘要}
+本文提出了一种基于融合式中文编码模型的文本编码器——PolicyBERT，旨在提升中文政策文本的语义理解与生成能力。通过引入HanLP分词、门控机制和多头注意力机制，PolicyBERT能够有效融合字符级和词级信息，增强对中文政策文本的建模能力。本文构建了两个适用于中文政策文本的下一句预测（NSP）任务数据集（PolicySM-1和PolicySM-2），并在这些数据集上进行了模型微调。实验结果表明，使用多头注意力机制的模型在NSP任务中表现最佳，达到了0.9325的准确率。此外，本文基于微调后的模型，使用Ollama与langchain-chatchat架构搭建了一个基于检索增强生成（RAG）机制的智能问答系统“未名问政”，实现了从文本检索到问答生成的全流程部署。该系统具备部署灵活、响应快速、扩展便捷等特点，适用于政务智能问答、政策知识库构建与自动解读等场景。本文的研究为中文政策文本处理提供了新的方法和工具，具有重要的理论意义和实际应用价值。
 
 \vspace{2em} % 添加空行
 
-\textbf{关键词：}
+\textbf{关键词：}PolicyBERT，中文政策文本，融合式编码模型，检索增强生成，智能问答系统，BERT
 \vspace{2em} % 添加空行
 
 \newpage
 \section*{Abstract}
+This paper proposes a fused Chinese encoding model-based text encoder—PolicyBERT—designed to enhance the semantic understanding and generation capabilities for Chinese policy documents. By incorporating HanLP-based tokenization, a gating mechanism, and multi-head attention, PolicyBERT effectively integrates character-level and word-level information, thereby improving its modeling ability for Chinese policy texts. Two next sentence prediction (NSP) datasets tailored for Chinese policy texts, namely PolicySM-1 and PolicySM-2, were constructed and used for model fine-tuning. Experimental results show that the model with multi-head attention achieves the best performance on the NSP task, reaching an accuracy of 0.9325. Furthermore, based on the fine-tuned model, this study builds an intelligent question-answering system named "WeiMingPolicyQA" using the Ollama and langchain-chatchat framework, leveraging the retrieval-augmented generation (RAG) mechanism to enable an end-to-end pipeline from document retrieval to answer generation. The system features flexible deployment, fast response, and easy scalability, making it suitable for applications such as intelligent governance Q\&A, policy knowledge base construction, and automatic policy interpretation. This research provides new methods and tools for processing Chinese policy documents, with significant theoretical and practical value.
 
 
 \vspace{2em} % 添加空行
 
-\textbf{Keywords:} 
+\textbf{Keywords:} PolicyBERT, Chinese policy text, fused encoding model, retrieval-augmented generation, intelligent question-answering system, BERT
 
 \newpage
 \tableofcontents % 目录另起一页
@@ -109,15 +111,17 @@
 
 基于 Transformer 架构的预训练语言模型（PLM）带来了革命性变革。BERT 首创了“掩码语言模型”和“下游任务微调”范式，通过海量语料预训练并在具体任务上微调，大幅提升性能，奠定了通用 NLP 研究的基础\cite{devlin-etal-2019-bert}。其后，RoBERTa 通过更大规模语料和更长训练时间刷新了多项任务表现\cite{liu2019robertarobustlyoptimizedbert}，ERNIE 则融入知识图谱与实体信息，在预训练中引入外部知识，进一步增强了语义理解能力\cite{sun2019ernieenhancedrepresentationknowledge}。
 
-尽管上述预训练模型在英文 NLP 任务中表现优异，直接迁移到中文时却面临语言结构层面的挑战。中文语言天然缺乏空格作为词语边界标记，模型在对文本进行编码前通常需先进行分词处理。但中文的词边界存在模糊性和上下文依赖性，使得不同分词方式可能产生完全不同的语义理解。例如，“北京大学”可被切分为“北京 大学”或整体作为专有名词“北京大学”，两者所表达的语义截然不同。这种分词歧义会导致 token 级别的预训练模型无法准确建模真实语义。
+尽管上述预训练模型在英文 NLP 任务中表现优异，直接迁移到中文时却面临语言结构层面的挑战。中文语言天然缺乏空格作为词语边界标记，模型在对文本进行编码前通常需先进行分词处理。但中文的词边界存在模糊性和上下文依赖性，使得不同分词方式可能产生完全不同的语义理解。例如，“北京大学”可被切分为“北京”，“大学”或整体作为专有名词“北京大学”，两者所表达的语义截然不同。这种分词歧义会导致 token 级别的预训练模型无法准确建模真实语义。
 
 现有中文 BERT 模型通常采用字符级（字粒度）编码策略，即将每个汉字视为独立 token，这虽然规避了分词带来的歧义问题，但也牺牲了对词语整体语义的把握。例如，将“人工智能”拆解为“人”“工”“智”“能”，使模型需要通过更长的上下文依赖才能捕捉到其作为专有名词的统一语义。这种处理方式尤其不利于处理术语密集、长词多、句式复杂的文本类型。
 
-在 NLP 的具体应用中，领域文本（Domain-specific Text）处理逐渐成为研究热点。尤其是法律、金融、医疗、政策等垂直领域，其文本具有术语密集、专业性强、、结构复杂、长距离依赖、命名实体多、更新频繁等特点，对文本编码提出了更高要求：模型不仅要能理解个体 token 的语义，还要具备对领域词语、命名实体的整体感知能力。这使得纯粹依赖字粒度编码的 BERT 类模型难以充分捕捉政策文本中的关键信息。若模型不能准确识别和建模“国家政策”“财政转移支付”“扶贫开发”等多字短语或专有名词，可能导致信息丢失、下游任务性能下降
+在 NLP 的具体应用中，领域文本（Domain-specific Text）处理逐渐成为研究热点。尤其是法律、金融、医疗、政策等垂直领域，其文本具有术语密集、专业性强、、结构复杂、长距离依赖、命名实体多、更新频繁等特点，对文本编码提出了更高要求：模型不仅要能理解个体 token 的语义，还要具备对领域词语、命名实体的整体感知能力。这使得纯粹依赖字粒度编码的 BERT 类模型难以充分捕捉政策文本中的关键信息。若模型不能准确识别和建模“国家政策”“财政转移支付”“扶贫开发”等多字短语或专有名词，可能导致信息丢失、下游任务性能下降。
 
 ZEN（a BERT‑based Chinese (Z) text encoder Enhanced by N‑gram representations）提出了引入 n‑gram 表示的中文词信息\cite{diao-etal-2020-zen}。该文使用了Shizhe Diao 等人提出的基于计算相邻字符PMI（Pointwise Mutual Information）的分词方法\cite{DXSJSZ2021}。将所有连续的 n‑gram 片段与字符表示并行编码，并在模型的每一个交叉注意力组件的末尾进行相加融合，以补充多字组合信息。
 
-本文将在 ZEN 的基础上，提出一种新的中文政策文本预训练语言模型 PolicyBERT。该模型在 ZEN 的基础上引入了 HanLP 分词、门控与注意力机制，以增强对中文政策文本的建模能力。
+HanLP 是一个开源的自然语言处理工具包，提供了多种中文分词、词性标注、命名实体识别等功能\cite{he-choi-2021-stem}。其分词器基于 CRF（条件随机场）模型，能够有效处理中文文本中的分词问题。HanLP 的分词器在处理中文文本时，能够根据上下文信息自动选择最优的分词方式，从而提高了分词的准确性和鲁棒性。
+
+本文在 ZEN 的基础上，提出了一种基于融合式中文编码模型的文本编码器——PolicyBERT，旨在提升中文政策文本的语义理解与生成能力。该模型通过使用 HanLP 分词引入了更精准、丰富的词级语义信息，并使用门控与注意力机制提高了模型对词级语义信息的利用能力，增强模型对文本的表示能力。
 
 \vspace{2em} % 添加空行
 
@@ -379,7 +383,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 针对负样本，我们设计了两种生成策略，分别体现不同的训练目标与数据分布假设。
 
-方案一：正负样本比例1:1，包含“句子顺序扰动”样本
+\textbf{方案一：}正负样本比例1:1，包含“句子顺序扰动”样本
 
 该策略下，负样本数与正样本数相等，即：
 \begin{equation}
@@ -397,7 +401,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \vspace{2em} % 添加空行
 
-方案二：正负样本比例1:5，基于篇内语义混淆构造
+\textbf{方案二：}正负样本比例1:5，基于篇内语义混淆构造
 
 在第二种策略中，我们设计更复杂的负样本：从同一篇文章中抽取相隔2至5句话的句子对，并在其内部使用逗号划分子句以混淆语义边界。即，对于句子序列 $\{s_i\}$，构造如下样本对：
 
@@ -602,7 +606,9 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
     \caption{未名问政Logo}
     \label{fig:WeiMingLogo}
 \end{figure}
+
 \subsection{系统架构}
+
 前文通过在政策文本语料上的微调，显著提升了 $bge\text{-}base\text{-}zh\text{-}v1.5$ 模型在子领域内对中文语义的理解与表达能力。在此基础上，本文进一步构建了一个基于检索增强生成（Retrieval-Augmented Generation, RAG）机制的智能问答系统，命名为“未名问政”，以提供高效、精准的政策解读与咨询服务，帮助用户快速理解并获取所需政策信息。该系统采用了 Langchain-Chatchat 架构作为整体框架，在保障系统模块化、可扩展性的同时，方便快速集成主流语言模型与检索引擎。系统整体由三部分组成：检索模块、生成模块，以及一个轻量级的融合控制层，形成了完整的“查询—检索—生成—响应”工作链条。
 
 在检索模块方面，系统使用了基于 PolicyBERT 架构并经过领域微调的 $bge\text{-}base\text{-}\\zh\text{-}v1.5$ 模型作为中文文本编码器。为进一步融合通用语义能力与子领域知识，本文将微调后的参数与原始模型部分参数拼接，构建了 $bge\text{-}base\text{-}zh\text{-}v1.5\text{-}merge$ 模型。具体流程为：首先对政策语料进行分段预处理（每段限制在750字以内），随后将其编码为固定维度的向量，存入本地 Faiss 向量数据库中。在用户输入查询后，系统会将查询文本同样编码为向量，并通过相似度检索选出 top‑k 个最相关的政策片段，作为后续生成模块的上下文支持。
@@ -612,7 +618,8 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 综上，本文构建的“未名问政”系统在本地硬件（RTX 4060 8GB 显存）上完成了从文本检索到问答生成的全流程部署，充分融合了 $bge\text{-}base\text{-}zh\text{-}v1.5\text{-}merge$ 的检索能力与 $Qwen2.5:7b$ 的生成优势，依托 Langchain-Chatchat 架构实现了高度模块化与可配置的中文 RAG 系统。该系统具备部署灵活、响应快速、扩展便捷等特点，尤其适用于政务智能问答、政策知识库构建与自动解读等典型场景。
 
 \subsection{系统演示}
-如图\ref{fig:home_page}所示，未名问政-PolicyBert 系统的主界面简洁直观，当前版本为 \texttt{1.0.0.1}。界面左侧设有功能导航栏，用户可在“多功能对话”、“RAG 对话”与“知识库管理”等主要模块间进行切换。在“RAG 对话”模式下，用户可以根据具体需求，自定义相关配置参数。首先，用户可通过下拉菜单选择对话模式，目前支持“知识库问答”；随后可选择已加载的知识库，以支持特定领域的问答服务。进一步地，系统允许用户设置历史对话轮数（默认为3轮）、匹配知识条数（默认为5条），以及知识匹配的最低分数阈值（以滑动条形式设置，范围为 \texttt{0.00} 至 \texttt{2.00}，默认值为 \texttt{0.50}），SCORE越小，相关度越高，取到2相当于不筛选。此外，用户还可以勾选“仅返回检索结果”选项，以查看未融合生成的原始检索片段。界面右侧为空白对话窗口区域，用于展示系统响应内容。底部提供输入框，支持多轮对话交互，用户输入内容后可按 \texttt{Shift+Enter} 执行提交，界面整体设计清晰高效，便于快速部署和应用。
+\subsubsection{RAG对话}
+如图\ref{fig:home_page}所示，未名问政RAG系统的主界面简洁直观，当前版本为 \texttt{1.0.0.1}。界面左侧设有功能导航栏，用户可在“多功能对话”、“RAG 对话”与“知识库管理”等主要模块间进行切换。在“RAG 对话”模式下，用户可以根据具体需求，自定义相关配置参数。首先，用户可通过下拉菜单选择对话模式，目前支持“知识库问答”；随后可选择已加载的知识库，以支持特定领域的问答服务。进一步地，系统允许用户设置历史对话轮数（默认为3轮）、匹配知识条数（默认为5条），以及知识匹配的最低分数阈值（以滑动条形式设置，范围为 \texttt{0.00} 至 \texttt{2.00}，默认值为 \texttt{0.50}），SCORE越小，相关度越高，取到2相当于不筛选。此外，用户还可以勾选“仅返回检索结果”选项，以查看未融合生成的原始检索片段。界面右侧为空白对话窗口区域，用于展示系统响应内容。底部提供输入框，支持多轮对话交互，用户输入内容后可按 \texttt{Shift+Enter} 执行提交，界面整体设计清晰高效，便于快速部署和应用。
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{./images/home_page.png}
@@ -620,6 +627,40 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
     \label{fig:home_page}
 \end{figure}
 
+如图\ref{fig:system_running}，未名问政RAG在“RAG 对话”模式下提供了图形化的参数配置与实时问答界面。右侧展示了用户提问（如“什么是数据基础制度体系？”）、知识库匹配结果（下拉列表形式展现检索到的原文段落）及模型最终生成的回答。该对话结果展现了未名问政RAG系统在政策文本问答任务中的优异表现。系统准确理解了用户提出的“什么是数据基础制度体系？”这一问题，并结合知识库中的相关内容，生成了逻辑清晰、内容详实的回答。回答不仅涵盖了数据基础制度体系的定义，还详细阐述了其包含的四个方面的制度内容，条理分明，层次清晰，充分体现了系统在检索增强生成（RAG）任务中的强大能力。此外，回答语言流畅自然，专业性强，能够很好地满足用户对政策解读的需求，展现了系统在政务智能问答场景中的实际应用价值。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/system_running.png}
+    \caption{未名问政 RAG 系统对话界面。左侧为参数配置区域，右侧为对话窗口区域。用户可在输入框中输入问题，系统将根据设置的参数进行检索与生成。}
+    \label{fig:system_running}
+\end{figure}
+
+在图\ref{fig:system_retrieve_only}中的对话中，用户启用了“仅返回检索结果”功能，系统准确地从知识库中检索出了与用户问题“什么是数据基础制度体系？”高度相关的政策文本片段。检索结果内容详实，涵盖了数据基础制度体系的核心定义及其在政策框架中的重要作用，并引用了权威来源，确保了信息的可靠性和专业性。从结果来看，该功能能够有效地将用户问题与知识库中的相关内容进行精准匹配，避免了生成式回答可能带来的信息偏差或冗余问题，特别适用于需要直接引用政策原文或获取权威信息的场景。这种检索增强的方式不仅提升了系统的实用性和可信度，也为用户提供了更高效的政策信息获取途径。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/system_retrieve_only.png}
+    \caption{未名问政 RAG 系统检索结果界面。用户使用“仅返回检索结果”功能，系统准确地从知识库中检索出了与用户问题“什么是数据基础制度体系？”高度相关的政策文本片段。}
+    \label{fig:system_retrieve_only}
+\end{figure}
+
+\subsubsection{知识库管理}
+如图\ref{fig:kb_manage_1}和\ref{fig:kb_manage_2}所示，未名问政RAG系统的知识库管理模块允许用户对知识库进行增删改查操作。用户可以通过“上传知识文件”功能，将新的政策文本片段添加至知识库中，以便后续检索与生成使用。同时，系统支持对已有知识进行编辑和删除操作，确保知识库内容的及时更新与维护。此外，用户还可以通过“查看知识”功能，快速浏览当前知识库中的所有条目，方便进行信息检索与管理。该模块的设计旨在提升系统的灵活性与可扩展性，使其能够适应不断变化的政策环境与用户需求。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/kb_manage_1.png}
+    \caption{未名问政 RAG 系统知识库管理界面。用户可以通过“上传知识文件”功能，将新的政策文本片段添加至知识库中，以便后续检索与生成使用。}
+    \label{fig:kb_manage_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/kb_manage_2.png}
+    \caption{未名问政 RAG 系统知识库管理界面。用户可以通过“查看知识”功能，快速浏览当前知识库中的所有条目，方便进行信息检索与管理。}
+    \label{fig:kb_manage_2}
+\end{figure}
 
 \section{结论}
 本文提出了一种基于融合式中文编码模型的文本编码器，旨在提升中文政策文本的语义理解与生成能力。通过对比不同的融合方法（门控机制、多头注意力机制）与分词策略（n-gram、Hanlp），我们验证了融合式模型在中文政策文本处理中的有效性。实验结果表明，使用Hanlp分词的模型在所有融合方法中表现最好，达到了0.9132的准确率。
