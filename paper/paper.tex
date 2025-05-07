@@ -102,7 +102,7 @@ Ollama 是一个高效的模型部署工具，支持本地化部署大规模语�
 
 本文将结合 Ollama 部署的 $Qwen2.5:7b$ 和微调后的 $ bge-base-zh-v1.5 $，构建一个高效的 RAG 系统————“未名问政”。该系统将利用本地部署的 $Qwen2.5:7b$ 进行文本生成，并通过使用ZEN架构微调后的 $ bge-base-zh-v1.5 $ 实现高效的政策文本检索与生成任务。通过这一系统，本文验证了在特定领域微调模型和优化架构设计对提升 RAG 系统性能的有效性。
 
-本文的主要贡献包括以下几个方面：提出PolicyBert模型，在 ZEN 的基础上引入 HanLP 分词、门控与注意力机制，以增强对中文政策文本的建模能力；将 $ bge-base-zh-v1.5 $ 的主体 BERT 部分参数与预训练ZEN融合，使用 ZEN 架构进行微调，以适应政策文本的特定需求；使用 Ollama 部署 $Qwen2.5:7b$，并结合 langchain-chatchat 架构构建 RAG 系统，利用本地部署的 $Qwen2.5:7b$ 和微调后的 $ bge-base-zh-v1.5 $，实现高效的政策文本检索与生成任务。通过这一系统，本文验证了在特定领域微调模型和优化架构设计对提升 RAG 系统性能的有效性。本文PolicyBERT的训练和未名问政RAG系统在\url{https://github.com/PuHT4213/PolicyBert}上。
+本文的主要贡献包括以下几个方面：提出 PolicyBERT 架构，引入 HanLP 分词、门控与注意力机制，以增强对中文政策文本的建模能力；将 $ bge-base-zh-v1.5 $ 的主体 BERT 部分参数与预训练参数拼接，使用 PolicyBERT 架构进行微调，以适应政策文本的特定需求；使用 Ollama 部署 $Qwen2.5:7b$，并结合 langchain-chatchat 架构构建 RAG 系统，利用微调后的 $ bge-base-zh-v1.5 $，实现高效的政策文本检索与生成任务。通过这一系统，本文验证了多层融合词级信息对文本理解效果的提升，以及在特定领域微调模型和优化架构设计对 RAG 系统性能的提升。本文PolicyBERT的训练和未名问政RAG系统的代码公开在\url{https://github.com/PuHT4213/PolicyBert}和\url{https://github.com/PuHT4213/WeiMingPolicyRAG}。
 
 
 
@@ -121,7 +121,7 @@ Qiang He等人（2023）在其论文《Prompt-Based Word-Level Information Injec
 \section{PolicyBERT}
 \subsection{研究方法}
 
-本文提出的 PolicyBERT 的模型架构如图 \ref{fig:test} 所示。
+本文提出的 PolicyBERT 的模型架构如图所示。
 
 \subsubsection{模型输入}
 令输入的所有政策文件定义为 
@@ -135,7 +135,7 @@ Qiang He等人（2023）在其论文《Prompt-Based Word-Level Information Injec
    d_i = \{s_1, s_2, \dots, s_{N^{d_i}}\} 
 \end{equation}
 
-假设每个句子中的词数和字数分别为 $k_w$ 和 $k_c$，则每个句子 $s_j$ 可以表示为：
+假设每个句子中的词数和字数分别为 $k_w$ 和 $k_c$（暂时不考虑如[UNK]、[CLS]、[SEP]等特殊符号的影响），则每个句子 $s_j$ 可以表示为：
 \begin{equation}
     \begin{split}
         s_j &= W_j = C_j \\
@@ -144,63 +144,168 @@ Qiang He等人（2023）在其论文《Prompt-Based Word-Level Information Injec
     \end{split}
 \end{equation}
 
-其中 $w_i$ 为第 $i$ 个词，$c_i$ 为第 $i$ 个字。$k_w$ 和 $k_c$ 分别为句子中的词和字符的数量。字符数量 $k_c$ 由句子长度决定。
-为了更好地对应词和字的关系，我们使用一个匹配矩阵（Matching Matrix）${\mathcal{M}}_j  \in N^{{k_w}^{max} \times k_c}$，其中每一个元素的取值为
+其中 $w_i$ 为第 $i$ 个词，$c_i$ 为第 $i$ 个字。$k_w$ 和 $k_c$ 分别为句子中的词和字符的数量。字符数量 $k_c$ 由句子长度决定。具体对于下游NSP（Next Sentence Prediction）任务，模型输入 $s_j$ 还可以表示为：
+\begin{equation}
+    \begin{split}
+        s_j &= [CLS] + {s_j}^{(1)} + [SEP] + {s_j}^{(2)} + [SEP] \\
+    \end{split}
+\end{equation} 
 
+为了更好地对应词和字的关系，我们使用一个匹配矩阵（Matching Matrix）${\mathcal{M}}_j  \in N^{k_w \times k_c}$，也即：
+
+${\mathcal{M}}_j$是一个 $k_w \times k_c$ 的0-1矩阵，表示句子中的每一个字是否属于某个词。矩阵的每一行对应一个词 $w_q$，每一列对应一个字 $c_p$。如果字 $c_p$ 属于词 $w_q$，则矩阵中对应位置的值为 1，否则为 0。具体来说，
+$ {\mathcal{M}}_j$的每一个元素的取值为：
 \begin{equation}
     m_{pq} = \begin{cases}
         1, & \text{if } c_p \in w_q \\
         0, & \text{elif } c_p \notin w_q
     \end{cases}
+    \label{eq:matching_matrix}
 \end{equation}
 
-其中 ${k_w}^{max}$ 为预先设定的单个句子中词的最大数量，本文使用${k_w}^{max}=40$。
-
-实际输入时，模型使用输入的句子 $s_j$ 的字符表示$C_j$与词表 $V$ 进行嵌入。词表 $V$由Hanlp提供的分词接口预先构建，共2662个词。对于$C_j$ ，提取其中的所有存在于 $V$ 的词，记录其索引、起始位置、长度和内容。构建上文提到的匹配矩阵 ${\mathcal{M}}_j$，将所有词的顺序打乱，以避免模型学习到词表的顺序信息。对于不足 ${k_w}^{max}$ 的句子，使用零填充（Zero Padding）补齐。如此一来，构成了长度为 ${k_w}^{max}$ 词嵌入$C_j$。
-
-\subsubsection{多层融合}
-用于处理字符输入 $C_j$ 和词输入 $W_j$ 的模型架构相似，均使用了多层的 Transformer 编码器。
-每一层的输入为上一层的输出，经过多头自注意力（Multi-head Self-Attention）处理后。
-每一层字符编码器的输出为 $C^{(l)}$，每一层词编码器的输出为 $W^{(l)}$。
-
-为了融合字符和词的表示，本文使用了两种融合方式：门控机制（Gated Mechanism）和多头注意力机制（Multi-head Attention Mechanism）。
-
-门控机制通过一个包含全连接层（Fully Connected Layer）$Dense$ 、Sigmoid 激活函数和偏置项的门控单元，用字符和词的拼接表示，计算要融合哪些词嵌入的信息。得到新的字符表示 $C^{(l+1)}$：
+实际输入模型时，使用输入句子 $s_j$ 的字符表示$C_j$与词表 $V$ 构建匹配矩阵${\mathcal{M}}_j$和词表示$W_j$。词表 $V$由Hanlp提供的分词接口预先构建，共2662个词。对于$C_j$ ，提取其中的所有存在于 $V$ 的词，记录其索引、起始位置、长度和内容。使用词在词表中的id，可以构建词表示$W_j$：
 \begin{equation}
-        gate^{(l)} = {\sigma}^{(l)} (Dense(C^{(l)}, W^{(l)}) ) + b^{(l)} 
+    W_j = \{wid_1, wid_2, \dots, wid_{k_w}\}
 \end{equation}
+其中 $wid_i$ 为第 $i$ 个词在词表$V$ 中的索引。
+
+同时使用公式\ref{eq:matching_matrix}构建上文提到的匹配矩阵 ${\mathcal{M}}_j$，最后将所有词的顺序打乱，以避免模型学习到词表的顺序信息。每句话的最大词数和最大字符数由超参数${k_w}^{max}$和${k_c^{max}}$决定。对于超过的句子，使用截断（Truncation）处理，保留前 ${k_w}^{max}$ 个词和 ${k_c}^{max}$ 个字符。对于不足的句子，使用零填充（Zero Padding）补齐。如此一来，构成了长度为 ${k_c}^{max}$ 词嵌入$W_j$和长度为 ${k_c}^{max}$ 字嵌入$C_j$。其中 ${k_w}^{max}$ 为预先设定的单个句子中词的最大数量，本文使用${k_w}^{max}=40$；而${k_c}^{max}$ 为预先设定的单个句子中字符的最大数量，本文使用${k_c}^{max}=128$。
+
+由此，我们构建好了模型的全部输入，包括字符表示$C_j$、词表示$W_j$和匹配矩阵${\mathcal{M}}_j$。模型的输入为：
 \begin{equation}
-    C^{(l+1)} = C^{(l)} + gate^{(l)} \cdot W^{(l)}
+        X_j = \{C_j, W_j, {\mathcal{M}}_j\}
 \end{equation}
 
-其中每个线性层的偏置（bias）被初始化为常数$b^{(0)} = 5.0$，这样通过 sigmoid 激活函数后，初始门控值接近于 1，这意味着初始状态下模型倾向于直接保留字符表示 $C^{(l)}$，与ZEN中直接相加$C^{(l)}$和$W^{(l)}$的原始方法处在同一出发点。
+\subsubsection{嵌入、编码与融合}
+模型的输入 $X_j$ 由字符表示 $C_j$、词表示 $W_j$ 和匹配矩阵 ${\mathcal{M}}_j$ 组成。为了将这些输入转换为模型可以处理的向量表示，我们使用了嵌入层（Embedding Layer）和编码器（Encoder）。
+
+字符表示 $C_j$ 和词表示 $W_j$ 首先通过嵌入层进行转换，得到对应的嵌入向量 $C^{(0)}$ 和 $W^{(0)}$：
+\begin{equation}
+    \begin{split}
+        C^{(0)} &= text\_embedding(C_j) \\
+        W^{(0)} &= word\_embedding(W_j) \\
+    \end{split}
+\end{equation}
+
+用于处理字符输入 $C_j$ 和词输入 $W_j$ 的模型架构相似，均为标准的BERT架构，使用了多层的 Transformer 编码器。
+每一层的输入$C^{(l)}$和$W^{(l)}$，经过多头自注意力（Multi-head Self-Attention）处理后，再经过前馈神经网络进行非线性变换。
+可以表示为：
+\begin{equation}
+    \begin{split}
+        A^{(l)} &= \text{Attention}(C^{(l)}, \text{mask})\\
+        I^{(l)} &= \text{Intermediate}(A^{(l)})\\
+        O^{(l)} &= \text{Output}(I^{(l)}, A^{(l)})\\
+        C^{(l)}_1 &= O^{(l)} \\
+    \end{split}
+\end{equation}
+
+对$W^{(l)}$的处理方式类似，只是对于词表示的中间结果$W^{(l)}_1$，会令其与匹配矩阵${\mathcal{M}}_j$进行相乘，得到词表示中间结果$W^{(l)}_2$，而对$C^{(l)}_1$则不进行处理。
+\begin{equation}
+    \begin{split}
+        W^{(l)}_2 &= W^{(l)}_1 \cdot {\mathcal{M}}_j \\
+        C^{(l)}_2 &= C^{(l)}_1
+    \end{split}
+\end{equation}
+
+本文在此基础之上，增加了一个融合层（Fusion Layer），用于将字符和词的表示进行融合。，本文使用了两种融合方式：门控机制（Gated Mechanism）和多头注意力机制（Multi-head Attention Mechanism）。
 
 \vspace{2em} % 添加空行
 
-多头注意力机制则是通过计算字符和词的注意力权重，来决定如何融合两者的信息。具体来说，对于每一层的字符表示 $C^{(l)}$ 和词表示 $W^{(l)}$，多头注意力机制将字符表示作为查询（Query），词表示作为键（Key）和值（Value），输入到多头注意力模块中。通过计算注意力权重，模型能够捕捉字符和词之间的交互关系，从而生成融合后的表示。
+门控机制：门控机制通过一个包含全连接层（Fully Connected Layer）$Dense$ 、Sigmoid 激活函数和偏置项的门控单元，用字符和词的拼接表示，计算要融合哪些词嵌入的信息。得到新的字符表示 $C^{(l+1)}$：
+\begin{equation}
+    \begin{split}
+        gate^{(l)} &= {\sigma}^{(l)} (Dense(C^{(l)}_2, W^{(l)}_2) ) + b^{(l)} \\
+        C^{(l+1)} &= C^{(l)}_2 + gate^{(l)} \cdot W^{(l)}_2 \\
+    \end{split}
+\end{equation}
 
-具体实现如下：首先，使用字符表示 $C^{(l)}$ 作为查询 $Q$，词表示 $W^{(l)}$ 作为键 $K$ 和值 $V$，输入到多头注意力模块中：
+其中每个线性层的偏置（bias）被初始化为常数$b^{(0)} = 5.0$，这样通过 sigmoid 激活函数后，初始门控值接近于 1，这意味着初始状态下模型倾向于直接保留字符表示 $C^{(l)}$，与ZEN中直接相加$C^{(l)}_2$和$W^{(l)}_2$的原始方法处在同一出发点。
+
+\vspace{2em} % 添加空行
+
+多头注意力机制：多头注意力机制则是通过计算字符和词的注意力权重，来决定如何融合两者的信息。具体来说，对于每一层的字符表示 $C^{(l)}_2$ 和词表示 $W^{(l)}_2$，多头注意力机制将字符表示作为查询（Query），词表示作为键（Key）和值（Value），输入到多头注意力模块中。通过计算注意力权重，模型能够捕捉字符和词之间的交互关系，从而生成融合后的表示。
+
+具体实现如下：首先，使用字符表示 $C^{(l)}_2$ 作为查询 $Q$，词表示 $W^{(l)}_2$ 作为键 $K$ 和值 $V$，输入到多头注意力模块中：
 \begin{equation}
     \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V
 \end{equation}
+
 其中 $d_k$ 是键的维度，用于缩放点积以稳定梯度。
 
 多头注意力机制通过多个独立的注意力头来捕捉不同的特征表示：
 \begin{equation}
-    \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \dots, \text{head}_h)W^O
+    \begin{split}
+        \text{MultiHead}(Q, K, V) &= \text{Concat}(\text{head}_1, \dots, \text{head}_h)W^O \\
+        \text{head}_i &= \text{Attention}(QW_i^Q, KW_i^K, VW_i^V) \\
+    \end{split}
 \end{equation}
-\begin{equation}
-    \text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
-\end{equation}
+
 其中 $W_i^Q, W_i^K, W_i^V$ 是每个注意力头的参数矩阵，$W^O$ 是输出的线性变换矩阵。
 
 在融合过程中，模型还引入了残差连接（Residual Connection）和层归一化（Layer Normalization）以增强稳定性：
 \begin{equation}
-    C^{(l+1)} = \text{LayerNorm}(C^{(l)} + \text{Dropout}(\text{MultiHead}(C^{(l)}, W^{(l)}, W^{(l)})))
+    C^{(l+1)} = \text{LayerNorm}(C^{(l)}_2 + \text{Dropout}(\text{MultiHead}(C^{(l)}_2, W^{(l)}_2, W^{(l)}_2)))
 \end{equation}
 
-模型的最后一层输出为 $C^{(L)}$，将被用于下游任务的微调。
+模型的最后一层输出 $C^{(L)}$，将被用于预训练或下游任务的微调。
 
+\subsubsection{预训练头}
+在预训练阶段，模型的最后一层输出 $C^{(L)}$ 被用于两个主要任务：掩码语言模型（Masked Language Model, MLM）和下一句预测（Next Sentence Prediction, NSP）。这两个任务分别用于增强模型的上下文理解能力和句子间关系建模能力。
+
+对于掩码语言模型任务，模型首先对输入序列中的部分 token 进行随机掩码处理（即用特殊标记 [MASK] 替换），然后利用 $C^{(L)}$ 预测这些被掩码的 token。具体来说，$C^{(L)}$ 会被输入到一个语言模型预测头（Language Model Prediction Head）中，该预测头由一个全连接层和 softmax 激活函数组成，用于输出每个被掩码 token 的概率分布。预测的概率分布可以表示为：
+\begin{equation}
+    P(\hat{y}_i | C^{(L)}) = \text{softmax}(\text{Linear}(C^{(L)}_i))
+\end{equation}
+
+其中，$C^{(L)}_i$ 表示第 $i$ 个 token 的隐藏状态，$\hat{y}_i$ 表示模型预测的第 $i$ 个 token 的概率分布。
+
+为了计算 MLM 任务的损失，采用交叉熵损失函数（CrossEntropyLoss），公式如下：
+\begin{equation}
+    \mathcal{L}_{MLM} = -\frac{1}{N} \sum_{i=1}^{N} y_i \log(\hat{y}_i)
+\end{equation}
+
+其中，$N$ 表示被掩码的 token 数量，$y_i$ 表示第 $i$ 个 token 的真实标签，$\hat{y}_i$ 表示模型预测的概率分布。
+
+
+对于下一句预测任务，模型会将 $C^{(L)}$ 的池化输出（pooled output）输入到一个线性分类器中，用于预测两段句子是否具有连续关系。具体来说，池化操作会提取 $C^{(L)}$ 中 [CLS] 标记对应的隐藏状态，表示为 $C^{(L)}_{\text{[CLS]}}$，然后通过一个线性层映射到二分类的概率空间：
+\begin{equation}
+    P(\text{NSP} | C^{(L)}) = \text{softmax}(\text{Linear}(C^{(L)}_{\text{[CLS]}}))
+\end{equation}
+
+NSP 任务的损失同样采用交叉熵损失函数，公式如下：
+\begin{equation}
+    \mathcal{L}_{NSP} = -\frac{1}{M} \sum_{j=1}^{M} y_j \log(\hat{y}_j)
+\end{equation}
+
+其中，$M$ 表示样本数量，$y_j$ 表示第 $j$ 个样本的真实标签，$\hat{y}_j$ 表示模型预测的概率分布。
+
+最终，预训练阶段的总损失由 MLM 和 NSP 两部分损失相加求和得到：
+\begin{equation}
+    \mathcal{L}_{\text{pretrain}} = \mathcal{L}_{MLM} + \mathcal{L}_{NSP}
+\end{equation}
+
+通过上述预训练任务，模型能够学习到丰富的上下文语义信息和句子间的逻辑关系，为下游任务的微调提供强大的语义表示能力。
+
+\subsubsection{下游任务头}
+对于下游NSP任务，我们使用了一个简单的Dropout层和一个线性层来进行分类。Dropout层用于防止过拟合，线性层用于将模型的输出映射到二分类的概率空间。具体来说，NSP任务的输出可以表示为：
+\begin{equation}
+    \begin{split}
+        NSP^{(L)} &= \text{Dropout}(C^{(L)}) \\
+        NSP_{output} &= \text{Linear}(NSP^{(L)}) \\
+    \end{split}
+\end{equation}
+
+其中 $NSP_{output}$ 是模型在NSP任务上的输出，$C^{(L)}$ 是模型最后一层的输出。
+
+为了计算NSP任务的损失（Loss），我们采用了交叉熵损失函数（CrossEntropyLoss）。该损失函数用于衡量模型预测的类别分布与真实标签分布之间的差异。具体来说，假设真实标签为 $labels$，则损失的计算公式为：
+\begin{equation}
+    \mathcal{L}_{NSP} = -\frac{1}{N} \sum_{i=1}^{N} \sum_{j=1}^{2} y_{ij} \log(\hat{y}_{ij})
+\end{equation}
+
+其中：$N$ 表示样本数量；$y_{ij}$ 表示第 $i$ 个样本的真实标签（one-hot 编码）；$\hat{y}_{ij}$ 表示模型预测的第 $i$ 个样本属于类别 $j$ 的概率；$\log$ 表示自然对数。
+
+
+最终，损失 $\mathcal{L}_{NSP}$ 将用于反向传播，以优化模型参数，提高模型在NSP任务上的性能。
 \subsection{实验准备}
 \subsubsection{数据集}
 为验证本文提出的融合式中文编码模型在真实领域场景下的有效性，我们构建了一个面向政策文本理解的中文语料数据集。该数据集聚焦于中国语境下的政府文件与政策文本，具备鲜明的领域特征和丰富的语言结构，是评估模型在政策解读、政务问答等任务中的理想语料基础。
@@ -218,7 +323,7 @@ Qiang He等人（2023）在其论文《Prompt-Based Word-Level Information Injec
 政策类文本中，常包含表格信息、超链接、页脚编号、批注引用等非自然语言结构。这些信息对于模型训练而言往往是噪声，需予以剔除。本文采用基于正则表达式的规则方法进行清理，匹配带有明显网格、对齐线性结构的文本片段，如“|xxx|yyy|”或“——”连接的列名，并删除。去除所有形如 “http[s]”、“.com” 的 URL 链接；
 利用常见模式（如“第x页”、“附件x”、“××年××号”）识别页脚、页码信息，并从段落中剥离；去除括号中的编号批注（如“（1）”、“[图1]”），并重构自然语言句式。
 
-ZEN中基于n-gram的分词策略在中文文本处理中存在一定局限性，这是因为其通过计算每两个字符中间的PMI（Pointwise Mutual Information）来确定n-gram片段的边界，可能导致切分出一些不符合中文语言习惯的片段，尤其是在处理多义词、成语或专有名词时。此外，n-gram方法在处理长文本时可能会产生大量的冗余片段，增加了模型的计算复杂度和内存消耗。并且，由于没有引入停用词过滤机制，可能会导致一些常见但对语义理解没有实际贡献的词被纳入模型训练中，从而影响模型的性能。
+基于n-gram的分词策略在中文文本处理中存在一定局限性，这是因为其通过计算每两个字符中间的PMI（Pointwise Mutual Information）来确定n-gram片段的边界，可能导致切分出一些不符合中文语言习惯的片段，尤其是在处理多义词、成语或专有名词时。此外，n-gram方法在处理长文本时可能会产生大量的冗余片段，增加了模型的计算复杂度和内存消耗。并且，由于没有引入停用词过滤机制，可能会导致一些常见但对语义理解没有实际贡献的词被纳入模型训练中，从而影响模型的性能。
 
 相比基于n-gram的策略，本文使用的HanLP提供了更语义驱动的中文分词工具，其基于神经网络词法分析模型，并支持自定义词典增强分词效果。使用 HanLP提供的api接口对清洗后的句子进行切词，去除停用词与其他不符合规则的词，统计词表中的词频，剔除低频词（出现次数小于10次）以减少噪声对模型训练的影响。最终构建的词表包含2662个词，覆盖了99.8\%的句子。
 
@@ -260,11 +365,14 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 2. 跨文档随机型（80\%）：从整个语料库中随机选取两个不相邻句子 $(s'_i, s'_j)$，其中 $s'_i$ 和 $s'_j$ 可来自不同文章或不同段落，确保语义无关。
 
-该策略优点在于正负样本数量平衡，有助于训练模型识别语义连贯性，并关注句子顺序是否合理。我们将该方案的数据集称为PolicySM-1（Policy Sentence Matching 1），并在后续实验中与方案二进行对比。
+该策略优点在于正负样本数量平衡，有助于训练模型识别语义连贯性，并关注句子顺序是否合理。
+我们将该方案的数据集称为PolicySM-1（Policy Sentence Matching 1）。然而，由于来自不同文章的句子有概率在语义上具有相似性，如两篇介绍地区“数据治理政策”的文章可能都提到“数据治理”这一概念，因此该方案的负样本可能会引入一些噪声，导致模型的训练结果无法很好地反映句子间的真实关系。为此，我们引入了第二个数据集方案。
+
+\vspace{2em} % 添加空行
 
 方案二：正负样本比例1:5，基于篇内语义混淆构造
 
-在第二种策略中，我们设计更具挑战性的负样本：从同一篇文章中抽取相隔2至5句话的句子对，并在其内部使用逗号划分子句以混淆语义边界。即，对于句子序列 $\{s_i\}$，构造如下样本对：
+在第二种策略中，我们设计更复杂的负样本：从同一篇文章中抽取相隔2至5句话的句子对，并在其内部使用逗号划分子句以混淆语义边界。即，对于句子序列 $\{s_i\}$，构造如下样本对：
 
 \begin{equation}
 (s_{i,k}, s_{j,l}) \quad \text{其中} \quad j = i + \delta,\quad \delta \in \{2, 3, 4, 5\}
@@ -276,7 +384,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 |\mathcal{N}_2| = 5 \times |\mathcal{P}| = 116870
 \end{equation}
 
-该方案的设计意图在于强化模型对篇内局部干扰与语义跳跃的辨别能力，提升编码器对更细粒度上下文关系的建模能力。尤其是在RAG任务中，模型需要能够区分相关与不相关的句子对，以便在检索阶段准确匹配问题与答案。而更多的负样本数量也有助于模型学习到更丰富的语义信息，避免过拟合。因此，方案二的负样本构造更贴近实际应用场景，能够有效提升模型的泛化能力。我们将方案二的数据集称为PolicySM-2（Policy Sentence Matching 2）。
+该方案的设计意图在于强化模型对篇内局部干扰与语义跳跃的辨别能力，提升编码器对更细粒度上下文关系的建模能力。尤其是在RAG任务中，模型需要能够区分相关与不相关的句子对，以便在检索阶段准确匹配问题与答案。而同一篇文章中相隔较远的句子往往比起随机选取句子更能体现语义上的差异。而更多的负样本数量也有助于模型学习到更丰富的语义信息，避免过拟合。因此，方案二的负样本构造更贴近实际应用场景，能够有效提升模型的泛化能力。我们将方案二的数据集称为PolicySM-2（Policy Sentence Matching 2）。
 
 我们分别采用方案一与方案二构建了两个NSP训练数据集，分布如表 \ref{tab:nsp_samples} 所示。
 
@@ -302,15 +410,13 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 \subsubsection{训练配置}
 实验在一台高性能GPU服务器上进行，配置如下：
 
-GPU：NVIDIA RTX 4090 × 1，显存 24 GB
-
-CPU：20 核 Intel Xeon 处理器
-
-内存：80 GB
-
-工作空间：50 GB SSD 存储用于中间缓存与模型权重
-
-框架：PyTorch 2.0，python 3.8，cuda 11.8
+\begin{itemize}
+    \item GPU：NVIDIA RTX 4090 × 1，显存 24 GB
+    \item CPU：20 核 Intel Xeon 处理器
+    \item 内存：80 GB
+    \item 工作空间：50 GB SSD 存储用于中间缓存与模型权重
+    \item 框架：PyTorch 2.0，python 3.8，cuda 11.8
+\end{itemize}
 
 该配置确保了在处理大规模预训练模型和多层融合机制时具备稳定的训练性能和内存调度能力。
 
@@ -376,6 +482,8 @@ CPU：20 核 Intel Xeon 处理器
     \label{tab:fusion_results_1}
 \end{table}
 
+\newpage
+
 \subsubsection{PolicySM-2}
 我们在PolicySM-1数据集上同时测试了两个模型（ZEN-pretrain-base和bge-base-zh-v1.5）在不同融合方法下的效果。预训练和下游任务的训练超参数分别如表 \ref{tab:pretrain_hyperparameters_2} 和表 \ref{tab:seqlevel_hyperparameters_2} 所示。由于先前的实验已经验证了使用Hanlp分词的模型在所有融合方法中表现最好，因此我们在这部分实验中仅使用了Hanlp分词。
 
@@ -421,7 +529,7 @@ CPU：20 核 Intel Xeon 处理器
     \centering
     \begin{tabular}{llccc}
       \toprule
-      模型 & 融合方法 & MLM Loss & MLM acc & 困惑度 \\
+      骨干模型 & 融合方法 & MLM Loss & MLM acc & 困惑度 \\
       \midrule
       \multirow{3}{*}{BGE}
         & none & 1.0151 & 0.7837 & 2.76 \\
@@ -442,7 +550,7 @@ CPU：20 核 Intel Xeon 处理器
     \centering
     \begin{tabular}{llc}
       \toprule
-      模型 & 融合方法 & NSP acc \\
+      骨干模型 & 融合方法 & NSP acc \\
       \midrule
       \multirow{3}{*}{BGE}
         & none & 0.9236 \\
@@ -459,24 +567,33 @@ CPU：20 核 Intel Xeon 处理器
     \label{tab:nsp-results}
   \end{table}
 
-
+\newpage
 \section{未名问政}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/WeiMingPolicyLogo.png}
+    \caption{未名问政Logo}
+    \label{fig:WeiMingLogo}
+\end{figure}
 \subsection{系统架构}
-前文经过在政策文本上的微调，已经将$ bge-base-zh-v1.5$ 模型的中文文本编码器在子领域的语义理解能力提升到了一个新的高度。为了进一步验证与提升模型的应用价值，本文在此基础上构建了一个基于RAG的问答系统，命名为“未名问政”。该系统旨在为用户提供高效、准确的政策解读与咨询服务，帮助用户快速获取所需信息。整个系统主要包含两大模块——检索模块与生成模块，外加一个轻量级的融合控制层。系统的整体流程为：用户输入查询文本 → 检索模块返回相关文档片段 → 生成模块基于检索上下文与原始查询进行回答 并输出最终答案。
+前文通过在政策文本语料上的微调，显著提升了 $bge\text{-}base\text{-}zh\text{-}v1.5$ 模型在子领域内对中文语义的理解与表达能力。在此基础上，本文进一步构建了一个基于检索增强生成（Retrieval-Augmented Generation, RAG）机制的智能问答系统，命名为“未名问政”，以提供高效、精准的政策解读与咨询服务，帮助用户快速理解并获取所需政策信息。该系统采用了 Langchain-Chatchat 架构作为整体框架，在保障系统模块化、可扩展性的同时，方便快速集成主流语言模型与检索引擎。系统整体由三部分组成：检索模块、生成模块，以及一个轻量级的融合控制层，形成了完整的“查询—检索—生成—响应”工作链条。
 
-在检索模块中，我们采用了微调后的$ bge-base-zh-v1.5 $模型（基于ZEN架构）来生成句向量，将上一节中微调后的bge参数与原始bge模型中的剩余参数拼接，组成$bge-base-zh-v1.5-merge$。具体流程如下：首先，对所有政策文本进行文本预处理与切片（限制每一个切片的最大长度为750），然后将每一句话或段落通过 $bge-base-zh-v1.5-merge$ 编码为固定维度的向量，并存入本地向量数据库（如 Faiss）。当用户发起查询时，同样使用该模型将查询文本映射为向量，通过向量数据库进行近邻搜索，快速返回与查询语义最接近的 top‑k 文档片段，作为生成模块的上下文输入。
+在检索模块方面，系统使用了基于 PolicyBERT 架构并经过领域微调的 $bge\text{-}base\text{-}\\zh\text{-}v1.5$ 模型作为中文文本编码器。为进一步融合通用语义能力与子领域知识，本文将微调后的参数与原始模型部分参数拼接，构建了 $bge\text{-}base\text{-}zh\text{-}v1.5\text{-}merge$ 模型。具体流程为：首先对政策语料进行分段预处理（每段限制在750字以内），随后将其编码为固定维度的向量，存入本地 Faiss 向量数据库中。在用户输入查询后，系统会将查询文本同样编码为向量，并通过相似度检索选出 top‑k 个最相关的政策片段，作为后续生成模块的上下文支持。
 
-在生成模块中，我们部署了 Ollama 本地化的 $Qwen2.5:7b$ 大语言模型，用于在检索到的上下文基础上完成高质量的文本生成。该模型不仅支持长上下文窗口，还可灵活加载用户指定的检索结果，并结合提示模板（Prompt）进行智能问答和文本摘要。生成模块接收检索模块提供的 top‑k 片段与原始查询，通过精心设计的 Prompt，将二者拼接后送入 $Qwen2.5:7b$ 模型，最终输出连贯、专业的政策解读或回答。
+在生成模块中，系统部署了通过 Ollama 实现本地化的 $Qwen2.5:7b$ 大语言模型。该模型具备长上下文处理能力与良好的中文语义生成效果，能够结合检索到的文本片段和用户原始问题，通过预设提示模板（Prompt）完成专业、连贯的答案生成过程。生成模块将检索模块输出的多个相关片段与查询拼接，并输入至 $Qwen2.5:7b$，最终输出针对性强、逻辑清晰的回答内容或政策摘要。
 
-总体而言，本系统在本地硬件环境（RTX 4060×1, 8 GB 显存）上实现了从查询到答案的全流程，既能利用 $bge-base-zh-v1.5-merge$ 提供的高效向量检索，又能发挥 $Qwen2.5:7b$ 强大的生成能力，形成了一个端到端的中文政策文本 RAG 平台。该架构具有部署灵活、响应快速、可扩展性强等优点，适合在政务智能问答、政策解读与知识库构建等场景中使用。
+综上，本文构建的“未名问政”系统在本地硬件（RTX 4060 8GB 显存）上完成了从文本检索到问答生成的全流程部署，充分融合了 $bge\text{-}base\text{-}zh\text{-}v1.5\text{-}merge$ 的检索能力与 $Qwen2.5:7b$ 的生成优势，依托 Langchain-Chatchat 架构实现了高度模块化与可配置的中文 RAG 系统。该系统具备部署灵活、响应快速、扩展便捷等特点，尤其适用于政务智能问答、政策知识库构建与自动解读等典型场景。
 
 \subsection{系统演示}
+如图\ref{fig:home_page}所示，未名问政-PolicyBert 系统的主界面简洁直观，当前版本为 \texttt{1.0.0.1}。界面左侧设有功能导航栏，用户可在“多功能对话”、“RAG 对话”与“知识库管理”等主要模块间进行切换。在“RAG 对话”模式下，用户可以根据具体需求，自定义相关配置参数。首先，用户可通过下拉菜单选择对话模式，目前支持“知识库问答”；随后可选择已加载的知识库，以支持特定领域的问答服务。进一步地，系统允许用户设置历史对话轮数（默认为3轮）、匹配知识条数（默认为5条），以及知识匹配的最低分数阈值（以滑动条形式设置，范围为 \texttt{0.00} 至 \texttt{2.00}，默认值为 \texttt{0.50}），SCORE越小，相关度越高，取到2相当于不筛选。此外，用户还可以勾选“仅返回检索结果”选项，以查看未融合生成的原始检索片段。界面右侧为空白对话窗口区域，用于展示系统响应内容。底部提供输入框，支持多轮对话交互，用户输入内容后可按 \texttt{Shift+Enter} 执行提交，界面整体设计清晰高效，便于快速部署和应用。
+
+\vspace{2em} % 添加空行
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./images/test.jpg}
-    \caption{一只雪貂}
-    \label{fig:test}
+    \includegraphics[width=0.8\textwidth]{./images/home_page.png}
+    \caption{未名问政 RAG 系统首页界面。界面左侧为参数配置区域，支持设置对话模式、知识库来源、历史轮数、匹配条数及知识匹配分数阈值，右侧为对话窗口区域，用于显示模型响应结果。该系统通过图形化界面提供了灵活高效的RAG任务配置方式。}
+    \label{fig:home_page}
 \end{figure}
 
 
