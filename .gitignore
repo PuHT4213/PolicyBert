@@ -7,6 +7,7 @@
 !/datasets/README.md
 !/datasets/policy_SM/
 !/datasets/policy_SM_1/
+!/datasets/pos_ctb5
 # ignore all files in /models except for README.md
 /models/*
 !/models/README.md

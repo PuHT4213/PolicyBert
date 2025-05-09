@@ -20,6 +20,7 @@ import argparse
 import json
 import logging
 import os
+import sys
 import random
 import numpy as np
 import torch
@@ -32,6 +33,7 @@ from seqeval.metrics import classification_report, f1_score
 import datetime
 
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils_token_level_task import processors, convert_examples_to_features
 from ZEN import BertTokenizer, BertAdam, WarmupLinearSchedule
 from ZEN import ZenForTokenClassification
@@ -53,21 +55,44 @@ def load_examples(args, tokenizer, ngram_dict, processor, label_list, mode):
     elif mode == "test":
         examples = processor.get_test_examples(args.data_dir)
     features = convert_examples_to_features(examples, label_list, args.max_seq_length, tokenizer, ngram_dict)
-    all_input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
-    all_input_mask = torch.tensor([f.input_mask for f in features], dtype=torch.long)
-    all_segment_ids = torch.tensor([f.segment_ids for f in features], dtype=torch.long)
-    all_label_ids = torch.tensor([f.label_id for f in features], dtype=torch.long)
-    all_valid_ids = torch.tensor([f.valid_ids for f in features], dtype=torch.long)
-    all_lmask_ids = torch.tensor([f.label_mask for f in features], dtype=torch.long)
+    # all_input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
+    # all_input_mask = torch.tensor([f.input_mask for f in features], dtype=torch.long)
+    # all_segment_ids = torch.tensor([f.segment_ids for f in features], dtype=torch.long)
+    # all_label_ids = torch.tensor([f.label_id for f in features], dtype=torch.long)
+    # all_valid_ids = torch.tensor([f.valid_ids for f in features], dtype=torch.long)
+    # all_lmask_ids = torch.tensor([f.label_mask for f in features], dtype=torch.long)
 
-    all_ngram_ids = torch.tensor([f.ngram_ids for f in features], dtype=torch.long)
-    all_ngram_positions = torch.tensor([f.ngram_positions for f in features], dtype=torch.long)
-    all_ngram_lengths = torch.tensor([f.ngram_lengths for f in features], dtype=torch.long)
-    all_ngram_seg_ids = torch.tensor([f.ngram_seg_ids for f in features], dtype=torch.long)
-    all_ngram_masks = torch.tensor([f.ngram_masks for f in features], dtype=torch.long)
+    # all_ngram_ids = torch.tensor([f.ngram_ids for f in features], dtype=torch.long)
+    # all_ngram_positions = torch.tensor([f.ngram_positions for f in features], dtype=torch.long)
+    # all_ngram_lengths = torch.tensor([f.ngram_lengths for f in features], dtype=torch.long)
+    # all_ngram_seg_ids = torch.tensor([f.ngram_seg_ids for f in features], dtype=torch.long)
+    # all_ngram_masks = torch.tensor([f.ngram_masks for f in features], dtype=torch.long)
+    all_input_ids = np.array([f.input_ids for f in features], dtype=torch.long)
+    all_input_mask = np.array([f.input_mask for f in features], dtype=torch.long)
+    all_segment_ids = np.array([f.segment_ids for f in features], dtype=torch.long)
+    all_label_ids = np.array([f.label_id for f in features], dtype=torch.long)
+    all_valid_ids = np.array([f.valid_ids for f in features], dtype=torch.long)
+    all_lmask_ids = np.array([f.label_mask for f in features], dtype=torch.long)
 
-    return TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_ngram_ids,all_ngram_positions,
-                         all_ngram_lengths, all_ngram_seg_ids, all_ngram_masks, all_valid_ids, all_lmask_ids)
+    all_ngram_ids = np.array([f.ngram_ids for f in features], dtype=torch.long)
+    all_ngram_positions = np.array([f.ngram_positions for f in features], dtype=torch.long)
+    all_ngram_lengths = np.array([f.ngram_lengths for f in features], dtype=torch.long)
+    all_ngram_seg_ids = np.array([f.ngram_seg_ids for f in features], dtype=torch.long)
+    all_ngram_masks = np.array([f.ngram_masks for f in features], dtype=torch.long)
+
+    # return TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_ngram_ids,all_ngram_positions,
+    #                      all_ngram_lengths, all_ngram_seg_ids, all_ngram_masks, all_valid_ids, all_lmask_ids)
+    return TensorDataset(torch.tensor(all_input_ids, dtype=torch.long),
+                            torch.tensor(all_input_mask, dtype=torch.long),
+                            torch.tensor(all_segment_ids, dtype=torch.long),
+                            torch.tensor(all_label_ids, dtype=torch.long),
+                            torch.tensor(all_ngram_ids, dtype=torch.long),
+                            torch.tensor(all_ngram_positions, dtype=torch.long),
+                            torch.tensor(all_ngram_lengths, dtype=torch.long),
+                            torch.tensor(all_ngram_seg_ids, dtype=torch.long),
+                            torch.tensor(all_ngram_masks, dtype=torch.long),
+                            torch.tensor(all_valid_ids, dtype=torch.long),
+                            torch.tensor(all_lmask_ids, dtype=torch.float))
 
 def cws_evaluate_word_PRF(y_pred, y):
     #dict = {'E': 2, 'S': 3, 'B':0, 'I':1}
@@ -335,7 +360,7 @@ def main():
                         type=float,
                         help="Total number of training epochs to perform.")
     parser.add_argument("--warmup_proportion",
-                        default=0.1,
+                        default=0.9,
                         type=float,
                         help="Proportion of training to perform linear learning rate warmup for. "
                              "E.g., 0.1 = 10%% of training.")
@@ -362,9 +387,10 @@ def main():
                         help="Loss scaling to improve fp16 numeric stability. Only used when fp16 set to True.\n"
                              "0 (default value): dynamic loss scaling.\n"
                              "Positive power of 2: static loss scaling value.\n")
-    parser.add_argument("--save_steps", type=int, default=50,
+    parser.add_argument("--save_steps", type=int, default=500000,
                         help="Save checkpoint every X updates steps.")
-
+    parser.add_argument("--save", type=bool, action='store_false',
+                            help="Whether to save the model after training. Default is False.")
     args = parser.parse_args()
 
     args.task_name = args.task_name.lower()

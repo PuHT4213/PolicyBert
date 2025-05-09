@@ -129,9 +129,10 @@ class PosProcessor(DataProcessor):
         # return ["NT", "JJ", "NR", "PU", "NN", "[CLS]", "[SEP]"]
         # return ['CD', 'SB', 'DER', 'IJ', 'NR', 'CS', 'MSP', 'NN', 'LC', 'VV', 'M', 'OD', 'VE', 'AD', 'DT', 'PU', 'ETC', 'NT', 'SP','NP', 'PN', 'P', 'VP', 'VC', 'VA', 'DEC', 'FW', 'AS', 'X', 'DEG', 'BA', 'DEV', 'CC', 'JJ', 'LB', "[CLS]", "[SEP]"]
         # return ['B-NR', 'E-NR', 'B-NN', 'E-NN', 'S-CC', 'B-VV', 'E-VV', 'I-NN', 'B-NT', 'E-NT', 'S-NN', 'S-PU', 'I-NR', 'S-LC', 'S-AS', 'S-ETC', 'S-DEC', 'B-CD', 'I-CD', 'E-CD', 'S-M', 'S-DEG', 'B-JJ', 'E-JJ', 'S-VC', 'S-CD', 'I-JJ', 'B-AD', 'E-AD', 'S-AD', 'S-JJ', 'S-P', 'S-PN', 'B-VA', 'E-VA', 'S-DEV', 'S-VV', 'B-LC', 'E-LC', 'B-DT', 'E-DT', 'S-SB', 'B-OD', 'E-OD', 'B-P', 'E-P', 'S-VE', 'S-DT', 'B-M', 'E-M', 'B-CS', 'E-CS', 'B-PN', 'E-PN', 'S-VA', 'I-NT', 'I-AD', 'I-M', 'B-CC', 'E-CC', 'S-OD', 'S-MSP', 'S-NR', 'S-BA', 'I-VV', 'B-FW', 'I-FW', 'E-FW', 'B-PU', 'E-PU', 'S-CS', 'S-NT', 'I-OD', 'S-LB', 'I-VA', 'B-ETC', 'E-ETC', 'B-VE', 'E-VE', 'I-P', 'B-NP', 'E-NP', 'S-DER', 'S-SP', 'B-SP', 'E-SP', 'I-PU', 'I-PN', 'I-CC', 'B-IJ', 'E-IJ', 'I-DT', 'B-MSP', 'E-MSP', 'S-IJ', 'S-X', 'B-VC', 'I-VC', 'E-VC', 'S-FW', 'I-CS', 'S-NP', 'S-VP', "[CLS]", "[SEP]"]
-        return ['NR', 'NN', 'CC', 'VV', 'NT', 'PU', 'LC', 'AS', 'ETC', 'DEC', 'CD', 'M', 'DEG', 'JJ', 'VC', 'AD', 'P',
-                'PN', 'VA', 'DEV', 'DT', 'SB', 'OD', 'VE', 'CS', 'MSP', 'BA', 'FW', 'LB', 'NP', 'DER', 'SP', 'IJ', 'X',
-                'VP', "[CLS]", "[SEP]"]
+        # return ['NR', 'NN', 'CC', 'VV', 'NT', 'PU', 'LC', 'AS', 'ETC', 'DEC', 'CD', 'M', 'DEG', 'JJ', 'VC', 'AD', 'P',
+        #         'PN', 'VA', 'DEV', 'DT', 'SB', 'OD', 'VE', 'CS', 'MSP', 'BA', 'FW', 'LB', 'NP', 'DER', 'SP', 'IJ', 'X',
+        #         'VP', "[CLS]", "[SEP]"]
+        return ["B-AD","B-CC","B-CD","B-CS","B-DT","B-ETC","B-FW","B-IJ","B-JJ","B-LC","B-M","B-MSP","B-NN","B-NN-SHORT","B-NR","B-NT","B-OD","B-ON","B-P","B-PN","B-PU","B-SP","B-VA","B-VC","B-VE","B-VV","E-AD","E-CC","E-CD","E-CS","E-DT","E-ETC","E-FW","E-IJ","E-JJ","E-LC","E-M","E-MSP","E-NN","E-NN-SHORT","E-NR","E-NT","E-OD","E-ON","E-P","E-PN","E-PU","E-SP","E-VA","E-VC","E-VE","E-VV","M-AD","M-CC","M-CD","M-CS","M-DT","M-FW","M-JJ","M-M","M-NN","M-NN-SHORT","M-NR","M-NT","M-OD","M-P","M-PN","M-PU","M-VA","M-VC","M-VV","S-AD","S-AS","S-BA","S-CC","S-CD","S-CS","S-DEC","S-DEG","S-DER","S-DEV","S-DT","S-ETC","S-FW","S-IJ","S-JJ","S-LB","S-LC","S-M","S-MSP","S-NN","S-NR","S-NR-SHORT","S-NT","S-NT-SHORT","S-OD","S-ON","S-P","S-PN","S-PU","S-SB","S-SP","S-VA","S-VC","S-VE","S-VV","S-X","[CLS]","[SEP]"]
 
     def _create_examples(self, lines, set_type):
         examples = []

@@ -12,7 +12,48 @@
 \usepackage{cite}
 \usepackage{multirow}
 \usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
 % \usepackage[round]{natbib}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% 定义 VS Code 深色主题配色
+\definecolor{vscode-bg}{rgb}{0.15,0.15,0.15} % 背景色
+\definecolor{vscode-fg}{rgb}{0.8,0.8,0.8}   % 默认前景色
+\definecolor{vscode-keyword}{rgb}{0.86,0.22,0.52} % 关键字颜色 (紫红色)
+\definecolor{vscode-string}{rgb}{0.58,0.86,0.49}  % 字符串颜色 (绿色)
+\definecolor{vscode-comment}{rgb}{0.58,0.86,0.49}    % 注释颜色 (绿色)
+\definecolor{vscode-number}{rgb}{0.98,0.78,0.36}  % 数字颜色 (橙色)
+\definecolor{vscode-function}{rgb}{0.49,0.63,0.85} % 函数名颜色 (蓝色)
+\definecolor{vscode-type}{rgb}{0.86,0.58,0.36}    % 类型颜色 (棕色)
+\definecolor{vscode-constant}{rgb}{1,1,1} % 常量颜色 
+\definecolor{black}{rgb}{0,0,0} % 常量颜色-黑 
+
+
+% 全局代码样式设置
+\lstset{
+    backgroundcolor=\color{vscode-bg},   % 背景颜色
+    basicstyle=\ttfamily\small\color{vscode-fg}, % 基本字体样式
+    keywordstyle=\color{vscode-keyword}\bfseries, % 关键字样式
+    stringstyle=\color{vscode-string},  % 字符串样式
+    commentstyle=\color{vscode-comment}\itshape, % 注释样式
+    numberstyle=\color{vscode-constant}, % 行号样式
+    numbers=right, 
+    identifierstyle=\color{vscode-constant}, % 替代 constantstyle
+    numbersep=5pt,                      % 行号与代码的间距
+    frame=single,                       % 添加边框
+    framesep=5pt,                       % 边框与代码的间距
+    rulecolor=\color{vscode-bg},        % 边框颜色
+    breaklines=true,                    % 自动换行
+    breakatwhitespace=false,            % 仅在空格处换行
+    showstringspaces=false,             % 不显示字符串中的空格
+    tabsize=4,                          % Tab 宽度
+    numbers=left,                       % 显示行号
+    captionpos=b,                       % 标题位置
+    morekeywords={def, class, import, from, as, if, else, elif, for, while, return, True, False, None}, % 自定义关键字
+}
 
 
 % 页面设置
@@ -75,9 +116,7 @@
     \hline
     导师是否同意参加毕业论文答辩 & &建议成绩（可选填） & \\
     \hline
-    \vspace{3cm} 导师评语 \newline \rule{0pt}{9cm} & \multicolumn{3}{|p{0.6\textwidth}|}{（包括但不限于对论文选题意义、行文逻辑、专业素养、学术规范以及是否符合培养方案目标等方面评价）} \\ 
-    \hline
-    \multicolumn{4}{|l|}{导师签名：\hspace{5cm} \underline{\hspace{2cm}}年\underline{\hspace{1cm}}月\underline{\hspace{1cm}}日} \\
+    \vspace{3cm} 导师评语 \newline \rule{0pt}{10cm} & \multicolumn{3}{|p{0.6\textwidth}|}{（包括但不限于对论文选题意义、行文逻辑、专业素养、学术规范以及是否符合培养方案目标等方面评价）\newline \rule{0pt}{12cm} \vfill  导师签名：\hspace{2.5cm} \underline{\hspace{1.5cm}} 年 \underline{\hspace{0.5cm}} 月 \underline{\hspace{0.5cm}} 日} \\ 
     \hline
 \end{tabularx}
 
@@ -133,7 +172,7 @@ Ollama 是一个高效的模型部署工具，支持本地化部署大规模语�
 
 本文将结合 Ollama 部署的 $Qwen2.5:7b$ 和微调后的 $ bge-base-zh-v1.5 $，构建一个高效的 RAG 系统————“未名问政”。该系统将利用本地部署的 $Qwen2.5:7b$ 进行文本生成，并通过使用ZEN架构微调后的 $ bge-base-zh-v1.5 $ 实现高效的政策文本检索与生成任务。通过这一系统，本文验证了在特定领域微调模型和优化架构设计对提升 RAG 系统性能的有效性。
 
-本文的主要贡献包括以下几个方面：提出 PolicyBERT 架构，引入 HanLP 分词、门控与注意力机制，以增强对中文政策文本的建模能力；将 $ bge-base-zh-v1.5 $ 的主体 BERT 部分参数与预训练参数拼接，使用 PolicyBERT 架构进行微调，以适应政策文本的特定需求；使用 Ollama 部署 $Qwen2.5:7b$，并结合 langchain-chatchat 架构构建 RAG 系统，利用微调后的 $ bge-base-zh-v1.5 $，实现高效的政策文本检索与生成任务。通过这一系统，本文验证了多层融合词级信息对文本理解效果的提升，以及在特定领域微调模型和优化架构设计对 RAG 系统性能的提升。本文PolicyBERT的训练和未名问政RAG系统的代码公开在\url{https://github.com/PuHT4213/PolicyBert}和\url{https://github.com/PuHT4213/WeiMingPolicyRAG}。
+本文的主要贡献包括以下几个方面：提出 PolicyBERT 架构，引入 HanLP 分词、门控与注意力机制，以增强对中文政策文本的建模能力；将 $ bge-base-zh-v1.5 $ 的主体 BERT 部分参数与预训练参数拼接，使用 PolicyBERT 架构进行微调，以适应政策文本的特定需求；使用 Ollama 部署 $Qwen2.5:7b$，并结合 langchain-chatchat 架构构建 RAG 系统，利用微调后的 $ bge-base-zh-v1.5 $，实现高效的政策文本检索与生成任务。通过这一系统，本文验证了多层融合词级信息对文本理解效果的提升，以及在特定领域微调模型和优化架构设计对 RAG 系统性能的提升。本文PolicyBERT的训练和未名问政RAG系统的代码公开在\href{https://github.com/PuHT4213/PolicyBert}{\underline{PuHT4213/PolicyBert}}和\\\href{https://github.com/PuHT4213/WeiMingPolicyRAG}{\underline{PuHT4213/WeiMingPolicyRAG}}上。
 
 
 
@@ -349,7 +388,7 @@ NSP 任务的损失同样采用交叉熵损失函数，公式如下：
 在正式输入模型训练与评估之前，需对原始政策文本数据进行系统性预处理，以确保语料干净、结构统一，并充分提取粒度丰富的语言单元以用于编码器输入。
 由于部分政策文本来自于扫描版文档或PDF转换结果，存在典型的OCR噪声，如断行错误、多余换行符、标点残缺、非正文符号嵌入等。我们对文本进行了如下处理：
 
-将所有非段落边界的换行符（\textbackslash n）替换为空格，避免长句被错误截断；修复常见中英文混排标点错误（如“： ”变为“：”），统一中文全角标点风格；移除低频率出现的非Unicode汉字字符、控制符（如\textbackslash x0c）、多余空格或乱码；清洗后文本结构更加规整，显著提升了后续“词级信息”提取的质量与鲁棒性。
+将所有非段落边界的换行符（\textbackslash n）替换为空格，避免长句被错误截断；修复常见中英文混排标点错误（如“:”变为“：”），统一中文全角标点风格；移除低频率出现的非Unicode汉字字符、控制符（如\textbackslash x0c）、多余空格或乱码；清洗后文本结构更加规整，显著提升了后续“词级信息”提取的质量与鲁棒性。
 
 政策类文本中，常包含表格信息、超链接、页脚编号、批注引用等非自然语言结构。这些信息对于模型训练而言往往是噪声，需予以剔除。本文采用基于正则表达式的规则方法进行清理，匹配带有明显网格、对齐线性结构的文本片段，如“|xxx|yyy|”或“——”连接的列名，并删除。去除所有形如 “http[s]”、“.com” 的 URL 链接；
 利用常见模式（如“第x页”、“附件x”、“××年××号”）识别页脚、页码信息，并从段落中剥离；去除括号中的编号批注（如“（1）”、“[图1]”），并重构自然语言句式。
@@ -424,6 +463,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{table}[H]
     \centering
+    \caption{NSP任务样本分布}
     \begin{tabular}{lcccc}
         \toprule
         数据集 & 正样本数 & 负样本数 & 正负比例 & 总样本数 \\
@@ -432,7 +472,6 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         PolicySM-2 & 23374 & 116870 & 1:5 & 140244 \\
         \bottomrule
     \end{tabular}
-    \caption{NSP任务样本分布}
     \label{tab:nsp_samples}
 \end{table}
 
@@ -460,6 +499,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{table}[H]
     \centering
+    \caption{PolicySM-1预训练超参数}
     \begin{tabular}{lcccc}
         \toprule
         \textbf{参数名称} & \textbf{参数取值} & \textbf{描述} \\
@@ -470,12 +510,12 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         \texttt{warmup\_proportion} & 0.9 & 学习率预热比例 \\ 
         \bottomrule
     \end{tabular}
-    \caption{PolicySM-1预训练超参数}
     \label{tab:pretrain_hyperparameters_1}
 \end{table}
 
 \begin{table}[H]
     \centering
+    \caption{PolicySM-1下游任务超参数}
     \begin{tabular}{lcccc}
         \toprule
         \textbf{参数名称} & \textbf{参数取值} & \textbf{描述} \\ 
@@ -488,7 +528,6 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         \texttt{warmup\_proportion} & 0.9 & 学习率预热比例 \\
         \bottomrule
     \end{tabular}
-    \caption{PolicySM-1下游任务超参数}
     \label{tab:seqlevel_hyperparameters_1}
 \end{table}
 
@@ -496,6 +535,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{table}[ht]
     \centering
+    \caption{PolicySM-1下游任务结果}
     \begin{tabular}{lcc}
     \hline
     \textbf{融合方法} & \textbf{分词方法} & \textbf{准确率} \\
@@ -509,7 +549,6 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
     Attention-based Fusion   & Hanlp                     & \textbf{0.9132} \\
     \hline
     \end{tabular}
-    \caption{PolicySM-1下游任务结果}
     \label{tab:fusion_results_1}
 \end{table}
 
@@ -520,6 +559,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{table}[H]
     \centering
+    \caption{PolicySM-2预训练超参数}
     \begin{tabular}{lcccc}
         \toprule
         \textbf{参数名称} & \textbf{参数取值} & \textbf{描述} \\
@@ -530,12 +570,12 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         \texttt{warmup\_proportion} & 0.9 & 学习率预热比例 \\ 
         \bottomrule
     \end{tabular}
-    \caption{PolicySM-2预训练超参数}
     \label{tab:pretrain_hyperparameters_2}
 \end{table}
 
 \begin{table}[H]
     \centering
+    \caption{PolicySM-2下游任务超参数}
     \begin{tabular}{lcccc}
         \toprule
         \textbf{参数名称} & \textbf{参数取值} & \textbf{描述} \\ 
@@ -548,7 +588,6 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         \texttt{warmup\_proportion} & 0.9 & 学习率预热比例 \\
         \bottomrule
     \end{tabular}
-    \caption{PolicySM-2下游任务超参数}
     \label{tab:seqlevel_hyperparameters_2}
 \end{table}
 
@@ -558,6 +597,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{table}[htbp]
     \centering
+    \caption{PolicySM-2预训练结果}
     \begin{tabular}{llccc}
       \toprule
       骨干模型 & 融合方法 & MLM Loss & MLM acc & 困惑度 \\
@@ -573,12 +613,12 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         & attn & \textbf{0.8952} & \textbf{0.8059} & \textbf{2.45} \\
       \bottomrule
     \end{tabular}
-    \caption{PolicySM-2预训练结果}
     \label{tab:pretrain-results}
   \end{table}
   
   \begin{table}[htbp]
     \centering
+    \caption{PolicySM-2下游任务结果}
     \begin{tabular}{llc}
       \toprule
       骨干模型 & 融合方法 & NSP acc \\
@@ -594,7 +634,6 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         & attn & 0.9274 \\
       \bottomrule
     \end{tabular}
-    \caption{PolicySM-2下游任务结果}
     \label{tab:nsp-results}
   \end{table}
 
@@ -618,6 +657,70 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 综上，本文构建的“未名问政”系统在本地硬件（RTX 4060 8GB 显存）上完成了从文本检索到问答生成的全流程部署，充分融合了 $bge\text{-}base\text{-}zh\text{-}v1.5\text{-}merge$ 的检索能力与 $Qwen2.5:7b$ 的生成优势，依托 Langchain-Chatchat 架构实现了高度模块化与可配置的中文 RAG 系统。该系统具备部署灵活、响应快速、扩展便捷等特点，尤其适用于政务智能问答、政策知识库构建与自动解读等典型场景。
 
 \subsection{系统演示}
+
+\subsubsection{系统部署}
+未名问政RAG系统的部署过程相对简单，用户只需在本地安装必要的依赖库，并下载预训练模型与知识库数据。系统支持多种操作系统环境，包括Windows、Linux和MacOS。用户可根据需求选择合适的运行环境，并通过命令行界面启动系统。系统的运行效率较高，能够在普通个人电脑上实现快速响应。本次部署配置如下：
+\begin{itemize}
+    \item 操作系统：Windows 10
+    \item CPU：Intel Core i9-14900HX
+    \item 内存：32 GB
+    \item 显卡：NVIDIA GeForce RTX 4060 8GB
+    \item Python版本：3.9.6
+\end{itemize}
+
+部署前应提前配置Ollama环境，可于\href{https://ollama.com/}{\underline{Ollama官网}}下载Ollama，并通过以下代码部署千问模型（Qwen2.5:7b）和微调过的 $bge\text{-}base\text{-}zh\text{-}v1.5$ 模型。具体步骤如下：
+\begin{itemize}
+    \item 下载模型：在终端中运行以下命令，下载千问模型（Qwen2.5:7b）：
+    \begin{lstlisting}[language=bash]
+        ollama pull qwen2.5:7b
+    \end{lstlisting}
+    \item 部署微调过的 $bge\text{-}base\text{-}zh\text{-}v1.5$ 模型：
+    \begin{lstlisting}[language=bash]
+        ollama add bge-base-zh-v1.5 path/to/your/model
+    \end{lstlisting}
+    \item 启动Ollama：在终端中运行以下命令，启动Ollama服务并保持运行：
+    \begin{lstlisting}[language=bash]
+        ollama serve
+    \end{lstlisting}
+\end{itemize}
+
+
+使用代码将\href{https://github.com/PuHT4213/WeiMingPolicyRAG}{\underline{未名问政系统}}克隆到本地：
+\begin{lstlisting}[language=bash]
+    git clone https://github.com/PuHT4213/WeiMingPolicyRAG.git
+    cd WeiMingPolicyRAG/lib/chatchat-server
+\end{lstlisting}
+
+创建虚拟环境，并安装必要的依赖库：
+\begin{lstlisting}[language=bash]
+    python3.9 -m venv weimingpolicyrag
+    source weimingpolicyrag/bin/activate # Linux/MacOS
+    weimingpolicyrag\Scripts\activate # Windows
+    pip install -e .
+\end{lstlisting}
+
+确保政策文件在目录 \texttt{./libs/chatchat-server/chatchat/data/knowledge\_\\base/WeiMingPolicies/content}下，然后运行以下命令初始化并启动系统：
+\begin{lstlisting}[language=bash]
+    chatchat kb -r
+    chatchat start -a
+\end{lstlisting}
+
+出现以下日志以及图\ref{fig:home_page}所示的界面后，表示系统已成功启动并运行。用户可在浏览器中访问并进行交互。
+\begin{lstlisting}[language=bash]
+    -----------------------------------------------------------
+    知识库名称      ：WeiMingPolicies
+    知识库类型      ：faiss
+    向量模型：      ：bge-large-zh-v1.5
+    知识库路径      ：path/to/your/knowledge_base
+    文件总数量      ：99
+    入库文件数      ：99
+    知识条目数      ：740
+    用时            ：0:02:29.701002
+    -----------------------------------------------------------
+    
+    总计用时        ：0:02:33.414425
+\end{lstlisting} 
+
 \subsubsection{RAG对话}
 如图\ref{fig:home_page}所示，未名问政RAG系统的主界面简洁直观，当前版本为 \texttt{1.0.0.1}。界面左侧设有功能导航栏，用户可在“多功能对话”、“RAG 对话”与“知识库管理”等主要模块间进行切换。在“RAG 对话”模式下，用户可以根据具体需求，自定义相关配置参数。首先，用户可通过下拉菜单选择对话模式，目前支持“知识库问答”；随后可选择已加载的知识库，以支持特定领域的问答服务。进一步地，系统允许用户设置历史对话轮数（默认为3轮）、匹配知识条数（默认为5条），以及知识匹配的最低分数阈值（以滑动条形式设置，范围为 \texttt{0.00} 至 \texttt{2.00}，默认值为 \texttt{0.50}），SCORE越小，相关度越高，取到2相当于不筛选。此外，用户还可以勾选“仅返回检索结果”选项，以查看未融合生成的原始检索片段。界面右侧为空白对话窗口区域，用于展示系统响应内容。底部提供输入框，支持多轮对话交互，用户输入内容后可按 \texttt{Shift+Enter} 执行提交，界面整体设计清晰高效，便于快速部署和应用。
 \begin{figure}[H]

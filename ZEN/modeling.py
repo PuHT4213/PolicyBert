@@ -593,7 +593,7 @@ class ZenEncoder(nn.Module):
         self.layer = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_layers)])
         self.word_layers = nn.ModuleList([copy.deepcopy(layer) for _ in range(config.num_hidden_word_layers)])
         
-        fusion_type = 'none'  # 'gate' or 'attention' or 'none'
+        fusion_type = 'gate'  # 'gate' or 'attention' or 'none'
         logger.info(f"Using fusion_type: {fusion_type}\n")
         self.fusion_type = fusion_type
         if fusion_type == 'gate':
