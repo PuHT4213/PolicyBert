@@ -37,6 +37,9 @@ if __name__ == "__main__":
                 words = [word for word in words if word not in [" ", ""]]
                 tags = [tag for tag in tags if tag not in [" ", ""]]
 
+                # 将tag中形如“S-NT-SHORT”的“-SHORT”去掉
+                tags = [re.sub(r"-SHORT", "", tag) for tag in tags]
+                
                 for tag in tags:
                     if tag not in label_list:
                         label_list.append(tag)

@@ -67,18 +67,18 @@ def load_examples(args, tokenizer, ngram_dict, processor, label_list, mode):
     # all_ngram_lengths = torch.tensor([f.ngram_lengths for f in features], dtype=torch.long)
     # all_ngram_seg_ids = torch.tensor([f.ngram_seg_ids for f in features], dtype=torch.long)
     # all_ngram_masks = torch.tensor([f.ngram_masks for f in features], dtype=torch.long)
-    all_input_ids = np.array([f.input_ids for f in features], dtype=torch.long)
-    all_input_mask = np.array([f.input_mask for f in features], dtype=torch.long)
-    all_segment_ids = np.array([f.segment_ids for f in features], dtype=torch.long)
-    all_label_ids = np.array([f.label_id for f in features], dtype=torch.long)
-    all_valid_ids = np.array([f.valid_ids for f in features], dtype=torch.long)
-    all_lmask_ids = np.array([f.label_mask for f in features], dtype=torch.long)
+    all_input_ids = np.array([f.input_ids for f in features], dtype=np.int64)
+    all_input_mask = np.array([f.input_mask for f in features], dtype=np.int64)
+    all_segment_ids = np.array([f.segment_ids for f in features], dtype=np.int64)
+    all_label_ids = np.array([f.label_id for f in features], dtype=np.int64)
+    all_valid_ids = np.array([f.valid_ids for f in features], dtype=np.int64)
+    all_lmask_ids = np.array([f.label_mask for f in features], dtype=np.int64)
 
-    all_ngram_ids = np.array([f.ngram_ids for f in features], dtype=torch.long)
-    all_ngram_positions = np.array([f.ngram_positions for f in features], dtype=torch.long)
-    all_ngram_lengths = np.array([f.ngram_lengths for f in features], dtype=torch.long)
-    all_ngram_seg_ids = np.array([f.ngram_seg_ids for f in features], dtype=torch.long)
-    all_ngram_masks = np.array([f.ngram_masks for f in features], dtype=torch.long)
+    all_ngram_ids = np.array([f.ngram_ids for f in features], dtype=np.int64)
+    all_ngram_positions = np.array([f.ngram_positions for f in features], dtype=np.int64)
+    all_ngram_lengths = np.array([f.ngram_lengths for f in features], dtype=np.int64)
+    all_ngram_seg_ids = np.array([f.ngram_seg_ids for f in features], dtype=np.int64)
+    all_ngram_masks = np.array([f.ngram_masks for f in features], dtype=np.int64)
 
     # return TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_ngram_ids,all_ngram_positions,
     #                      all_ngram_lengths, all_ngram_seg_ids, all_ngram_masks, all_valid_ids, all_lmask_ids)
@@ -92,34 +92,44 @@ def load_examples(args, tokenizer, ngram_dict, processor, label_list, mode):
                             torch.tensor(all_ngram_seg_ids, dtype=torch.long),
                             torch.tensor(all_ngram_masks, dtype=torch.long),
                             torch.tensor(all_valid_ids, dtype=torch.long),
-                            torch.tensor(all_lmask_ids, dtype=torch.float))
+                            torch.tensor(all_lmask_ids, dtype=torch.long))
 
 def cws_evaluate_word_PRF(y_pred, y):
     #dict = {'E': 2, 'S': 3, 'B':0, 'I':1}
     cor_num = 0
-    yp_wordnum = y_pred.count('E')+y_pred.count('S')
-    yt_wordnum = y.count('E')+y.count('S')
-    start = 0
-    for i in range(len(y)):
-        if y[i] == 'E' or y[i] == 'S':
-            flag = True
-            for j in range(start, i+1):
-                if y[j] != y_pred[j]:
-                    flag = False
-            if flag:
-                cor_num += 1
-            start = i+1
+    yp_wordnum = 0
+    yt_wordnum = 0
 
-    P = cor_num / float(yp_wordnum)
-    R = cor_num / float(yt_wordnum)
-    F = 2 * P * R / (P + R)
+    for y_pred_sent, y_true_sent in zip(y_pred, y):
+        # 统计预测的词数和真实的词数
+        yp_wordnum += y_pred_sent.count('E') + y_pred_sent.count('S')
+        yt_wordnum += y_true_sent.count('E') + y_true_sent.count('S')
+
+        # 计算正确的词数
+        start = 0
+        for i in range(len(y_true_sent)):
+            if y_true_sent[i] == 'E' or y_true_sent[i] == 'S':
+                flag = True
+                for j in range(start, i + 1):
+                    if y_true_sent[j] != y_pred_sent[j]:
+                        flag = False
+                        break
+                if flag:
+                    cor_num += 1
+                start = i + 1
+
+    # 计算 Precision, Recall 和 F1-score
+    P = cor_num / float(yp_wordnum) if yp_wordnum > 0 else 0.0
+    R = cor_num / float(yt_wordnum) if yt_wordnum > 0 else 0.0
+    F = 2 * P * R / (P + R) if (P + R) > 0 else 0.0
+
     print('Precision: ', P)
     print('Recall: ', R)
     print('F1-score: ', F)
     return {
-        "precision":P,
-        "recall":R,
-        "f1":F
+        "precision": P,
+        "recall": R,
+        "f1": F
     }
 
 def save_zen_model(save_zen_model_path, model, tokenizer, ngram_dict, args):
@@ -149,9 +159,12 @@ def evaluate(args, model, tokenizer, ngram_dict, processor, label_list):
     logger.info("  Batch size = %d", args.eval_batch_size)
 
     model.eval()
-    y_true = []
-    y_pred = []
+    y_true_list = []
+    y_pred_list = []
     label_map = {i: label for i, label in enumerate(label_list, 1)}
+    label_map[0] = 'O'
+
+    logger.info("label_map: %s", label_map)
     for batch in tqdm(eval_dataloader, desc="Evaluating"):
         batch = tuple(t.to(args.device) for t in batch)
         input_ids, input_mask, segment_ids, label_ids, ngram_ids, ngram_positions, \
@@ -165,6 +178,8 @@ def evaluate(args, model, tokenizer, ngram_dict, processor, label_list):
         logits = logits.detach().cpu().numpy()
         label_ids = label_ids.detach().cpu().numpy()
 
+        y_true = []
+        y_pred = []
         for i, label in enumerate(label_ids):
             for j, m in enumerate(label):
                 if j == 0:
@@ -172,7 +187,19 @@ def evaluate(args, model, tokenizer, ngram_dict, processor, label_list):
                 if label_ids[i][j] == num_labels - 1:
                     break
                 y_true.append(label_map[label_ids[i][j]])
-                y_pred.append(label_map[logits[i][j]])
+                y_pred.append(label_map[int(logits[i][j])])
+
+        if len(y_true) != len(y_pred):
+            logger.info("y_true and y_pred length not equal")
+            logger.info("y_true: %s", y_true)
+            logger.info("y_pred: %s", y_pred)
+            continue
+
+        y_true_list.append(y_true)
+        y_pred_list.append(y_pred)
+    
+    y_true, y_pred = y_true_list, y_pred_list
+
     if args.task_name == 'cwsmsra' or args.task_name == 'cwspku':
         #evaluating CWS
         result = cws_evaluate_word_PRF(y_pred, y_true)
@@ -389,8 +416,6 @@ def main():
                              "Positive power of 2: static loss scaling value.\n")
     parser.add_argument("--save_steps", type=int, default=500000,
                         help="Save checkpoint every X updates steps.")
-    parser.add_argument("--save", type=bool, action='store_false',
-                            help="Whether to save the model after training. Default is False.")
     args = parser.parse_args()
 
     args.task_name = args.task_name.lower()
@@ -438,6 +463,8 @@ def main():
     processor = processors[task_name]()
     label_list = processor.get_labels()
     num_labels = len(label_list) + 1
+    logger.info("label_list: %s", label_list)
+    logger.info("num_labels: %s", len(label_list))
 
     # Prepare model tokenizer
     tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)

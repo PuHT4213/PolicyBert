@@ -53,3 +53,5 @@ python examples/run_pre_train.py --pregenerated_data pretrain_data/policy/pretra
 
 python examples/run_sequence_level_classification.py --data_dir datasets/policy_SM --bert_model models/pretrained+gate-jieba/ --task_name lcqmc --do_train --do_eval
 ```
+
+python examples/run_token_level_classification.py --data_dir datasets/CWS-MSR --bert_model models/ZEN_CWS/ --task cwsmsra --multift --do_train --do_eval

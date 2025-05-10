@@ -1441,7 +1441,7 @@ class ZenForTokenClassification(ZenPreTrainedModel):
         batch_size, max_len, feat_dim = sequence_output.shape
         valid_output = torch.zeros(batch_size, max_len, feat_dim, dtype=torch.float32, device=input_ids.device)
 
-        if self.num_labels == 38:
+        if self.num_labels in [38,108,109]:
             # just for POS to filter/mask input_ids=0
             for i in range(batch_size):
                 temp = sequence_output[i][valid_ids[i] == 1]

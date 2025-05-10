@@ -84,7 +84,7 @@ class DataProcessor(object):
         return format :
         [ ['EU', 'B-ORG'], ['rejects', 'O'], ['German', 'B-MISC'], ['call', 'O'], ['to', 'O'], ['boycott', 'O'], ['British', 'B-MISC'], ['lamb', 'O'], ['.', 'O'] ]
         '''
-        f = open(input_file)
+        f = open(input_file, 'r', encoding='utf-8')
         data = []
         sentence = []
         label = []
@@ -310,6 +310,12 @@ def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer
         for i, word in enumerate(textlist):
             token = tokenizer.tokenize(word)
             tokens.extend(token)
+            # 如果i越界，print警告
+            if i >= len(labellist):
+                logger.warning("i is out of range, i: %d, len(labellist): %d" % (i, len(labellist)))
+                logger.warning("textlist: %s" % textlist)
+                logger.warning("labellist: %s" % labellist)
+
             label_1 = labellist[i]
             for m in range(len(token)):
                 if m == 0:

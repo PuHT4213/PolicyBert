@@ -491,6 +491,71 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 该配置确保了在处理大规模预训练模型和多层融合机制时具备稳定的训练性能和内存调度能力。
 
 \subsection{实验结果}
+\subsubsection{公开数据集}
+首先，我们将在公开数据集上进行实验，与现有的NLP领域文本编码器进行对比。包括 BERT-wwm, ERNIE 1.0,ERNIE 2.0, NEZHA 和 ZEN。我们使用了 ZEN的预训练模型作为基线模型，并在此基础上进行微调。我们使用了不同的融合方法（门控机制、多头注意力机制）与原始论文中直接相加进行对比。由于缺少大规模预训练语料，我们无法在公开数据集上应用Hanlp分词。我们在公开数据集上仅测试了不同融合方法与n-gram表示的效果。
+
+我们在以下任务上进行了评估：
+\begin{itemize}
+    \item \textbf{中文分词（CWS）：} 使用 SIGHAN2005 中文分词评测（Emerson, 2005）\cite{emerson-2005-second}中的 MSR 数据集。
+    \item \textbf{词性标注（POS）：} 使用 CTB5 数据集（Xue 等, 2005）\cite{10.1017/S135132490400364X}，并采用标准数据划分。
+    \item \textbf{命名实体识别（NER）：} 使用国际中文语言处理评测 （Bakeoff 2006）\cite{levow-2006-third} 中的 MSRA 数据集。
+    \item \textbf{文档分类（DC）：} 使用 THUCNews 数据集（Sun 等, 2016），该数据集来源于新浪新闻，包含 10 个类别，类别分布均匀。
+    \item \textbf{情感分析（SA）：} 使用 ChnSentiCorp（CSC）数据集，该数据集包含来自图书、计算机和酒店三个领域的 12,000 篇文档。
+    \item \textbf{句子对匹配（SPM）：}使用 LCQMC 数据集（Liu 等, 2018）\cite{liu-etal-2018-lcqmc}，该数据集中的每一个样本都是一个句子对，和一个标签，表示这两个句子是否语义相似。
+    \item \textbf{自然语言推理（NLI）：}使用 XNLI 自然语言推理语料库（Conneau 等，2018）\cite{conneau2018xnli}，包含 MultiNLI 语料库的 5000 个测试对和 2500 个开发对。
+\end{itemize}
+
+各个任务的数据集划分和数据集内句子/文档数量如表 \ref{tab:public_datasets} ：
+
+\begin{table}[H]
+    % 设置行高
+    \renewcommand{\arraystretch}{1}
+    \centering
+    \caption{公开数据集上各个任务的数据集划分，包括训练集和测试集的大小}
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Task} & CWS & POS & NER & DC & SA \\
+        \midrule
+        \textbf{Dataset} & MSR & CTB5 & MSRA & THUCNews & CSC \\
+        \midrule
+        \textbf{Train} & 87K & 18K & 45K & 50K & 10K \\
+        \textbf{Test} & 4K & 1K & 3K & 10K & 1K \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:public_datasets}
+\end{table}
+
+实验结果如表 \ref{tab:public_results} 所示。可以看到，使用门控机制和多头注意力机制的模型在所有任务上都取得了显著的性能提升
+
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1}
+    \centering
+    \caption{公开数据集上不同模型的f1值对比}
+    \begin{tabular}{lccccc}
+        \toprule
+        \textbf{Model\textbackslash Task} & CWS & POS & NER & DC & SA \\
+        \midrule
+        BERT      & 0.9720 & 0.9543 & 0.9312 & 0.9671 & 0.9410 \\
+        \midrule
+        BERT-wwm     & - & - & 0.9510 & 0.9760 & 0.9500\\
+        ERNIE 1.0    & - & - & 0.9510 & 0.9730 & 0.9540\\
+        ERNIE 2.0(B) & - & - & - & - & 0.9550 \\
+        NEZHA(B)     & - & - & - & - & 0.9517 \\
+        NEZHA-wwm(B) & - & - & - & - & 0.9584 \\
+        \midrule
+        ERNIE 2.0(L) & - & - & - & - & 0.9580 \\
+        NEZHA(L)     & - & - & - & - & 0.9583 \\
+        NEZHA-wwm(L) & - & - & - & - & 0.9600 \\
+        \midrule
+        ZEN       & 0.9789 & 0.9582 & 0.9324 & 0.9687 & 0.9442 \\
+        \midrule
+        $PolicyBERT_{gate}$ & \textbf{0.9816} & \textbf{0.9716} & 0.9422          & \textbf{0.9655} & -\\ 
+        $PolicyBERT_{attn}$ & 0.9812          & 0.9711          & \textbf{0.9437} & 0.9651 & -\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:public_results} 
+\end{table}
+
 \subsubsection{PolicySM-1}
 我们在PolicySM-1数据集上测试了不同融合方法与Hanlp分词的效果。在这部分实验中，我们仅使用ZEN-pretrain-base模型作为基础模型，使用了不同的融合方法（门控机制、多头注意力机制）与原始论文中直接相加进行对比。并对比了使用Hanlp分词与使用n-gram表示的效果。
 
@@ -498,6 +563,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 
 \begin{table}[H]
+    \renewcommand{\arraystretch}{1}
     \centering
     \caption{PolicySM-1预训练超参数}
     \begin{tabular}{lcccc}
@@ -514,6 +580,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 \end{table}
 
 \begin{table}[H]
+    \renewcommand{\arraystretch}{1}
     \centering
     \caption{PolicySM-1下游任务超参数}
     \begin{tabular}{lcccc}
@@ -534,6 +601,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 实验结果由表 \ref{tab:fusion_results_1} 所示。可以看到，使用Hanlp分词的模型在所有融合方法中表现最好，达到了0.9132的准确率。使用n-gram表示的模型在Attention-based Fusion下也取得了不错的效果，达到了0.9121的准确率。这意味着，使用Hanlp分词的模型在处理中文政策文本时，能够更好地捕捉到词语之间的关系和上下文信息，从而提高了模型的性能。而两种融合方法与原始论文中直接相加的效果相比，均有了显著提升，说明引入门控机制和多头注意力机制能够有效增强模型对中文政策文本的建模能力。
 
 \begin{table}[ht]
+    \renewcommand{\arraystretch}{1}
     \centering
     \caption{PolicySM-1下游任务结果}
     \begin{tabular}{lcc}
@@ -558,6 +626,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 我们在PolicySM-1数据集上同时测试了两个模型（ZEN-pretrain-base和bge-base-zh-v1.5）在不同融合方法下的效果。预训练和下游任务的训练超参数分别如表 \ref{tab:pretrain_hyperparameters_2} 和表 \ref{tab:seqlevel_hyperparameters_2} 所示。由于先前的实验已经验证了使用Hanlp分词的模型在所有融合方法中表现最好，因此我们在这部分实验中仅使用了Hanlp分词。
 
 \begin{table}[H]
+    \renewcommand{\arraystretch}{1}
     \centering
     \caption{PolicySM-2预训练超参数}
     \begin{tabular}{lcccc}
@@ -574,6 +643,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 \end{table}
 
 \begin{table}[H]
+    \renewcommand{\arraystretch}{1}
     \centering
     \caption{PolicySM-2下游任务超参数}
     \begin{tabular}{lcccc}
@@ -596,6 +666,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 而在下游任务中，使用了门控机制和多头注意力机制的模型在NSP准确率上也有显著提升，尤其是使用多头注意力机制的模型在NSP准确率上达到了最优值。这表明，融合式中文编码模型能够有效地捕捉到上下文信息，从而提高了模型的性能。
 
 \begin{table}[htbp]
+    \renewcommand{\arraystretch}{1}
     \centering
     \caption{PolicySM-2预训练结果}
     \begin{tabular}{llccc}
@@ -617,6 +688,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
   \end{table}
   
   \begin{table}[htbp]
+    \renewcommand{\arraystretch}{1}
     \centering
     \caption{PolicySM-2下游任务结果}
     \begin{tabular}{llc}

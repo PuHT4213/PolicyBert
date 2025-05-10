@@ -151,8 +151,8 @@ class ThucnewsProcessor(DataProcessor):
             #    continue
             guid = "%s-%s" % (set_type, i)
             # text_a = line[0]
-            text_a = line[0]
-            label = line[1]
+            text_a = line[1]
+            label = line[0]
             examples.append(
                 InputExample(guid=guid, text_a=text_a, label=label))
         return examples
