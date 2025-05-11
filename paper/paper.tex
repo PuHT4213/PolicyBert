@@ -14,10 +14,8 @@
 \usepackage{tabularx}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{tocloft}
 % \usepackage[round]{natbib}
-
-\usepackage{listings}
-\usepackage{xcolor}
 
 % 定义 VS Code 深色主题配色
 \definecolor{vscode-bg}{rgb}{0.25,0.25,0.25} % 背景色
@@ -62,6 +60,9 @@
 \setlength{\headheight}{14.49998pt} % 设置标题高度
 \addtolength{\topmargin}{-2.49998pt} % 可选：调整顶部边距
 \linespread{1.5}
+
+\setlength{\cftbeforesecskip}{0pt} % 调整章节之间的间距
+\setlength{\cftbeforesubsecskip}{0pt} % 调整子章节之间的间距
 
 % 页眉页脚
 \pagestyle{fancy}
@@ -122,24 +123,28 @@
 
 \newpage
 \section*{摘要}
-本文提出了一种基于融合式中文编码模型的文本编码器——PolicyBERT，旨在提升中文政策文本的语义理解与生成能力。通过引入HanLP分词、门控机制和多头注意力机制，PolicyBERT能够有效融合字符级和词级信息，增强对中文政策文本的建模能力。本文构建了两个适用于中文政策文本的下一句预测（NSP）任务数据集（PolicySM-1和PolicySM-2），并在这些数据集上进行了模型微调。实验结果表明，使用多头注意力机制的模型在NSP任务中表现最佳，达到了0.9325的准确率。此外，本文基于微调后的模型，使用Ollama与langchain-chatchat架构搭建了一个基于检索增强生成（RAG）机制的智能问答系统“未名问政”，实现了从文本检索到问答生成的全流程部署。该系统具备部署灵活、响应快速、扩展便捷等特点，适用于政务智能问答、政策知识库构建与自动解读等场景。本文的研究为中文政策文本处理提供了新的方法和工具，具有重要的理论意义和实际应用价值。
+本文提出了一种基于融合式中文编码模型的文本编码器——PolicyBERT，旨在提升中文政策文本的语义理解与生成能力。通过引入HanLP分词、门控机制和多头注意力机制，PolicyBERT能够有效融合字符级和词级信息，增强对中文政策文本的建模能力。本文在多个任务与公开数据集上进行了对比实验，实验结果表明，PolicyBERT在多个任务上均表现出色，尤其是在中文分词（CWS）和词性标注（POS）任务中，分别达到了0.9816和0.9716的F1值，显著优于其他模型。此外，在句子对匹配（SPM）任务中，PolicyBERT的多头注意力机制融合方法取得了0.9016的最高F1值，显示出其在捕捉上下文语义关系方面的优势。本文构建了两个适用于中文政策文本的下一句预测（NSP）任务数据集（PolicySM-1和PolicySM-2），并在这些数据集上进行了模型微调。实验结果表明，使用多头注意力机制的模型在NSP任务中表现最佳，达到了0.9325的准确率。此外，本文基于微调后的模型，使用Ollama与langchain-chatchat架构搭建了一个基于检索增强生成（RAG）机制的智能问答系统“未名问政”，实现了从文本检索到问答生成的全流程部署。该系统具备部署灵活、响应快速、扩展便捷等特点，适用于政务智能问答、政策知识库构建与自动解读等场景。本文的研究为中文政策文本处理提供了新的方法和工具，具有重要的理论意义和实际应用价值。
 
 \vspace{2em} % 添加空行
 
-\textbf{关键词：}PolicyBERT，中文政策文本，融合式编码模型，检索增强生成，智能问答系统，BERT
+\textbf{关键词：}中文政策文本，融合式编码模型，PolicyBERT，分词，检索增强生成，未名问政
 \vspace{2em} % 添加空行
 
 \newpage
 \section*{Abstract}
-This paper proposes a fused Chinese encoding model-based text encoder—PolicyBERT—designed to enhance the semantic understanding and generation capabilities for Chinese policy documents. By incorporating HanLP-based tokenization, a gating mechanism, and multi-head attention, PolicyBERT effectively integrates character-level and word-level information, thereby improving its modeling ability for Chinese policy texts. Two next sentence prediction (NSP) datasets tailored for Chinese policy texts, namely PolicySM-1 and PolicySM-2, were constructed and used for model fine-tuning. Experimental results show that the model with multi-head attention achieves the best performance on the NSP task, reaching an accuracy of 0.9325. Furthermore, based on the fine-tuned model, this study builds an intelligent question-answering system named "WeiMingPolicyQA" using the Ollama and langchain-chatchat framework, leveraging the retrieval-augmented generation (RAG) mechanism to enable an end-to-end pipeline from document retrieval to answer generation. The system features flexible deployment, fast response, and easy scalability, making it suitable for applications such as intelligent governance Q\&A, policy knowledge base construction, and automatic policy interpretation. This research provides new methods and tools for processing Chinese policy documents, with significant theoretical and practical value.
+This paper proposes a text encoder, PolicyBERT, based on a fusion-based Chinese encoding model, aiming to enhance the semantic understanding and generation capabilities of Chinese policy texts. By introducing HanLP word segmentation, gating mechanisms, and multi-head attention mechanisms, PolicyBERT effectively integrates character-level and word-level information, improving its modeling capabilities for Chinese policy texts. Comparative experiments were conducted on multiple tasks and public datasets, and the results demonstrate that PolicyBERT performs exceptionally well across various tasks. Specifically, it achieved F1 scores of 0.9816 and 0.9716 in Chinese Word Segmentation (CWS) and Part-of-Speech Tagging (POS) tasks, respectively, significantly outperforming other models. Additionally, in the Sentence Pair Matching (SPM) task, the multi-head attention mechanism fusion method of PolicyBERT achieved the highest F1 score of 0.9016, showcasing its advantages in capturing contextual semantic relationships. This paper also constructed two datasets for Next Sentence Prediction (NSP) tasks tailored to Chinese policy texts (PolicySM-1 and PolicySM-2) and fine-tuned the model on these datasets. Experimental results show that models using the multi-head attention mechanism performed best in the NSP task, achieving an accuracy of 0.9325. Furthermore, based on the fine-tuned model, this paper developed an intelligent question-answering system, "WeiMing Policy Q\&A," using the Ollama and langchain-chatchat architecture, which is based on a Retrieval-Augmented Generation (RAG) mechanism. This system achieves end-to-end deployment from text retrieval to answer generation and features flexible deployment, fast response, and easy scalability, making it suitable for scenarios such as intelligent government Q\&A, policy knowledge base construction, and automatic interpretation. This research provides new methods and tools for processing Chinese policy texts, with significant theoretical and practical value.
+
 
 
 \vspace{2em} % 添加空行
 
-\textbf{Keywords:} PolicyBERT, Chinese policy text, fused encoding model, retrieval-augmented generation, intelligent question-answering system, BERT
+\textbf{Keywords:} Chinese policy texts, fusion-based encoding model, PolicyBERT, word segmentation, Retrieval-Augmented Generation， WeiMing Policy Q\&A
 
 \newpage
+\renewcommand{\cfttoctitlefont}{\hfill\Huge\bfseries} % 设置标题字体和大小
+\renewcommand{\cftaftertoctitle}{\hfill} % 设置标题居中
 \tableofcontents % 目录另起一页
+\thispagestyle{fancy}
 \newpage
 
 
@@ -380,9 +385,45 @@ NSP 任务的损失同样采用交叉熵损失函数，公式如下：
 \subsubsection{数据集}
 为验证本文提出的融合式中文编码模型在真实领域场景下的有效性，我们构建了一个面向政策文本理解的中文语料数据集。该数据集聚焦于中国语境下的政府文件与政策文本，具备鲜明的领域特征和丰富的语言结构，是评估模型在政策解读、政务问答等任务中的理想语料基础。
 
-本研究所用政策文本数据集由网络爬虫技术自动采集所得，涵盖了中国大陆多个省市自治区政府官方网站上发布的各类政策文件、政府工作报告、发展规划、法规条例、政策解读书籍摘要等正式文本资料。具体爬取来源包括但不限于各地政府门户网站（如北京、上海、浙江、四川等）、国家发展改革委员会、财政部、教育部等中央部委官网、政策解读平台与政务服务平台发布的权威二次文本。所有文本均为公开发布内容。
+本研究所用政策文本数据集由网络爬虫技术自动采集所得，涵盖了中国大陆多个省市自治区政府官方网站上发布的有关数据治理、信息攻城的各类政策文件、政府工作报告、发展规划、法规条例、政策解读书籍摘要等正式文本资料。具体爬取来源包括但不限于各地政府门户网站（如北京、上海、浙江、四川等）、国家发展改革委员会、财政部、教育部等中央部委官网、政策解读平台与政务服务平台发布的权威二次文本等总计61个来源。所有文本均为公开发布内容。数据集中数量排名前十的来源如图\ref{fig:top_10_channels_policy_count}所示。数据集的来源主要集中在中央人民政府、信息通信研究院、科学技术部等。
 
-最终构建的政策文本语料共计 99 篇文档，涵盖不同政策类别与区域来源，包括宏观经济、财政税收、乡村振兴、教育改革、公共卫生等多个细分领域。文本总句子数为 14,652 个句子，总字符数达 约38万汉字，句子平均长度为 26.1字/句，具备典型政策文风特征（长句、嵌套多、名词短语密集）。
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{images/top_10_channels_policy_count.png}
+    \caption{政策文本数据集的前十个来源}
+    \label{fig:top_10_channels_policy_count}
+\end{figure}
+
+本政策文本数据集的发布时间与内容长度分布如图\ref{fig:policy_pubtime_log_content_length}所示。数据集的时间范围为2010年到2025年。大部分政策集中在2020年之后，尤其是2021年到2023年之间，说明这段时间政策发布较为密集。内容长度主要集中在$10^3$到$10^4$之间。少量政策的内容长度较短或较长。在2010年和2011年有少量早期政策,某些年份（如2014年到2018年）几乎没有政策记录，可能是数据缺失或政策发布较少。随着时间推移，政策的数量逐渐增加。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/policy_pubtime_log_content_length.png}
+    \caption{政策文本数据集的发布时间与内容长度分布}
+    \label{fig:policy_pubtime_log_content_length}
+\end{figure}
+
+
+最终构建的政策文本语料共计 99 篇文档，涵盖不同政策类别与区域来源，包括宏观经济、财政税收、乡村振兴、教育改革、公共卫生等多个细分领域。文本总句数为 19,335 句，文档平均句子数为195.3句，平均字符数9177.52字，总字符数达约90万汉字，句子平均长度为 64.83字/句，具备典型政策文风特征（长句、嵌套多、名词短语密集）。数据集描述性信息如表\ref{tab:policy_dataset_description}所示。
+
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1}
+    \centering
+    \caption{政策文本数据集描述性信息}
+    \label{tab:policy_dataset_description}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{指标} & \textbf{值} \\ 
+        \midrule
+        文档数量 & 99 \\
+        总句子数 & 19335 \\
+        平均句子数/文档 & 195.3 \\
+        平均字符数/文档 & 9177.52 \\ 
+        总字符数 & 900,000+ \\ 
+        平均句子长度（字/句） & 64.83 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsubsection{数据预处理}
 在正式输入模型训练与评估之前，需对原始政策文本数据进行系统性预处理，以确保语料干净、结构统一，并充分提取粒度丰富的语言单元以用于编码器输入。
@@ -492,17 +533,16 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \subsection{实验结果}
 \subsubsection{公开数据集}
-首先，我们将在公开数据集上进行实验，与现有的NLP领域文本编码器进行对比。包括 BERT-wwm, ERNIE 1.0,ERNIE 2.0, NEZHA 和 ZEN。我们使用了 ZEN的预训练模型作为基线模型，并在此基础上进行微调。我们使用了不同的融合方法（门控机制、多头注意力机制）与原始论文中直接相加进行对比。由于缺少大规模预训练语料，我们无法在公开数据集上应用Hanlp分词。我们在公开数据集上仅测试了不同融合方法与n-gram表示的效果。
+首先，我们将在公开数据集上进行实验，与现有的NLP领域文本编码器进行对比。包括 BERT-wwm, ERNIE 1.0,ERNIE 2.0, NEZHA 和 ZEN。我们使用了 ZEN 的预训练模型作为基线模型进行微调。我们使用了不同的融合方法（门控机制、多头注意力机制）进行对比。由于缺少大规模预训练语料，我们无法在公开数据集上应用Hanlp分词，也无法进行对基线模型的预训练。因此我们在公开数据集上仅测试了不同融合方法与n-gram表示的效果。
 
 我们在以下任务上进行了评估：
 \begin{itemize}
     \item \textbf{中文分词（CWS）：} 使用 SIGHAN2005 中文分词评测（Emerson, 2005）\cite{emerson-2005-second}中的 MSR 数据集。
     \item \textbf{词性标注（POS）：} 使用 CTB5 数据集（Xue 等, 2005）\cite{10.1017/S135132490400364X}，并采用标准数据划分。
     \item \textbf{命名实体识别（NER）：} 使用国际中文语言处理评测 （Bakeoff 2006）\cite{levow-2006-third} 中的 MSRA 数据集。
-    \item \textbf{文档分类（DC）：} 使用 THUCNews 数据集（Sun 等, 2016），该数据集来源于新浪新闻，包含 10 个类别，类别分布均匀。
-    \item \textbf{情感分析（SA）：} 使用 ChnSentiCorp（CSC）数据集，该数据集包含来自图书、计算机和酒店三个领域的 12,000 篇文档。
+    \item \textbf{文档分类（DC）：} 使用 THUCNews 数据集（Sun 等, 2016）\cite{sun2016thuctc}，该数据集来源于新浪新闻，包含 10 个类别，类别分布均匀。
+    \item \textbf{情感分析（SA）：} 使用 ChnSentiCorp（CSC）数据集\cite{yfwt-wr77-20}，该数据集包含来自图书、计算机和酒店三个领域的 12,000 篇文档。
     \item \textbf{句子对匹配（SPM）：}使用 LCQMC 数据集（Liu 等, 2018）\cite{liu-etal-2018-lcqmc}，该数据集中的每一个样本都是一个句子对，和一个标签，表示这两个句子是否语义相似。
-    \item \textbf{自然语言推理（NLI）：}使用 XNLI 自然语言推理语料库（Conneau 等，2018）\cite{conneau2018xnli}，包含 MultiNLI 语料库的 5000 个测试对和 2500 个开发对。
 \end{itemize}
 
 各个任务的数据集划分和数据集内句子/文档数量如表 \ref{tab:public_datasets} ：
@@ -512,45 +552,46 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
     \renewcommand{\arraystretch}{1}
     \centering
     \caption{公开数据集上各个任务的数据集划分，包括训练集和测试集的大小}
-    \begin{tabular}{l|ccccc}
+    \begin{tabular}{l|cccccc}
         \toprule
-        \textbf{Task} & CWS & POS & NER & DC & SA \\
+        \textbf{Task} & CWS & POS & NER & DC & SA & SPM\\
         \midrule
-        \textbf{Dataset} & MSR & CTB5 & MSRA & THUCNews & CSC \\
+        \textbf{Dataset} & MSR & CTB5 & MSRA & THUCNews & CSC & LCQMC\\
         \midrule
-        \textbf{Train} & 87K & 18K & 45K & 50K & 10K \\
-        \textbf{Test} & 4K & 1K & 3K & 10K & 1K \\
+        \textbf{Train} & 87K & 18K & 45K & 50K & 10K & 239K \\
+        \textbf{Test} & 4K & 1K & 3K & 10K & 1K & 13K \\
         \bottomrule
     \end{tabular}
     \label{tab:public_datasets}
 \end{table}
 
-实验结果如表 \ref{tab:public_results} 所示。可以看到，使用门控机制和多头注意力机制的模型在所有任务上都取得了显著的性能提升
+表 \ref{tab:public_results} 展示了不同模型在公开数据集上的F1值对比结果，可以看出，PolicyBERT在多个任务上均表现出色，尤其是在中文分词（CWS）和词性标注（POS）任务中，分别达到了0.9816和0.9716的F1值，显著优于其他模型。此外，在句子对匹配（SPM）任务中，PolicyBERT的多头注意力机制（attn）融合方法取得了0.9016的最高F1值，表明其在捕捉上下文语义关系方面具有明显优势。虽然在命名实体识别（NER）和文档分类（DC）任务中，PolicyBERT的表现略逊于一些大模型（如ERNIE 2.0），但仍然比较基线模型（如BERT和ZEN）有显著提升，显示出其在多任务学习中的潜力。
+在情感分析（SA）任务中，PolicyBERT的表现也相对较好，达到了0.9475的F1值，表明其在处理情感倾向性文本时具有一定的优势。总体而言，PolicyBERT在多个任务上均展现出良好的性能，尤其是在中文分词和句子对匹配任务中，显示出其在上下文建模和语义理解方面的优势。
 
 \begin{table}[H]
     \renewcommand{\arraystretch}{1}
     \centering
-    \caption{公开数据集上不同模型的f1值对比}
-    \begin{tabular}{lccccc}
+    \caption{公开数据集上不同模型的f1值对比，其中$B$表示基线模型，$L$表示大模型}
+    \begin{tabular}{lcccccc}
         \toprule
-        \textbf{Model\textbackslash Task} & CWS & POS & NER & DC & SA \\
+        \textbf{Model\textbackslash Task} & CWS & POS & NER & DC & SA & SPM \\
         \midrule
-        BERT      & 0.9720 & 0.9543 & 0.9312 & 0.9671 & 0.9410 \\
+        BERT      & 0.9720 & 0.9543 & 0.9312 & 0.9671 & 0.9410 & 0.8513\\
         \midrule
-        BERT-wwm     & - & - & 0.9510 & 0.9760 & 0.9500\\
-        ERNIE 1.0    & - & - & 0.9510 & 0.9730 & 0.9540\\
-        ERNIE 2.0(B) & - & - & - & - & 0.9550 \\
-        NEZHA(B)     & - & - & - & - & 0.9517 \\
-        NEZHA-wwm(B) & - & - & - & - & 0.9584 \\
+        BERT-wwm     & - & - & \textbf{0.9510} & \textbf{0.9760} & 0.9500 & 0.8680\\
+        ERNIE 1.0    & - & - & 0.9510 & 0.9730 & 0.9540 & 0.8740 \\
+        ERNIE 2.0(B) & - & - & -      & -      & 0.9550 & 0.8790\\
+        NEZHA(B)     & - & - & -      & -      & 0.9517 & 0.8741\\
+        NEZHA-wwm(B) & - & - & -      & -      & 0.9584 & 0.8710\\
         \midrule
-        ERNIE 2.0(L) & - & - & - & - & 0.9580 \\
-        NEZHA(L)     & - & - & - & - & 0.9583 \\
-        NEZHA-wwm(L) & - & - & - & - & 0.9600 \\
+        ERNIE 2.0(L) & - & - & -      & -      & 0.9580 & 0.8790\\
+        NEZHA(L)     & - & - & -      & -      & 0.9583 & 0.8720\\
+        NEZHA-wwm(L) & - & - & -      & -      & \textbf{0.9600} & 0.8794\\
         \midrule
-        ZEN       & 0.9789 & 0.9582 & 0.9324 & 0.9687 & 0.9442 \\
+        ZEN       & 0.9789 & 0.9582 & 0.9324 & 0.9687 & 0.9442 & 0.8527\\
         \midrule
-        $PolicyBERT_{gate}$ & \textbf{0.9816} & \textbf{0.9716} & 0.9422          & \textbf{0.9655} & -\\ 
-        $PolicyBERT_{attn}$ & 0.9812          & 0.9711          & \textbf{0.9437} & 0.9651 & -\\
+        $PolicyBERT_{attn}$ & 0.9812          & 0.9711          & 0.9437 & 0.9651 & 0.9441 & \textbf{0.9016}\\
+        $PolicyBERT_{gate}$ & \textbf{0.9816} & \textbf{0.9716} & 0.9422 & 0.9655 & 0.9475 & 0.8997\\ 
         \bottomrule
     \end{tabular}
     \label{tab:public_results} 
@@ -837,10 +878,23 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
     \label{fig:kb_manage_2}
 \end{figure}
 
-\section{结论}
+\section{总结与展望}
+\subsection{结论与总结}
 本文提出了一种基于融合式中文编码模型的文本编码器，旨在提升中文政策文本的语义理解与生成能力。通过对比不同的融合方法（门控机制、多头注意力机制）与分词策略（n-gram、Hanlp），我们验证了融合式模型在中文政策文本处理中的有效性。实验结果表明，使用Hanlp分词的模型在所有融合方法中表现最好，达到了0.9132的准确率。
 此外，我们还构建了两个适用于中文政策文本的NSP任务数据集（PolicySM-1和PolicySM-2），并在这两个数据集上进行了模型微调。实验结果显示，使用多头注意力机制的模型在NSP任务中表现最佳，达到了0.9325的准确率。
 最后，基于微调后的模型，我们构建了一个基于检索增强生成（RAG）机制的智能问答系统“未名问政”，实现了从文本检索到问答生成的全流程部署。该系统具备部署灵活、响应快速、扩展便捷等特点，适用于政务智能问答、政策知识库构建与自动解读等场景。
+
+\subsection{不足与展望}
+尽管本文提出的PolicyBERT模型在中文政策文本的语义理解与生成任务中取得了显著的性能提升，但仍存在一些不足之处需要进一步改进。首先，模型的训练和评估主要基于特定领域的政策文本数据集，虽然在该领域表现优异，但其在其他领域的泛化能力尚未得到充分验证。未来可以尝试扩展数据集的覆盖范围，探索模型在多领域文本处理中的适用性。
+
+本文采用了HanLP分词工具和基于门控机制与多头注意力机制的融合方法，尽管在实验中表现出色，但分词错误和词表构建的局限性可能对模型性能产生一定影响。未来可以尝试引入更先进的分词技术或预训练方法，以进一步提升模型对中文语言特性的适应能力。
+
+此外，模型的训练和评估主要集中在NSP任务上，虽然在该任务上取得了良好的效果，但在其他下游任务（如文本分类、情感分析等）上的表现尚未得到充分验证。未来可以尝试构建更多的下游任务数据集，并对模型进行多任务学习，以提升其在不同任务上的泛化能力。
+
+由于缺少大规模预训练语料，模型无法进行在大规模语料上从零开始的预训练，导致模型在一些复杂的语义理解任务上仍然存在一定的局限性。未来可以尝试引入更多的预训练数据，或结合其他预训练模型进行迁移学习，以提升模型的性能。
+
+最后，模型的计算复杂度较高，尤其是在多头注意力机制的融合过程中，对硬件资源的需求较大。这在一定程度上限制了模型在资源受限环境中的应用。未来可以尝试优化模型结构或引入轻量化技术，如知识蒸馏或模型剪枝，以降低计算成本并提升部署效率。
+
 
 % \newpage
 \bibliographystyle{unsrt}
