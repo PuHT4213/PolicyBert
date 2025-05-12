@@ -18,39 +18,35 @@
 % \usepackage[round]{natbib}
 
 % 定义 VS Code 深色主题配色
-\definecolor{vscode-bg}{rgb}{0.25,0.25,0.25} % 背景色
-\definecolor{vscode-fg}{rgb}{0.8,0.8,0.8}   % 默认前景色
-\definecolor{vscode-keyword}{rgb}{0.86,0.22,0.52} % 关键字颜色 (紫红色)
-\definecolor{vscode-string}{rgb}{0.58,0.86,0.49}  % 字符串颜色 (绿色)
-\definecolor{vscode-comment}{rgb}{0.58,0.86,0.49}    % 注释颜色 (绿色)
-\definecolor{vscode-number}{rgb}{0.98,0.78,0.36}  % 数字颜色 (橙色)
-\definecolor{vscode-function}{rgb}{0.49,0.63,0.85} % 函数名颜色 (蓝色)
-\definecolor{vscode-type}{rgb}{0.86,0.58,0.36}    % 类型颜色 (棕色)
-\definecolor{vscode-constant}{rgb}{1,1,1} % 常量颜色 
-\definecolor{black}{rgb}{0,0,0} % 常量颜色-黑 
-
+\definecolor{light-bg}{rgb}{1,1,1} % 背景色（白色）
+\definecolor{light-fg}{rgb}{0,0,0} % 默认前景色（黑色）
+\definecolor{light-keyword}{rgb}{0.1,0.1,0.8} % 关键字颜色（深蓝色）
+\definecolor{light-string}{rgb}{0.2,0.6,0.2}  % 字符串颜色（绿色）
+\definecolor{light-comment}{rgb}{0.5,0.5,0.5} % 注释颜色（灰色）
+\definecolor{light-number}{rgb}{0.8,0.2,0.2}  % 数字颜色（红色）
+\definecolor{light-function}{rgb}{0.1,0.5,0.8} % 函数名颜色（蓝色）
+\definecolor{light-type}{rgb}{0.6,0.4,0.2}    % 类型颜色（棕色）
+\definecolor{light-constant}{rgb}{0.1,0.1,0.1} % 常量颜色（深灰色）
 
 % 全局代码样式设置
 \lstset{
-    backgroundcolor=\color{vscode-bg},   % 背景颜色
-    basicstyle=\ttfamily\small\color{vscode-fg}, % 基本字体样式
-    keywordstyle=\color{vscode-keyword}\bfseries, % 关键字样式
-    stringstyle=\color{vscode-string},  % 字符串样式
-    commentstyle=\color{vscode-comment}\itshape, % 注释样式
-    numberstyle=\color{vscode-constant}, % 行号样式
-    numbers=right, 
-    identifierstyle=\color{vscode-constant}, % 替代 constantstyle
-    numbersep=5pt,                      % 行号与代码的间距
-    frame=single,                       % 添加边框
-    framesep=5pt,                       % 边框与代码的间距
-    rulecolor=\color{vscode-bg},        % 边框颜色
-    breaklines=true,                    % 自动换行
-    breakatwhitespace=false,            % 仅在空格处换行
-    showstringspaces=false,             % 不显示字符串中的空格
-    tabsize=4,                          % Tab 宽度
-    numbers=left,                       % 显示行号
-    captionpos=b,                       % 标题位置
-    morekeywords={def, class, import, from, as, if, else, elif, for, while, return, True, False, None}, % 自定义关键字
+    backgroundcolor=\color{light-bg},   % 背景颜色（白色）
+    basicstyle=\ttfamily\small\color{light-fg}, % 基本字体样式（黑色）
+    keywordstyle=\color{light-keyword}\bfseries, % 关键字样式（深蓝色）
+    stringstyle=\color{light-string},  % 字符串样式（绿色）
+    commentstyle=\color{light-comment}\itshape, % 注释样式（灰色）
+    identifierstyle=\color{light-constant}, % 标识符样式（深灰色）
+    numbersep=5pt,                    % 行号与代码的间距
+    frame=single,                     % 添加边框
+    framesep=5pt,                     % 边框与代码的间距
+    rulecolor=\color{light-fg},       % 边框颜色（黑色）
+    breaklines=true,                  % 自动换行
+    breakatwhitespace=false,          % 仅在空格处换行
+    showstringspaces=false,           % 不显示字符串中的空格
+    tabsize=4,                        % Tab 宽度
+    captionpos=b,                     % 标题位置
+    moreemph=[2]{def, class, import, from, as, if, else, elif, for, while, return, True, False, None, python3.9,pip,chatchat,ollama,git}, % 自定义关键字
+    emphstyle=[2]{\color{light-keyword}\bfseries}, % 自定义关键字样式
 }
 
 
@@ -196,9 +192,9 @@ Qiang He等人（2023）在其论文《Prompt-Based Word-Level Information Injec
 \section{PolicyBERT}
 \subsection{研究方法}
 
-本文提出的 PolicyBERT 的模型架构如图所示。
-
 \subsubsection{模型输入}
+本文提出的 PolicyBERT 的模型架构如图\ref{fig:policybert}所示。其中模型的输入部分由图中左侧所示。
+
 令输入的所有政策文件定义为 
 \begin{equation}
     Doc = \{d_1, d_2, \dots, d_{N^{doc}}\} 
@@ -252,7 +248,17 @@ $ {\mathcal{M}}_j$的每一个元素的取值为：
 \end{equation}
 
 \subsubsection{嵌入、编码与融合}
-模型的输入 $X_j$ 由字符表示 $C_j$、词表示 $W_j$ 和匹配矩阵 ${\mathcal{M}}_j$ 组成。为了将这些输入转换为模型可以处理的向量表示，我们使用了嵌入层（Embedding Layer）和编码器（Encoder）。
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{./images/model_structure.png}
+    \caption{PolicyBERT 模型架构。左侧为模型的输入部分，包括字符表示$C_j$、词表示$W_j$和匹配矩阵${\mathcal{M}}_j$；右侧为模型的主体部分，包括嵌入层、编码层和融合层。其中融合层可以在门控机制和多头注意力机制之间进行切换。}
+    \label{fig:policybert}
+\end{figure}
+
+模型的主体部分由图\ref{fig:policybert}右侧所示。
+
+模型的输入 $X_j$ 由字符表示 $C_j$、词表示 $W_j$ 和匹配矩阵 ${\mathcal{M}}_j$ 组成。为了将这些输入转换为模型可以处理的向量表示，我们使用了嵌入层（Embedding Layer）、编码层（Encoder）和融合层（Fusion Layer）。
 
 字符表示 $C_j$ 和词表示 $W_j$ 首先通过嵌入层进行转换，得到对应的嵌入向量 $C^{(0)}$ 和 $W^{(0)}$：
 \begin{equation}
@@ -439,7 +445,7 @@ NSP 任务的损失同样采用交叉熵损失函数，公式如下：
 相比基于n-gram的策略，本文使用的HanLP提供了更语义驱动的中文分词工具，其基于神经网络词法分析模型，并支持自定义词典增强分词效果。使用 HanLP提供的api接口对清洗后的句子进行切词，去除停用词与其他不符合规则的词，统计词表中的词频，剔除低频词（出现次数小于10次）以减少噪声对模型训练的影响。最终构建的词表包含2662个词，覆盖了99.8\%的句子。
 
 \subsubsection{微调数据集构建}
-为评估改进后的中文文本编码器对上下文建模能力的增强效果，本文构建了一个适用于中文领域政策文本的**Next Sentence Prediction (NSP)**任务数据集。不同于英文NSP任务中基于自然段的句子抽取，中文文本中**句子划分粒度模糊、标点使用灵活**，因此我们结合句号（“。”）与逗号（“，”）进行多粒度分割，设计出更贴合中文语言结构的样本生成策略。
+为评估改进后的中文文本编码器对上下文建模能力的增强效果，本文构建了一个适用于中文领域政策文本的$Next Sentence Prediction (NSP)$任务数据集。不同于英文NSP任务中基于自然段的句子抽取，中文文本中句子划分粒度模糊、标点使用灵活，因此我们结合句号（“。”）与逗号（“，”）进行多粒度分割，设计出更贴合中文语言结构的样本生成策略。
 
 正样本的构建遵循“语义连续、上下文自然”的原则。我们首先使用HanLP对原始政策语料进行句子划分，按“中文句号（。）”作为分句边界，得到句子集合：
 \begin{equation}
@@ -499,9 +505,6 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 我们分别采用方案一与方案二构建了两个NSP训练数据集，分布如表 \ref{tab:nsp_samples} 所示。
 
-\subsubsection{骨干模型}
-有关于模型的具体实现，本文基于 $Hugging Face$ 的 Transformers 库，使用了 $ZEN-pretrain-base$ 模型和 $bge-base-zh-v1.5$ 模型。前者是基于 BERT 的中文预训练模型，拥有预训练的字符嵌入与词嵌入参数。后者是 BAAI 提出的中文通用嵌入模型，主要用于RAG任务中的文本嵌入生成。我们将 $bge-base-zh-v1.5$ 的主体 BERT 部分参数提取出来作为骨干字符嵌入模型，其余的参数则使用 $ZEN-pretrain-base$ 模型进行初始化。微调过的 $bge-base-zh-v1.5$ 模型将被用于后续的RAG系统中。
-
 \begin{table}[H]
     \centering
     \caption{NSP任务样本分布}
@@ -517,6 +520,17 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 \end{table}
 
 在后续实验部分，我们将分别基于两种方案训练NSP任务模型，并评估不同样本构造策略对文本编码器语义理解能力的影响。
+
+\subsubsection{骨干模型}
+有关于模型的具体实现，本文基于 $Hugging Face$ 的 Transformers 库，使用了 $ZEN-pretrain-base$ 模型和 $bge-base-zh-v1.5$ 模型。前者是基于 BERT 的中文预训练模型，拥有预训练的字符嵌入与词嵌入参数。后者是 BAAI 提出的中文通用嵌入模型，主要用于RAG任务中的文本嵌入生成。对$bge$模型的处理如图\ref{fig:model_merge}所示，我们将 $bge-base-zh-v1.5$ 的主体 BERT 部分参数提取出来作为骨干字符嵌入模型，其余的参数则使用 $ZEN-pretrain-base$ 模型进行初始化。微调过的 $bge-base-zh-v1.5$ 模型将被用于后续的RAG系统中。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/model_merge.png}
+    \caption{对bge模型的处理，将其主体BERT部分参数提取出来作为骨干字符嵌入模型，其余的参数使用ZEN预训练模型进行初始化，微调过的bge模型将被用于后续的RAG系统中。}
+    \label{fig:model_merge}
+\end{figure}
+
 
 \subsubsection{训练配置}
 实验在一台高性能GPU服务器上进行，配置如下：
@@ -565,13 +579,15 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
     \label{tab:public_datasets}
 \end{table}
 
-表 \ref{tab:public_results} 展示了不同模型在公开数据集上的F1值对比结果，可以看出，PolicyBERT在多个任务上均表现出色，尤其是在中文分词（CWS）和词性标注（POS）任务中，分别达到了0.9816和0.9716的F1值，显著优于其他模型。此外，在句子对匹配（SPM）任务中，PolicyBERT的多头注意力机制（attn）融合方法取得了0.9016的最高F1值，表明其在捕捉上下文语义关系方面具有明显优势。虽然在命名实体识别（NER）和文档分类（DC）任务中，PolicyBERT的表现略逊于一些大模型（如ERNIE 2.0），但仍然比较基线模型（如BERT和ZEN）有显著提升，显示出其在多任务学习中的潜力。
+表 \ref{tab:public_results} 展示了不同模型在公开数据集上的F1值对比结果，可以看出，PolicyBERT在多个任务上均表现出色，尤其是在中文分词（CWS）和词性标注（POS）任务中，分别达到了0.9816和0.9716的F1值，显著优于两个基线模型（BERT和ZEN）。
+此外，在句子对匹配（SPM）任务中，PolicyBERT的多头注意力机制（attn）和门控机制（gate）融合方法分别达到了0.9016和0.8997的F1值，分别为最高和次高的结果，远超过其他所有模型，表明其在捕捉上下文语义关系方面具有明显优势。
+虽然在命名实体识别（NER）和文档分类（DC）任务中，PolicyBERT的表现略逊于一些大模型（如ERNIE 2.0），但其表现仍然具有竞争力，且在NER任务中，PolicyBERT的注意力机制融合方法（attn）达到了0.9437的F1值，为次高的结果，显示出其在处理复杂语义关系时的潜力。在文档分类（DC）任务中，PolicyBERT的表现相对较弱，F1值为0.9655，略低于一些大模型（如ERNIE 2.0和NEZHA），但仍然保持在较高水平，显示出其在处理长文本时的稳定性和可靠性。
 在情感分析（SA）任务中，PolicyBERT的表现也相对较好，达到了0.9475的F1值，表明其在处理情感倾向性文本时具有一定的优势。总体而言，PolicyBERT在多个任务上均展现出良好的性能，尤其是在中文分词和句子对匹配任务中，显示出其在上下文建模和语义理解方面的优势。
 
 \begin{table}[H]
     \renewcommand{\arraystretch}{1}
     \centering
-    \caption{公开数据集上不同模型的f1值对比，其中$B$表示基线模型，$L$表示大模型}
+    \caption{公开数据集上不同模型的f1值对比，其中$B$表示基线模型，$L$表示大模型，attn和gate分别表示多头注意力机制和门控机制融合方法。加粗和下划线分别表示在同一列中最好的和次好的结果。}
     \begin{tabular}{lcccccc}
         \toprule
         \textbf{Model\textbackslash Task} & CWS & POS & NER & DC & SA & SPM \\
@@ -579,10 +595,10 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         BERT      & 0.9720 & 0.9543 & 0.9312 & 0.9671 & 0.9410 & 0.8513\\
         \midrule
         BERT-wwm     & - & - & \textbf{0.9510} & \textbf{0.9760} & 0.9500 & 0.8680\\
-        ERNIE 1.0    & - & - & 0.9510 & 0.9730 & 0.9540 & 0.8740 \\
+        ERNIE 1.0    & - & - & 0.9510 & \underline{0.9730} & 0.9540 & 0.8740 \\
         ERNIE 2.0(B) & - & - & -      & -      & 0.9550 & 0.8790\\
         NEZHA(B)     & - & - & -      & -      & 0.9517 & 0.8741\\
-        NEZHA-wwm(B) & - & - & -      & -      & 0.9584 & 0.8710\\
+        NEZHA-wwm(B) & - & - & -      & -      & \underline{0.9584} & 0.8710\\
         \midrule
         ERNIE 2.0(L) & - & - & -      & -      & 0.9580 & 0.8790\\
         NEZHA(L)     & - & - & -      & -      & 0.9583 & 0.8720\\
@@ -590,8 +606,8 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
         \midrule
         ZEN       & 0.9789 & 0.9582 & 0.9324 & 0.9687 & 0.9442 & 0.8527\\
         \midrule
-        $PolicyBERT_{attn}$ & 0.9812          & 0.9711          & 0.9437 & 0.9651 & 0.9441 & \textbf{0.9016}\\
-        $PolicyBERT_{gate}$ & \textbf{0.9816} & \textbf{0.9716} & 0.9422 & 0.9655 & 0.9475 & 0.8997\\ 
+        $PolicyBERT_{attn}$ & \underline{0.9812} & \underline{0.9711} & \underline{0.9437} & 0.9651 & 0.9441 & \textbf{0.9016}\\
+        $PolicyBERT_{gate}$ & \textbf{0.9816} & \textbf{0.9716} & 0.9422 & 0.9655 & 0.9475 & \underline{0.8997}\\ 
         \bottomrule
     \end{tabular}
     \label{tab:public_results} 
