@@ -544,7 +544,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \subsection{实验结果}
 \subsubsection{公开数据集}
-首先，我们将在公开数据集上进行实验，与现有的NLP领域文本编码器进行对比。包括 BERT-wwm, ERNIE 1.0,ERNIE 2.0, NEZHA 和 ZEN。我们使用了 ZEN 的预训练模型作为基线模型进行微调。我们使用了不同的融合方法（门控机制、多头注意力机制）进行对比。由于缺少大规模预训练语料，我们无法在公开数据集上应用Hanlp分词，也无法进行对基线模型的预训练。因此我们在公开数据集上仅测试了不同融合方法与n-gram表示的效果。
+首先，我们将在公开数据集上进行实验，与现有的NLP领域文本编码器进行对比。包括 BERT-wwm\cite{Cui_2021}, ERNIE 1.0\cite{sun2019ernieenhancedrepresentationknowledge},ERNIE 2.0\cite{sun2019ernie20continualpretraining}, NEZHA\cite{wei2021nezhaneuralcontextualizedrepresentation} 和 ZEN\cite{diao-etal-2020-zen}。我们使用了 ZEN 的预训练模型作为基线模型进行微调。我们使用了不同的融合方法（门控机制、多头注意力机制）进行对比。由于缺少大规模预训练语料，我们无法在公开数据集上应用Hanlp分词，也无法进行对基线模型的预训练。因此我们在公开数据集上仅测试了不同融合方法与n-gram表示的效果。
 
 我们在以下任务上进行了评估：
 \begin{itemize}
