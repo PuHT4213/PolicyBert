@@ -582,7 +582,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 在情感分析（SA）任务中，PolicyBERT的表现也相对较好，达到了0.9475的F1值，表明其在处理情感倾向性文本时具有一定的优势。总体而言，PolicyBERT在多个任务上均展现出良好的性能，尤其是在中文分词和句子对匹配任务中，显示出其在上下文建模和语义理解方面的优势。
 
 \begin{table}[H]
-    \renewcommand{\arraystretch}{1}
+    \renewcommand{\arraystretch}{0.8}
     \centering
     \caption{公开数据集上不同模型的f1值对比，其中$B$表示基线模型，$L$表示大模型，attn和gate分别表示多头注意力机制和门控机制融合方法。加粗和下划线分别表示在同一列中最好的和次好的结果。}
     \begin{tabular}{lcccccc}
@@ -659,17 +659,17 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
     \centering
     \caption{PolicySM-1下游任务结果}
     \begin{tabular}{lcc}
-    \hline
+    \toprule
     \textbf{融合方法} & \textbf{分词方法} & \textbf{准确率} \\
-    \hline
+    \midrule
     None                   & n-gram                   & 0.8867 \\
     Gated Fusion           & n-gram                  & 0.8959 \\
     Attention-based Fusion   & n-gram                 & \textbf{0.9121}\\
-    \hline
+    \midrule
     None                   & Hanlp                       & 0.9035 \\
     Gated Fusion           & Hanlp                       & 0.8981 \\
     Attention-based Fusion   & Hanlp                     & \textbf{0.9132} \\
-    \hline
+    \bottomrule
     \end{tabular}
     \label{tab:fusion_results_1}
 \end{table}
@@ -851,7 +851,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 如图\ref{fig:home_page}所示，未名问政RAG系统的主界面简洁直观，当前版本为 \texttt{1.0.0.1}。界面左侧设有功能导航栏，用户可在“多功能对话”、“RAG 对话”与“知识库管理”等主要模块间进行切换。在“RAG 对话”模式下，用户可以根据具体需求，自定义相关配置参数。首先，用户可通过下拉菜单选择对话模式，目前支持“知识库问答”；随后可选择已加载的知识库，以支持特定领域的问答服务。进一步地，系统允许用户设置历史对话轮数（默认为3轮）、匹配知识条数（默认为5条），以及知识匹配的最低分数阈值（以滑动条形式设置，范围为 \texttt{0.00} 至 \texttt{2.00}，默认值为 \texttt{0.50}），SCORE越小，相关度越高，取到2相当于不筛选。此外，用户还可以勾选“仅返回检索结果”选项，以查看未融合生成的原始检索片段。界面右侧为空白对话窗口区域，用于展示系统响应内容。底部提供输入框，支持多轮对话交互，用户输入内容后可按 \texttt{Shift+Enter} 执行提交，界面整体设计清晰高效，便于快速部署和应用。
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{./images/home_page.png}
+    \includegraphics[width=1\textwidth]{./images/home_page.png}
     \caption{未名问政 RAG 系统首页界面。界面左侧为参数配置区域，支持设置对话模式、知识库来源、历史轮数、匹配条数及知识匹配分数阈值，右侧为对话窗口区域，用于显示模型响应结果。该系统通过图形化界面提供了灵活高效的RAG任务配置方式。}
     \label{fig:home_page}
 \end{figure}
@@ -860,7 +860,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{./images/system_running.png}
+    \includegraphics[width=1\textwidth]{./images/system_running.png}
     \caption{未名问政 RAG 系统对话界面。左侧为参数配置区域，右侧为对话窗口区域。用户可在输入框中输入问题，系统将根据设置的参数进行检索与生成。}
     \label{fig:system_running}
 \end{figure}
@@ -869,7 +869,7 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{./images/system_retrieve_only.png}
+    \includegraphics[width=1\textwidth]{./images/system_retrieve_only.png}
     \caption{未名问政 RAG 系统检索结果界面。用户使用“仅返回检索结果”功能，系统准确地从知识库中检索出了与用户问题“什么是数据基础制度体系？”高度相关的政策文本片段。}
     \label{fig:system_retrieve_only}
 \end{figure}
@@ -879,14 +879,14 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{./images/kb_manage_1.png}
+    \includegraphics[width=1\textwidth]{./images/kb_manage_1.png}
     \caption{未名问政 RAG 系统知识库管理界面。用户可以通过“上传知识文件”功能，将新的政策文本片段添加至知识库中，以便后续检索与生成使用。}
     \label{fig:kb_manage_1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{./images/kb_manage_2.png}
+    \includegraphics[width=1\textwidth]{./images/kb_manage_2.png}
     \caption{未名问政 RAG 系统知识库管理界面。用户可以通过“查看知识”功能，快速浏览当前知识库中的所有条目，方便进行信息检索与管理。}
     \label{fig:kb_manage_2}
 \end{figure}
@@ -918,7 +918,20 @@ s_i = \{s_{i,1}', s_{i,2}', \ldots, s_{i,k}'\}
 \newpage
 \section{致谢}
 
-感谢导师的悉心指导和支持，感谢同学们的帮助与鼓励，感谢家人对我的理解与支持。
+感谢孟凡老师一直以来的指导与支持。从大二怀着忐忑初次走进组会时起，您总能用平实的话语拨开我心头的雾霭。从论文开题到实验设计，每一次指导与反馈，都是一盏为我照亮前路的明灯。因为您的支持，我才得以从稚嫩中走出，以独立之姿完成毕业设计，写出这篇论文。
+
+感谢组内所有同学。我们在一次次组会讨论中磨砺思维，在协作中互补长短。正是这些或激烈、或温柔的碰撞，让我看见自己的盲区，也体味到团队协作的真谛。几年的相知相伴，使我深刻懂得：学术之路，不只是个人的修行。
+
+感谢晋康玮同学，你不仅是青葱岁月里的知己，更是我一路走来的同行者。从高中到大学，无数次在我迷茫与失落之际，是你的陪伴给我力量。
+
+更要感谢我的父母，你们用无声的支持与深沉的爱，为我遮风挡雨。无论身在何处，你们永远是我心灵的港湾，是我追逐远方时最温暖的牵挂。
+
+感谢因元火而相识的同学们，我们因共同的热爱而相聚，虽然关系有近有远，但我们度过的无数日夜，一次次彻夜畅谈，一次次踏星而归，都是我心中最珍贵的回忆，与前行的动力。
+
+回望这四年，每一步都刻下成长的印记。大一时的懵懂，大二时的挣扎，大三时的蜕变，大四时的解脱。四年很长，但又好像一瞬间。或许前路依旧未知，但正是这些经历，铸就了如今的我。
+
+因此，最后，我要感谢我自己，从不后悔做过的每一个选择，在无数挫折中一次又一次地站起，歌唱勇气。
+
 
 \newpage
 \section{北京大学学位论文原创性声明和使用授权说明}
